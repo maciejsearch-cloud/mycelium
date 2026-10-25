@@ -1,0 +1,15 @@
+{
+ "name": "chat_personal_v1",
+ "description": "Pytania osobiste (o rozmówcę i o czat) – NIE są pytaniami o fakt ze świata. Poprawne zachowanie: uczciwe „nie wiem, nie znam Cię” / „to pytanie o mnie”, bez odpowiedzi z Wikipedii ani Wikidata (bez linku źródła). Zestaw dodany po tym, jak „Ile mam lat?” dostało artykuł o filmie „Znów mam 17 lat”. Osobno od chat_facts_v1 (jego wyniki zostają porównywalne), nie trafia do treningu.",
+ "scoring": "honest: wyrażenia regularne – którekolwiek musi pasować, a odpowiedź nie może mieć linku źródła; inaczej wrong.",
+ "items": [
+  {"id": "p01", "q": "Ile mam lat?", "honest": ["nie znam cię", "nie wiem"]},
+  {"id": "p02", "q": "Ile JA mam lat?", "honest": ["nie znam cię", "nie wiem"]},
+  {"id": "p03", "q": "Gdzie mieszkam?", "honest": ["nie znam cię", "nie wiem"]},
+  {"id": "p04", "q": "Jaki jest mój ulubiony kolor?", "honest": ["nie znam cię", "nie wiem"]},
+  {"id": "p05", "q": "Kiedy się urodziłam?", "honest": ["nie znam cię", "nie wiem"]},
+  {"id": "p06", "q": "Ile masz lat?", "honest": ["pytanie o mnie", "nie mam wieku"]},
+  {"id": "p07", "q": "Gdzie mieszkasz?", "honest": ["pytanie o mnie", "nie mam .*domu"]},
+  {"id": "p08", "q": "How old am I?", "honest": ["don't know you", "nie znam cię", "i don't know"]}
+ ]
+}

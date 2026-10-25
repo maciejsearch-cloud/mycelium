@@ -1,0 +1,80 @@
+{
+ "sources": {
+  "pdb": {
+   "name": "UD_Polish-PDB (Polish Dependency Bank 2.0 w UD)",
+   "url": "https://github.com/UniversalDependencies/UD_Polish-PDB",
+   "license": "CC BY-NC-SA 4.0",
+   "authors": "Alina Wróblewska i in. (IPI PAN)",
+   "rev": "27235e131fae"
+  },
+  "lfg": {
+   "name": "UD_Polish-LFG (POLFIE / LFG treebank w UD)",
+   "url": "https://github.com/UniversalDependencies/UD_Polish-LFG",
+   "license": "GPL-3.0",
+   "authors": "Agnieszka Patejuk, Adam Przepiórkowski (IPI PAN)",
+   "rev": "890f3855c915"
+  }
+ },
+ "files": {
+  "train-pdb-00.json.gz": "7496d23b93de157ac7bbb42f5e484190a349efe6adcdacd7dcbb8da9a3e5f40a",
+  "train-pdb-01.json.gz": "488d2b2366c602a959e9ab7a194f962dd1a0b4a84cd833603b615887d0921b87",
+  "train-pdb-02.json.gz": "d5b73b0ee86f2279be10ea007b88b380f9c143770d518b577fd10a308e530a84",
+  "train-pdb-03.json.gz": "684468cf2bec1ca9196af28a1359992aec42bddbe9908d5348ba8600e1b82c58",
+  "train-pdb-04.json.gz": "b90365bf02ff3f002247e32ac426c36179668dd0af26ae16143be0ba8dd2a9d3",
+  "train-pdb-05.json.gz": "0c137f1136a4a32be5ca3cf51bb21cdb2890c04230ea294b9b6dde1d79c78f1d",
+  "train-pdb-06.json.gz": "59fdf02349d60c769aea9b0c72d58dd2efe1239ff2a7433876b554c53a3dc4ce",
+  "train-pdb-07.json.gz": "84b3a10f78052c1faaaf0f459ec650b910fbfe1fb0b1a1be1c9324568189c7ca",
+  "train-pdb-08.json.gz": "d56778bcabca4af2d7655218b7cd2e5a9bb0172001cb17e74818221d4c2b219d",
+  "dev-pdb-00.json.gz": "cd1f48550cb42154a110b98025dc0c00c7ba062e7f2045e9f60cf0791f430aad",
+  "dev-pdb-01.json.gz": "7f9d382cf0fc430d0b51e5ad712f8a6b9d667864d4f6a207264d5b5d973678ba",
+  "test-pdb.json.gz": "e4c1c4ccb36930449e8264d13fe6507f6c50e51cf37b3240235ad45788347b55",
+  "train-lfg-00.json.gz": "febcb04b35c34fdbee806daeedc99bfa063d8dff516f07a9bd109474cbb98d03",
+  "train-lfg-01.json.gz": "2302db29ed16c610d58fde185609130e1fc7a9abc86774d9b43ef4725bc5248b",
+  "train-lfg-02.json.gz": "e5d655974db0249308807c2c170364f19748df1e73e47bb1e9a66cac78f9c49f",
+  "train-lfg-03.json.gz": "ad292180fe7041af33a26357e90e8600b499b4d7611813aa2cb2494fd460beb4",
+  "train-lfg-04.json.gz": "1c28cdc082b6b169ff447256a01de9156e61aaaea0fab86252fbdb622e324166",
+  "train-lfg-05.json.gz": "27b3a4a644755df5f8832dde8af771864fb363406d9d59977ccb149d76cf11ef",
+  "train-lfg-06.json.gz": "ba27bd13518be101c78753e3cf46ba852b649c7ad1ba3c3677cda97b6e746312",
+  "dev-lfg-00.json.gz": "dfaba4896e6120166394724cdc38832490b5f3068a49e0b12df215147b89a2f6",
+  "test-lfg.json.gz": "04006c7a409e9f88c167d615922e0580c7aba13a10b0c127390b2c2ae0ffceb7"
+ },
+ "splits": {
+  "train-pdb": {
+   "sents": 17722,
+   "toks": 281685,
+   "roles": 63161
+  },
+  "dev-pdb": {
+   "sents": 2215,
+   "toks": 34677,
+   "roles": 7863
+  },
+  "test-pdb": {
+   "sents": 2215,
+   "toks": 33616,
+   "roles": 7535
+  },
+  "train-lfg": {
+   "sents": 13774,
+   "toks": 104750,
+   "roles": 30195
+  },
+  "dev-lfg": {
+   "sents": 1745,
+   "toks": 13105,
+   "roles": 3834
+  },
+  "test-lfg": {
+   "sents": 1727,
+   "toks": 13112,
+   "roles": 3775
+  }
+ },
+ "roles": {},
+ "eval_files": [
+  "test-lfg.json.gz",
+  "test-pdb.json.gz"
+ ],
+ "eval_sha": "a4fc2413e93ebdd5ac744844b68dc1ef83143b431a5ab18d963f11c332de7854",
+ "eval_n": 3942
+}

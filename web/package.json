@@ -1,0 +1,44 @@
+{
+  "name": "mycelium-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/gen-progress.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/gen-progress.mjs",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b",
+    "lint": "oxlint src && node scripts/check-authenticity.mjs",
+    "preview": "vite preview",
+    "e2e": "playwright test",
+    "e2e:live": "playwright test -c playwright.live.config.ts"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
+    "@supabase/realtime-js": "^2.109.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@tensorflow/tfjs-backend-cpu": "^4.22.0",
+    "@tensorflow/tfjs-backend-wasm": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgpu": "^4.22.0",
+    "@tensorflow/tfjs-core": "^4.22.0",
+    "@tensorflow/tfjs-layers": "^4.22.0",
+    "@types/qrcode": "^1.5.6",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "recharts": "^3.10.1",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

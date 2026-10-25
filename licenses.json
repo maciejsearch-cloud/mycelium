@@ -1,0 +1,164 @@
+{
+  "_note": "Źródła danych i modeli używanych przez Mycelium AI wraz z licencjami. Kod: MIT (LICENSE). Dane i wagi zachowują własne licencje – zob. DATA-LICENSES.md.",
+  "models": [
+    {
+      "name": "Qwen2.5-0.5B-Instruct (ONNX)",
+      "url": "https://huggingface.co/onnx-community/Qwen2.5-0.5B-Instruct",
+      "license": "Apache-2.0",
+      "use": "rozmowa w przeglądarce"
+    },
+    {
+      "name": "Qwen2.5-1.5B-Instruct (ONNX)",
+      "url": "https://huggingface.co/onnx-community/Qwen2.5-1.5B-Instruct",
+      "license": "Apache-2.0",
+      "use": "rozmowa w przeglądarce (WebGPU)"
+    },
+    {
+      "name": "Qwen2.5-0.5B-Instruct (safetensors, PyTorch)",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct",
+      "license": "Apache-2.0",
+      "use": "węzły PC: czat grzybni i model bazowy adaptera LoRA (adapter: CC-BY-SA-4.0 – trenowany na Wikipedii)"
+    },
+    {
+      "name": "spaCy pl_core_news_sm 3.8.0",
+      "url": "https://huggingface.co/spacy/pl_core_news_sm",
+      "license": "GPL-3.0",
+      "use": "tylko punkt odniesienia rozbioru (scripts/rozbior_baseline.py), nie jest dystrybuowany"
+    },
+    {
+      "name": "Model rozbioru grzybni – wariant PDB (MYCRB2, domyślny; baza myc_rb_models, myc-models/rozbior/)",
+      "url": "https://github.com/maciejsearch-cloud/mycelium",
+      "license": "CC-BY-NC-SA-4.0",
+      "use": "rozbiór zdań w Rozmowie i na węzłach; wagi uczone wyłącznie na UD Polish-PDB train – dziedziczą CC BY-NC-SA 4.0 (tylko niekomercyjnie, na tej samej licencji)"
+    },
+    {
+      "name": "Model rozbioru grzybni – wariant LFG (MYCRB2, web/public/data/rozbior/models/rb-lfg-70793f8d.bin)",
+      "url": "https://github.com/maciejsearch-cloud/mycelium",
+      "license": "GPL-3.0",
+      "use": "rozbiór zdań – wariant bez ograniczenia NC (przełącznik w Rozmowie); wagi uczone wyłącznie na UD Polish-LFG train"
+    }
+  ],
+  "datasets": [
+    {
+      "name": "CLINC150 (oos-eval)",
+      "url": "https://github.com/clinc/oos-eval",
+      "license": "CC-BY-3.0",
+      "use": "intencje"
+    },
+    {
+      "name": "NAB – Numenta Anomaly Benchmark",
+      "url": "https://github.com/numenta/NAB",
+      "license": "AGPL-3.0 (dane: realKnownCause)",
+      "use": "anomalie czujnika"
+    },
+    {
+      "name": "UCI HAR",
+      "url": "https://archive.ics.uci.edu/dataset/240",
+      "license": "CC-BY-4.0",
+      "use": "ai-bench"
+    },
+    {
+      "name": "Fashion-MNIST",
+      "url": "https://github.com/zalandoresearch/fashion-mnist",
+      "license": "MIT",
+      "use": "ai-bench"
+    },
+    {
+      "name": "Open English WordNet 2025",
+      "url": "https://github.com/globalwordnet/english-wordnet",
+      "license": "CC-BY-4.0",
+      "use": "słowniki: taksonomia słów EN"
+    },
+    {
+      "name": "plWordNet (przez Open Multilingual Wordnet)",
+      "url": "https://omwn.org/",
+      "license": "plWordNet licence (WordNet-style, dozwolone użycie i redystrybucja z informacją o źródle)",
+      "use": "słowniki: słowa PL"
+    },
+    {
+      "name": "CILI – Collaborative Interlingual Index",
+      "url": "https://github.com/globalwordnet/cili",
+      "license": "CC-BY-4.0",
+      "use": "mapowanie PWN 3.0 ↔ OEWN"
+    },
+    {
+      "name": "VADER sentiment lexicon",
+      "url": "https://github.com/cjhutto/vaderSentiment",
+      "license": "MIT",
+      "use": "wydźwięk słów EN"
+    },
+    {
+      "name": "Polska Wikipedia (wikimedia/wikipedia 20231101.pl)",
+      "url": "https://huggingface.co/datasets/wikimedia/wikipedia",
+      "license": "CC-BY-SA-4.0 (tekst: autorzy Wikipedii)",
+      "use": "model językowy grzybni: trening adaptera LoRA i stały test (web/public/data/lm)"
+    },
+    {
+      "name": "UD_Polish-PDB (Polish Dependency Bank w Universal Dependencies, rev 27235e131fae)",
+      "url": "https://github.com/UniversalDependencies/UD_Polish-PDB",
+      "license": "CC-BY-NC-SA-4.0",
+      "use": "rozbiór zdań: trening (train), wybór modelu (dev), bramka role-F1 (test); wagi modelu rozbioru dziedziczą warunki NC-SA"
+    },
+    {
+      "name": "UD_Polish-LFG (rev 890f3855c915)",
+      "url": "https://github.com/UniversalDependencies/UD_Polish-LFG",
+      "license": "GPL-3.0",
+      "use": "rozbiór zdań: trening (train), wybór modelu (dev), bramka role-F1 (test)"
+    },
+    {
+      "name": "Walenty – słownik walencyjny języka polskiego (IPI PAN), 2021-07-12, schematy zweryfikowane",
+      "url": "https://zil.ipipan.waw.pl/Walenty",
+      "license": "CC-BY-SA-4.0",
+      "use": "rozbiór zdań: oczekiwane uzupełnienia czasowników, czasowniki przekazania do pytań wnioskujących"
+    },
+    {
+      "name": "Morfeusz 2 (morfeusz2 1.99.15) z danymi fleksyjnymi SGJP i Polimorf (IPI PAN; SGJP: Z. Saloni, W. Gruszczyński, M. Woliński, R. Wołosz, D. Skowrońska)",
+      "url": "http://morfeusz.sgjp.pl/doc/license/",
+      "license": "BSD-2-Clause",
+      "use": "rozbiór zdań: lematy i cechy fleksyjne (węzły/weryfikator: pełny analizator; przeglądarka: leksykony morf.json.gz – mapa tagów z PDB, CC BY-NC-SA – i morf-lfg.json.gz – mapa z LFG, GPL-3.0; formy Morfeusza/SGJP: BSD-2)"
+    },
+    {
+      "name": "Wikidata",
+      "url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+      "license": "CC0-1.0",
+      "use": "fakty startowe (web/public/data/seed/facts.json), odpowiedzi czatu z liczbami i relacjami"
+    },
+    {
+      "name": "Wikisłownik (pl.wiktionary.org)",
+      "url": "https://pl.wiktionary.org/",
+      "license": "CC-BY-SA-4.0 (autorzy Wikisłownika)",
+      "use": "definicje i fakty startowe (seed), objaśnienia słów w czacie"
+    },
+    {
+      "name": "EMNIST letters (NIST, Cohen i in. 2017)",
+      "url": "https://www.nist.gov/itl/products-and-services/emnist-dataset",
+      "license": "public domain (NIST) / CC0",
+      "use": "zadania captcha – odręczne litery (captcha.json)"
+    }
+  ],
+  "libraries": [
+    {
+      "name": "transformers.js",
+      "url": "https://github.com/huggingface/transformers.js",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "ONNX Runtime Web",
+      "url": "https://github.com/microsoft/onnxruntime",
+      "license": "MIT"
+    }
+  ],
+  "excluded": [
+    {
+      "name": "NRC Emotion Lexicon",
+      "reason": "licencja tylko niekomercyjna – nie używamy"
+    }
+  ],
+  "withdrawn": [
+    {
+      "name": "Model rozbioru v0 (rozbior/v0-f324f348.bin, PDB+LFG razem)",
+      "license": "niezgodne: CC-BY-NC-SA-4.0 + GPL-3.0",
+      "reason": "wycofany 25.10.2026 – licencje danych treningowych nie dają się połączyć w jednym pliku wag; nie rozpowszechniamy"
+    }
+  ]
+}

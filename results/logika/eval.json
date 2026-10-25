@@ -1,0 +1,395 @@
+{
+ "when": "2026-10-25T02:34:27+01:00",
+ "parser": "rozbiór v0 (MYCRB2) + leksykon Morfeusza z przeglądarki",
+ "same_tasks_as_lm_v1": true,
+ "level1_seed2_n320": {
+  "n": 320,
+  "correct": 211,
+  "acc": 0.6594,
+  "per_category": {
+   "analogia": {
+    "n": 31,
+    "correct": 0,
+    "abstain": 31,
+    "acc": 0.0,
+    "lm_v1": 0.2581,
+    "baseline": 0.0968
+   },
+   "aspekt": {
+    "n": 24,
+    "correct": 24,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.4583,
+    "baseline": 0.3333
+   },
+   "ciąg": {
+    "n": 14,
+    "correct": 0,
+    "abstain": 14,
+    "acc": 0.0,
+    "lm_v1": 0.2857,
+    "baseline": 0.1429
+   },
+   "kolejność w czasie": {
+    "n": 18,
+    "correct": 17,
+    "abstain": 1,
+    "acc": 0.9444,
+    "lm_v1": 0.3333,
+    "baseline": 0.2222
+   },
+   "kwantyfikatory": {
+    "n": 19,
+    "correct": 19,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.3684,
+    "baseline": 0.3684
+   },
+   "liczebniki": {
+    "n": 21,
+    "correct": 0,
+    "abstain": 21,
+    "acc": 0.0,
+    "lm_v1": 0.1429,
+    "baseline": 0.1429
+   },
+   "negacja": {
+    "n": 8,
+    "correct": 8,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.125,
+    "baseline": 0.5
+   },
+   "nie wszystkie": {
+    "n": 14,
+    "correct": 14,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.0,
+    "baseline": 0.3571
+   },
+   "odmiana": {
+    "n": 29,
+    "correct": 15,
+    "abstain": 7,
+    "acc": 0.5172,
+    "lm_v1": 0.2069,
+    "baseline": 0.1724
+   },
+   "porządek": {
+    "n": 25,
+    "correct": 25,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.28,
+    "baseline": 0.24
+   },
+   "przyczyna": {
+    "n": 15,
+    "correct": 15,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.0,
+    "baseline": 0.3333
+   },
+   "sprzeczność": {
+    "n": 9,
+    "correct": 9,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.5556,
+    "baseline": 0.5556
+   },
+   "sylogizm": {
+    "n": 30,
+    "correct": 30,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.2333,
+    "baseline": 0.3333
+   },
+   "warunki": {
+    "n": 10,
+    "correct": 10,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.1,
+    "baseline": 0.4
+   },
+   "zadanie tekstowe": {
+    "n": 28,
+    "correct": 0,
+    "abstain": 28,
+    "acc": 0.0,
+    "lm_v1": 0.3214,
+    "baseline": 0.1429
+   },
+   "łańcuch": {
+    "n": 25,
+    "correct": 25,
+    "abstain": 0,
+    "acc": 1.0,
+    "lm_v1": 0.0,
+    "baseline": 0.36
+   }
+  }
+ },
+ "lm_v1": {
+  "acc": 0.2344,
+  "n": 320,
+  "when": "2026-10-25T00:40:47+0200"
+ },
+ "level_max_seed2": {
+  "n": 320,
+  "correct": 136,
+  "acc": 0.425,
+  "per_category": {
+   "analogia": {
+    "n": 48,
+    "correct": 0,
+    "abstain": 48,
+    "acc": 0.0
+   },
+   "ciąg": {
+    "n": 38,
+    "correct": 0,
+    "abstain": 38,
+    "acc": 0.0
+   },
+   "kolejność w czasie": {
+    "n": 38,
+    "correct": 33,
+    "abstain": 5,
+    "acc": 0.8684
+   },
+   "liczebniki": {
+    "n": 26,
+    "correct": 0,
+    "abstain": 26,
+    "acc": 0.0
+   },
+   "negacja": {
+    "n": 8,
+    "correct": 8,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "odmiana": {
+    "n": 35,
+    "correct": 18,
+    "abstain": 11,
+    "acc": 0.5143
+   },
+   "porządek": {
+    "n": 35,
+    "correct": 35,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "zadanie tekstowe": {
+    "n": 50,
+    "correct": 0,
+    "abstain": 50,
+    "acc": 0.0
+   },
+   "łańcuch": {
+    "n": 42,
+    "correct": 42,
+    "abstain": 0,
+    "acc": 1.0
+   }
+  }
+ },
+ "level1_seed7_n320_fresh": {
+  "n": 320,
+  "correct": 215,
+  "acc": 0.6719,
+  "per_category": {
+   "analogia": {
+    "n": 31,
+    "correct": 0,
+    "abstain": 31,
+    "acc": 0.0
+   },
+   "aspekt": {
+    "n": 27,
+    "correct": 27,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "ciąg": {
+    "n": 22,
+    "correct": 0,
+    "abstain": 22,
+    "acc": 0.0
+   },
+   "kolejność w czasie": {
+    "n": 32,
+    "correct": 30,
+    "abstain": 1,
+    "acc": 0.9375
+   },
+   "kwantyfikatory": {
+    "n": 16,
+    "correct": 16,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "liczebniki": {
+    "n": 24,
+    "correct": 0,
+    "abstain": 24,
+    "acc": 0.0
+   },
+   "negacja": {
+    "n": 8,
+    "correct": 8,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "nie wszystkie": {
+    "n": 16,
+    "correct": 16,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "odmiana": {
+    "n": 16,
+    "correct": 11,
+    "abstain": 3,
+    "acc": 0.6875
+   },
+   "porządek": {
+    "n": 21,
+    "correct": 21,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "przyczyna": {
+    "n": 13,
+    "correct": 13,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "sprzeczność": {
+    "n": 9,
+    "correct": 9,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "sylogizm": {
+    "n": 24,
+    "correct": 24,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "warunki": {
+    "n": 12,
+    "correct": 12,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "zadanie tekstowe": {
+    "n": 21,
+    "correct": 0,
+    "abstain": 21,
+    "acc": 0.0
+   },
+   "łańcuch": {
+    "n": 28,
+    "correct": 28,
+    "abstain": 0,
+    "acc": 1.0
+   }
+  }
+ },
+ "paraphrases_v1": {
+  "n": 56,
+  "correct": 33,
+  "acc": 0.5893,
+  "per_category": {
+   "aspekt": {
+    "n": 5,
+    "correct": 4,
+    "abstain": 0,
+    "acc": 0.8
+   },
+   "kolejność w czasie": {
+    "n": 4,
+    "correct": 0,
+    "abstain": 4,
+    "acc": 0.0
+   },
+   "kwantyfikatory": {
+    "n": 5,
+    "correct": 3,
+    "abstain": 2,
+    "acc": 0.6
+   },
+   "negacja": {
+    "n": 5,
+    "correct": 3,
+    "abstain": 2,
+    "acc": 0.6
+   },
+   "nie wszystkie": {
+    "n": 4,
+    "correct": 4,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "odmiana": {
+    "n": 5,
+    "correct": 2,
+    "abstain": 3,
+    "acc": 0.4
+   },
+   "porządek": {
+    "n": 4,
+    "correct": 0,
+    "abstain": 2,
+    "acc": 0.0
+   },
+   "przyczyna": {
+    "n": 4,
+    "correct": 2,
+    "abstain": 2,
+    "acc": 0.5
+   },
+   "sprzeczność": {
+    "n": 4,
+    "correct": 4,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "sylogizm": {
+    "n": 5,
+    "correct": 3,
+    "abstain": 2,
+    "acc": 0.6
+   },
+   "warunki": {
+    "n": 6,
+    "correct": 3,
+    "abstain": 2,
+    "acc": 0.5
+   },
+   "łańcuch": {
+    "n": 5,
+    "correct": 5,
+    "abstain": 0,
+    "acc": 1.0
+   }
+  }
+ },
+ "paraphrases_v1_first_run": {
+  "correct": 29,
+  "n": 56,
+  "note": "pierwszy przebieg, przed poprawkami reguł na zadaniach z szablonów"
+ },
+ "note": "Reguły pisane ze znajomością szablonów selfplay; parafrazy zamrożone przed regułami (commit 746aa77), odpowiedzi parafraz ustalone przez autora (agent), bez weryfikacji ludzi. Wstrzymanie (None) = błąd.",
+ "seconds": 10.4
+}

@@ -1,0 +1,420 @@
+{
+ "summary": {
+  "set": "chat_facts_v1",
+  "set_sha256": "f0a67d1c8a3e907bfd647a9132ff013f4920e4ca62163ad7fef51bcf201ae9a9",
+  "url": "https://maciejsearch-cloud.github.io/demo/mycelium/",
+  "label": "before-live",
+  "at": "2026-10-24T21:41:46.513Z",
+  "n": 40,
+  "correct_with_source": 5,
+  "correct_no_source": 0,
+  "dont_know": 0,
+  "wrong": 35
+ },
+ "rows": [
+  {
+   "id": "f01",
+   "q": "Jaka jest stolica Australii?",
+   "verdict": "correct_source",
+   "text": "Stolica Australii to Canberra.\nŹródło: Wikidata Q408.",
+   "sources": [
+    "[1] Australia – stolica: Canberra — słownik · 0 głosów · Wikidata Q408"
+   ],
+   "links": [],
+   "stats": "8 tok · 8.85 tok/s · pierwszy token 1.0 s · prompt 119 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f02",
+   "q": "Jaka jest stolica Kanady?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 9.02 tok/s · pierwszy token 0.6 s · prompt 79 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f03",
+   "q": "Kto napisał „Pana Tadeusza”?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 389.02 tok/s · pierwszy token 0.0 s · prompt 81 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f04",
+   "q": "Kto napisał „Lalkę”?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 158.37 tok/s · pierwszy token 0.0 s · prompt 78 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f05",
+   "q": "Kto odkrył penicylinę?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 450.93 tok/s · pierwszy token 0.0 s · prompt 81 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f06",
+   "q": "Kto namalował „Mona Lisę”?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 387.24 tok/s · pierwszy token 0.0 s · prompt 81 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f07",
+   "q": "W którym roku Polska przystąpiła do Unii Europejskiej?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 286.89 tok/s · pierwszy token 0.0 s · prompt 88 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f08",
+   "q": "W którym roku zaczęła się II wojna światowa?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 394.43 tok/s · pierwszy token 0.0 s · prompt 85 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f09",
+   "q": "Ile mieszkańców ma Kraków?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\nŹródło: Wikidata Q31487.",
+   "sources": [
+    "[1] Kraków – liczba ludności: 804 237 (2023) — słownik · 0 głosów · Wikidata Q31487"
+   ],
+   "links": [],
+   "stats": "18 tok · 411.62 tok/s · pierwszy token 0.0 s · prompt 132 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f10",
+   "q": "Jaka jest najdłuższa rzeka w Polsce?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 230.26 tok/s · pierwszy token 0.1 s · prompt 84 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f11",
+   "q": "Jaki jest najwyższy szczyt Polski?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 257.35 tok/s · pierwszy token 0.0 s · prompt 82 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f12",
+   "q": "Jaki jest symbol chemiczny złota?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 203.49 tok/s · pierwszy token 0.0 s · prompt 81 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f13",
+   "q": "Kto był pierwszym królem Polski?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 765.77 tok/s · pierwszy token 0.0 s · prompt 80 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f14",
+   "q": "Kto sformułował teorię względności?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 158.01 tok/s · pierwszy token 0.0 s · prompt 83 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f15",
+   "q": "Co to jest fotosynteza?",
+   "verdict": "correct_source",
+   "text": "Fotosynteza to proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] fotosynteza: proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] fotosynteza – definicja – proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła → fotosynteza (pojęcie) — słownik 80% · 2 głosów · strzępki #58144 → #58145 (wiktionary)"
+   ],
+   "links": [],
+   "stats": "word · 1077.4 ms"
+  },
+  {
+   "id": "f16",
+   "q": "Co to jest wombat?",
+   "verdict": "correct_source",
+   "text": "Wombat to australijski torbacz o brunatnoszarej sierści.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\n• wombat: Zwierzę › Ssak\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] wombat: australijski torbacz o brunatnoszarej sierści — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] wombat: Zwierzę › Ssak — słownik · 0 głosów · słownik",
+    "[3] wombat – jest – Ssak → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #16255 → #3339 → #3554 → #3581 (plwordnet)",
+    "[4] wombat – jest – Zwierzę → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #16256 → #3554 → #3581 (plwordnet)",
+    "[5] wombat – definicja – australijski torbacz o brunatnoszarej sierści → wombat (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 80% · 2 głosów · strzępki #58146 → #17023 → #3339 → #3554 → #3581 (wiktionary)"
+   ],
+   "links": [],
+   "stats": "word · 1526.3 ms"
+  },
+  {
+   "id": "f17",
+   "q": "Jaka jest stolica Łotwy?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.",
+   "sources": [
+    "[1] Ryga jest stolicą Łotwy. — prawda 98% · 2 głosów · wiedza"
+   ],
+   "links": [],
+   "stats": "8 tok · 162.04 tok/s · pierwszy token 0.0 s · prompt 124 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f18",
+   "q": "Kiedy urodził się Fryderyk Chopin?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\nŹródło: Wikidata Q151826.",
+   "sources": [
+    "[1] Fryderyk I Pruski – data urodzenia: 11.07.1657 — słownik · 0 głosów · Wikidata Q151826"
+   ],
+   "links": [],
+   "stats": "18 tok · 384.62 tok/s · pierwszy token 0.0 s · prompt 142 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f19",
+   "q": "Na jakim kontynencie leży Egipt?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 711.30 tok/s · pierwszy token 0.0 s · prompt 83 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f20",
+   "q": "Jaka jest stolica Japonii?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\nŹródło: Wikidata Q17.",
+   "sources": [
+    "[1] Japonia – stolica: Tokio — słownik · 0 głosów · Wikidata Q17",
+    "[2] Jaka jest stolica Japonii? → Tokio. — prawda 98% · 2 głosów · pytanie-odpowiedź"
+   ],
+   "links": [],
+   "stats": "8 tok · 158.01 tok/s · pierwszy token 0.0 s · prompt 143 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f21",
+   "q": "Jaka jest powierzchnia Polski?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 165.09 tok/s · pierwszy token 0.0 s · prompt 80 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f22",
+   "q": "Kto był pierwszym człowiekiem na Księżycu?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 437.02 tok/s · pierwszy token 0.0 s · prompt 83 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f23",
+   "q": "Jak nazywa się największa planeta Układu Słonecznego?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 752.69 tok/s · pierwszy token 0.1 s · prompt 88 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f24",
+   "q": "W którym roku odbyła się bitwa pod Grunwaldem?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 423.94 tok/s · pierwszy token 0.0 s · prompt 84 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f25",
+   "q": "Kto napisał „Quo vadis”?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 151.19 tok/s · pierwszy token 0.0 s · prompt 79 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f26",
+   "q": "Kto odkrył polon i rad?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 171.57 tok/s · pierwszy token 0.0 s · prompt 81 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f27",
+   "q": "Jaka jest stolica Hiszpanii?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\nŹródło: Wikidata Q29.",
+   "sources": [
+    "[1] Hiszpania – stolica: Madryt — słownik · 0 głosów · Wikidata Q29"
+   ],
+   "links": [],
+   "stats": "8 tok · 280.00 tok/s · pierwszy token 0.0 s · prompt 126 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f28",
+   "q": "Co to jest kot?",
+   "verdict": "correct_source",
+   "text": "Kot to zwierzę domowe.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\n• kot: Zwierzę › Ssak › Kotowate\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] kot: zwierzę domowe — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] kot: Zwierzę › Ssak › Kotowate — słownik · 0 głosów · słownik",
+    "[3] Czym jest kot — fałsz 90% · 1 głosów · fakt od nauczyciela",
+    "[4] Czym jest kot — prawda 90% · 1 głosów · fakt od nauczyciela",
+    "[5] kot – jest – Kotowate → Kotowate (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #18123 → #2621 → #3339 → #3554 → #3581 (plwordnet)",
+    "[6] kot – jest – Osoba → Osoba (pojęcie) → Osoba (temat) — słownik 85% · 1 głosów · strzępki #18124 → #3047 → #3576 (plwordnet)",
+    "[7] kot – jest – Ssak → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #18125 → #3339 → #3554 → #3581 (plwordnet)"
+   ],
+   "links": [],
+   "stats": "word · 1292.6 ms"
+  },
+  {
+   "id": "f29",
+   "q": "Jaka waluta obowiązuje w Japonii?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 515.15 tok/s · pierwszy token 0.0 s · prompt 84 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f30",
+   "q": "Ile mieszkańców ma Warszawa?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\nŹródło: Wikidata Q270.",
+   "sources": [
+    "[1] Warszawa – liczba ludności: 1 862 402 (2024) — słownik · 0 głosów · Wikidata Q270"
+   ],
+   "links": [],
+   "stats": "8 tok · 196.08 tok/s · pierwszy token 0.0 s · prompt 136 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f31",
+   "q": "Kiedy zmarł Jan Paweł II?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\nŹródło: Wikidata Q310119.",
+   "sources": [
+    "[1] Paweł – data śmierci: 15.11.2009 — słownik · 0 głosów · Wikidata Q310119"
+   ],
+   "links": [],
+   "stats": "18 tok · 374.45 tok/s · pierwszy token 0.0 s · prompt 132 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f32",
+   "q": "Kto napisał słowa Mazurka Dąbrowskiego?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 150.86 tok/s · pierwszy token 0.0 s · prompt 84 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f33",
+   "q": "Jaka jest wysokość Mount Everestu?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\nUżyte strzępki: #41284 → #2614 → #3339 → #3554 → #3581 (wordnet); #41285 → #2779 → #2614 → #3339 → #3554 (wordnet)",
+   "sources": [
+    "[1] mount – jest – Kopytne → Kopytne (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #41284 → #2614 → #3339 → #3554 → #3581 (wordnet)",
+    "[2] mount – jest – Ssak → mount (pojęcie) → Kopytne (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) — słownik 85% · 1 głosów · strzępki #41285 → #2779 → #2614 → #3339 → #3554 (wordnet)"
+   ],
+   "links": [],
+   "stats": "18 tok · 518.29 tok/s · pierwszy token 0.0 s · prompt 203 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f34",
+   "q": "W jakim mieście jest Wawel?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Wewnetrzna Stosunca Kanady.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 405.73 tok/s · pierwszy token 0.0 s · prompt 80 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f35",
+   "q": "Kto napisał „Ferdydurke”?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 266.16 tok/s · pierwszy token 0.0 s · prompt 80 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f36",
+   "q": "Co to jest grzybnia?",
+   "verdict": "correct_source",
+   "text": "Grzybnia to forma plechy grzybów, stanowiąca wegetatywne ciało grzybów.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] grzybnia: forma plechy grzybów, stanowiąca wegetatywne ciało grzybów — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] Grzybnia to podziemna część grzyba. — prawda 98% · 2 głosów · wiedza",
+    "[3] Mycelium AI jest to chain AI działający dzięki grzybni i węzłom (node). Każdy może go czegoś nauczyć. Każdy węzeł przydzielający moc do grzybni może zostać nodem uczyć i weryfikować. — prawda 91% · 1 głosów · fakt od nauczyciela",
+    "[4] grzybnia – definicja – forma plechy grzybów, stanowiąca wegetatywne ciało grzybów → grzybnia (pojęcie) — słownik 80% · 2 głosów · strzępki #58671 → #58672 (wiktionary)"
+   ],
+   "links": [],
+   "stats": "word · 861.8 ms"
+  },
+  {
+   "id": "f37",
+   "q": "Jaki pierwiastek ma symbol Fe?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 191.78 tok/s · pierwszy token 0.0 s · prompt 80 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f38",
+   "q": "W którym roku upadł mur berliński?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 172.41 tok/s · pierwszy token 0.0 s · prompt 81 tok · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f39",
+   "q": "Jaka jest stolica Brazylii?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\nŹródło: Wikidata Q155.",
+   "sources": [
+    "[1] Brazylia – stolica: Brasília — słownik · 0 głosów · Wikidata Q155"
+   ],
+   "links": [],
+   "stats": "8 tok · 127.50 tok/s · pierwszy token 0.0 s · prompt 124 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f40",
+   "q": "Kto był pierwszym prezydentem Stanów Zjednoczonych?",
+   "verdict": "wrong",
+   "text": "Stolica Australii to Canberra.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "8 tok · 151.19 tok/s · pierwszy token 0.0 s · prompt 89 tok · cały model na 1 węźle · bez źródła"
+  }
+ ]
+}

@@ -1,0 +1,245 @@
+{
+  "phases": [
+    {
+      "id": 1,
+      "title": "Stabilizacja",
+      "status": "done",
+      "pr": 1,
+      "items": [
+        "działający dashboard Streamlit",
+        "pakiet Pythona + CLI",
+        "83 testy, CI (ruff + pytest 3.11–3.13)",
+        "README po polsku"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Pamięć slotów, Adam + Leaky ReLU, IQ na danych odłożonych",
+      "status": "done",
+      "pr": 2,
+      "items": [
+        "osobny slot grzybni na kształt sieci",
+        "Adam/mini-batch: 31/32 zadań ≥ 95% (było 16/32)",
+        "IQ liczone k-fold na danych odłożonych",
+        "benchmark 32 zadań"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Prawdziwe AI: PyTorch, prawdziwe dane, uczenie federacyjne",
+      "status": "done",
+      "items": [
+        "agenci PyTorch (CPU) na UCI HAR, Fashion-MNIST, CLINC150, NAB",
+        "grzybnia = FedAvg / FedProx, ważenie jakością, DP (obcinanie + szum), secure aggregation (maski)",
+        "wspólna pamięć wektorowa doświadczeń (ciepły start Optuny)",
+        "orkiestrator: Optuna TPE, wybór modelu tylko na walidacji",
+        "porównanie: lokalnie vs federacyjnie vs centralnie",
+        "Mycelium Benchmark Score (następca IQ)"
+      ],
+      "pr": 4
+    },
+    {
+      "id": 4,
+      "title": "Prawdziwe IoT: FastAPI + MQTT",
+      "status": "in_progress",
+      "items": [
+        "REST + WebSocket (FastAPI) – gotowe",
+        "most MQTT (mosquitto) – gotowe, test z brokerem",
+        "symulator wielu urządzeń",
+        "telefon jako czujnik",
+        "publiczny backend (tryb na żywo)"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Frontend Mycelium AI",
+      "status": "in_progress",
+      "items": [
+        "React 19 + Vite + TS (ta strona)",
+        "tryb nagrany bez backendu",
+        "strona „Prawdziwe AI” z wynikami fazy 3",
+        "przełącznik PL/EN",
+        "na żywo przez WebSocket (po fazie 4)",
+        "Playwright e2e + budżet wydajności"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "0",
+      "title": "Podstawy oceny (2000 pytań)",
+      "status": "done",
+      "items": [
+        {
+          "t": "zbiór testowy LM 250 → 2000 pytań, sha 9bebb6f4…",
+          "done": true
+        },
+        {
+          "t": "nowy punkt odniesienia przez niezależnego weryfikatora (8 odłamków)",
+          "done": true
+        },
+        {
+          "t": "panel „Wkład węzłów”",
+          "done": true
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Czat uczy się od ludzi",
+      "status": "done",
+      "items": [
+        {
+          "t": "intencje krótkich reakcji zamiast zmyślania",
+          "done": true
+        },
+        {
+          "t": "nieznane słowo → prośba o wyjaśnienie → głosowanie w Weryfikuj",
+          "done": true
+        },
+        {
+          "t": "rejestr z Wikisłownika (etykieta, bez cenzury)",
+          "done": true
+        }
+      ]
+    },
+    {
+      "id": "Z",
+      "title": "Bezpieczeństwo i anonimowe konta",
+      "status": "done",
+      "items": [
+        {
+          "t": "audyt danych wrażliwych, poprawki RLS i limitów",
+          "done": true
+        },
+        {
+          "t": "podpisane binaria węzła PC (Sigstore)",
+          "done": true
+        },
+        {
+          "t": "konto z kodem odzyskiwania, polecenia, księga punktów",
+          "done": true
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Koniec marnowania mocy",
+      "status": "planned",
+      "items": [
+        {
+          "t": "plateau → mniej rund, moc do zadań z postępem",
+          "done": false
+        },
+        {
+          "t": "bez powtórnych ocen tej samej wersji",
+          "done": false
+        },
+        {
+          "t": "telemetria urządzeń (PC/telefon, rdzenie, GPU)",
+          "done": false
+        },
+        {
+          "t": "stały węzeł PC widoczny (bicie serca)",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "S",
+      "title": "Samorozwój w granicach bramki",
+      "status": "in_progress",
+      "items": [
+        {
+          "t": "S1 destylacja logitów (Qwen2.5-1.5B → 0.5B): kod gotowy (#57), czeka na wynik bramki",
+          "done": true
+        },
+        {
+          "t": "S2 samodzielne ćwiczenia: generator + sprawdzarka (#57)",
+          "done": true
+        },
+        {
+          "t": "S3 węzły testujące (red team)",
+          "done": false
+        },
+        {
+          "t": "S4 wybór ścieżek: kod gotowy (#59), włącza się po ukończeniu wszystkich etapów",
+          "done": true
+        },
+        {
+          "t": "S5 samoaktualizacja węzła PC tylko z podpisanych wydań (#58)",
+          "done": true
+        }
+      ]
+    },
+    {
+      "id": "A",
+      "title": "Grzybnia warstwowa: rozumienie → rozumowanie → odpowiedź",
+      "status": "planned",
+      "items": [
+        {
+          "t": "plasterek 1: trzy warstwy w przeglądarce + panel „Ścieżka”",
+          "done": false
+        },
+        {
+          "t": "plasterek 2: warstwy 1–2 jako zadania węzłów",
+          "done": false
+        },
+        {
+          "t": "plasterek 3: odpowiedź na PC/GPU, odłamki LM",
+          "done": false
+        },
+        {
+          "t": "stały zbiór 300 + 100 pytań ze źródłami",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Moc tam, gdzie jest postęp",
+      "status": "planned",
+      "items": [
+        {
+          "t": "orientacja obrazów (0/90/180/270°)",
+          "done": false
+        },
+        {
+          "t": "OCR z CER na stałym teście",
+          "done": false
+        },
+        {
+          "t": "lepsze rozpoznawanie obrazów",
+          "done": false
+        },
+        {
+          "t": "WebGPU: suwak udziału, wykorzystanie na urządzenie",
+          "done": false
+        },
+        {
+          "t": "węzeł PC z GPU (CUDA/DirectML)",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Zadania typu captcha i więcej obrazów",
+      "status": "planned",
+      "items": [
+        {
+          "t": "puzzle i „zaznacz kwadraty” 3×3/4×4",
+          "done": false
+        },
+        {
+          "t": "otwarte obrazy z atrybucją",
+          "done": false
+        },
+        {
+          "t": "nowe typy w Weryfikuj: obrót, OCR, kategorie",
+          "done": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+ "_note": "Wariant PDB (domyślny po rozdzieleniu licencji 25.10.2026): trening tylko UD_Polish-PDB train, 12 epok, wybór epoki na PDB dev. Licencja wag CC BY-NC-SA 4.0. Ocena: pełny test UD (3942 zdania), test nigdy w treningu.",
+ "pdb": {
+  "file": "rb-pdb.bin",
+  "sha256": "397cf83b5306a3ae134b243a0fadf4c2d8c42f16cd99a3355aedf569762c08d0",
+  "bytes": 3608745,
+  "test": {
+   "n_sent": 3942,
+   "n_tok": 46728,
+   "role_f1": 0.7275,
+   "role_p": 0.7393,
+   "role_r": 0.716,
+   "role_n": 11310,
+   "upos": 0.9652,
+   "feats": 0.7512,
+   "lemma": 0.8835,
+   "uas": 0.8698,
+   "las": 0.7735,
+   "part": 0.8703,
+   "attr_head": 0.8193,
+   "clause_f1": 0.8513,
+   "frame_tam": 0.7597,
+   "by_tb": {
+    "lfg": {
+     "n_sent": 1727,
+     "n_tok": 13112,
+     "role_f1": 0.7482,
+     "role_p": 0.7664,
+     "role_r": 0.7309,
+     "role_n": 3775,
+     "upos": 0.9611,
+     "feats": 0.6654,
+     "lemma": 0.8906,
+     "uas": 0.8889,
+     "las": 0.7466,
+     "part": 0.8493,
+     "attr_head": 0.833,
+     "clause_f1": 0.8878,
+     "frame_tam": 0.7266
+    },
+    "pdb": {
+     "n_sent": 2215,
+     "n_tok": 33616,
+     "role_f1": 0.7172,
+     "role_p": 0.726,
+     "role_r": 0.7086,
+     "role_n": 7535,
+     "upos": 0.9669,
+     "feats": 0.7847,
+     "lemma": 0.8807,
+     "uas": 0.8624,
+     "las": 0.784,
+     "part": 0.8782,
+     "attr_head": 0.8165,
+     "clause_f1": 0.8316,
+     "frame_tam": 0.7774
+    }
+   }
+  }
+ }
+}

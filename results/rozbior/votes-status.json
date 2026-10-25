@@ -1,0 +1,10 @@
+{
+ "generated_at": "2026-10-25T01:25:08+00:00",
+ "rows": 0,
+ "leak": 0,
+ "invalid": 0,
+ "used": 0,
+ "min": 50,
+ "trained": false,
+ "note": "za mało zatwierdzonych rozbiorów (0 < 50) – trening nie był uruchomiony"
+}

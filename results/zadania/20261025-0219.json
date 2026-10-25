@@ -1,0 +1,131 @@
+{
+ "when": "2026-10-25T02:19:39+0100",
+ "seed": 1,
+ "types": {
+  "matematyczne": {
+   "n": 120,
+   "model": {
+    "name": "lm v2",
+    "n": 120,
+    "correct": 24,
+    "acc": 0.2,
+    "baseline": 0.2667,
+    "per_kind": {
+     "arytmetyka": {
+      "n": 24,
+      "correct": 4,
+      "acc": 0.1667,
+      "baseline": 0.2917
+     },
+     "procenty": {
+      "n": 24,
+      "correct": 4,
+      "acc": 0.1667,
+      "baseline": 0.375
+     },
+     "równania": {
+      "n": 24,
+      "correct": 6,
+      "acc": 0.25,
+      "baseline": 0.2917
+     },
+     "ułamki": {
+      "n": 24,
+      "correct": 6,
+      "acc": 0.25,
+      "baseline": 0.2917
+     },
+     "zadanie tekstowe": {
+      "n": 24,
+      "correct": 4,
+      "acc": 0.1667,
+      "baseline": 0.3333
+     }
+    },
+    "per_level": {
+     "1": {
+      "n": 40,
+      "correct": 6,
+      "acc": 0.15,
+      "baseline": 0.325
+     },
+     "2": {
+      "n": 40,
+      "correct": 12,
+      "acc": 0.3,
+      "baseline": 0.35
+     },
+     "3": {
+      "n": 40,
+      "correct": 6,
+      "acc": 0.15,
+      "baseline": 0.325
+     }
+    }
+   }
+  },
+  "analityczne": {
+   "n": 72,
+   "model": {
+    "name": "lm v2",
+    "n": 72,
+    "correct": 21,
+    "acc": 0.2917,
+    "baseline": 0.2778,
+    "per_kind": {
+     "tabela: daty urodzenia": {
+      "n": 24,
+      "correct": 7,
+      "acc": 0.2917,
+      "baseline": 0.25
+     },
+     "tabela: kontynenty": {
+      "n": 24,
+      "correct": 10,
+      "acc": 0.4167,
+      "baseline": 0.3333
+     },
+     "tabela: pierwiastki": {
+      "n": 24,
+      "correct": 4,
+      "acc": 0.1667,
+      "baseline": 0.2917
+     }
+    },
+    "per_level": {
+     "1": {
+      "n": 24,
+      "correct": 7,
+      "acc": 0.2917,
+      "baseline": 0.3333
+     },
+     "2": {
+      "n": 24,
+      "correct": 5,
+      "acc": 0.2083,
+      "baseline": 0.2917
+     },
+     "3": {
+      "n": 24,
+      "correct": 9,
+      "acc": 0.375,
+      "baseline": 0.375
+     }
+    }
+   }
+  },
+  "wzrokowe": {
+   "n": 100,
+   "model": {
+    "name": "model obrazów – regresja softmax 196→10, tylko 200 obrazów startowych (captcha.json)",
+    "n": 100,
+    "correct": 73,
+    "acc": 0.73,
+    "baseline": 0.1,
+    "source": "Fashion-MNIST t10k (Zalando, MIT), obrazy spoza publicznych plików z etykietami"
+   }
+  }
+ },
+ "gate_eval_sha": "9bebb6f48df885029b02a0e97df6a1371458877b8608d9a4c1e1311f4bc66a0a",
+ "seconds": 252
+}

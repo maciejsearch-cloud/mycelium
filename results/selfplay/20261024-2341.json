@@ -1,0 +1,54 @@
+{
+ "model": "lm v1",
+ "when": "2026-10-24T23:41:34+0200",
+ "seed": 1,
+ "n": 160,
+ "correct": 35,
+ "acc": 0.2188,
+ "per_category": {
+  "kwantyfikatory": {
+   "n": 16,
+   "correct": 4,
+   "acc": 0.25
+  },
+  "negacja": {
+   "n": 12,
+   "correct": 1,
+   "acc": 0.0833
+  },
+  "odmiana": {
+   "n": 33,
+   "correct": 7,
+   "acc": 0.2121
+  },
+  "porządek": {
+   "n": 25,
+   "correct": 7,
+   "acc": 0.28
+  },
+  "sprzeczność": {
+   "n": 11,
+   "correct": 7,
+   "acc": 0.6364
+  },
+  "sylogizm": {
+   "n": 23,
+   "correct": 1,
+   "acc": 0.0435
+  },
+  "warunki": {
+   "n": 14,
+   "correct": 2,
+   "acc": 0.1429
+  },
+  "zadanie tekstowe": {
+   "n": 26,
+   "correct": 6,
+   "acc": 0.2308
+  }
+ },
+ "gate_eval_sha": "9bebb6f48df885029b02a0e97df6a1371458877b8608d9a4c1e1311f4bc66a0a",
+ "gate_rows": 8192,
+ "decoding": "greedy, max 24 tokens",
+ "seconds": 226
+}

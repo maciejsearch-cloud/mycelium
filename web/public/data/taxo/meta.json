@@ -1,0 +1,17 @@
+{
+ "n": 10868,
+ "dim": 384,
+ "emb": {
+  "model": "Xenova/paraphrase-multilingual-MiniLM-L12-v2",
+  "scale": 2.5,
+  "dtype": "int8"
+ },
+ "hyper": 1504,
+ "files": {
+  "emb.bin": "39760b03ea5fda0b2b84e55630b414dd69701d1325ca0fd87a2d8a0eb6813669",
+  "inputs.json": "0ad6eac18ed71abe684d8100828bb0c969223b21ae701071c4e02b53449fef15",
+  "seed.json": "8c7e812d1013b6214847beee0288ae4e2304d66eaae3085897c43923ab1925ea"
+ },
+ "eval_n": 2174,
+ "eval_sha": "d008afe6316d3e7b27d051fb3811f2842f05a4abf0bccddcbe4030a0467ad854"
+}

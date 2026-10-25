@@ -1,0 +1,51 @@
+name: Strażnik demo na żywo (cron)
+
+# Co 6 h otwiera opublikowane demo (GitHub Pages) bez logowania: brak błędów strony, wykresy z danymi
+# albo pustym stanem, czat odpowiada. Zapisy do bazy są przechwytywane (brak wierszy testowych).
+# Awaria → issue „Strażnik demo: awaria” (jedno otwarte, kolejne przebiegi dopisują komentarz). ~2 min.
+on:
+  schedule:
+    - cron: "29 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: live-watch
+  cancel-in-progress: true
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            web
+            scripts
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Ścieżki zasobów z /demo/mycelium/ (build z BASE)
+        run: ../scripts/check_demo_base.sh https://maciejsearch-cloud.github.io/demo/mycelium/
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run e2e:live
+      - name: Zgłoszenie awarii
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          t="Strażnik demo: awaria"
+          n=$(gh issue list --state open --search "in:title \"$t\"" --json number -q '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body "Kolejna awaria: $RUN_URL"
+          else gh issue create --title "$t" --body "Demo https://maciejsearch-cloud.github.io/demo/mycelium/ nie przeszło testu na żywo: $RUN_URL"; fi

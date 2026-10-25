@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0f2a25"/><stop offset="1" stop-color="#060f0d"/></linearGradient></defs><rect width="64" height="64" rx="15" fill="url(#bg)"/><g transform="translate(5.5 4.8) scale(.84)">
+  <defs>
+    <linearGradient id="h" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5eead4"/><stop offset=".55" stop-color="#7dd3fc"/><stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="c" cx="29" cy="33" r="9" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0fdfa"/><stop offset=".6" stop-color="#99f6e4"/><stop offset="1" stop-color="#5eead4"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke="url(#h)" stroke-linecap="round">
+    <g stroke-width="5.2">
+      <path d="M29 33C22 31 18 22 12 13"/>
+      <path d="M29 33C35 26 39 16 47 10"/>
+      <path d="M29 33C38 35 47 33 55 39"/>
+      <path d="M29 33C28 42 33 49 39 56"/>
+      <path d="M29 33C22 37 16 42 8 44"/>
+    </g>
+    
+  </g>
+  <circle cx="12" cy="13" r="5" fill="#5eead4"/>
+  <circle cx="47" cy="10" r="4.2" fill="#67e8f9"/>
+  <circle cx="55" cy="39" r="4.8" fill="#a78bfa"/>
+  <circle cx="39" cy="56" r="4.2" fill="#a78bfa"/>
+  <circle cx="8" cy="44" r="4" fill="#7dd3fc"/>
+  
+  
+  <circle cx="29" cy="33" r="8.5" fill="url(#c)"/>
+</g></svg>

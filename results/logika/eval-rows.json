@@ -1,0 +1,4880 @@
+{
+"level1": [
+{
+"kind": "aspekt",
+"q": "Ala napisała list. Czy Ala skończyła tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „niektóre koty są duże” oraz „niektóre koty nie są duże” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Ali dała Basia jabłko. Komu dano? Podaj imię w mianowniku.",
+"gold": "Ala",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka B świeci. Wiadomo, że lampka C świeci. Czy lampka B świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre jamniki są głośne. Czy jakieś jamniki są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Ponieważ Ala zaspała, Ala spóźniła się do szkoły. Wiadomo, że Ala zaspała. Czy Ala spóźniła się do szkoły? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Bartek jadł obiad, ale przerwał w połowie. Czy Bartek zjadł obiad? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "góra : dół = początek : ? Wybierz jedno słowo: kocię, koniec, nożyczki, wędka.",
+"gold": "koniec",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Darek przyszedł wcześniej niż Janek. Janek przyszedł wcześniej niż Adam. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 9 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryb",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Basia ma 189 cm wzrostu, Adam ma 167 cm, a Iza ma 199 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Jankowi dał Filip kwiaty. Komu dano? Podaj imię w mianowniku.",
+"gold": "Janek",
+"got": "Jank",
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Adam ma 196 cm wzrostu, Ewa ma 150 cm, a Janek ma 162 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Marta hoduje dęby. Czy Marta hoduje drzewa? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie wróble są głośne. Czy niektóre wróble nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „sklep jest zamknięty” oraz „sklep nie jest zamknięty” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "warunki",
+"q": "Jeśli pada deszcz, to ulica jest mokra. Wiadomo, że pada deszcz. Czy ulica jest mokra? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "warunki",
+"q": "Jeśli Ala ma gorączkę, to Ala zostaje w domu. Wiadomo, że Ala nie zostaje w domu. Czy Ala ma gorączkę? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie wróble są głośne. Czy wszystkie wróble są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 8, 12, 16, 20, ? Podaj liczbę.",
+"gold": "24",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Ewa malowała płot. Czy Ewa skończyła tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Marta ma 166 cm wzrostu, Darek ma 198 cm, a Ala ma 175 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Zawsze gdy rzeka wylała, to droga została zamknięta. Tym razem okazało się, że nieprawda, że droga została zamknięta. Czy rzeka wylała? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "kot : kocię = krowa : ? Wybierz jedno słowo: cielę, dół, stajnia, ul.",
+"gold": "cielę",
+"got": null,
+"ok": false
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że ulica jest mokra. Czy ulica jest mokra? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Filip przyszedł wcześniej niż Ala. Ala przyszła wcześniej niż Basia. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Basia",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Marta ma 189 cm wzrostu, Ewa ma 195 cm, a Basia ma 173 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Filip miał 12 zł i oddał 4 zł Ali. Ile złotych zostało Filipowi?",
+"gold": "8",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 49 jabłek i dostała jeszcze 7 od Filipa. Ile jabłek ma teraz Ewa?",
+"gold": "56",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie tulipany to kwiaty. Basia nie hoduje żadnych kwiatów. Czy Basia hoduje tulipany? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 8 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłek",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "W 4 pudełkach jest po 28 kredek. Ile kredek jest razem?",
+"gold": "112",
+"got": null,
+"ok": false
+},
+{
+"kind": "przyczyna",
+"q": "Jeśli rzeka wylała, to droga została zamknięta. Wiadomo, że droga została zamknięta. Czy na pewno rzeka wylała? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "warunki",
+"q": "Jeśli świeci słońce, to Janek idzie na spacer. Wiadomo, że nie świeci słońce. Czy Janek nie idzie na spacer? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Żadne róże nie są zielone. Czy któreś róże są zielone? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Adam dał Marcie książkę. Komu dano? Podaj imię w mianowniku.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre róże są głośne. Czy wszystkie róże są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie róże to rośliny. Janek hoduje rośliny. Czy Janek hoduje róże? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Ewa. Ewa przyszła wcześniej niż Ala. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Ala ma 172 cm wzrostu, Darek ma 179 cm, a Marta ma 159 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Darkowi dał Filip kwiaty. Komu dano? Podaj imię w mianowniku.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Kwiaty Izie dała Basia. Kto dał? Podaj imię.",
+"gold": "Basia",
+"got": "kwiat",
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 7 jabłek i dostała jeszcze 24 od Janka. Ile jabłek ma teraz Ewa?",
+"gold": "31",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Iza zjadła obiad. Czy Iza skończyła tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka B świeci. Jeśli lampka B świeci, to lampka C świeci. Wiadomo, że lampka C nie świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre pszczoły są głośne. Czy jakieś pszczoły są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że Ala zostaje w domu. Czy Ala zostaje w domu? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że sklep jest zamknięty. Czy sklep jest zamknięty? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Darek pisał list, ale przerwał w połowie. Czy Darek napisał list? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Iza miała 35 zł i oddała 5 zł Bartkowi. Ile złotych zostało Izie?",
+"gold": "30",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Bartkowi dała Marta kwiaty. Komu dano? Podaj imię w mianowniku.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „niektóre karpie są duże” oraz „niektóre karpie nie są duże” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "owca : jagnię = kot : ? Wybierz jedno słowo: fałsz, gniazdo, kocię, siekiera.",
+"gold": "kocię",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "wejście : wyjście = ciepło : ? Wybierz jedno słowo: gniazdo, nora, pędzel, zimno.",
+"gold": "zimno",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Janek czytał książkę. Czy Janek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka A świeci. Jeśli lampka A świeci, to lampka E świeci. Wiadomo, że lampka E świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 39 zł i oddała 13 zł Filipowi. Ile złotych zostało Marcie?",
+"gold": "26",
+"got": null,
+"ok": false
+},
+{
+"kind": "przyczyna",
+"q": "Ponieważ zgasło światło, w pokoju zrobiło się ciemno. Wiadomo, że zgasło światło. Czy w pokoju zrobiło się ciemno? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 3 … (książka). Wybierz jedną formę: książek, książka, książki.",
+"gold": "książki",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka E świeci, to lampka H świeci. Jeśli lampka H świeci, to lampka D świeci. Wiadomo, że lampka E świeci. Czy lampka D świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Janek pomalował płot. Czy Janek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka A świeci. Jeśli lampka A świeci, to lampka B świeci. Wiadomo, że lampka B nie świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Darek miał 12 zł i oddał 2 zł Marcie. Ile złotych zostało Darkowi?",
+"gold": "10",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pies : buda = ptak : ? Wybierz jedno słowo: gniazdo, nożyczki, pędzel, siekiera.",
+"gold": "gniazdo",
+"got": null,
+"ok": false
+},
+{
+"kind": "kwantyfikatory",
+"q": "Żadne koty nie są zielone. Czy któreś koty są zielone? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "List Marcie dał Adam. Komu dano? Podaj imię w mianowniku.",
+"gold": "Marta",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Książkę Filipowi dał Bartek. Komu dano? Podaj imię w mianowniku.",
+"gold": "Filip",
+"got": "filip",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "W 3 pudełkach jest po 34 kredek. Ile kredek jest razem?",
+"gold": "102",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Jabłko Darkowi dała Basia. Kto dał? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Iza jadła obiad, ale przerwała w połowie. Czy Iza zjadła obiad? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre koty są głośne. Czy wszystkie koty są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że sklep jest zamknięty. Czy sklep jest zamknięty? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre tulipany są głośne. Czy jakieś tulipany są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka F świeci, to lampka C świeci. Jeśli lampka C świeci, to lampka H świeci. Wiadomo, że lampka H świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "fryzjer : nożyczki = pisarz : ? Wybierz jedno słowo: buda, jagnię, kocię, pióro.",
+"gold": "pióro",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Izie dał Darek list. Kto dał? Podaj imię.",
+"gold": "Darek",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Ala hoduje dęby. Czy Ala hoduje drzewa? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „Ala zostaje w domu” oraz „Ala nie zostaje w domu” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 8 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryb",
+"got": null,
+"ok": false
+},
+{
+"kind": "warunki",
+"q": "Jeśli Ala ma gorączkę, to Ala zostaje w domu. Wiadomo, że Ala ma gorączkę. Czy Ala zostaje w domu? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „niektóre wróble są duże” oraz „niektóre wróble nie są duże” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie pszczoły to owady. Filip nie hoduje żadnych owadów. Czy Filip hoduje pszczoły? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie pszczoły są głośne. Czy żadne pszczoły nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka H świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka F świeci. Wiadomo, że lampka H świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Adam dał Basi jabłko. Kto dał? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ewa przyszła wcześniej niż Adam. Adam przyszedł wcześniej niż Darek. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 3 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłka",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Filip ma 194 cm wzrostu, Ala ma 182 cm, a Iza ma 184 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Wszystkie karpie są małe (każdy osobnik). Czy jakieś karpie są duże? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „ulica jest mokra” oraz „ulica nie jest mokra” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie tulipany to kwiaty. Basia hoduje kwiaty. Czy Basia hoduje tulipany? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „niektóre róże są duże” oraz „niektóre róże nie są duże” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Marta ma 167 cm wzrostu, Filip ma 164 cm, a Darek ma 176 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Zawsze gdy piec przestał działać, to w domu zrobiło się zimno. Tym razem okazało się, że nieprawda, że w domu zrobiło się zimno. Czy piec przestał działać? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Jeśli piec przestał działać, to w domu zrobiło się zimno. Wiadomo, że w domu zrobiło się zimno. Czy na pewno piec przestał działać? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 2 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryby",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 163 cm wzrostu, Marta ma 176 cm, a Ala ma 171 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Ponieważ spadł śnieg, dzieci ulepiły bałwana. Wiadomo, że spadł śnieg. Czy dzieci ulepiły bałwana? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Zawsze gdy zepsuł się autobus, to Janek poszedł pieszo. Tym razem okazało się, że nieprawda, że Janek poszedł pieszo. Czy zepsuł się autobus? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Basia dała Darkowi kwiaty. Komu dano? Podaj imię w mianowniku.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie róże są głośne. Czy niektóre róże nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „Janek idzie na spacer” oraz „Janek nie idzie na spacer” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 19, 23, 27, 31, ? Podaj liczbę.",
+"gold": "35",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Marta przyszła wcześniej niż Basia. Basia przyszła wcześniej niż Janek. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka D świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka A świeci. Wiadomo, że lampka A nie świeci. Czy lampka D świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Iza przyszła wcześniej niż Bartek. Bartek przyszedł wcześniej niż Filip. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Bartek ma 168 cm wzrostu, Darek ma 163 cm, a Janek ma 165 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "koń : stajnia = krowa : ? Wybierz jedno słowo: cielę, obora, pędzel, źrebię.",
+"gold": "obora",
+"got": null,
+"ok": false
+},
+{
+"kind": "przyczyna",
+"q": "Jeśli Ala zaspała, to Ala spóźniła się do szkoły. Wiadomo, że Ala spóźniła się do szkoły. Czy na pewno Ala zaspała? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "prawda : fałsz = dzień : ? Wybierz jedno słowo: kurczę, noc, siekiera, źrebię.",
+"gold": "noc",
+"got": null,
+"ok": false
+},
+{
+"kind": "warunki",
+"q": "Jeśli jest niedziela, to sklep jest zamknięty. Wiadomo, że sklep nie jest zamknięty. Czy jest niedziela? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre dęby są głośne. Czy wszystkie dęby są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Iza pisała list. Czy Iza skończyła tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "pisarz : pióro = malarz : ? Wybierz jedno słowo: kocię, pędzel, szczenię, wyjście.",
+"gold": "pędzel",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ewa przyszła wcześniej niż Adam. Adam przyszedł wcześniej niż Janek. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "krowa : cielę = kot : ? Wybierz jedno słowo: fałsz, gniazdo, igła, kocię.",
+"gold": "kocię",
+"got": null,
+"ok": false
+},
+{
+"kind": "przyczyna",
+"q": "Ponieważ zepsuł się autobus, Janek poszedł pieszo. Wiadomo, że zepsuł się autobus. Czy Janek poszedł pieszo? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka G świeci. Wiadomo, że lampka G świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 4 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzesła",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Darek przyszedł wcześniej niż Janek. Janek przyszedł wcześniej niż Filip. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Basia miała 51 zł i oddała 4 zł Adamowi. Ile złotych zostało Basi?",
+"gold": "47",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 9, 17, 25, ? Podaj liczbę.",
+"gold": "33",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Kwiaty Filipowi dała Ala. Kto dał? Podaj imię.",
+"gold": "Ala",
+"got": "kwiat",
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "List Jankowi dał Darek. Komu dano? Podaj imię w mianowniku.",
+"gold": "Janek",
+"got": "Jank",
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Basia ma 179 cm wzrostu, Filip ma 168 cm, a Iza ma 198 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Iza",
+"got": "Iza",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie karpie to ryby. Bartek hoduje karpie. Czy Bartek hoduje ryby? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "W 8 pudełkach jest po 7 kredek. Ile kredek jest razem?",
+"gold": "56",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Adam ma 160 cm wzrostu, Filip ma 159 cm, a Janek ma 164 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Bartek przyszedł wcześniej niż Darek. Darek przyszedł wcześniej niż Filip. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Zawsze gdy Ala zaspała, to Ala spóźniła się do szkoły. Tym razem okazało się, że nieprawda, że Ala spóźniła się do szkoły. Czy Ala zaspała? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „niektóre dęby są duże” oraz „niektóre dęby nie są duże” mogą być jednocześnie prawdziwe? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 8, 17, 26, 35, ? Podaj liczbę.",
+"gold": "44",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 2 … (książka). Wybierz jedną formę: książek, książka, książki.",
+"gold": "książki",
+"got": null,
+"ok": false
+},
+{
+"kind": "przyczyna",
+"q": "Jeśli zgasło światło, to w pokoju zrobiło się ciemno. Wiadomo, że w pokoju zrobiło się ciemno. Czy na pewno zgasło światło? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "W 5 pudełkach jest po 32 kredek. Ile kredek jest razem?",
+"gold": "160",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Marta ma 186 cm wzrostu, Ewa ma 173 cm, a Basia ma 165 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka F świeci. Wiadomo, że lampka A świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 5 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryb",
+"got": null,
+"ok": false
+},
+{
+"kind": "warunki",
+"q": "Jeśli pada deszcz, to ulica jest mokra. Wiadomo, że nie pada deszcz. Czy ulica nie jest mokra? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka D świeci, to lampka F świeci. Jeśli lampka F świeci, to lampka B świeci. Wiadomo, że lampka B nie świeci. Czy lampka D świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ala miała 26 zł i oddała 9 zł Jankowi. Ile złotych zostało Ali?",
+"gold": "17",
+"got": null,
+"ok": false
+},
+{
+"kind": "warunki",
+"q": "Jeśli świeci słońce, to Janek idzie na spacer. Wiadomo, że świeci słońce. Czy Janek idzie na spacer? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Darek nie hoduje żadnych drzew. Czy Darek hoduje dęby? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie karpie to ryby. Ewa hoduje ryby. Czy Ewa hoduje karpie? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 6 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłek",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Basia ma 179 cm wzrostu, Ala ma 153 cm, a Adam ma 159 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie róże to rośliny. Adam hoduje róże. Czy Adam hoduje rośliny? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "kura : kurczę = koń : ? Wybierz jedno słowo: igła, koniec, noc, źrebię.",
+"gold": "źrebię",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "ptak : gniazdo = pies : ? Wybierz jedno słowo: buda, kurczę, szczenię, źrebię.",
+"gold": "buda",
+"got": null,
+"ok": false
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że Janek idzie na spacer. Czy Janek idzie na spacer? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Darek przyszedł wcześniej niż Marta. Marta przyszła wcześniej niż Filip. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ewa przyszła wcześniej niż Ala. Ala przyszła wcześniej niż Janek. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Filip ma 183 cm wzrostu, Adam ma 157 cm, a Iza ma 192 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że Janek idzie na spacer. Czy Janek idzie na spacer? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "W 3 pudełkach jest po 36 kredek. Ile kredek jest razem?",
+"gold": "108",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Basia nie hoduje żadnych drzew. Czy Basia hoduje dęby? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Ewa pomalowała płot. Czy Ewa skończyła tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "kot : kocię = owca : ? Wybierz jedno słowo: jagnię, nora, pędzel, siekiera.",
+"gold": "jagnię",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Janek miał 50 zł i oddał 18 zł Ewie. Ile złotych zostało Jankowi?",
+"gold": "32",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pisarz : pióro = krawiec : ? Wybierz jedno słowo: igła, obora, stajnia, ul.",
+"gold": "igła",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Bartek pisał list, ale przerwał w połowie. Czy Bartek napisał list? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie wróble to ptaki. Basia hoduje ptaki. Czy Basia hoduje wróble? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Jabłko Jankowi dała Marta. Komu dano? Podaj imię w mianowniku.",
+"gold": "Janek",
+"got": "Jank",
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Bartkowi dał Janek kwiaty. Komu dano? Podaj imię w mianowniku.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 29 zł i oddała 28 zł Bartkowi. Ile złotych zostało Marcie?",
+"gold": "1",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka H świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka D świeci. Wiadomo, że lampka D świeci. Czy lampka H świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "pies : szczenię = owca : ? Wybierz jedno słowo: buda, jagnię, koniec, obora.",
+"gold": "jagnię",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "prawda : fałsz = góra : ? Wybierz jedno słowo: dół, obora, pędzel, źrebię.",
+"gold": "dół",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka F świeci. Wiadomo, że lampka G świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "warunki",
+"q": "Jeśli świeci słońce, to Janek idzie na spacer. Wiadomo, że Janek nie idzie na spacer. Czy świeci słońce? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "fryzjer : nożyczki = malarz : ? Wybierz jedno słowo: dół, obora, pędzel, szczenię.",
+"gold": "pędzel",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Basia ma 197 cm wzrostu, Adam ma 178 cm, a Marta ma 166 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 7 … (dom). Wybierz jedną formę: dom, domy, domów.",
+"gold": "domów",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Ala malowała płot. Czy Ala skończyła tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Bartek hoduje dęby. Czy Bartek hoduje drzewa? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre dęby są głośne. Czy jakieś dęby są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "koń : stajnia = pies : ? Wybierz jedno słowo: buda, jagnię, wędka, zimno.",
+"gold": "buda",
+"got": null,
+"ok": false
+},
+{
+"kind": "warunki",
+"q": "Jeśli jest niedziela, to sklep jest zamknięty. Wiadomo, że sklep jest zamknięty. Czy jest niedziela? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Żadne tulipany nie są zielone. Czy któreś tulipany są zielone? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie tulipany to kwiaty. Janek nie hoduje żadnych kwiatów. Czy Janek hoduje tulipany? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Filip miał 51 jabłek i dostał jeszcze 3 od Ali. Ile jabłek ma teraz Filip?",
+"gold": "54",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie róże to rośliny. Darek hoduje rośliny. Czy Darek hoduje róże? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 5, 12, 19, 26, ? Podaj liczbę.",
+"gold": "33",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Janek miał 34 zł i oddał 33 zł Basi. Ile złotych zostało Jankowi?",
+"gold": "1",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie wróble to ptaki. Darek hoduje wróble. Czy Darek hoduje ptaki? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "W 2 pudełkach jest po 37 kredek. Ile kredek jest razem?",
+"gold": "74",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka C świeci. Jeśli lampka C świeci, to lampka A świeci. Wiadomo, że lampka A nie świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Jabłko Basi dał Bartek. Kto dał? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie wróble to ptaki. Marta nie hoduje żadnych ptaków. Czy Marta hoduje wróble? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Ponieważ rzeka wylała, droga została zamknięta. Wiadomo, że rzeka wylała. Czy droga została zamknięta? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 6 … (dom). Wybierz jedną formę: dom, domy, domów.",
+"gold": "domów",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "koń : źrebię = owca : ? Wybierz jedno słowo: buda, igła, jagnię, wyjście.",
+"gold": "jagnię",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Janek przeczytał książkę. Czy Janek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Basia miała 43 zł i oddała 15 zł Ali. Ile złotych zostało Basi?",
+"gold": "28",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Filip ma 169 cm wzrostu, Iza ma 189 cm, a Janek ma 159 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie tulipany są głośne. Czy wszystkie tulipany są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Janek malował płot, ale przerwał w połowie. Czy Janek pomalował płot? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "warunki",
+"q": "Jeśli jest niedziela, to sklep jest zamknięty. Wiadomo, że jest niedziela. Czy sklep jest zamknięty? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 14, 17, 20, 23, ? Podaj liczbę.",
+"gold": "26",
+"got": null,
+"ok": false
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie jamniki są głośne. Czy żadne jamniki nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 9 … (kot). Wybierz jedną formę: kot, koty, kotów.",
+"gold": "kotów",
+"got": null,
+"ok": false
+},
+{
+"kind": "przyczyna",
+"q": "Zawsze gdy spadł śnieg, to dzieci ulepiły bałwana. Tym razem okazało się, że nieprawda, że dzieci ulepiły bałwana. Czy spadł śnieg? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 2 … (kot). Wybierz jedną formę: kot, koty, kotów.",
+"gold": "koty",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Marta hoduje drzewa. Czy Marta hoduje dęby? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Filip ma 168 cm wzrostu, Janek ma 186 cm, a Marta ma 170 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 18, 27, 36, 45, ? Podaj liczbę.",
+"gold": "54",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "W 4 pudełkach jest po 7 kredek. Ile kredek jest razem?",
+"gold": "28",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie róże to rośliny. Ala hoduje róże. Czy Ala hoduje rośliny? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie koty są głośne. Czy niektóre koty nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Marta dała Ali jabłko. Kto dał? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 22 zł i oddała 10 zł Bartkowi. Ile złotych zostało Ewie?",
+"gold": "12",
+"got": null,
+"ok": false
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre wróble są głośne. Czy wszystkie wróble są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "drwal : siekiera = krawiec : ? Wybierz jedno słowo: buda, igła, ul, zimno.",
+"gold": "igła",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie jamniki to psy. Darek nie hoduje żadnych psów. Czy Darek hoduje jamniki? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Bartek malował płot. Czy Bartek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że Ala zostaje w domu. Czy Ala zostaje w domu? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ala przyszła wcześniej niż Iza. Iza przyszła wcześniej niż Adam. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Filip przyszedł wcześniej niż Basia. Basia przyszła wcześniej niż Bartek. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 10, 19, 28, ? Podaj liczbę.",
+"gold": "37",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 8 … (dom). Wybierz jedną formę: dom, domy, domów.",
+"gold": "domów",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka B świeci. Jeśli lampka B świeci, to lampka G świeci. Wiadomo, że lampka G świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie róże to rośliny. Marta hoduje rośliny. Czy Marta hoduje róże? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie karpie to ryby. Ewa hoduje karpie. Czy Ewa hoduje ryby? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie róże są głośne. Czy wszystkie róże są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 5 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłek",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "List Darkowi dała Iza. Komu dano? Podaj imię w mianowniku.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Adam nie hoduje żadnych drzew. Czy Adam hoduje dęby? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Kwiaty Ali dała Marta. Komu dano? Podaj imię w mianowniku.",
+"gold": "Ala",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Iza ma 183 cm wzrostu, Marta ma 187 cm, a Adam ma 156 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Bartek pomalował płot. Czy Bartek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Ala ma 197 cm wzrostu, Iza ma 172 cm, a Basia ma 175 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Adam przyszedł wcześniej niż Marta. Marta przyszła wcześniej niż Darek. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Iza miała 42 jabłek i dostała jeszcze 11 od Filipa. Ile jabłek ma teraz Iza?",
+"gold": "53",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie tulipany to kwiaty. Filip hoduje kwiaty. Czy Filip hoduje tulipany? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka A świeci. Jeśli lampka A świeci, to lampka G świeci. Wiadomo, że lampka C świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre karpie są głośne. Czy jakieś karpie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie wróble to ptaki. Bartek hoduje wróble. Czy Bartek hoduje ptaki? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Wszystkie róże są małe (każdy osobnik). Czy jakieś róże są duże? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 159 cm wzrostu, Filip ma 151 cm, a Basia ma 180 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 6 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzeseł",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 2 … (dom). Wybierz jedną formę: dom, domy, domów.",
+"gold": "domy",
+"got": null,
+"ok": false
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie tulipany są głośne. Czy żadne tulipany nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie pszczoły to owady. Adam nie hoduje żadnych owadów. Czy Adam hoduje pszczoły? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka F świeci. Jeśli lampka F świeci, to lampka A świeci. Wiadomo, że lampka A nie świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Iza przyszła wcześniej niż Ala. Ala przyszła wcześniej niż Basia. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Izie dał Adam kwiaty. Kto dał? Podaj imię.",
+"gold": "Adam",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 5 … (kot). Wybierz jedną formę: kot, koty, kotów.",
+"gold": "kotów",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie pszczoły to owady. Filip hoduje owady. Czy Filip hoduje pszczoły? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "kot : kocię = kura : ? Wybierz jedno słowo: koniec, kurczę, pióro, wyjście.",
+"gold": "kurczę",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "kot : kocię = pies : ? Wybierz jedno słowo: dół, obora, szczenię, wyjście.",
+"gold": "szczenię",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Izie dała Marta książkę. Kto dał? Podaj imię.",
+"gold": "Marta",
+"got": "Izia",
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 43 zł i oddała 24 zł Filipowi. Ile złotych zostało Ewie?",
+"gold": "19",
+"got": null,
+"ok": false
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że ulica jest mokra. Czy ulica jest mokra? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 5, 10, 15, 20, ? Podaj liczbę.",
+"gold": "25",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "ciepło : zimno = góra : ? Wybierz jedno słowo: buda, dół, pióro, stajnia.",
+"gold": "dół",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Basia ma 188 cm wzrostu, Marta ma 151 cm, a Filip ma 153 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "początek : koniec = prawda : ? Wybierz jedno słowo: fałsz, gniazdo, kocię, wędka.",
+"gold": "fałsz",
+"got": null,
+"ok": false
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre jamniki są głośne. Czy wszystkie jamniki są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie koty to ssaki. Marta hoduje koty. Czy Marta hoduje ssaki? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Basia jadła obiad, ale przerwała w połowie. Czy Basia zjadła obiad? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Adamowi dał Darek list. Kto dał? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "ciepło : zimno = początek : ? Wybierz jedno słowo: cielę, koniec, nożyczki, siekiera.",
+"gold": "koniec",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Janek nie hoduje żadnych drzew. Czy Janek hoduje dęby? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie pszczoły są głośne. Czy niektóre pszczoły nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 22 jabłek i dostała jeszcze 8 od Ali. Ile jabłek ma teraz Marta?",
+"gold": "30",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "drwal : siekiera = malarz : ? Wybierz jedno słowo: gniazdo, pędzel, szczenię, ul.",
+"gold": "pędzel",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka H świeci. Jeśli lampka H świeci, to lampka D świeci. Wiadomo, że lampka D świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "ptak : gniazdo = lis : ? Wybierz jedno słowo: fałsz, igła, koniec, nora.",
+"gold": "nora",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Basia dała Filipowi kwiaty. Komu dano? Podaj imię w mianowniku.",
+"gold": "Filip",
+"got": "filip",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Ala. Ala przyszła wcześniej niż Darek. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 20, 23, 26, 29, ? Podaj liczbę.",
+"gold": "32",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka F świeci, to lampka B świeci. Jeśli lampka B świeci, to lampka H świeci. Wiadomo, że lampka F świeci. Czy lampka H świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka A świeci. Wiadomo, że lampka A nie świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie karpie są głośne. Czy wszystkie karpie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "owca : jagnię = pies : ? Wybierz jedno słowo: fałsz, noc, szczenię, wędka.",
+"gold": "szczenię",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Janek pisał list. Czy Janek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 2, 5, 8, 11, ? Podaj liczbę.",
+"gold": "14",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Ewa dała Jankowi list. Kto dał? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Marta dała Filipowi jabłko. Komu dano? Podaj imię w mianowniku.",
+"gold": "Filip",
+"got": "filip",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "pies : buda = koń : ? Wybierz jedno słowo: kurczę, stajnia, wyjście, wędka.",
+"gold": "stajnia",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Basia ma 165 cm wzrostu, Bartek ma 189 cm, a Marta ma 176 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Jeśli spadł śnieg, to dzieci ulepiły bałwana. Wiadomo, że dzieci ulepiły bałwana. Czy na pewno spadł śnieg? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Bartek miał 28 zł i oddał 27 zł Basi. Ile złotych zostało Bartkowi?",
+"gold": "1",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Bartek przeczytał książkę. Czy Bartek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka F świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka A świeci. Wiadomo, że lampka A świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Darek jadł obiad, ale przerwał w połowie. Czy Darek zjadł obiad? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 154 cm wzrostu, Adam ma 188 cm, a Iza ma 190 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Iza",
+"got": "Iza",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka G świeci. Wiadomo, że lampka C świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie róże są głośne. Czy żadne róże nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Basi dał Janek jabłko. Kto dał? Podaj imię.",
+"gold": "Janek",
+"got": null,
+"ok": false
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre wróble są głośne. Czy jakieś wróble są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Ali dała Marta list. Komu dano? Podaj imię w mianowniku.",
+"gold": "Ala",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 2, 10, 18, 26, ? Podaj liczbę.",
+"gold": "34",
+"got": null,
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Ewa jadła obiad. Czy Ewa skończyła tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie dęby to drzewa. Iza hoduje drzewa. Czy Iza hoduje dęby? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 7 … (książka). Wybierz jedną formę: książek, książka, książki.",
+"gold": "książek",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 18, 23, 28, 33, ? Podaj liczbę.",
+"gold": "38",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pies : szczenię = kot : ? Wybierz jedno słowo: kocię, koniec, siekiera, zimno.",
+"gold": "kocię",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Filip przyszedł wcześniej niż Adam. Adam przyszedł wcześniej niż Basia. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie jamniki są głośne. Czy niektóre jamniki nie są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 7, 13, 19, 25, ? Podaj liczbę.",
+"gold": "31",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Bartek ma 166 cm wzrostu, Adam ma 163 cm, a Ala ma 175 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "W 6 pudełkach jest po 12 kredek. Ile kredek jest razem?",
+"gold": "72",
+"got": null,
+"ok": false
+},
+{
+"kind": "kwantyfikatory",
+"q": "Wszystkie pszczoły są małe (każdy osobnik). Czy jakieś pszczoły są duże? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 13 zł i oddała 12 zł Jankowi. Ile złotych zostało Ewie?",
+"gold": "1",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka H świeci, to lampka B świeci. Jeśli lampka B świeci, to lampka D świeci. Wiadomo, że lampka D nie świeci. Czy lampka H świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Darek przeczytał książkę. Czy Darek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka F świeci, to lampka B świeci. Jeśli lampka B świeci, to lampka G świeci. Wiadomo, że lampka G świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre pszczoły są głośne. Czy wszystkie pszczoły są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre róże są głośne. Czy jakieś róże są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Ewa dała Jankowi jabłko. Komu dano? Podaj imię w mianowniku.",
+"gold": "Janek",
+"got": "Jank",
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 5 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzeseł",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 188 cm wzrostu, Adam ma 182 cm, a Darek ma 194 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Marta czytała książkę, ale przerwała w połowie. Czy Marta przeczytała książkę? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Janek malował płot. Czy Janek skończył tę czynność? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Bartek przyszedł wcześniej niż Janek. Janek przyszedł wcześniej niż Marta. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka D świeci, to lampka F świeci. Jeśli lampka F świeci, to lampka C świeci. Wiadomo, że lampka D świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie dęby są głośne. Czy wszystkie dęby są głośne? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "kot : kocię = koń : ? Wybierz jedno słowo: buda, obora, ul, źrebię.",
+"gold": "źrebię",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 57 jabłek i dostała jeszcze 9 od Izy. Ile jabłek ma teraz Ewa?",
+"gold": "66",
+"got": null,
+"ok": false
+}
+],
+"level_max": [
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 23 … (dom). Wybierz jedną formę: dom, domy, domów.",
+"gold": "domy",
+"got": null,
+"ok": false
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że nieprawda, że nieprawda, że sklep jest zamknięty. Czy sklep jest zamknięty? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Basia miała 40 jabłek, dostała 12 od Ali i oddała 28 Ali. Potem liczba jabłek Basi zwiększyła się 4-krotnie. Ile jabłek ma teraz Basia?",
+"gold": "96",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Filip ma 152 cm wzrostu, Adam ma 151 cm, Darek ma 173 cm, Marta ma 179 cm, a Iza ma 170 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Filip ma 151 cm wzrostu, Iza ma 161 cm, Janek ma 170 cm, Ewa ma 158 cm, a Bartek ma 182 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 24 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryby",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 112 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzeseł",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Adam przyszedł wcześniej niż Janek. Filip przyszedł wcześniej niż Bartek. Bartek przyszedł wcześniej niż Basia. Janek przyszedł wcześniej niż Filip. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 35 jabłek, dostała 34 od Darka i oddała 46 Darkowi. Potem liczba jabłek Marty zwiększyła się 4-krotnie. Ile jabłek ma teraz Marta?",
+"gold": "92",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka E świeci. Jeśli lampka F świeci, to lampka A świeci. Jeśli lampka D świeci, to lampka F świeci. Wiadomo, że lampka D świeci. Czy lampka E świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka F świeci, to lampka H świeci. Jeśli lampka D świeci, to lampka F świeci. Jeśli lampka A świeci, to lampka D świeci. Wiadomo, że lampka H nie świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Ewie dała Ala książkę. Kto dał? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ewa przyszła wcześniej niż Bartek. Ala przyszła wcześniej niż Adam. Marta przyszła wcześniej niż Ewa. Adam przyszedł wcześniej niż Marta. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że nieprawda, że sklep jest zamknięty. Czy sklep jest zamknięty? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 104 … (dom). Wybierz jedną formę: dom, domy, domów.",
+"gold": "domy",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 23 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryby",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Darek miał 22 jabłek, dostał 30 od Ali i oddał 36 Ali. Potem liczba jabłek Darka zwiększyła się 4-krotnie. Ile jabłek ma teraz Darek?",
+"gold": "64",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Ewa. Bartek przyszedł wcześniej niż Iza. Iza przyszła wcześniej niż Basia. Marta przyszła wcześniej niż Bartek. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "krawiec : igła = drwal : ? Wybierz jedno słowo: drwal, pędzel, siekiera, zimno.",
+"gold": "siekiera",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Filip przyszedł wcześniej niż Ewa. Marta przyszła wcześniej niż Filip. Iza przyszła wcześniej niż Ala. Ala przyszła wcześniej niż Marta. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ala miała 17 jabłek, dostała 30 od Basi i oddała 5 Basi. Potem liczba jabłek Ali zwiększyła się 3-krotnie. Ile jabłek ma teraz Ala?",
+"gold": "126",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Bartek miał 36 jabłek, dostał 2 od Marty i oddał 10 Marcie. Potem liczba jabłek Bartka zwiększyła się 2-krotnie. Ile jabłek ma teraz Bartek?",
+"gold": "56",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Iza ma 156 cm wzrostu, Ewa ma 151 cm, Filip ma 161 cm, Darek ma 198 cm, a Ala ma 164 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że nieprawda, że nieprawda, że Janek idzie na spacer. Czy Janek idzie na spacer? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Bartek miał 46 jabłek, dostał 15 od Basi i oddał 47 Basi. Potem liczba jabłek Bartka zwiększyła się 3-krotnie. Ile jabłek ma teraz Bartek?",
+"gold": "42",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ala ma 161 cm wzrostu, Janek ma 156 cm, Bartek ma 192 cm, Marta ma 180 cm, a Darek ma 173 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Adam miał 4 jabłek, dostał 28 od Marty i oddał 4 Marcie. Potem liczba jabłek Adama zwiększyła się 2-krotnie. Ile jabłek ma teraz Adam?",
+"gold": "56",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ala miała 6 jabłek, dostała 28 od Darka i oddała 32 Darkowi. Potem liczba jabłek Ali zwiększyła się 3-krotnie. Ile jabłek ma teraz Ala?",
+"gold": "6",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Książkę Ewie dał Janek. Kto dał? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 51 jabłek, dostała 33 od Basi i oddała 25 Basi. Potem liczba jabłek Ewy zwiększyła się 2-krotnie. Ile jabłek ma teraz Ewa?",
+"gold": "118",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 7, 11, 16, 22, ? Podaj liczbę.",
+"gold": "29",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ala przyszła wcześniej niż Janek. Ewa przyszła wcześniej niż Marta. Marta przyszła wcześniej niż Ala. Bartek przyszedł wcześniej niż Ewa. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że nieprawda, że Janek idzie na spacer. Czy Janek idzie na spacer? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Darek przyszedł wcześniej niż Marta. Basia przyszła wcześniej niż Ewa. Marta przyszła wcześniej niż Adam. Adam przyszedł wcześniej niż Basia. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "początek : koniec = góra : ? Wybierz jedno słowo: dół, fałsz, góra, obora.",
+"gold": "dół",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 9, 13, 20, 30, ? Podaj liczbę.",
+"gold": "43",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Filip przyszedł wcześniej niż Iza. Ewa przyszła wcześniej niż Janek. Iza przyszła wcześniej niż Darek. Janek przyszedł wcześniej niż Filip. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 22 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryby",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Jabłko Bartkowi dała Marta. Kto dał? Podaj imię.",
+"gold": "Marta",
+"got": "jabłko",
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pszczoła : ul = koń : ? Wybierz jedno słowo: fałsz, koń, obora, stajnia.",
+"gold": "stajnia",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Filip miał 13 jabłek, dostał 12 od Marty i oddał 15 Marcie. Potem liczba jabłek Filipa zwiększyła się 4-krotnie. Ile jabłek ma teraz Filip?",
+"gold": "40",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Adam miał 32 jabłek, dostał 30 od Izy i oddał 47 Izie. Potem liczba jabłek Adama zwiększyła się 2-krotnie. Ile jabłek ma teraz Adam?",
+"gold": "30",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka H świeci, to lampka G świeci. Jeśli lampka F świeci, to lampka H świeci. Jeśli lampka G świeci, to lampka A świeci. Wiadomo, że lampka A świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 7, 11, 18, 28, ? Podaj liczbę.",
+"gold": "41",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 1000 … (kot). Wybierz jedną formę: kot, koty, kotów.",
+"gold": "kotów",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "wejście : wyjście = ciepło : ? Wybierz jedno słowo: ciepło, dół, pędzel, zimno.",
+"gold": "zimno",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Ala. Janek przyszedł wcześniej niż Bartek. Ala przyszła wcześniej niż Darek. Bartek przyszedł wcześniej niż Basia. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 6, 14, 25, ? Podaj liczbę.",
+"gold": "39",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Marta ma 163 cm wzrostu, Filip ma 198 cm, Iza ma 154 cm, Basia ma 172 cm, a Adam ma 150 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "koń : stajnia = lis : ? Wybierz jedno słowo: dół, lis, nora, obora.",
+"gold": "nora",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "koń : stajnia = pies : ? Wybierz jedno słowo: buda, dół, pies, ul.",
+"gold": "buda",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 32 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryby",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Filipowi dała Marta kwiaty. Kto dał? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "prawda : fałsz = początek : ? Wybierz jedno słowo: koniec, pióro, początek, zimno.",
+"gold": "koniec",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "malarz : pędzel = drwal : ? Wybierz jedno słowo: drwal, pióro, siekiera, wyjście.",
+"gold": "siekiera",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 7, 12, 18, 25, ? Podaj liczbę.",
+"gold": "33",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "owca : jagnię = pies : ? Wybierz jedno słowo: buda, kurczę, pies, szczenię.",
+"gold": "szczenię",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "List Ewie dał Adam. Kto dał? Podaj imię.",
+"gold": "Adam",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pisarz : pióro = krawiec : ? Wybierz jedno słowo: igła, krawiec, kurczę, pióro.",
+"gold": "igła",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Jabłko Darkowi dała Basia. Kto dał? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "List Basi dała Iza. Kto dał? Podaj imię.",
+"gold": "Iza",
+"got": "list",
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka B świeci, to lampka C świeci. Jeśli lampka H świeci, to lampka A świeci. Jeśli lampka A świeci, to lampka B świeci. Wiadomo, że lampka H świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "kura : kurczę = kot : ? Wybierz jedno słowo: kocię, kot, nora, źrebię.",
+"gold": "kocię",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka B świeci, to lampka G świeci. Jeśli lampka F świeci, to lampka B świeci. Jeśli lampka G świeci, to lampka H świeci. Wiadomo, że lampka H nie świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka F świeci. Wiadomo, że lampka F świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka H świeci, to lampka B świeci. Jeśli lampka B świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka F świeci. Wiadomo, że lampka H świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka F świeci. Jeśli lampka G świeci, to lampka B świeci. Jeśli lampka B świeci, to lampka C świeci. Wiadomo, że lampka F nie świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Marcie dał Adam książkę. Kto dał? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Darek miał 17 jabłek, dostał 28 od Marty i oddał 9 Marcie. Potem liczba jabłek Darka zwiększyła się 4-krotnie. Ile jabłek ma teraz Darek?",
+"gold": "144",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "ptak : gniazdo = koń : ? Wybierz jedno słowo: koń, stajnia, ul, wędka.",
+"gold": "stajnia",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ala ma 194 cm wzrostu, Iza ma 196 cm, Janek ma 180 cm, Adam ma 184 cm, a Filip ma 153 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka B świeci, to lampka E świeci. Jeśli lampka D świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka B świeci. Wiadomo, że lampka E świeci. Czy lampka D świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Izie dała Ewa jabłko. Komu dano? Podaj imię w mianowniku.",
+"gold": "Iza",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 32 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzesła",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 104 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłka",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Bartek. Ewa przyszła wcześniej niż Basia. Filip przyszedł wcześniej niż Ewa. Marta przyszła wcześniej niż Filip. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Jabłko Ali dała Marta. Kto dał? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "prawda : fałsz = wejście : ? Wybierz jedno słowo: stajnia, wejście, wyjście, zimno.",
+"gold": "wyjście",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka E świeci, to lampka H świeci. Jeśli lampka B świeci, to lampka G świeci. Jeśli lampka H świeci, to lampka B świeci. Wiadomo, że lampka E świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Janek przyszedł wcześniej niż Adam. Adam przyszedł wcześniej niż Marta. Ala przyszła wcześniej niż Ewa. Marta przyszła wcześniej niż Ala. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 10, 12, 17, 25, ? Podaj liczbę.",
+"gold": "36",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 32 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłka",
+"got": null,
+"ok": false
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że nieprawda, że nieprawda, że Ala zostaje w domu. Czy Ala zostaje w domu? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka A świeci. Wiadomo, że lampka A nie świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 8, 12, 17, 23, ? Podaj liczbę.",
+"gold": "30",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Jabłko Basi dała Marta. Komu dano? Podaj imię w mianowniku.",
+"gold": "Basia",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Adam. Adam przyszedł wcześniej niż Ewa. Bartek przyszedł wcześniej niż Basia. Filip przyszedł wcześniej niż Bartek. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "góra : dół = ciepło : ? Wybierz jedno słowo: ciepło, ul, wyjście, zimno.",
+"gold": "zimno",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "koń : stajnia = krowa : ? Wybierz jedno słowo: krowa, nora, obora, pędzel.",
+"gold": "obora",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Filip ma 173 cm wzrostu, Marta ma 183 cm, Ewa ma 181 cm, Iza ma 187 cm, a Janek ma 154 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Marta przyszła wcześniej niż Ala. Ala przyszła wcześniej niż Darek. Darek przyszedł wcześniej niż Janek. Basia przyszła wcześniej niż Marta. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ala miała 44 jabłek, dostała 20 od Izy i oddała 61 Izie. Potem liczba jabłek Ali zwiększyła się 2-krotnie. Ile jabłek ma teraz Ala?",
+"gold": "6",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 9, 10, 14, 21, ? Podaj liczbę.",
+"gold": "31",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Filip przyszedł wcześniej niż Marta. Bartek przyszedł wcześniej niż Iza. Iza przyszła wcześniej niż Ala. Ala przyszła wcześniej niż Filip. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Adam ma 172 cm wzrostu, Ewa ma 173 cm, Janek ma 190 cm, Ala ma 167 cm, a Marta ma 180 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "krowa : cielę = kot : ? Wybierz jedno słowo: gniazdo, kocię, kot, kurczę.",
+"gold": "kocię",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Filip przyszedł wcześniej niż Ala. Ewa przyszła wcześniej niż Adam. Ala przyszła wcześniej niż Ewa. Adam przyszedł wcześniej niż Marta. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Marta",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Książkę Ali dał Janek. Komu dano? Podaj imię w mianowniku.",
+"gold": "Ala",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ala miała 39 jabłek, dostała 16 od Basi i oddała 26 Basi. Potem liczba jabłek Ali zwiększyła się 2-krotnie. Ile jabłek ma teraz Ala?",
+"gold": "58",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Filip miał 9 jabłek, dostał 2 od Basi i oddał 7 Basi. Potem liczba jabłek Filipa zwiększyła się 2-krotnie. Ile jabłek ma teraz Filip?",
+"gold": "8",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "rybak : wędka = krawiec : ? Wybierz jedno słowo: igła, krawiec, noc, wędka.",
+"gold": "igła",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 24 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłka",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Darek ma 183 cm wzrostu, Adam ma 178 cm, Ala ma 177 cm, Marta ma 188 cm, a Ewa ma 191 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "kura : kurczę = koń : ? Wybierz jedno słowo: koń, kurczę, obora, źrebię.",
+"gold": "źrebię",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 10, 13, 18, 25, ? Podaj liczbę.",
+"gold": "34",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "owca : jagnię = kot : ? Wybierz jedno słowo: cielę, kocię, kot, wyjście.",
+"gold": "kocię",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka C świeci. Jeśli lampka C świeci, to lampka H świeci. Wiadomo, że lampka H świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 32 jabłek, dostała 31 od Basi i oddała 24 Basi. Potem liczba jabłek Marty zwiększyła się 4-krotnie. Ile jabłek ma teraz Marta?",
+"gold": "156",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka A świeci. Jeśli lampka D świeci, to lampka E świeci. Jeśli lampka A świeci, to lampka D świeci. Wiadomo, że lampka G świeci. Czy lampka E świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 1000 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzeseł",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 6, 11, 18, 27, ? Podaj liczbę.",
+"gold": "38",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Kwiaty Izie dała Basia. Kto dał? Podaj imię.",
+"gold": "Basia",
+"got": "kwiat",
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 112 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłek",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Adam miał 22 jabłek, dostał 18 od Bartka i oddał 21 Bartkowi. Potem liczba jabłek Adama zwiększyła się 4-krotnie. Ile jabłek ma teraz Adam?",
+"gold": "76",
+"got": null,
+"ok": false
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że nieprawda, że ulica jest mokra. Czy ulica jest mokra? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "ptak : gniazdo = pies : ? Wybierz jedno słowo: buda, pies, pędzel, ul.",
+"gold": "buda",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Darek przyszedł wcześniej niż Basia. Adam przyszedł wcześniej niż Ewa. Basia przyszła wcześniej niż Marta. Ewa przyszła wcześniej niż Darek. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Marta ma 153 cm wzrostu, Darek ma 150 cm, Iza ma 171 cm, Adam ma 175 cm, a Bartek ma 180 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 5, 12, 22, ? Podaj liczbę.",
+"gold": "35",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 25 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłek",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Adam przyszedł wcześniej niż Iza. Janek przyszedł wcześniej niż Filip. Iza przyszła wcześniej niż Janek. Filip przyszedł wcześniej niż Basia. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "List Basi dał Adam. Komu dano? Podaj imię w mianowniku.",
+"gold": "Basia",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Filipowi dała Basia jabłko. Komu dano? Podaj imię w mianowniku.",
+"gold": "Filip",
+"got": "filip",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 35 jabłek, dostała 12 od Basi i oddała 1 Basi. Potem liczba jabłek Marty zwiększyła się 3-krotnie. Ile jabłek ma teraz Marta?",
+"gold": "138",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Janek. Adam przyszedł wcześniej niż Iza. Janek przyszedł wcześniej niż Bartek. Iza przyszła wcześniej niż Basia. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Jankowi dała Basia książkę. Kto dał? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 3, 6, 11, 18, ? Podaj liczbę.",
+"gold": "27",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 2, 5, 10, ? Podaj liczbę.",
+"gold": "17",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka H świeci, to lampka F świeci. Jeśli lampka B świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka H świeci. Wiadomo, że lampka F nie świeci. Czy lampka B świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Książkę Filipowi dał Darek. Kto dał? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "krowa : cielę = kura : ? Wybierz jedno słowo: kura, kurczę, stajnia, źrebię.",
+"gold": "kurczę",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka H świeci. Jeśli lampka A świeci, to lampka G świeci. Jeśli lampka H świeci, to lampka C świeci. Wiadomo, że lampka C świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ala przyszła wcześniej niż Adam. Darek przyszedł wcześniej niż Marta. Filip przyszedł wcześniej niż Ala. Marta przyszła wcześniej niż Filip. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Adam",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 24 … (książka). Wybierz jedną formę: książek, książka, książki.",
+"gold": "książki",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Kwiaty Adamowi dała Ala. Komu dano? Podaj imię w mianowniku.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Iza ma 158 cm wzrostu, Filip ma 193 cm, Ewa ma 174 cm, Adam ma 159 cm, a Ala ma 176 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Iza",
+"got": "Iza",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ala przyszła wcześniej niż Janek. Ewa przyszła wcześniej niż Ala. Marta przyszła wcześniej niż Filip. Filip przyszedł wcześniej niż Ewa. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Filip miał 18 jabłek, dostał 31 od Basi i oddał 44 Basi. Potem liczba jabłek Filipa zwiększyła się 3-krotnie. Ile jabłek ma teraz Filip?",
+"gold": "15",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "krawiec : igła = malarz : ? Wybierz jedno słowo: igła, malarz, noc, pędzel.",
+"gold": "pędzel",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 5, 8, 14, 23, ? Podaj liczbę.",
+"gold": "35",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Bartek miał 5 jabłek, dostał 10 od Basi i oddał 3 Basi. Potem liczba jabłek Bartka zwiększyła się 2-krotnie. Ile jabłek ma teraz Bartek?",
+"gold": "24",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Kwiaty Marcie dała Ewa. Kto dał? Podaj imię.",
+"gold": "Ewa",
+"got": "kwiat",
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 162 cm wzrostu, Ala ma 174 cm, Basia ma 170 cm, Darek ma 159 cm, a Filip ma 161 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 36 jabłek, dostała 21 od Basi i oddała 20 Basi. Potem liczba jabłek Marty zwiększyła się 4-krotnie. Ile jabłek ma teraz Marta?",
+"gold": "148",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Darek ma 191 cm wzrostu, Bartek ma 176 cm, Marta ma 168 cm, Basia ma 186 cm, a Ewa ma 179 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 6, 11, 17, 24, ? Podaj liczbę.",
+"gold": "32",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 5, 9, 16, 26, ? Podaj liczbę.",
+"gold": "39",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "koń : stajnia = krowa : ? Wybierz jedno słowo: dół, krowa, obora, ul.",
+"gold": "obora",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 23 … (kot). Wybierz jedną formę: kot, koty, kotów.",
+"gold": "koty",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Bartek przyszedł wcześniej niż Iza. Iza przyszła wcześniej niż Marta. Basia przyszła wcześniej niż Bartek. Marta przyszła wcześniej niż Ewa. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "krowa : obora = pies : ? Wybierz jedno słowo: buda, pies, stajnia, źrebię.",
+"gold": "buda",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 7, 12, 19, 28, ? Podaj liczbę.",
+"gold": "39",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Iza miała 53 jabłek, dostała 16 od Bartka i oddała 26 Bartkowi. Potem liczba jabłek Izy zwiększyła się 4-krotnie. Ile jabłek ma teraz Iza?",
+"gold": "172",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "krawiec : igła = malarz : ? Wybierz jedno słowo: igła, malarz, pędzel, ul.",
+"gold": "pędzel",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka B świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka C świeci. Jeśli lampka H świeci, to lampka B świeci. Wiadomo, że lampka H świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 173 cm wzrostu, Filip ma 163 cm, Iza ma 193 cm, Ala ma 191 cm, a Bartek ma 186 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "malarz : pędzel = fryzjer : ? Wybierz jedno słowo: fryzjer, gniazdo, nożyczki, wędka.",
+"gold": "nożyczki",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka H świeci. Jeśli lampka A świeci, to lampka C świeci. Jeśli lampka C świeci, to lampka G świeci. Wiadomo, że lampka H nie świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 43 jabłek, dostała 10 od Basi i oddała 37 Basi. Potem liczba jabłek Ewy zwiększyła się 2-krotnie. Ile jabłek ma teraz Ewa?",
+"gold": "32",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Bartek przyszedł wcześniej niż Iza. Janek przyszedł wcześniej niż Bartek. Iza przyszła wcześniej niż Ala. Basia przyszła wcześniej niż Janek. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 51 jabłek, dostała 21 od Ali i oddała 12 Ali. Potem liczba jabłek Marty zwiększyła się 3-krotnie. Ile jabłek ma teraz Marta?",
+"gold": "180",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pies : szczenię = kot : ? Wybierz jedno słowo: igła, kocię, kot, szczenię.",
+"gold": "kocię",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 164 cm wzrostu, Filip ma 189 cm, Iza ma 190 cm, Adam ma 158 cm, a Marta ma 154 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Iza",
+"got": "Iza",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 8, 9, 11, 14, ? Podaj liczbę.",
+"gold": "18",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Darek ma 156 cm wzrostu, Adam ma 171 cm, Iza ma 169 cm, Basia ma 177 cm, a Ewa ma 158 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Adam miał 49 jabłek, dostał 4 od Ali i oddał 1 Ali. Potem liczba jabłek Adama zwiększyła się 2-krotnie. Ile jabłek ma teraz Adam?",
+"gold": "104",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Darkowi dała Ala jabłko. Kto dał? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 2, 4, 7, ? Podaj liczbę.",
+"gold": "11",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Książkę Jankowi dała Basia. Komu dano? Podaj imię w mianowniku.",
+"gold": "Janek",
+"got": "Jank",
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "malarz : pędzel = krawiec : ? Wybierz jedno słowo: buda, igła, krawiec, siekiera.",
+"gold": "igła",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Janek przyszedł wcześniej niż Ewa. Ewa przyszła wcześniej niż Adam. Ala przyszła wcześniej niż Janek. Adam przyszedł wcześniej niż Basia. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 104 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryby",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Darek przyszedł wcześniej niż Bartek. Ewa przyszła wcześniej niż Darek. Marta przyszła wcześniej niż Ewa. Basia przyszła wcześniej niż Marta. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 24 … (kot). Wybierz jedną formę: kot, koty, kotów.",
+"gold": "koty",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka B świeci. Wiadomo, że lampka B świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 6, 13, 22, ? Podaj liczbę.",
+"gold": "33",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Darek miał 22 jabłek, dostał 28 od Marty i oddał 16 Marcie. Potem liczba jabłek Darka zwiększyła się 4-krotnie. Ile jabłek ma teraz Darek?",
+"gold": "136",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka F świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka A świeci. Jeśli lampka C świeci, to lampka F świeci. Wiadomo, że lampka C świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka B świeci. Jeśli lampka G świeci, to lampka C świeci. Jeśli lampka B świeci, to lampka A świeci. Wiadomo, że lampka A nie świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "ptak : gniazdo = pies : ? Wybierz jedno słowo: buda, noc, pies, stajnia.",
+"gold": "buda",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 3, 8, 14, 21, ? Podaj liczbę.",
+"gold": "29",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pies : buda = ptak : ? Wybierz jedno słowo: fałsz, gniazdo, obora, ptak.",
+"gold": "gniazdo",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 3, 4, 8, 15, ? Podaj liczbę.",
+"gold": "25",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Janek miał 48 jabłek, dostał 22 od Adama i oddał 7 Adamowi. Potem liczba jabłek Janka zwiększyła się 2-krotnie. Ile jabłek ma teraz Janek?",
+"gold": "126",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka D świeci. Jeśli lampka E świeci, to lampka C świeci. Jeśli lampka H świeci, to lampka E świeci. Wiadomo, że lampka D świeci. Czy lampka H świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Bartek ma 193 cm wzrostu, Basia ma 166 cm, Ewa ma 195 cm, Ala ma 151 cm, a Darek ma 168 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 112 … (ryba). Wybierz jedną formę: ryb, ryba, ryby.",
+"gold": "ryb",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka F świeci, to lampka C świeci. Jeśli lampka D świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka F świeci. Wiadomo, że lampka D świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 7, 10, 14, 19, ? Podaj liczbę.",
+"gold": "25",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Bartek miał 46 jabłek, dostał 28 od Ali i oddał 53 Ali. Potem liczba jabłek Bartka zwiększyła się 3-krotnie. Ile jabłek ma teraz Bartek?",
+"gold": "63",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "rybak : wędka = krawiec : ? Wybierz jedno słowo: igła, krawiec, wędka, źrebię.",
+"gold": "igła",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 4, 8, 14, 22, ? Podaj liczbę.",
+"gold": "32",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Janek miał 6 jabłek, dostał 7 od Bartka i oddał 2 Bartkowi. Potem liczba jabłek Janka zwiększyła się 2-krotnie. Ile jabłek ma teraz Janek?",
+"gold": "22",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Filip miał 44 jabłek, dostał 14 od Basi i oddał 49 Basi. Potem liczba jabłek Filipa zwiększyła się 4-krotnie. Ile jabłek ma teraz Filip?",
+"gold": "36",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Iza ma 183 cm wzrostu, Basia ma 181 cm, Filip ma 198 cm, Ala ma 180 cm, a Janek ma 179 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Bartek. Iza przyszła wcześniej niż Basia. Marta przyszła wcześniej niż Iza. Adam przyszedł wcześniej niż Marta. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka D świeci, to lampka C świeci. Jeśli lampka F świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka D świeci. Wiadomo, że lampka C nie świeci. Czy lampka F świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Bartek ma 194 cm wzrostu, Ala ma 193 cm, Iza ma 183 cm, Janek ma 186 cm, a Darek ma 163 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Filip ma 199 cm wzrostu, Basia ma 193 cm, Marta ma 169 cm, Adam ma 187 cm, a Ewa ma 188 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Marta",
+"got": "Marta",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 2, 3, 7, 14, ? Podaj liczbę.",
+"gold": "24",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "dzień : noc = prawda : ? Wybierz jedno słowo: buda, fałsz, prawda, wyjście.",
+"gold": "fałsz",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 3, 7, 12, 18, ? Podaj liczbę.",
+"gold": "25",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 5, 9, 15, 23, ? Podaj liczbę.",
+"gold": "33",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Filipowi dała Ala kwiaty. Kto dał? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Ewa. Filip przyszedł wcześniej niż Darek. Iza przyszła wcześniej niż Basia. Ewa przyszła wcześniej niż Filip. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że nieprawda, że nieprawda, że ulica jest mokra. Czy ulica jest mokra? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Darek ma 198 cm wzrostu, Adam ma 190 cm, Marta ma 182 cm, Ewa ma 167 cm, a Basia ma 184 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka H świeci, to lampka F świeci. Jeśli lampka D świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka H świeci. Wiadomo, że lampka F świeci. Czy lampka D świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ala miała 35 jabłek, dostała 31 od Bartka i oddała 18 Bartkowi. Potem liczba jabłek Ali zwiększyła się 3-krotnie. Ile jabłek ma teraz Ala?",
+"gold": "144",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Janek miał 12 jabłek, dostał 35 od Ewy i oddał 45 Ewie. Potem liczba jabłek Janka zwiększyła się 4-krotnie. Ile jabłek ma teraz Janek?",
+"gold": "8",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Adam ma 198 cm wzrostu, Ala ma 197 cm, Bartek ma 155 cm, Basia ma 181 cm, a Darek ma 179 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Bartek przyszedł wcześniej niż Adam. Adam przyszedł wcześniej niż Filip. Filip przyszedł wcześniej niż Marta. Marta przyszła wcześniej niż Iza. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Iza",
+"got": "Iza",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Adam przyszedł wcześniej niż Ewa. Basia przyszła wcześniej niż Adam. Filip przyszedł wcześniej niż Iza. Iza przyszła wcześniej niż Basia. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Iza miała 4 jabłek, dostała 27 od Ali i oddała 14 Ali. Potem liczba jabłek Izy zwiększyła się 4-krotnie. Ile jabłek ma teraz Iza?",
+"gold": "68",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Marcie dał Filip jabłko. Kto dał? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Ewie dała Basia list. Komu dano? Podaj imię w mianowniku.",
+"gold": "Ewa",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Filip ma 183 cm wzrostu, Janek ma 195 cm, Iza ma 168 cm, Darek ma 165 cm, a Ala ma 158 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 1000 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłek",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Książkę Basi dał Janek. Kto dał? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka B świeci. Jeśli lampka B świeci, to lampka D świeci. Jeśli lampka H świeci, to lampka A świeci. Wiadomo, że lampka H świeci. Czy lampka D świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 16 jabłek, dostała 38 od Ali i oddała 10 Ali. Potem liczba jabłek Marty zwiększyła się 3-krotnie. Ile jabłek ma teraz Marta?",
+"gold": "132",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 6, 8, 11, 15, ? Podaj liczbę.",
+"gold": "20",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 12 jabłek, dostała 38 od Janka i oddała 16 Jankowi. Potem liczba jabłek Ewy zwiększyła się 2-krotnie. Ile jabłek ma teraz Ewa?",
+"gold": "68",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka H świeci. Jeśli lampka F świeci, to lampka C świeci. Jeśli lampka G świeci, to lampka F świeci. Wiadomo, że lampka H nie świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Wiadomo, że nieprawda, że nieprawda, że nieprawda, że Ala zostaje w domu. Czy Ala zostaje w domu? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "kot : kocię = kura : ? Wybierz jedno słowo: kocię, kura, kurczę, pióro.",
+"gold": "kurczę",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 22 … (jabłko). Wybierz jedną formę: jabłek, jabłka, jabłko.",
+"gold": "jabłka",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka D świeci. Jeśli lampka E świeci, to lampka A świeci. Wiadomo, że lampka D świeci. Czy lampka E świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "List Filipowi dał Bartek. Komu dano? Podaj imię w mianowniku.",
+"gold": "Filip",
+"got": "filip",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 3, 6, 10, ? Podaj liczbę.",
+"gold": "15",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka F świeci. Jeśli lampka B świeci, to lampka G świeci. Jeśli lampka F świeci, to lampka C świeci. Wiadomo, że lampka B świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "ciepło : zimno = góra : ? Wybierz jedno słowo: dół, fałsz, góra, stajnia.",
+"gold": "dół",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "początek : koniec = prawda : ? Wybierz jedno słowo: fałsz, prawda, wędka, zimno.",
+"gold": "fałsz",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ala miała 28 jabłek, dostała 3 od Adama i oddała 20 Adamowi. Potem liczba jabłek Ali zwiększyła się 4-krotnie. Ile jabłek ma teraz Ala?",
+"gold": "44",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 4 jabłek, dostała 37 od Darka i oddała 29 Darkowi. Potem liczba jabłek Ewy zwiększyła się 3-krotnie. Ile jabłek ma teraz Ewa?",
+"gold": "36",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "List Marcie dał Adam. Kto dał? Podaj imię.",
+"gold": "Adam",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "góra : dół = dzień : ? Wybierz jedno słowo: dzień, igła, noc, wyjście.",
+"gold": "noc",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka A świeci. Jeśli lampka F świeci, to lampka B świeci. Jeśli lampka A świeci, to lampka F świeci. Wiadomo, że lampka B nie świeci. Czy lampka C świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 2, 7, 14, 23, ? Podaj liczbę.",
+"gold": "34",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Adam przyszedł wcześniej niż Filip. Darek przyszedł wcześniej niż Marta. Marta przyszła wcześniej niż Ewa. Ewa przyszła wcześniej niż Adam. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 10, 11, 15, 22, ? Podaj liczbę.",
+"gold": "32",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ala ma 170 cm wzrostu, Janek ma 162 cm, Bartek ma 179 cm, Adam ma 185 cm, a Ewa ma 168 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "pisarz : pióro = drwal : ? Wybierz jedno słowo: drwal, igła, koniec, siekiera.",
+"gold": "siekiera",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "kot : kocię = pies : ? Wybierz jedno słowo: jagnię, nora, pies, szczenię.",
+"gold": "szczenię",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 3, 8, 16, 27, ? Podaj liczbę.",
+"gold": "41",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka F świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka B świeci. Jeśli lampka G świeci, to lampka F świeci. Wiadomo, że lampka B świeci. Czy lampka G świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "ciepło : zimno = wejście : ? Wybierz jedno słowo: noc, ul, wejście, wyjście.",
+"gold": "wyjście",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka F świeci. Jeśli lampka G świeci, to lampka A świeci. Jeśli lampka F świeci, to lampka H świeci. Wiadomo, że lampka G świeci. Czy lampka H świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Marta przyszła wcześniej niż Filip. Ewa przyszła wcześniej niż Bartek. Bartek przyszedł wcześniej niż Marta. Darek przyszedł wcześniej niż Ewa. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "góra : dół = dzień : ? Wybierz jedno słowo: dzień, noc, pióro, wyjście.",
+"gold": "noc",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 6, 8, 13, 21, ? Podaj liczbę.",
+"gold": "32",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka H świeci. Jeśli lampka A świeci, to lampka G świeci. Jeśli lampka H świeci, to lampka B świeci. Wiadomo, że lampka B nie świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 40 jabłek, dostała 22 od Janka i oddała 1 Jankowi. Potem liczba jabłek Ewy zwiększyła się 3-krotnie. Ile jabłek ma teraz Ewa?",
+"gold": "183",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 5, 10, 16, 23, ? Podaj liczbę.",
+"gold": "31",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Darkowi dała Marta jabłko. Komu dano? Podaj imię w mianowniku.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Bartek przyszedł wcześniej niż Iza. Ala przyszła wcześniej niż Bartek. Filip przyszedł wcześniej niż Ala. Marta przyszła wcześniej niż Filip. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Iza",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 104 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzesła",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Marta przyszła wcześniej niż Basia. Basia przyszła wcześniej niż Bartek. Bartek przyszedł wcześniej niż Ewa. Ewa przyszła wcześniej niż Iza. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Iza",
+"got": "Iza",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 24 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzesła",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Darek przyszedł wcześniej niż Ala. Filip przyszedł wcześniej niż Darek. Ewa przyszła wcześniej niż Adam. Ala przyszła wcześniej niż Ewa. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Filip",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Bartek miał 13 jabłek, dostał 24 od Ali i oddał 16 Ali. Potem liczba jabłek Bartka zwiększyła się 3-krotnie. Ile jabłek ma teraz Bartek?",
+"gold": "63",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Bartek ma 198 cm wzrostu, Basia ma 181 cm, Iza ma 167 cm, Janek ma 161 cm, a Filip ma 175 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Basia ma 152 cm wzrostu, Ewa ma 156 cm, Bartek ma 165 cm, Janek ma 181 cm, a Ala ma 161 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Ali dał Adam list. Komu dano? Podaj imię w mianowniku.",
+"gold": "Ala",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Basia miała 56 jabłek, dostała 20 od Janka i oddała 23 Jankowi. Potem liczba jabłek Basi zwiększyła się 2-krotnie. Ile jabłek ma teraz Basia?",
+"gold": "106",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Janek miał 59 jabłek, dostał 38 od Filipa i oddał 62 Filipowi. Potem liczba jabłek Janka zwiększyła się 4-krotnie. Ile jabłek ma teraz Janek?",
+"gold": "140",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Izie dał Bartek książkę. Kto dał? Podaj imię.",
+"gold": "Bartek",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 188 cm wzrostu, Adam ma 190 cm, Iza ma 169 cm, Bartek ma 175 cm, a Ala ma 199 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Ala",
+"got": "Ala",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "koń : stajnia = lis : ? Wybierz jedno słowo: lis, nora, obora, szczenię.",
+"gold": "nora",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Janek miał 13 jabłek, dostał 9 od Ewy i oddał 9 Ewie. Potem liczba jabłek Janka zwiększyła się 3-krotnie. Ile jabłek ma teraz Janek?",
+"gold": "39",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Janek. Bartek przyszedł wcześniej niż Iza. Iza przyszła wcześniej niż Ewa. Janek przyszedł wcześniej niż Bartek. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Darek miał 51 jabłek, dostał 2 od Marty i oddał 28 Marcie. Potem liczba jabłek Darka zwiększyła się 3-krotnie. Ile jabłek ma teraz Darek?",
+"gold": "75",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 45 jabłek, dostała 18 od Ali i oddała 18 Ali. Potem liczba jabłek Marty zwiększyła się 4-krotnie. Ile jabłek ma teraz Marta?",
+"gold": "180",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "ciepło : zimno = dzień : ? Wybierz jedno słowo: dzień, koniec, noc, nora.",
+"gold": "noc",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pies : buda = krowa : ? Wybierz jedno słowo: krowa, kurczę, obora, stajnia.",
+"gold": "obora",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Ewa przyszła wcześniej niż Bartek. Iza przyszła wcześniej niż Janek. Bartek przyszedł wcześniej niż Iza. Janek przyszedł wcześniej niż Filip. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "ciepło : zimno = prawda : ? Wybierz jedno słowo: fałsz, pióro, prawda, zimno.",
+"gold": "fałsz",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Marta przyszła wcześniej niż Basia. Ala przyszła wcześniej niż Marta. Janek przyszedł wcześniej niż Iza. Basia przyszła wcześniej niż Janek. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Iza",
+"got": "Iza",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 188 cm wzrostu, Adam ma 161 cm, Bartek ma 159 cm, Filip ma 156 cm, a Darek ma 183 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Ewa",
+"got": "Ewa",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Basia przyszła wcześniej niż Darek. Iza przyszła wcześniej niż Adam. Filip przyszedł wcześniej niż Basia. Darek przyszedł wcześniej niż Iza. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Adam",
+"got": "Adam",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Adam miał 43 jabłek, dostał 28 od Janka i oddał 46 Jankowi. Potem liczba jabłek Adama zwiększyła się 4-krotnie. Ile jabłek ma teraz Adam?",
+"gold": "100",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "kura : kurczę = owca : ? Wybierz jedno słowo: dół, jagnię, kocię, owca.",
+"gold": "jagnię",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Darkowi dał Filip kwiaty. Komu dano? Podaj imię w mianowniku.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 104 … (książka). Wybierz jedną formę: książek, książka, książki.",
+"gold": "książki",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka C świeci, to lampka B świeci. Jeśli lampka A świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka C świeci. Wiadomo, że lampka B świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "List Izie dał Darek. Kto dał? Podaj imię.",
+"gold": "Darek",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 8, 13, 19, 26, ? Podaj liczbę.",
+"gold": "34",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Ewie dał Adam jabłko. Kto dał? Podaj imię.",
+"gold": "Adam",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Marta miała 37 jabłek, dostała 10 od Ewy i oddała 39 Ewie. Potem liczba jabłek Marty zwiększyła się 4-krotnie. Ile jabłek ma teraz Marta?",
+"gold": "32",
+"got": null,
+"ok": false
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 10, 12, 16, 22, ? Podaj liczbę.",
+"gold": "30",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka D świeci, to lampka G świeci. Jeśli lampka G świeci, to lampka F świeci. Jeśli lampka F świeci, to lampka E świeci. Wiadomo, że lampka D świeci. Czy lampka E świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Filipowi dał Bartek jabłko. Komu dano? Podaj imię w mianowniku.",
+"gold": "Filip",
+"got": "filip",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka B świeci, to lampka G świeci. Jeśli lampka A świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka B świeci. Wiadomo, że lampka G nie świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka H świeci, to lampka C świeci. Jeśli lampka E świeci, to lampka H świeci. Jeśli lampka D świeci, to lampka E świeci. Wiadomo, że lampka C świeci. Czy lampka D świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Bartek ma 179 cm wzrostu, Janek ma 150 cm, Basia ma 171 cm, Ewa ma 168 cm, a Ala ma 175 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka D świeci, to lampka E świeci. Jeśli lampka G świeci, to lampka D świeci. Jeśli lampka E świeci, to lampka H świeci. Wiadomo, że lampka G świeci. Czy lampka H świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Adam ma 188 cm wzrostu, Basia ma 186 cm, Janek ma 193 cm, Darek ma 185 cm, a Filip ma 182 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Darek ma 169 cm wzrostu, Bartek ma 170 cm, Basia ma 161 cm, Ala ma 180 cm, a Janek ma 156 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Janek",
+"got": "Janek",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Filip miał 14 jabłek, dostał 23 od Ewy i oddał 16 Ewie. Potem liczba jabłek Filipa zwiększyła się 3-krotnie. Ile jabłek ma teraz Filip?",
+"gold": "63",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka E świeci, to lampka H świeci. Jeśli lampka H świeci, to lampka D świeci. Jeśli lampka D świeci, to lampka G świeci. Wiadomo, że lampka G nie świeci. Czy lampka E świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka C świeci. Jeśli lampka B świeci, to lampka E świeci. Jeśli lampka E świeci, to lampka G świeci. Wiadomo, że lampka C świeci. Czy lampka B świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kolejność w czasie",
+"q": "Marta przyszła wcześniej niż Filip. Filip przyszedł wcześniej niż Ala. Ala przyszła wcześniej niż Janek. Darek przyszedł wcześniej niż Marta. Kto przyszedł pierwszy? Podaj imię.",
+"gold": "Darek",
+"got": null,
+"ok": false
+},
+{
+"kind": "liczebniki",
+"q": "Uzupełnij: 25 … (krzesło). Wybierz jedną formę: krzeseł, krzesła, krzesło.",
+"gold": "krzeseł",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "pies : buda = lis : ? Wybierz jedno słowo: buda, kurczę, lis, nora.",
+"gold": "nora",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka B świeci, to lampka A świeci. Jeśli lampka C świeci, to lampka B świeci. Jeśli lampka H świeci, to lampka C świeci. Wiadomo, że lampka H świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "analogia",
+"q": "krawiec : igła = pisarz : ? Wybierz jedno słowo: kurczę, pisarz, pióro, pędzel.",
+"gold": "pióro",
+"got": null,
+"ok": false
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Bartek miał 30 jabłek, dostał 21 od Janka i oddał 28 Jankowi. Potem liczba jabłek Bartka zwiększyła się 2-krotnie. Ile jabłek ma teraz Bartek?",
+"gold": "46",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka G świeci, to lampka F świeci. Jeśli lampka D świeci, to lampka G świeci. Jeśli lampka H świeci, to lampka D świeci. Wiadomo, że lampka F nie świeci. Czy lampka H świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 9, 11, 16, 24, ? Podaj liczbę.",
+"gold": "35",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Iza ma 152 cm wzrostu, Bartek ma 185 cm, Adam ma 168 cm, Darek ma 155 cm, a Basia ma 160 cm. Kto jest najwyższy? Podaj imię.",
+"gold": "Bartek",
+"got": "Bartek",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli lampka A świeci, to lampka F świeci. Jeśli lampka G świeci, to lampka C świeci. Jeśli lampka F świeci, to lampka G świeci. Wiadomo, że lampka C świeci. Czy lampka A świeci? Odpowiedz: tak, nie albo nie wiadomo.",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "porządek",
+"q": "Filip ma 153 cm wzrostu, Bartek ma 155 cm, Ala ma 190 cm, Ewa ma 195 cm, a Adam ma 181 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Filip",
+"got": "Filip",
+"ok": true
+},
+{
+"kind": "ciąg",
+"q": "Jaka liczba jest następna w ciągu: 1, 4, 10, 19, ? Podaj liczbę.",
+"gold": "31",
+"got": null,
+"ok": false
+},
+{
+"kind": "analogia",
+"q": "owca : jagnię = krowa : ? Wybierz jedno słowo: cielę, krowa, kurczę, nora.",
+"gold": "cielę",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Marta ma 199 cm wzrostu, Basia ma 152 cm, Iza ma 193 cm, Filip ma 197 cm, a Bartek ma 176 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Basia",
+"got": "Basia",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Ewa miała 48 jabłek, dostała 20 od Marty i oddała 19 Marcie. Potem liczba jabłek Ewy zwiększyła się 2-krotnie. Ile jabłek ma teraz Ewa?",
+"gold": "98",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Kwiaty Izie dała Ewa. Kto dał? Podaj imię.",
+"gold": "Ewa",
+"got": "kwiat",
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Adam przyszedł wcześniej niż Darek. Filip przyszedł wcześniej niż Adam. Ala przyszła wcześniej niż Basia. Basia przyszła wcześniej niż Filip. Kto przyszedł ostatni? Podaj imię.",
+"gold": "Darek",
+"got": "Darek",
+"ok": true
+},
+{
+"kind": "zadanie tekstowe",
+"q": "Adam miał 8 jabłek, dostał 26 od Marty i oddał 7 Marcie. Potem liczba jabłek Adama zwiększyła się 4-krotnie. Ile jabłek ma teraz Adam?",
+"gold": "108",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Ewa ma 184 cm wzrostu, Darek ma 181 cm, Janek ma 191 cm, Iza ma 175 cm, a Marta ma 189 cm. Kto jest najniższy? Podaj imię.",
+"gold": "Iza",
+"got": "Iza",
+"ok": true
+}
+],
+"paraphrases": [
+{
+"kind": "warunki",
+"q": "Gdy Zosia jest chora, Zosia zostaje w łóżku. Zosia jest chora. Czy Zosia zostaje w łóżku?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "warunki",
+"q": "O ile wieje wiatr, latawiec lata. Latawiec nie lata. Czy wieje wiatr?",
+"gold": "nie",
+"got": null,
+"ok": false
+},
+{
+"kind": "warunki",
+"q": "Jeżeli Kacper wygra mecz, Kacper dostanie medal. Kacper dostał medal. Czy Kacper wygrał mecz?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "warunki",
+"q": "Jeśli Hania ma bilet, Hania wchodzi do kina. Hania nie ma biletu. Czy Hania nie wchodzi do kina?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "warunki",
+"q": "Kiedy pies szczeka, kot ucieka. Pies szczeka. Czy kot ucieka? Odpowiedz jednym słowem.",
+"gold": "tak",
+"got": "nie wiadomo",
+"ok": false
+},
+{
+"kind": "warunki",
+"q": "W przypadku gdy pociąg się spóźnia, Tomek czeka na peronie. Tomek nie czeka na peronie. Czy pociąg się spóźnia?",
+"gold": "nie",
+"got": null,
+"ok": false
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli Olek ma klucz, Olek otwiera drzwi. Jeśli Olek otwiera drzwi, Olek wchodzi do domu. Olek ma klucz. Czy Olek wchodzi do domu?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Gdy dzwonek dzwoni, uczniowie wychodzą. Gdy uczniowie wychodzą, korytarz jest pełny. Korytarz nie jest pełny. Czy dzwonek dzwoni?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli silnik działa, auto jedzie. Jeśli auto jedzie, Natalia zdąży. Natalia zdąży. Czy silnik działa?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli Kuba się uczy, Kuba zdaje egzamin. Jeśli Kuba zdaje egzamin, Kuba jedzie na wakacje. Jeśli Kuba jedzie na wakacje, Kuba odpoczywa. Kuba się uczy. Czy Kuba odpoczywa?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "łańcuch",
+"q": "Jeśli pompa działa, woda płynie. Jeśli woda płynie, kwiaty rosną. Kwiaty nie rosną. Czy pompa działa?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Ponieważ zabrakło prądu, lodówka przestała działać. Zabrakło prądu. Czy lodówka przestała działać?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "przyczyna",
+"q": "Zawsze gdy Zosia je lody, Zosia ma katar. Zosia ma katar. Czy Zosia na pewno jadła lody?",
+"gold": "nie wiadomo",
+"got": null,
+"ok": false
+},
+{
+"kind": "przyczyna",
+"q": "Za każdym razem, gdy pada grad, samochody są porysowane. Samochody nie są porysowane. Czy padał grad?",
+"gold": "nie",
+"got": null,
+"ok": false
+},
+{
+"kind": "przyczyna",
+"q": "Bo spadł deszcz, trawa jest mokra. Spadł deszcz. Czy trawa jest mokra?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Nieprawda, że Tomek śpi. Czy Tomek śpi?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Nie jest prawdą, że nie jest prawdą, że sklep jest otwarty. Czy sklep jest otwarty?",
+"gold": "tak",
+"got": null,
+"ok": false
+},
+{
+"kind": "negacja",
+"q": "Nieprawda, że Hania nie lubi kawy. Czy Hania lubi kawę?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "negacja",
+"q": "Nie jest prawdą, że okno jest zamknięte. Czy okno jest zamknięte?",
+"gold": "nie",
+"got": null,
+"ok": false
+},
+{
+"kind": "negacja",
+"q": "Nieprawda, że nieprawda, że nieprawda, że Kacper biega. Czy Kacper biega?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „Olek jest w domu” i „Olek nie jest w domu” mogą być prawdziwe w tym samym czasie?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „niektóre jabłka są kwaśne” i „niektóre jabłka nie są kwaśne” mogą być oba prawdziwe?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy mogą być jednocześnie prawdziwe zdania „wszystkie okna są otwarte” i „żadne okno nie jest otwarte”?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sprzeczność",
+"q": "Czy zdania „Natalia śpiewa” oraz „Natalia tańczy” mogą być jednocześnie prawdziwe?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Każdy pudel jest psem. Zosia ma pudla. Czy Zosia ma psa?",
+"gold": "tak",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie sosny są drzewami. Tomek posadził drzewa. Czy Tomek posadził sosny?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie łososie to ryby. Hania nie łowi żadnych ryb. Czy Hania łowi łososie?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "sylogizm",
+"q": "Każdy fiołek to kwiat. Kacper zrywa fiołki. Czy Kacper zrywa kwiaty?",
+"gold": "tak",
+"got": null,
+"ok": false
+},
+{
+"kind": "sylogizm",
+"q": "Wszystkie wróble są ptakami. Natalia karmi ptaki. Czy Natalia karmi wróble?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Żaden uczeń nie spóźnił się. Czy jakiś uczeń się spóźnił?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre auta są czerwone. Czy wszystkie auta są czerwone?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Niektóre auta są czerwone. Czy jakieś auto jest czerwone?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "kwantyfikatory",
+"q": "Wszystkie kubki są czyste. Czy któryś kubek jest brudny?",
+"gold": "nie",
+"got": null,
+"ok": false
+},
+{
+"kind": "kwantyfikatory",
+"q": "Każdy gość dostał prezent. Czy ktoś z gości nie dostał prezentu?",
+"gold": "nie",
+"got": null,
+"ok": false
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie każdy uczeń zdał. Czy któryś uczeń nie zdał?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie drzwi są zamknięte. Czy wszystkie drzwi są zamknięte?",
+"gold": "nie",
+"got": "nie",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszyscy goście przyszli. Czy żaden gość nie przyszedł?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "nie wszystkie",
+"q": "Nie wszystkie ptaki latają. Czy niektóre ptaki nie latają?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Hania przeczytała gazetę. Czy Hania skończyła czytać gazetę?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Tomek budował szałas. Czy Tomek skończył budować szałas?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Zosia rysowała konia, ale przestała w połowie. Czy Zosia narysowała konia?",
+"gold": "nie",
+"got": "nie wiadomo",
+"ok": false
+},
+{
+"kind": "aspekt",
+"q": "Kacper umył naczynia. Czy Kacper skończył myć naczynia?",
+"gold": "tak",
+"got": "tak",
+"ok": true
+},
+{
+"kind": "aspekt",
+"q": "Natalia piekła ciasto. Czy Natalia skończyła piec ciasto?",
+"gold": "nie wiadomo",
+"got": "nie wiadomo",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Zosi pożyczył rower Kacper. Kto pożyczył rower? Podaj imię.",
+"gold": "Kacper",
+"got": "Kacper",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Tomkowi wysłała paczkę Hania. Komu wysłano paczkę? Podaj imię w mianowniku.",
+"gold": "Tomek",
+"got": "Tomek",
+"ok": true
+},
+{
+"kind": "odmiana",
+"q": "Kwiaty kupił Natalii Olek. Kto kupił kwiaty? Podaj imię.",
+"gold": "Olek",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Oli pokazał zdjęcia Michał. Komu pokazano zdjęcia? Podaj imię w mianowniku.",
+"gold": "Ola",
+"got": null,
+"ok": false
+},
+{
+"kind": "odmiana",
+"q": "Piotr oddał Kasi długopis. Komu oddano długopis? Podaj imię w mianowniku.",
+"gold": "Kasia",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Zosia wyszła później niż Tomek. Tomek wyszedł później niż Hania. Kto wyszedł pierwszy? Podaj imię.",
+"gold": "Hania",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Kacper przyjechał przed Natalią. Natalia przyjechała przed Olkiem. Kto przyjechał ostatni? Podaj imię.",
+"gold": "Olek",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Olek wstał wcześniej niż Zosia. Hania wstała wcześniej niż Olek. Kto wstał najwcześniej? Podaj imię.",
+"gold": "Hania",
+"got": null,
+"ok": false
+},
+{
+"kind": "kolejność w czasie",
+"q": "Tomek skończył po Kacprze. Kacper skończył po Natalii. Kto skończył pierwszy? Podaj imię.",
+"gold": "Natalia",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Zosia ma 12 lat, Tomek 15 lat, a Hania 9 lat. Kto jest najstarszy? Podaj imię.",
+"gold": "Tomek",
+"got": "Zosia",
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Kacper waży 70 kg, Olek 64 kg, a Natalia 58 kg. Kto waży najmniej? Podaj imię.",
+"gold": "Natalia",
+"got": "kacper",
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Olek jest wyższy od Zosi. Zosia jest wyższa od Hani. Kto jest najniższy? Podaj imię.",
+"gold": "Hania",
+"got": null,
+"ok": false
+},
+{
+"kind": "porządek",
+"q": "Hania biega szybciej niż Tomek, a Tomek szybciej niż Kacper. Kto biega najszybciej? Podaj imię.",
+"gold": "Hania",
+"got": null,
+"ok": false
+}
+]
+}

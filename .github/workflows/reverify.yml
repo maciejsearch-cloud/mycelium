@@ -1,0 +1,46 @@
+name: Niezależna ponowna ocena wersji (cron)
+
+# Co godzinę: każdą nową wersję modelu globalnego przelicza od zera scripts/verify_model.py
+# (numpy, wagi z publicznego Storage, stały test z odciskiem sha256) i zapisuje wynik publicznie
+# w myc_ci_evals (zakładka „Weryfikacja”) z linkiem do tego przebiegu. ~1–5 min na przebieg.
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reverify
+  cancel-in-progress: false
+
+jobs:
+  reverify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts
+            web/public/data/ml
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -q "numpy>=2.0"
+      - name: Ponowna ocena nowych wersji
+        env:
+          MYC_CI_EVAL_KEY: ${{ secrets.MYC_CI_EVAL_KEY }}
+        run: python scripts/verify_model.py --unverified 80 --post --json reverify.json
+      - name: Podsumowanie
+        if: always()
+        run: |
+          echo '### Ponowna ocena (numpy)' >> "$GITHUB_STEP_SUMMARY"
+          python -c "import json;[print(f\"- {r['model']} v{r['version']}: zapisane {r['acc_stored']:.4f}, przeliczone {r['acc_recomputed']:.4f}, {'OK' if r['ok'] else 'ŹLE'}\") for r in json.load(open('reverify.json'))]" >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reverify
+          path: reverify.json
+          if-no-files-found: ignore

@@ -1,0 +1,168 @@
+{
+ "_note": "Wariant bez danych NC: trenowany tylko na UD_Polish-LFG train (GPL-3.0), wybór epoki na LFG dev; v0 = PDB+LFG (CC BY-NC-SA 4.0 dziedziczone po PDB). Ocena: pełny test UD (3942 zdania; PDB 2215 + LFG 1727), test nigdy w treningu. Styl: v0 = PDB, lfg = LFG (jedyny wyuczony). Morfeusz 2/SGJP (BSD-2): mapa tagów z TRAIN (lfg: tylko LFG train).",
+ "licence_lfg_weights": "GPL-3.0 (dane treningowe UD_Polish-LFG GPL-3.0; Morfeusz BSD-2; Walenty CC BY-SA 4.0 tylko do pytań, nie do wag) – bez ograniczenia NC",
+ "v0": {
+  "file": "rb-v0-q8.bin",
+  "sha256": "f324f3480d513ba69b1e0e5e9a7d5a5434e3b810f22f402b92f2798919431bf2",
+  "bytes": 4010225,
+  "style": "pdb",
+  "test": {
+   "role_f1": 0.757,
+   "upos": 0.9711,
+   "feats": 0.7761,
+   "lemma": 0.9019,
+   "uas": 0.8787,
+   "las": 0.7858,
+   "part": 0.8795,
+   "attr_head": 0.8226,
+   "clause_f1": 0.8668,
+   "frame_tam": 0.8016,
+   "by_tb": {
+    "pdb": {
+     "role_f1": 0.7415,
+     "upos": 0.9714,
+     "feats": 0.811,
+     "lemma": 0.8977,
+     "uas": 0.8687,
+     "las": 0.7944,
+     "part": 0.886,
+     "attr_head": 0.8172,
+     "clause_f1": 0.8459,
+     "frame_tam": 0.8173
+    },
+    "lfg": {
+     "role_f1": 0.7886,
+     "upos": 0.9702,
+     "feats": 0.6868,
+     "lemma": 0.9127,
+     "uas": 0.9045,
+     "las": 0.7637,
+     "part": 0.8625,
+     "attr_head": 0.8484,
+     "clause_f1": 0.9053,
+     "frame_tam": 0.7723
+    }
+   }
+  },
+  "test_morfeusz": {
+   "role_f1": 0.7661,
+   "upos": 0.9749,
+   "feats": 0.8409,
+   "lemma": 0.9681,
+   "uas": 0.8787,
+   "las": 0.7858,
+   "part": 0.8797,
+   "attr_head": 0.8226,
+   "clause_f1": 0.8676,
+   "frame_tam": 0.9137,
+   "by_tb": {
+    "pdb": {
+     "role_f1": 0.7496,
+     "upos": 0.9756,
+     "feats": 0.8901,
+     "lemma": 0.968,
+     "uas": 0.8687,
+     "las": 0.7944,
+     "part": 0.8862,
+     "attr_head": 0.8172,
+     "clause_f1": 0.8469,
+     "frame_tam": 0.9251
+    },
+    "lfg": {
+     "role_f1": 0.7998,
+     "upos": 0.9733,
+     "feats": 0.7149,
+     "lemma": 0.9684,
+     "uas": 0.9045,
+     "las": 0.7637,
+     "part": 0.8625,
+     "attr_head": 0.8484,
+     "clause_f1": 0.906,
+     "frame_tam": 0.8925
+    }
+   }
+  }
+ },
+ "lfg": {
+  "file": "rb-lfg.bin",
+  "sha256": "70793f8dc54ad8573e26cbda6bde4468f10150ddfa13c26437cad75438f29c77",
+  "bytes": 2508802,
+  "style": "lfg",
+  "test": {
+   "role_f1": 0.6265,
+   "upos": 0.9358,
+   "feats": 0.634,
+   "lemma": 0.8277,
+   "uas": 0.7408,
+   "las": 0.6247,
+   "part": 0.8028,
+   "attr_head": 0.6082,
+   "clause_f1": 0.6951,
+   "frame_tam": 0.7149,
+   "by_tb": {
+    "pdb": {
+     "role_f1": 0.5458,
+     "upos": 0.9254,
+     "feats": 0.5698,
+     "lemma": 0.8144,
+     "uas": 0.6747,
+     "las": 0.5307,
+     "part": 0.7633,
+     "attr_head": 0.5669,
+     "clause_f1": 0.5855,
+     "frame_tam": 0.675
+    },
+    "lfg": {
+     "role_f1": 0.7982,
+     "upos": 0.9622,
+     "feats": 0.7987,
+     "lemma": 0.8617,
+     "uas": 0.9101,
+     "las": 0.8659,
+     "part": 0.9075,
+     "attr_head": 0.8077,
+     "clause_f1": 0.9029,
+     "frame_tam": 0.7891
+    }
+   }
+  },
+  "test_morfeusz": {
+   "role_f1": 0.6508,
+   "upos": 0.9506,
+   "feats": 0.7246,
+   "lemma": 0.9617,
+   "uas": 0.7408,
+   "las": 0.6247,
+   "part": 0.8042,
+   "attr_head": 0.6082,
+   "clause_f1": 0.6968,
+   "frame_tam": 0.8676,
+   "by_tb": {
+    "pdb": {
+     "role_f1": 0.5691,
+     "upos": 0.9423,
+     "feats": 0.6549,
+     "lemma": 0.9602,
+     "uas": 0.6747,
+     "las": 0.5307,
+     "part": 0.7651,
+     "attr_head": 0.5669,
+     "clause_f1": 0.5878,
+     "frame_tam": 0.8309
+    },
+    "lfg": {
+     "role_f1": 0.8241,
+     "upos": 0.9719,
+     "feats": 0.9034,
+     "lemma": 0.9656,
+     "uas": 0.9101,
+     "las": 0.8659,
+     "part": 0.9076,
+     "attr_head": 0.8077,
+     "clause_f1": 0.9038,
+     "frame_tam": 0.9357
+    }
+   }
+  }
+ }
+}

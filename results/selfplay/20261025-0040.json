@@ -1,0 +1,280 @@
+{
+ "model": "lm v1",
+ "when": "2026-10-25T00:40:47+0200",
+ "seed": 2,
+ "n": 320,
+ "correct": 75,
+ "acc": 0.2344,
+ "per_category": {
+  "analogia": {
+   "n": 31,
+   "correct": 8,
+   "acc": 0.2581,
+   "baseline": 0.0968,
+   "baseline_answer": "jagnię"
+  },
+  "aspekt": {
+   "n": 24,
+   "correct": 11,
+   "acc": 0.4583,
+   "baseline": 0.3333,
+   "baseline_answer": "nie"
+  },
+  "ciąg": {
+   "n": 14,
+   "correct": 4,
+   "acc": 0.2857,
+   "baseline": 0.1429,
+   "baseline_answer": "33"
+  },
+  "kolejność w czasie": {
+   "n": 18,
+   "correct": 6,
+   "acc": 0.3333,
+   "baseline": 0.2222,
+   "baseline_answer": "Filip"
+  },
+  "kwantyfikatory": {
+   "n": 19,
+   "correct": 7,
+   "acc": 0.3684,
+   "baseline": 0.3684,
+   "baseline_answer": "tak"
+  },
+  "liczebniki": {
+   "n": 21,
+   "correct": 3,
+   "acc": 0.1429,
+   "baseline": 0.1429,
+   "baseline_answer": "domów"
+  },
+  "negacja": {
+   "n": 8,
+   "correct": 1,
+   "acc": 0.125,
+   "baseline": 0.5,
+   "baseline_answer": "nie"
+  },
+  "nie wszystkie": {
+   "n": 14,
+   "correct": 0,
+   "acc": 0.0,
+   "baseline": 0.3571,
+   "baseline_answer": "nie"
+  },
+  "odmiana": {
+   "n": 29,
+   "correct": 6,
+   "acc": 0.2069,
+   "baseline": 0.1724,
+   "baseline_answer": "Darek"
+  },
+  "porządek": {
+   "n": 25,
+   "correct": 7,
+   "acc": 0.28,
+   "baseline": 0.24,
+   "baseline_answer": "Marta"
+  },
+  "przyczyna": {
+   "n": 15,
+   "correct": 0,
+   "acc": 0.0,
+   "baseline": 0.3333,
+   "baseline_answer": "nie"
+  },
+  "sprzeczność": {
+   "n": 9,
+   "correct": 5,
+   "acc": 0.5556,
+   "baseline": 0.5556,
+   "baseline_answer": "tak"
+  },
+  "sylogizm": {
+   "n": 30,
+   "correct": 7,
+   "acc": 0.2333,
+   "baseline": 0.3333,
+   "baseline_answer": "nie"
+  },
+  "warunki": {
+   "n": 10,
+   "correct": 1,
+   "acc": 0.1,
+   "baseline": 0.4,
+   "baseline_answer": "tak"
+  },
+  "zadanie tekstowe": {
+   "n": 28,
+   "correct": 9,
+   "acc": 0.3214,
+   "baseline": 0.1429,
+   "baseline_answer": "1"
+  },
+  "łańcuch": {
+   "n": 25,
+   "correct": 0,
+   "acc": 0.0,
+   "baseline": 0.36,
+   "baseline_answer": "tak"
+  }
+ },
+ "per_level": {
+  "analogia": {
+   "1": {
+    "n": 31,
+    "correct": 8,
+    "acc": 0.2581
+   }
+  },
+  "aspekt": {
+   "1": {
+    "n": 24,
+    "correct": 11,
+    "acc": 0.4583
+   }
+  },
+  "ciąg": {
+   "1": {
+    "n": 14,
+    "correct": 4,
+    "acc": 0.2857
+   }
+  },
+  "kolejność w czasie": {
+   "1": {
+    "n": 18,
+    "correct": 6,
+    "acc": 0.3333
+   }
+  },
+  "kwantyfikatory": {
+   "1": {
+    "n": 19,
+    "correct": 7,
+    "acc": 0.3684
+   }
+  },
+  "liczebniki": {
+   "1": {
+    "n": 21,
+    "correct": 3,
+    "acc": 0.1429
+   }
+  },
+  "negacja": {
+   "1": {
+    "n": 8,
+    "correct": 1,
+    "acc": 0.125
+   }
+  },
+  "nie wszystkie": {
+   "1": {
+    "n": 14,
+    "correct": 0,
+    "acc": 0.0
+   }
+  },
+  "odmiana": {
+   "1": {
+    "n": 29,
+    "correct": 6,
+    "acc": 0.2069
+   }
+  },
+  "porządek": {
+   "1": {
+    "n": 25,
+    "correct": 7,
+    "acc": 0.28
+   }
+  },
+  "przyczyna": {
+   "1": {
+    "n": 15,
+    "correct": 0,
+    "acc": 0.0
+   }
+  },
+  "sprzeczność": {
+   "1": {
+    "n": 9,
+    "correct": 5,
+    "acc": 0.5556
+   }
+  },
+  "sylogizm": {
+   "1": {
+    "n": 30,
+    "correct": 7,
+    "acc": 0.2333
+   }
+  },
+  "warunki": {
+   "1": {
+    "n": 10,
+    "correct": 1,
+    "acc": 0.1
+   }
+  },
+  "zadanie tekstowe": {
+   "1": {
+    "n": 28,
+    "correct": 9,
+    "acc": 0.3214
+   }
+  },
+  "łańcuch": {
+   "1": {
+    "n": 25,
+    "correct": 0,
+    "acc": 0.0
+   }
+  }
+ },
+ "plan": {
+  "levels": {
+   "warunki": 1,
+   "sylogizm": 1,
+   "negacja": 1,
+   "kwantyfikatory": 1,
+   "odmiana": 1,
+   "sprzeczność": 1,
+   "zadanie tekstowe": 1,
+   "porządek": 1,
+   "analogia": 1,
+   "ciąg": 1,
+   "kolejność w czasie": 1,
+   "przyczyna": 1,
+   "łańcuch": 1,
+   "nie wszystkie": 1,
+   "liczebniki": 1,
+   "aspekt": 1
+  },
+  "weights": {
+   "warunki": 1.0,
+   "sylogizm": 1.0,
+   "negacja": 1.0,
+   "kwantyfikatory": 1.0,
+   "odmiana": 1.0,
+   "sprzeczność": 1.0,
+   "zadanie tekstowe": 1.0,
+   "porządek": 1.0,
+   "analogia": 1.0,
+   "ciąg": 1.0,
+   "kolejność w czasie": 1.0,
+   "przyczyna": 1.0,
+   "łańcuch": 1.0,
+   "nie wszystkie": 1.0,
+   "liczebniki": 1.0,
+   "aspekt": 1.0
+  },
+  "from": "2026-10-24T23:41:34+0200"
+ },
+ "generator": "selfplay v2 (16 kategorii, tak/nie/nie wiadomo po równo, poziomy 1–3)",
+ "gate_eval_sha": "9bebb6f48df885029b02a0e97df6a1371458877b8608d9a4c1e1311f4bc66a0a",
+ "gate_rows": 8192,
+ "decoding": "greedy, max 24 tokens",
+ "seconds": 244
+}

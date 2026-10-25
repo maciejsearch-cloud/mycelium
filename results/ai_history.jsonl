@@ -1,0 +1,1 @@
+{"t": "2026-10-17T20:21:44.784081+00:00", "git": "a0d5680", "mbs": 69.38, "mbs_linear": 65.61, "scores": {"har": 0.923, "fashion_mnist": 0.8738, "intents": 0.8128, "sensor_forecast": 0.1656}}

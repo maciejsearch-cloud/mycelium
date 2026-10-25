@@ -1,0 +1,38 @@
+name: Weryfikacja kandydatów (cron)
+
+# Zaufany węzeł: co godzinę niezależnie liczy trafność oczekujących kandydatów modelu globalnego (numpy,
+# stały test z web/public/data/ml) i zgłasza ją bazie. Bez tej oceny (albo 2 innych węzłów z innych IP)
+# nowa wersja nie powstaje. ~1 min na przebieg.
+on:
+  schedule:
+    - cron: "41 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: src
+      MYC_VERIFIER_KEY: ${{ secrets.MYC_VERIFIER_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            src
+            web/public/data/ml
+            web/public/data/taxo
+            web/public/data/rozbior
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -q "numpy>=2.0"
+      - name: Ocena kandydatów
+        run: python -m iot_mycelium.ai.verifier

@@ -1,0 +1,238 @@
+{
+ "generated_at": "2026-10-25T03:30:07+0100",
+ "baseline": {
+  "name": "spaCy pl_core_news_sm 3.8.0",
+  "license": "GPL-3.0",
+  "test": {
+   "role_f1": 0.7439,
+   "role_p": 0.7341,
+   "role_r": 0.754,
+   "role_n": 11310,
+   "upos": 0.9535,
+   "feats": 0.8251,
+   "lemma": 0.9313,
+   "uas": 0.8693,
+   "las": 0.7643,
+   "part": 0.8539,
+   "attr_head": 0.7759,
+   "clause_f1": 0.8208,
+   "frame_tam": 0.8032,
+   "n_sent": 3942,
+   "n_tok": 46728
+  },
+  "by_tb": {
+   "pdb": {
+    "role_f1": 0.7339,
+    "role_p": 0.7188,
+    "role_r": 0.7497,
+    "role_n": 7535,
+    "upos": 0.9553,
+    "feats": 0.8773,
+    "lemma": 0.9343,
+    "uas": 0.8617,
+    "las": 0.7759,
+    "part": 0.8591,
+    "attr_head": 0.7648,
+    "clause_f1": 0.7886,
+    "frame_tam": 0.8199,
+    "n_sent": 2215,
+    "n_tok": 33616
+   },
+   "lfg": {
+    "role_f1": 0.7644,
+    "role_p": 0.7661,
+    "role_r": 0.7626,
+    "role_n": 3775,
+    "upos": 0.949,
+    "feats": 0.6913,
+    "lemma": 0.9236,
+    "uas": 0.8887,
+    "las": 0.7346,
+    "part": 0.8401,
+    "attr_head": 0.8295,
+    "clause_f1": 0.8829,
+    "frame_tam": 0.7723,
+    "n_sent": 1727,
+    "n_tok": 13112
+   }
+  }
+ },
+ "trained": {
+  "file": "rb-pdb.bin",
+  "sha256": "397cf83b5306a3ae134b243a0fadf4c2d8c42f16cd99a3355aedf569762c08d0",
+  "license": "CC-BY-NC-SA-4.0",
+  "data": "UD Polish-PDB train (rev 27235e131fae)",
+  "test": {
+   "n_sent": 3942,
+   "n_tok": 46728,
+   "role_f1": 0.7275,
+   "role_p": 0.7393,
+   "role_r": 0.716,
+   "role_n": 11310,
+   "upos": 0.9652,
+   "feats": 0.7512,
+   "lemma": 0.8835,
+   "uas": 0.8698,
+   "las": 0.7735,
+   "part": 0.8703,
+   "attr_head": 0.8193,
+   "clause_f1": 0.8513,
+   "frame_tam": 0.7597
+  },
+  "by_tb": {
+   "lfg": {
+    "n_sent": 1727,
+    "n_tok": 13112,
+    "role_f1": 0.7482,
+    "role_p": 0.7664,
+    "role_r": 0.7309,
+    "role_n": 3775,
+    "upos": 0.9611,
+    "feats": 0.6654,
+    "lemma": 0.8906,
+    "uas": 0.8889,
+    "las": 0.7466,
+    "part": 0.8493,
+    "attr_head": 0.833,
+    "clause_f1": 0.8878,
+    "frame_tam": 0.7266
+   },
+   "pdb": {
+    "n_sent": 2215,
+    "n_tok": 33616,
+    "role_f1": 0.7172,
+    "role_p": 0.726,
+    "role_r": 0.7086,
+    "role_n": 7535,
+    "upos": 0.9669,
+    "feats": 0.7847,
+    "lemma": 0.8807,
+    "uas": 0.8624,
+    "las": 0.784,
+    "part": 0.8782,
+    "attr_head": 0.8165,
+    "clause_f1": 0.8316,
+    "frame_tam": 0.7774
+   }
+  }
+ },
+ "morf": {
+  "license": "BSD-2-Clause",
+  "coverage_browser": 0.9232,
+  "full": {
+   "role_f1": 0.7452,
+   "upos": 0.9717,
+   "feats": 0.8317,
+   "lemma": 0.9659,
+   "las": 0.7735,
+   "part": 0.8706,
+   "attr_head": 0.8193,
+   "frame_tam": 0.9063,
+   "per_feat": {
+    "Case": 0.8944,
+    "Number": 0.9625,
+    "Gender": 0.9082,
+    "Animacy": 0.8302,
+    "Person": 0.9702,
+    "Tense": 0.9707,
+    "Aspect": 0.9668,
+    "Mood": 0.9852,
+    "Degree": 0.9422,
+    "VerbForm": 0.9854,
+    "Voice": 0.9934,
+    "Polarity": 0.9635
+   }
+  },
+  "browser": {
+   "role_f1": 0.7449,
+   "upos": 0.9705,
+   "feats": 0.8217,
+   "lemma": 0.9569,
+   "las": 0.7735,
+   "part": 0.8706,
+   "attr_head": 0.8193,
+   "frame_tam": 0.8862,
+   "per_feat": {
+    "Case": 0.8965,
+    "Number": 0.9629,
+    "Gender": 0.9024,
+    "Animacy": 0.8128,
+    "Person": 0.9634,
+    "Tense": 0.9663,
+    "Aspect": 0.9414,
+    "Mood": 0.9829,
+    "Degree": 0.939,
+    "VerbForm": 0.981,
+    "Voice": 0.9905,
+    "Polarity": 0.9494
+   }
+  },
+  "tagmap_from": "UD Polish-PDB train",
+  "derived_data_license": "CC-BY-NC-SA-4.0"
+ },
+ "variants": {
+  "pdb": {
+   "default": true,
+   "file": "rb-pdb.bin",
+   "sha256": "397cf83b5306a3ae134b243a0fadf4c2d8c42f16cd99a3355aedf569762c08d0",
+   "license": "CC-BY-NC-SA-4.0",
+   "note_pl": "domyślny; wagi dziedziczą licencję UD Polish-PDB – tylko użytek niekomercyjny, na tej samej licencji",
+   "note_en": "default; weights inherit the UD Polish-PDB licence – non-commercial use only, share-alike",
+   "test": {
+    "role_f1": 0.7275,
+    "upos": 0.9652,
+    "feats": 0.7512,
+    "lemma": 0.8835,
+    "las": 0.7735
+   },
+   "morf": {
+    "role_f1": 0.7452,
+    "upos": 0.9717,
+    "feats": 0.8317,
+    "lemma": 0.9659,
+    "las": 0.7735
+   },
+   "morf_file": "morf.json.gz",
+   "source": "myc_rb_models (baza, zweryfikowana wersja)"
+  },
+  "lfg": {
+   "default": false,
+   "file": "models/rb-lfg-70793f8d.bin",
+   "sha256": "70793f8dc54ad8573e26cbda6bde4468f10150ddfa13c26437cad75438f29c77",
+   "license": "GPL-3.0",
+   "note_pl": "bez ograniczenia NC; słabszy na zdaniach w stylu PDB",
+   "note_en": "no NC restriction; weaker on PDB-style sentences",
+   "test": {
+    "role_f1": 0.6265,
+    "upos": 0.9358,
+    "feats": 0.634,
+    "lemma": 0.8277,
+    "las": 0.6247
+   },
+   "morf": {
+    "role_f1": 0.6508,
+    "upos": 0.9506,
+    "feats": 0.7246,
+    "lemma": 0.9617,
+    "las": 0.6247
+   },
+   "morf_file": "morf-lfg.json.gz",
+   "source": "plik statyczny w serwisie"
+  }
+ },
+ "withdrawn": [
+  {
+   "file": "rb-v0-q8.bin",
+   "sha256": "f324f3480d513ba69b1e0e5e9a7d5a5434e3b810f22f402b92f2798919431bf2",
+   "reason_pl": "wycofany 25.10.2026: wagi z PDB (CC BY-NC-SA) i LFG (GPL-3.0) razem – licencje niezgodne, nie rozpowszechniamy",
+   "reason_en": "withdrawn 25 Oct 2026: weights trained on PDB (CC BY-NC-SA) and LFG (GPL-3.0) together – incompatible licences, not distributed",
+   "test": {
+    "role_f1": 0.757,
+    "upos": 0.9711,
+    "feats": 0.7761,
+    "lemma": 0.9019,
+    "las": 0.7858
+   }
+  }
+ ]
+}

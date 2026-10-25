@@ -1,0 +1,421 @@
+{
+ "summary": {
+  "set": "chat_facts_v1",
+  "set_sha256": "f0a67d1c8a3e907bfd647a9132ff013f4920e4ca62163ad7fef51bcf201ae9a9",
+  "url": "https://maciejsearch-cloud.github.io/demo/mycelium/",
+  "label": "before-live",
+  "at": "2026-10-24T21:37:13.501Z",
+  "n": 40,
+  "correct_with_source": 8,
+  "correct_no_source": 1,
+  "dont_know": 4,
+  "wrong": 27
+ },
+ "rows": [
+  {
+   "id": "f01",
+   "q": "Jaka jest stolica Australii?",
+   "verdict": "correct_source",
+   "text": "Stolica Australii to Canberra.\nŹródło: Wikidata Q408.",
+   "sources": [
+    "[1] Australia – stolica: Canberra — słownik · 0 głosów · Wikidata Q408"
+   ],
+   "links": [],
+   "stats": "8 tok · 4.23 tok/s · pierwszy token 0.3 s · prompt 119 tok · cały model na 1 węźle"
+  },
+  {
+   "id": "f02",
+   "q": "Jaka jest stolica Kanady?",
+   "verdict": "wrong",
+   "text": "Stolica Kanady to Washington, D.C.\nŹródło: Wikidata Q408.",
+   "sources": [
+    "[1] Australia – stolica: Canberra — słownik · 0 głosów · Wikidata Q408"
+   ],
+   "links": [],
+   "stats": "11 tok · 4.25 tok/s · pierwszy token 0.2 s · prompt 157 tok (126 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f03",
+   "q": "Kto napisał „Pana Tadeusza”?",
+   "verdict": "wrong",
+   "text": "\"Pana Tadeusza\" to polskie narazienie \"Pana Tadeusz\".\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "21 tok · 5.52 tok/s · pierwszy token 0.3 s · prompt 160 tok (48 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f04",
+   "q": "Kto napisał „Lalkę”?",
+   "verdict": "wrong",
+   "text": "\"Lalka\" to narazienie \"Laski\".\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "38 tok · 4.84 tok/s · pierwszy token 0.4 s · prompt 224 tok (180 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f05",
+   "q": "Kto odkrył penicylinę?",
+   "verdict": "wrong",
+   "text": "Penicylinę odkrył Franciszek Kowalewicz, kultar z Polski.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "23 tok · 4.12 tok/s · pierwszy token 0.4 s · prompt 270 tok (71 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f06",
+   "q": "Kto namalował „Mona Lisę”?",
+   "verdict": "wrong",
+   "text": "\"Mona Lisa\" została wyróżniona przez Franciszek Kowalewicz.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "19 tok · 4.17 tok/s · pierwszy token 0.4 s · prompt 298 tok (65 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f07",
+   "q": "W którym roku Polska przystąpiła do Unii Europejskiej?",
+   "verdict": "dont_know",
+   "text": "Nie jestem pewna: nie znalazłam tej liczby w sprawdzonych źródłach (Wikidata, fakty grzybni), więc nie będę zgadywać.",
+   "sources": [],
+   "links": [],
+   "stats": "22 tok · 5.70 tok/s · pierwszy token 0.5 s · prompt 303 tok (69 z pamięci K/V) · cały model na 1 węźle · niepotwierdzona liczba zastąpiona"
+  },
+  {
+   "id": "f08",
+   "q": "W którym roku zaczęła się II wojna światowa?",
+   "verdict": "dont_know",
+   "text": "Nie jestem pewna: nie znalazłam tej liczby w sprawdzonych źródłach (Wikidata, fakty grzybni), więc nie będę zgadywać.",
+   "sources": [],
+   "links": [],
+   "stats": "19 tok · 4.76 tok/s · pierwszy token 0.4 s · prompt 288 tok (67 z pamięci K/V) · cały model na 1 węźle · niepotwierdzona liczba zastąpiona"
+  },
+  {
+   "id": "f09",
+   "q": "Ile mieszkańców ma Kraków?",
+   "verdict": "correct_source",
+   "text": "Kraków ma 804 237 ludności (2023).\nŹródło: Wikidata Q31487.",
+   "sources": [
+    "[1] Kraków – liczba ludności: 804 237 (2023) — słownik · 0 głosów · Wikidata Q31487"
+   ],
+   "links": [],
+   "stats": "20 tok · 4.77 tok/s · pierwszy token 0.5 s · prompt 332 tok (48 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f10",
+   "q": "Jaka jest najdłuższa rzeka w Polsce?",
+   "verdict": "wrong",
+   "text": "Rzeczpospolita Polska ma 209 rzeźbów, które są najdłuższymi w Polsce.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "31 tok · 5.45 tok/s · pierwszy token 0.5 s · prompt 269 tok (48 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f11",
+   "q": "Jaki jest najwyższy szczyt Polski?",
+   "verdict": "wrong",
+   "text": "Szyku Polskiego jest Szyku Kielbasa, który ma długość 14 km.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "23 tok · 5.52 tok/s · pierwszy token 0.5 s · prompt 277 tok (68 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f12",
+   "q": "Jaki jest symbol chemiczny złota?",
+   "verdict": "wrong",
+   "text": "Symbol chemiczny złota to Zn.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "11 tok · 5.13 tok/s · pierwszy token 0.4 s · prompt 280 tok (65 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f13",
+   "q": "Kto był pierwszym królem Polski?",
+   "verdict": "wrong",
+   "text": "Któreś z najważniejszych historii Polski jest Karel I, który w 1086 roku wygrał Królestwo Płocke.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "38 tok · 5.44 tok/s · pierwszy token 0.4 s · prompt 286 tok (65 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f14",
+   "q": "Kto sformułował teorię względności?",
+   "verdict": "wrong",
+   "text": "Teoria względności zaczynała się w 1830 roku przez Francisza Adama de Walle.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "25 tok · 5.85 tok/s · pierwszy token 0.5 s · prompt 293 tok (66 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f15",
+   "q": "Co to jest fotosynteza?",
+   "verdict": "correct_source",
+   "text": "Fotosynteza to proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] fotosynteza: proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] fotosynteza – definicja – proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła → fotosynteza (pojęcie) — słownik 80% · 2 głosów · strzępki #58144 → #58145 (wiktionary)"
+   ],
+   "links": [],
+   "stats": "word · 2439.1 ms"
+  },
+  {
+   "id": "f16",
+   "q": "Co to jest wombat?",
+   "verdict": "correct_source",
+   "text": "Wombat to australijski torbacz o brunatnoszarej sierści.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\n• wombat: Zwierzę › Ssak\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] wombat: australijski torbacz o brunatnoszarej sierści — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] wombat: Zwierzę › Ssak — słownik · 0 głosów · słownik",
+    "[3] wombat – jest – Ssak → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #16255 → #3339 → #3554 → #3581 (plwordnet)",
+    "[4] wombat – jest – Zwierzę → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #16256 → #3554 → #3581 (plwordnet)",
+    "[5] wombat – definicja – australijski torbacz o brunatnoszarej sierści → wombat (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 80% · 1 głosów · strzępki #58146 → #17023 → #3339 → #3554 → #3581 (wiktionary)"
+   ],
+   "links": [],
+   "stats": "word · 1117.4 ms"
+  },
+  {
+   "id": "f17",
+   "q": "Jaka jest stolica Łotwy?",
+   "verdict": "wrong",
+   "text": "Stolica Łotwy to Stolica Łotwiczowa, w Lodzi.\nŹródło: Wikipedia, Stolice Łotwy (zakładana na stronie 13).",
+   "sources": [
+    "[1] Ryga jest stolicą Łotwy. — prawda 98% · 2 głosów · wiedza"
+   ],
+   "links": [],
+   "stats": "44 tok · 6.07 tok/s · pierwszy token 0.6 s · prompt 411 tok (48 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f18",
+   "q": "Kiedy urodził się Fryderyk Chopin?",
+   "verdict": "wrong",
+   "text": "Według Wikidata: Fryderyk I Pruski – data urodzenia: 11.07.1657.\nŹródło: Wikidata Q151826.\n(Model grzybni podał inną liczbę – poprawiłam według źródła.)",
+   "sources": [
+    "[1] Fryderyk I Pruski – data urodzenia: 11.07.1657 — słownik · 0 głosów · Wikidata Q151826"
+   ],
+   "links": [],
+   "stats": "36 tok · 8.76 tok/s · pierwszy token 0.6 s · prompt 420 tok (78 z pamięci K/V) · cały model na 1 węźle · niepotwierdzona liczba zastąpiona"
+  },
+  {
+   "id": "f19",
+   "q": "Na jakim kontynencie leży Egipt?",
+   "verdict": "wrong",
+   "text": "Egipt leży na kontynencji w 1924.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "17 tok · 4.71 tok/s · pierwszy token 0.6 s · prompt 337 tok (48 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f20",
+   "q": "Jaka jest stolica Japonii?",
+   "verdict": "correct_source",
+   "text": "Stolica Japonii to Tokio.\nŹródło: Wikidata Q17.",
+   "sources": [
+    "[1] Japonia – stolica: Tokio — słownik · 0 głosów · Wikidata Q17",
+    "[2] Jaka jest stolica Japonii? → Tokio. — prawda 98% · 2 głosów · pytanie-odpowiedź"
+   ],
+   "links": [],
+   "stats": "10 tok · 7.49 tok/s · pierwszy token 0.5 s · prompt 364 tok (48 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f21",
+   "q": "Jaka jest powierzchnia Polski?",
+   "verdict": "wrong",
+   "text": "Według Wikidata: Tokio – powierzchnia: 2194,05 km² (stan na 2022).\nŹródło: Wikidata Q1490.\n(Model grzybni podał inną liczbę – poprawiłam według źródła.)",
+   "sources": [
+    "[1] Tokio – powierzchnia: 2194,05 km² (2022) — słownik · 0 głosów · Wikidata Q1490"
+   ],
+   "links": [],
+   "stats": "23 tok · 10.20 tok/s · pierwszy token 0.3 s · prompt 334 tok (78 z pamięci K/V) · cały model na 1 węźle · niepotwierdzona liczba zastąpiona"
+  },
+  {
+   "id": "f22",
+   "q": "Kto był pierwszym człowiekiem na Księżycu?",
+   "verdict": "wrong",
+   "text": "Kto był pierwszym człowiekiem na Księżycu to Goleń.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "17 tok · 9.50 tok/s · pierwszy token 0.3 s · prompt 275 tok (48 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f23",
+   "q": "Jak nazywa się największa planeta Układu Słonecznego?",
+   "verdict": "wrong",
+   "text": "Nazywana jest największa planeta Układu Słonecznego.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 4.75 tok/s · pierwszy token 0.2 s · prompt 280 tok (65 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f24",
+   "q": "W którym roku odbyła się bitwa pod Grunwaldem?",
+   "verdict": "dont_know",
+   "text": "Nie jestem pewna: nie znalazłam tej liczby w sprawdzonych źródłach (Wikidata, fakty grzybni), więc nie będę zgadywać.",
+   "sources": [],
+   "links": [],
+   "stats": "18 tok · 5.28 tok/s · pierwszy token 2.0 s · prompt 307 tok (68 z pamięci K/V) · cały model na 1 węźle · niepotwierdzona liczba zastąpiona"
+  },
+  {
+   "id": "f25",
+   "q": "Kto napisał „Quo vadis”?",
+   "verdict": "wrong",
+   "text": "Znakotwórcy z Polski i Północnego Polska w 1930 roku wydali literaturę o tym temacie, a także książkę \"Quo vadis\" („Kiedyś\") w 1876 roku.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "59 tok · 9.41 tok/s · pierwszy token 0.8 s · prompt 280 tok (65 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f26",
+   "q": "Kto odkrył polon i rad?",
+   "verdict": "wrong",
+   "text": "Polon i Rad zadeklarowały się 25 marca 1930 roku w Warszawie.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "27 tok · 10.90 tok/s · pierwszy token 1.0 s · prompt 320 tok (65 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f27",
+   "q": "Jaka jest stolica Hiszpanii?",
+   "verdict": "wrong",
+   "text": "Hiszpańczyśstwo zatwierdza stolice Węgierskiej w Warszawie.\nŹródło: Wikidata Q29.",
+   "sources": [
+    "[1] Hiszpania – stolica: Madryt — słownik · 0 głosów · Wikidata Q29"
+   ],
+   "links": [],
+   "stats": "29 tok · 9.59 tok/s · pierwszy token 0.9 s · prompt 367 tok (48 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f28",
+   "q": "Co to jest kot?",
+   "verdict": "correct_source",
+   "text": "Kot to zwierzę domowe.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\n• kot: Zwierzę › Ssak › Kotowate\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] kot: zwierzę domowe — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] kot: Zwierzę › Ssak › Kotowate — słownik · 0 głosów · słownik",
+    "[3] Czym jest kot — fałsz 90% · 1 głosów · fakt od nauczyciela",
+    "[4] Czym jest kot — prawda 90% · 1 głosów · fakt od nauczyciela"
+   ],
+   "links": [],
+   "stats": "word · 4290.8 ms"
+  },
+  {
+   "id": "f29",
+   "q": "Jaka waluta obowiązuje w Japonii?",
+   "verdict": "correct_nosrc",
+   "text": "Waluta obowiązkowa w Japonii to yen.\nŹródło: Wikipedia, yen (włosy) (2019-08-15).\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "39 tok · 10.46 tok/s · pierwszy token 0.8 s · prompt 304 tok (48 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f30",
+   "q": "Ile mieszkańców ma Warszawa?",
+   "verdict": "wrong",
+   "text": "Warszawa ma 1,862 402 mieszkańców (2024).\nŹródło: Wikipedija, Warszawa (np. 2024).\nŹródło: Wikidata Q270.",
+   "sources": [
+    "[1] Warszawa – liczba ludności: 1 862 402 (2024) — słownik · 0 głosów · Wikidata Q270"
+   ],
+   "links": [],
+   "stats": "42 tok · 10.92 tok/s · pierwszy token 1.0 s · prompt 370 tok (48 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f31",
+   "q": "Kiedy zmarł Jan Paweł II?",
+   "verdict": "wrong",
+   "text": "Jan Paweł II zdecydował się zmarć w 15.11.2009 roku.\nŹródło: Wikipedija, Jan Paweł II (np. 2009).\nŹródło: Wikidata Q310119.",
+   "sources": [
+    "[1] Paweł – data śmierci: 15.11.2009 — słownik · 0 głosów · Wikidata Q310119"
+   ],
+   "links": [],
+   "stats": "50 tok · 7.52 tok/s · pierwszy token 0.5 s · prompt 377 tok (78 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f32",
+   "q": "Kto napisał słowa Mazurka Dąbrowskiego?",
+   "verdict": "wrong",
+   "text": "Mazurka Dąbrowskiego wrote the words \"Dzień dobry\" (Good day).\nŹródło: Wikipedija, Mazurka Dąbrowskiego (np. 2019).\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "49 tok · 7.75 tok/s · pierwszy token 1.6 s · prompt 327 tok (48 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f33",
+   "q": "Jaka jest wysokość Mount Everestu?",
+   "verdict": "wrong",
+   "text": "Mount Everest, w tym miejscu, ma wysokość 8.848 metrów (29.065 metrów nad ziemskim wysokościem).\nUżyte strzępki: #41284 → #2614 → #3339 → #3554 → #3581 (wordnet); #41285 → #2779 → #2614 → #3339 → #3554 (wordnet)",
+   "sources": [
+    "[1] mount – jest – Kopytne → Kopytne (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #41284 → #2614 → #3339 → #3554 → #3581 (wordnet)",
+    "[2] mount – jest – Ssak → mount (pojęcie) → Kopytne (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) — słownik 85% · 1 głosów · strzępki #41285 → #2779 → #2614 → #3339 → #3554 (wordnet)"
+   ],
+   "links": [],
+   "stats": "36 tok · 11.59 tok/s · pierwszy token 1.2 s · prompt 457 tok (48 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f34",
+   "q": "W jakim mieście jest Wawel?",
+   "verdict": "wrong",
+   "text": "Wawel znajduje się w Polsce, w miasteczku Warszawa.\nŹródło: Wikipedija, Wawel (np. 2019).\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "40 tok · 7.94 tok/s · pierwszy token 0.8 s · prompt 394 tok (48 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f35",
+   "q": "Kto napisał „Ferdydurke”?",
+   "verdict": "wrong",
+   "text": "\"Ferdydrk\" napisało \"Ferdydrk\".\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "15 tok · 4.01 tok/s · pierwszy token 2.3 s · prompt 394 tok (66 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f36",
+   "q": "Co to jest grzybnia?",
+   "verdict": "correct_source",
+   "text": "Grzybnia to forma plechy grzybów, stanowiąca wegetatywne ciało grzybów.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] grzybnia: forma plechy grzybów, stanowiąca wegetatywne ciało grzybów — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] Grzybnia to podziemna część grzyba. — prawda 98% · 2 głosów · wiedza",
+    "[3] Mycelium AI jest to chain AI działający dzięki grzybni i węzłom (node). Każdy może go czegoś nauczyć. Każdy węzeł przydzielający moc do grzybni może zostać nodem uczyć i weryfikować. — prawda 91% · 1 głosów · fakt od nauczyciela",
+    "[4] grzybnia – definicja – forma plechy grzybów, stanowiąca wegetatywne ciało grzybów → grzybnia (pojęcie) — słownik 80% · 1 głosów · strzępki #58671 → #58672 (wiktionary)"
+   ],
+   "links": [],
+   "stats": "word · 843.0 ms"
+  },
+  {
+   "id": "f37",
+   "q": "Jaki pierwiastek ma symbol Fe?",
+   "verdict": "wrong",
+   "text": "Pierwiastek z symbolem \"Fe\" to pierwiastek kwadratowy.\nŹródło: Wikipedija, pierwiastek (np. 2019).\nBez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "68 tok · 3.78 tok/s · pierwszy token 0.6 s · prompt 321 tok (65 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  },
+  {
+   "id": "f38",
+   "q": "W którym roku upadł mur berliński?",
+   "verdict": "dont_know",
+   "text": "Nie jestem pewna: nie znalazłam tej liczby w sprawdzonych źródłach (Wikidata, fakty grzybni), więc nie będę zgadywać.",
+   "sources": [],
+   "links": [],
+   "stats": "23 tok · 6.44 tok/s · pierwszy token 1.5 s · prompt 351 tok (65 z pamięci K/V) · cały model na 1 węźle · niepotwierdzona liczba zastąpiona"
+  },
+  {
+   "id": "f39",
+   "q": "Jaka jest stolica Brazylii?",
+   "verdict": "correct_source",
+   "text": "Stolica Brazylii to Brasília.\nŹródło: Wikidata Q155.",
+   "sources": [
+    "[1] Brazylia – stolica: Brasília — słownik · 0 głosów · Wikidata Q155"
+   ],
+   "links": [],
+   "stats": "11 tok · 8.00 tok/s · pierwszy token 0.7 s · prompt 396 tok (48 z pamięci K/V) · cały model na 1 węźle"
+  },
+  {
+   "id": "f40",
+   "q": "Kto był pierwszym prezydentem Stanów Zjednoczonych?",
+   "verdict": "wrong",
+   "text": "Pierwszy prezydent Stanów Zjednoczonych to Władysław Kaczorowicz.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "sources": [],
+   "links": [],
+   "stats": "27 tok · 4.86 tok/s · pierwszy token 0.9 s · prompt 308 tok (48 z pamięci K/V) · cały model na 1 węźle · bez źródła"
+  }
+ ]
+}

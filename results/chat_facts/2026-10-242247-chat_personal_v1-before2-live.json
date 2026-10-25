@@ -1,0 +1,113 @@
+{
+ "summary": {
+  "set": "chat_personal_v1",
+  "set_sha256": "f8cabc5884ad484d268870eec6549534085cd42ed1912e1bddbe39ba3e12564b",
+  "url": "https://maciejsearch-cloud.github.io/demo/mycelium/",
+  "label": "before2-live",
+  "at": "2026-10-24T22:47:12.168Z",
+  "n": 8,
+  "correct_with_source": 0,
+  "correct_no_source": 0,
+  "dont_know": 0,
+  "wrong": 7,
+  "honest": 1
+ },
+ "rows": [
+  {
+   "id": "p01",
+   "q": "Ile mam lat?",
+   "verdict": "wrong",
+   "text": "Według Wikipedii (artykuł „Znów mam 17 lat”): Znów mam 17 lat (ang. 17 Again) – amerykański film komediowy z 2009 roku w reżyserii Burra Steersa.\nŹródło: https://pl.wikipedia.org/wiki/Zn%C3%B3w_mam_17_lat",
+   "sources": [
+    "[1] Znów mam 17 lat (ang. 17 Again) – amerykański film komediowy z 2009 roku w reżyserii Burra Steersa. — źródło · 0 głosów · Wikipedia: Znów mam 17 lat (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Zn%C3%B3w_mam_17_lat"
+   ],
+   "stats": "wikipedia · 622.1 ms"
+  },
+  {
+   "id": "p02",
+   "q": "Ile JA mam lat?",
+   "verdict": "wrong",
+   "text": "Według Wikipedii (artykuł „Znów mam 17 lat”): Znów mam 17 lat (ang. 17 Again) – amerykański film komediowy z 2009 roku w reżyserii Burra Steersa.\nŹródło: https://pl.wikipedia.org/wiki/Zn%C3%B3w_mam_17_lat",
+   "sources": [
+    "[1] Znów mam 17 lat (ang. 17 Again) – amerykański film komediowy z 2009 roku w reżyserii Burra Steersa. — źródło · 0 głosów · Wikipedia: Znów mam 17 lat (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Zn%C3%B3w_mam_17_lat"
+   ],
+   "stats": "wikipedia · 591.1 ms"
+  },
+  {
+   "id": "p03",
+   "q": "Gdzie mieszkam?",
+   "verdict": "wrong",
+   "text": "Według Wikipedii (artykuł „Mieszko II Lambert”): Mieszko II Lambert, dawniej określany jako Mieszko Gnuśny (ur. 990, zm. 10 lub 11 maja 1034) – król Polski w latach 1025–1031, książę Polski w latach 1032–1034 z dynastii Piastów. Syn Bolesława Chrobrego, przejął władzę po śmierci ojca i prawdopodobnie wypędził z kraju swoich dwóch braci.\nŹródło: https://pl.wikipedia.org/wiki/Mieszko_II_Lambert",
+   "sources": [
+    "[1] Mieszko II Lambert, dawniej określany jako Mieszko Gnuśny (ur. 990, zm. 10 lub 11 maja 1034) – król Polski w latach 1025–1031, książę Polski w latach 1032–1034 z dynastii Piastów. Syn Bolesława Chrobrego, przejął władzę po śmierci ojca i prawdopodobnie wypędził z kraju swoich dwóch braci. — źródło · 0 głosów · Wikipedia: Mieszko II Lambert (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Mieszko_II_Lambert"
+   ],
+   "stats": "wikipedia · 661.5 ms"
+  },
+  {
+   "id": "p04",
+   "q": "Jaki jest mój ulubiony kolor?",
+   "verdict": "honest",
+   "text": "Nie wiem, naucz mnie – sprawdziłam pamięć wiedzy grzybni, Wikidata i Wikipedię i nie znalazłam źródła, które potwierdza odpowiedź, więc nie zgaduję. Znasz odpowiedź? Napisz ją w następnej wiadomości – trafi do głosowania w Weryfikuj.",
+   "sources": [],
+   "links": [],
+   "stats": "nosource · 587.6 ms"
+  },
+  {
+   "id": "p05",
+   "q": "Kiedy się urodziłam?",
+   "verdict": "wrong",
+   "text": "Według Wikipedii (artykuł „Takiego pięknego syna urodziłam”): Takiego pięknego syna urodziłam – polski krótkometrażowy film dokumentalny z 1999 roku, debiut reżyserski Marcina Koszałki.\nŹródło: https://pl.wikipedia.org/wiki/Takiego_pi%C4%99knego_syna_urodzi%C5%82am",
+   "sources": [
+    "[1] Takiego pięknego syna urodziłam – polski krótkometrażowy film dokumentalny z 1999 roku, debiut reżyserski Marcina Koszałki. — źródło · 0 głosów · Wikipedia: Takiego pięknego syna urodziłam (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Takiego_pi%C4%99knego_syna_urodzi%C5%82am"
+   ],
+   "stats": "wikipedia · 656.1 ms"
+  },
+  {
+   "id": "p06",
+   "q": "Ile masz lat?",
+   "verdict": "wrong",
+   "text": "Nie wiem, naucz mnie – sprawdziłam pamięć wiedzy grzybni, Wikidata i Wikipedię i nie znalazłam źródła, które potwierdza odpowiedź, więc nie zgaduję. Znasz odpowiedź? Napisz ją w następnej wiadomości – trafi do głosowania w Weryfikuj.",
+   "sources": [],
+   "links": [],
+   "stats": "nosource · 514.3 ms"
+  },
+  {
+   "id": "p07",
+   "q": "Gdzie mieszkasz?",
+   "verdict": "wrong",
+   "text": "Według Wikipedii (artykuł „Mieszko I”): Mieszko I (ur. 922–945, zm. 25 maja 992) – władca Polski z dynastii Piastów sprawujący władzę od ok. 960 roku.\nŹródło: https://pl.wikipedia.org/wiki/Mieszko_I",
+   "sources": [
+    "[1] Mieszko I (ur. 922–945, zm. 25 maja 992) – władca Polski z dynastii Piastów sprawujący władzę od ok. 960 roku. — źródło · 0 głosów · Wikipedia: Mieszko I (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Mieszko_I"
+   ],
+   "stats": "wikipedia · 463.9 ms"
+  },
+  {
+   "id": "p08",
+   "q": "How old am I?",
+   "verdict": "wrong",
+   "text": "Według Wikipedii (artykuł „OLD”): OLD – amerykański zespół metalowy założony w 1986, rozwiązany w 2002. Tworzyli go Alan Dubin (śpiew) i James Plotkin (gitara, gitara basowa); obaj po rozpadzie OLD zostali członkami formacji Khanate.\nŹródło: https://pl.wikipedia.org/wiki/OLD",
+   "sources": [
+    "[1] OLD – amerykański zespół metalowy założony w 1986, rozwiązany w 2002. Tworzyli go Alan Dubin (śpiew) i James Plotkin (gitara, gitara basowa); obaj po rozpadzie OLD zostali członkami formacji Khanate. — źródło · 0 głosów · Wikipedia: OLD (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/OLD"
+   ],
+   "stats": "wikipedia · 690.1 ms"
+  }
+ ]
+}

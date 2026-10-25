@@ -1,0 +1,8 @@
+# Klucz publikowalny Supabase (sb_publishable_…) jest publiczny z założenia – ten sam jest w kodzie strony;
+# dostęp chroni RLS w bazie. Wszystkie inne reguły gitleaks działają domyślnie.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Supabase publishable key (public by design, RLS)"
+regexes = ['''sb_publishable_[A-Za-z0-9_-]+''']
