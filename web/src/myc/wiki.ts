@@ -138,7 +138,7 @@ export function hasAnswer(type: AnsType, sent: string, q: string, title: string)
 
 /** Najlepsze zdania wstępu dla pytania. Warunek: każdy wymagany rdzeń pytania jest w tytule albo w zdaniu,
  *  a zdanie zawiera odpowiedź oczekiwanego typu. Inaczej undefined (brak potwierdzenia → „nie wiem”). */
-export function bestSentences(q: string, title: string, extract: string, relax = false): { text: string; cover: number; relaxed?: boolean } | undefined {
+export function bestSentences(q: string, title: string, extract: string, relax = false): { text: string; cover: number; prox: number; relaxed?: boolean } | undefined {
   // najpierw ściśle; potem (tylko w artykule o samej encji z pytania – „Egipt”, „Wawel”) bez słowa typu odpowiedzi
   // („mieście”, „kontynencie”), z mniejszym pokryciem
   const strict = bestSentencesReq(q, title, extract, [])
@@ -149,7 +149,7 @@ export function bestSentences(q: string, title: string, extract: string, relax =
   return rel && { ...rel, relaxed: true }
 }
 
-function bestSentencesReq(q: string, title: string, extract: string, drop: string[]): { text: string; cover: number } | undefined {
+function bestSentencesReq(q: string, title: string, extract: string, drop: string[]): { text: string; cover: number; prox: number } | undefined {
   // pytanie o symbol: samo słowo „symbol” wyraża odpowiedź („Złoto (Au, …)”), nie musi stać w zdaniu
   const req0 = ansType(q) === 'symbol' ? requiredStems(q).filter((x) => x !== 'symb') : requiredStems(q)
   const req = req0.filter((x) => !drop.includes(x))
@@ -176,7 +176,7 @@ function bestSentencesReq(q: string, title: string, extract: string, drop: strin
   const ordPair = oi >= 0 && qw[oi + 1] && !QWORDS.has(qw[oi + 1]) ? { o: ordDigit(qw[oi])!, stem: qw[oi].slice(0, 5), noun: stem4(qw[oi + 1]) } : undefined
   const pairIn = (sw: string[]) =>
     !ordPair || sw.some((w, j) => (w === `ord${ordPair.o}` || w.startsWith(ordPair.stem)) && [sw[j + 1], sw[j + 2]].some((n) => n && n.slice(0, 4) === ordPair.noun))
-  let best: { text: string; cover: number; i: number } | undefined
+  let best: { text: string; cover: number; i: number; prox: number } | undefined
   sents.forEach((s, i) => {
     const sw = wordsOf(s)
     if (!req.every((x) => stemIn(x, sw) || (loose && stemIn(x, tw)))) return
@@ -188,15 +188,31 @@ function bestSentencesReq(q: string, title: string, extract: string, drop: strin
     if (!hasAnswer(type, s, q, title)) return
     // pokrycie: wymagane rdzenie są już spełnione (1), czasowniki relacji („napisał”) dokładają połowę wagi – remis → wcześniejsze zdanie
     const cover = 0.5 + (0.5 * all.filter((x) => stemIn(x, sw) || stemIn(x, tw)).length) / all.length
-    if (!best || cover > best.cover) best = { text: s, cover, i }
+    const prox = phraseProx(q, s)
+    if (!best || cover > best.cover || (cover === best.cover && prox > best.prox)) best = { text: s, cover, i, prox }
   })
   if (!best) return undefined
-  const b: { text: string; cover: number; i: number } = best
+  const b: { text: string; cover: number; i: number; prox: number } = best
   const text = b.i > 0 && sents[0] && sents[0].length < 300 ? `${sents[0]} … ${b.text}` : b.text
-  return { text: text.length > 600 ? `${text.slice(0, 597)}…` : text, cover: b.cover }
+  return { text: text.length > 600 ? `${text.slice(0, 597)}…` : text, cover: b.cover, prox: b.prox }
 }
 
 const PLURAL = /(ych|ich|ymi|imi)$/
+
+/** Bliskość frazy: udział par kolejnych słów treści pytania (bez słów pytających, łącznika i przyimków), które w zdaniu
+ *  też stoją obok siebie jako słowa treści. „pierwszą kobietą w kosmosie” ~ „Pierwsza kobieta w kosmosie” = 1, a
+ *  „Pierwsza kobieta, która dowodziła … Kosmiczną” = 1/2; „najdłuższa rzeka w Polsce” ~ „najdłuższa rzeka Polski” = 1,
+ *  a „najdłuższa rzeka w Gminie Dobra” = 1/2 – zdanie, które powtarza frazę pytania, odpowiada na nie dokładniej. */
+export function phraseProx(q: string, sent: string): number {
+  const content = (t: string) => wordsOf(t).filter((w) => !QWORDS.has(w)).map((w) => w.slice(0, 4))
+  const qs = content(q)
+  if (qs.length < 2) return 0
+  const ss = content(sent)
+  const pairs = new Set(ss.slice(1).map((w, i) => `${ss[i]} ${w}`))
+  let n = 0
+  for (let i = 1; i < qs.length; i++) if (pairs.has(`${qs[i - 1]} ${qs[i]}`)) n++
+  return n / (qs.length - 1)
+}
 const ORD_STEM = new Map(ORD.map(([re, d]) => [re.source.slice(1, 5), `ord${d}`]))
 
 /** Tytuł bez dopowiedzenia w nawiasie: „Lalka (powieść)” → „Lalka”. */
@@ -280,9 +296,13 @@ export async function wikiAnswer(q: string, get: Get = getJson): Promise<WikiHit
     const side = sw && !strip(q).includes(strip(sw).slice(0, 5)) ? 0.3 : 0
     // tytuł w całości z pytania i dłuższy jest dokładniejszy („Polska w Unii Europejskiej” > „Polska”)
     const spec = prec === 1 ? 0.1 * Math.min(tws.length, 4) : 0
-    // pozycja w wyszukiwarce (tytuły z pytania stoją na 0)
-    const r = Math.max(0, searchTitles.indexOf(t))
-    const score = b.cover + 0.5 * prec + spec - side - r * 0.05 - (b.relaxed ? 0.25 : 0)
+    // pozycja w wyszukiwarce (tytuły z pytania stoją na 0): najlepsza pozycja w którymkolwiek zapytaniu – nie miejsce
+    // na sklejonej liście (3. wynik drugiego zapytania nie jest „5.”, bo pierwsze zapytanie dało 2 inne tytuły)
+    const ranks = lists.map((l) => l.indexOf(t)).filter((x) => x >= 0)
+    const r = ranks.length ? Math.min(...ranks) : Math.max(0, searchTitles.indexOf(t))
+    // zdanie powtarzające frazę pytania wygrywa z tymi samymi słowami rozrzuconymi po zdaniu (Tierieszkowa > Whitson
+    // dla „pierwszą kobietą w kosmosie”) – waga 0,3 przeważa kilka pozycji wyszukiwarki, nie przeważa tytułu z pytania
+    const score = b.cover + 0.5 * prec + spec - side - r * 0.05 - (b.relaxed ? 0.25 : 0) + 0.3 * b.prox
     cands.push({ hit: { title: p.title, url: wikiUrl(p.title), text: b.text, cover: b.cover }, score, own, prec, n: tws.length })
   }
   // artykuł o samej encji z pytania („Wawel”) wygrywa z artykułem o czymś innym, co ją tylko zawiera („Willa Mały Wawel w Krakowie”) –

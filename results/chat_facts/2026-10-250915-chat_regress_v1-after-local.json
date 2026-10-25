@@ -1,0 +1,94 @@
+{
+ "summary": {
+  "set": "chat_regress_v1",
+  "set_sha256": "24fd45e5bcf0bcc1b5abb89271fa12f9c8f7518c3468d1f25b31d0187cb793ee",
+  "url": "http://localhost:4180/",
+  "label": "after-local",
+  "at": "2026-10-25T09:15:05.287Z",
+  "n": 6,
+  "correct_with_source": 6,
+  "correct_no_source": 0,
+  "dont_know": 0,
+  "wrong": 0
+ },
+ "rows": [
+  {
+   "id": "r01",
+   "q": "Kto był pierwszą kobietą w kosmosie?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Walentina Tierieszkowa”): Walentina Władimirowna Tierieszkowa (ros. Валентина Владимировна Терешкова; ur. 6 marca 1937 w m. Bolszoje Maslennikowo) – radziecka kosmonautka, inżynierka, Bohater Związku Radzieckiego (1963) i Lotnik Kosmonauta ZSRR. … Pierwsza kobieta w kosmosie i jedyna w dotychczasowej historii, która odbyła lot kosmiczny w pojedynkę.\nŹródło: https://pl.wikipedia.org/wiki/Walentina_Tierieszkowa",
+   "sources": [
+    "[1] Walentina Władimirowna Tierieszkowa (ros. Валентина Владимировна Терешкова; ur. 6 marca 1937 w m. Bolszoje Maslennikowo) – radziecka kosmonautka, inżynierka, Bohater Związku Radzieckiego (1963) i Lotnik Kosmonauta ZSRR. … Pierwsza kobieta w kosmosie i jedyna w dotychczasowej historii, która odbyła lot kosmiczny w pojedynkę. — źródło · 0 głosów · Wikipedia: Walentina Tierieszkowa (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Walentina_Tierieszkowa"
+   ],
+   "stats": "wikipedia · 961.3 ms"
+  },
+  {
+   "id": "r02",
+   "q": "Kim była pierwsza kobieta w kosmosie?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Walentina Tierieszkowa”): Walentina Władimirowna Tierieszkowa (ros. Валентина Владимировна Терешкова; ur. 6 marca 1937 w m. Bolszoje Maslennikowo) – radziecka kosmonautka, inżynierka, Bohater Związku Radzieckiego (1963) i Lotnik Kosmonauta ZSRR. … Pierwsza kobieta w kosmosie i jedyna w dotychczasowej historii, która odbyła lot kosmiczny w pojedynkę.\nŹródło: https://pl.wikipedia.org/wiki/Walentina_Tierieszkowa",
+   "sources": [
+    "[1] Walentina Władimirowna Tierieszkowa (ros. Валентина Владимировна Терешкова; ur. 6 marca 1937 w m. Bolszoje Maslennikowo) – radziecka kosmonautka, inżynierka, Bohater Związku Radzieckiego (1963) i Lotnik Kosmonauta ZSRR. … Pierwsza kobieta w kosmosie i jedyna w dotychczasowej historii, która odbyła lot kosmiczny w pojedynkę. — źródło · 0 głosów · Wikipedia: Walentina Tierieszkowa (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Walentina_Tierieszkowa"
+   ],
+   "stats": "wikipedia · 705.4 ms"
+  },
+  {
+   "id": "r03",
+   "q": "Kto była pierwszą kobietą w kosmosie?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Walentina Tierieszkowa”): Walentina Władimirowna Tierieszkowa (ros. Валентина Владимировна Терешкова; ur. 6 marca 1937 w m. Bolszoje Maslennikowo) – radziecka kosmonautka, inżynierka, Bohater Związku Radzieckiego (1963) i Lotnik Kosmonauta ZSRR. … Pierwsza kobieta w kosmosie i jedyna w dotychczasowej historii, która odbyła lot kosmiczny w pojedynkę.\nŹródło: https://pl.wikipedia.org/wiki/Walentina_Tierieszkowa",
+   "sources": [
+    "[1] Walentina Władimirowna Tierieszkowa (ros. Валентина Владимировна Терешкова; ur. 6 marca 1937 w m. Bolszoje Maslennikowo) – radziecka kosmonautka, inżynierka, Bohater Związku Radzieckiego (1963) i Lotnik Kosmonauta ZSRR. … Pierwsza kobieta w kosmosie i jedyna w dotychczasowej historii, która odbyła lot kosmiczny w pojedynkę. — źródło · 0 głosów · Wikipedia: Walentina Tierieszkowa (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Walentina_Tierieszkowa"
+   ],
+   "stats": "wikipedia · 781.3 ms"
+  },
+  {
+   "id": "r04",
+   "q": "Kto był pierwszym człowiekiem w kosmosie?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Eksploracja kosmosu”): Eksploracja kosmosu – fizyczna eksploracja przestrzeni kosmicznej, zarówno przez bezzałogowe próbniki, jak i załogowe pojazdy kosmiczne. … Wiele ważnych celów zostało osiągniętych przez Związek Radziecki jako pierwszy, jak umieszczanie pierwszego człowieka w kosmosie – Jurija Gagarina na pokładzie pojazdu Wostok 1 w 1961 roku, czy pierwszy spacer kosmiczny, dokonany w roku 1965 przez Aleksieja Leonowa.\nŹródło: https://pl.wikipedia.org/wiki/Eksploracja_kosmosu",
+   "sources": [
+    "[1] Eksploracja kosmosu – fizyczna eksploracja przestrzeni kosmicznej, zarówno przez bezzałogowe próbniki, jak i załogowe pojazdy kosmiczne. … Wiele ważnych celów zostało osiągniętych przez Związek Radziecki jako pierwszy, jak umieszczanie pierwszego człowieka w kosmosie – Jurija Gagarina na pokładzie pojazdu Wostok 1 w 1961 roku, czy pierwszy spacer kosmiczny, dokonany w roku 1965 przez Aleksieja Leonowa. — źródło · 0 głosów · Wikipedia: Eksploracja kosmosu (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Eksploracja_kosmosu"
+   ],
+   "stats": "wikipedia · 781.1 ms"
+  },
+  {
+   "id": "r05",
+   "q": "Kto był pierwszym człowiekiem na Księżycu?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Neil Armstrong”): Neil Alden Armstrong (ur. 5 sierpnia 1930 w Wapakoneta, zm. 25 sierpnia 2012 w Cincinnati) – amerykański astronauta, dowódca misji Apollo 11. 21 lipca 1969 (według czasu UTC) jako pierwszy człowiek stanął na Księżycu.\nŹródło: https://pl.wikipedia.org/wiki/Neil_Armstrong",
+   "sources": [
+    "[1] Neil Alden Armstrong (ur. 5 sierpnia 1930 w Wapakoneta, zm. 25 sierpnia 2012 w Cincinnati) – amerykański astronauta, dowódca misji Apollo 11. 21 lipca 1969 (według czasu UTC) jako pierwszy człowiek stanął na Księżycu. — źródło · 0 głosów · Wikipedia: Neil Armstrong (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Neil_Armstrong"
+   ],
+   "stats": "wikipedia · 742.7 ms"
+  },
+  {
+   "id": "r06",
+   "q": "Kto był pierwszym królem Polski?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Król”): Król (łac. rex) – tytuł osoby sprawującej najwyższą władzę w państwie o ustroju monarchicznym; władca przeważnie koronowany w specjalnym obrzędzie; najpowszechniej występujący tytuł monarszy. … Pierwszym królem Polski był Bolesław I Chrobry ukoronowany w 1025 roku.\nŹródło: https://pl.wikipedia.org/wiki/Kr%C3%B3l",
+   "sources": [
+    "[1] Król (łac. rex) – tytuł osoby sprawującej najwyższą władzę w państwie o ustroju monarchicznym; władca przeważnie koronowany w specjalnym obrzędzie; najpowszechniej występujący tytuł monarszy. … Pierwszym królem Polski był Bolesław I Chrobry ukoronowany w 1025 roku. — źródło · 0 głosów · Wikipedia: Król (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Kr%C3%B3l"
+   ],
+   "stats": "wikipedia · 974.8 ms"
+  }
+ ]
+}
