@@ -637,10 +637,11 @@ const argmax = (a: ArrayLike<number>) => {
 }
 const relu = (a: Float32Array) => a.map((v) => (v > 0 ? v : 0))
 
-function hidden(M: RbModel, forms: string[], tb = 'pdb'): Float32Array[] {
+/** unk = indeksy słów czytanych jako nieznane (tylko znaki + wielkość liter) – jak model.hidden(unk=) w Pythonie. */
+function hidden(M: RbModel, forms: string[], tb = 'pdb', unk?: Set<number>): Float32Array[] {
   const { W } = M
-  const xs = forms.map((w) => {
-    const wid = M.wv.get(w.toLowerCase()) ?? 1
+  const xs = forms.map((w, wi) => {
+    const wid = unk?.has(wi) ? 1 : (M.wv.get(w.toLowerCase()) ?? 1)
     const cs = charsOf(w).map((ch) => M.cv.get(ch) ?? 1)
     const ch = new Float32Array(CFIL).fill(-Infinity)
     const cw = W.conv_w // [F, C, 3]
@@ -760,10 +761,31 @@ const logSoftmax = (z: Float32Array): number[] => {
   return Array.from(z, (v) => v - m - ls)
 }
 
-export function predict(M: RbModel, forms: string[], tb = 'pdb', withProbs = false): UTok[] {
+/** Wymuszenie dla słowa (indeks od 0): log P(etykieta) w kolejności H.deprels [+ premia łuku dla nadrzędnika 0..n]. */
+export interface Force {
+  pr: number[]
+  hb?: number[]
+}
+
+const logNorm = (a: ArrayLike<number>): number[] => {
+  let m = -Infinity
+  for (let i = 0; i < a.length; i++) if (a[i] > m) m = a[i]
+  let z = 0
+  for (let i = 0; i < a.length; i++) z += Math.exp(a[i] - m)
+  const lz = Math.log(z)
+  return Array.from(a, (v) => v - m - lz)
+}
+
+export function predict(
+  M: RbModel,
+  forms: string[],
+  tb = 'pdb',
+  withProbs = false,
+  opt: { force?: Map<number, Force>; unk?: Set<number> } = {},
+): UTok[] {
   if (!forms.length) return []
   const { W, H } = M
-  const X = hidden(M, forms, tb)
+  const X = hidden(M, forms, tb, opt.unk)
   const N1 = X.length
   const ad = X.map((x) => relu(affine(W.ad_w, W.ad_b, x)))
   const ah = X.map((x) => relu(affine(W.ah_w, W.ah_b, x)))
@@ -792,15 +814,11 @@ export function predict(M: RbModel, forms: string[], tb = 'pdb', withProbs = fal
     const z = Math.log(r.reduce((a, v) => a + Math.exp(v - m), 0))
     return r.map((v) => v - m - z)
   })
-  const heads = mst(L)
   const rd = X.map((x) => [...relu(affine(W.rd_w, W.rd_b, x)), 1])
   const rh = X.map((x) => [...relu(affine(W.rh_w, W.rh_b, x)), 1])
   const R = REL + 1
   const nl = H.deprels.length
-  const out: UTok[] = []
-  for (let i = 1; i < N1; i++) {
-    const x = X[i]
-    const h = heads[i]
+  const relScores = (i: number, h: number) => {
     const rs = new Float32Array(nl)
     for (let l = 0; l < nl; l++) {
       let s = 0
@@ -814,6 +832,29 @@ export function predict(M: RbModel, forms: string[], tb = 'pdb', withProbs = fal
       }
       rs[l] = s
     }
+    return rs
+  }
+  // wymuszone słowa (Morfeusz zmienił analizę): łuk i etykieta łącznie – lustro model.predict(force=) w Pythonie
+  const D = opt.force?.size ? L.map((r) => r.slice()) : L
+  const lpr = new Map<number, number[]>()
+  for (const [j, fv] of opt.force ?? []) {
+    const i = j + 1
+    lpr.set(i, fv.pr)
+    for (let h = 0; h < N1; h++) {
+      const r = logNorm(relScores(i, h))
+      let best = -Infinity
+      for (let l = 0; l < nl; l++) best = Math.max(best, r[l] + fv.pr[l])
+      D[i][h] += best + (fv.hb ? fv.hb[h] : 0)
+    }
+  }
+  const heads = mst(D)
+  const out: UTok[] = []
+  for (let i = 1; i < N1; i++) {
+    const x = X[i]
+    const h = heads[i]
+    let rs = relScores(i, h)
+    const pr = lpr.get(i)
+    if (pr) rs = Float32Array.from(logNorm(rs), (v, l) => v + pr[l])
     let rl = H.deprels[argmax(rs)]
     if (h === 0) rl = 'root'
     else if (rl === 'root') {

@@ -104,6 +104,14 @@ def test_model_roundtrip_and_predict():
     toks = model.predict(H2, W2, ["Kuba", "dał", "."], "pdb")
     assert len(toks) == 3 and sum(t["head"] == 0 for t in toks) == 1
     assert all(0 <= t["p"] <= 1 for t in toks)
+    # wymuszenie etykiety (redecode): pusty force/unk = ten sam wynik; silny prior łuku i etykiety jest respektowany
+    assert model.predict(H2, W2, ["Kuba", "dał", "."], "pdb", force={}, unk=frozenset()) == toks
+    pr = np.full(len(H2["deprels"]), -50.0, np.float32)
+    pr[H2["deprels"].index("nsubj")] = 0.0
+    hb = np.array([0.0, 0.0, 50.0, 0.0], np.float32)  # nadrzędnik „dał”
+    t2 = model.predict(H2, W2, ["Kuba", "dał", "."], "pdb", force={0: (pr, hb)}, unk=frozenset({0}))
+    if t2[0]["head"] != 0:
+        assert t2[0]["head"] == 2 and t2[0]["deprel"] == "nsubj"
 
 
 def test_pytania_role_and_negation():
@@ -246,3 +254,28 @@ def test_logika_helpers():
     a, b = logika.Lit(frozenset({"x"}), True), logika.Lit(frozenset({"y"}), True)
     assert logika.closure({b.neg()}, [(a, b)]) >= {a.neg()}  # modus tollens
     assert logika.SQUARE[("notall", "all")] == "nie" and logika.SQUARE[("some", "all")] == "nie wiadomo"
+
+
+def test_morf_agrees_and_proper_only():
+    from iot_mycelium.rozbior import morf
+
+    # szum mapy tag→UD: „subst:sg:dat:f” nie może dać mianownika ani rzeczownika bez przypadku
+    assert morf.agrees("subst:sg:dat:f", "PROPN", {"Case": "Dat", "Number": "Sing", "Gender": "Fem"})
+    assert not morf.agrees("subst:sg:dat:f", "PROPN", {"Case": "Nom", "Number": "Sing", "Gender": "Fem"})
+    assert not morf.agrees("subst:sg:dat:f", "NOUN", {})
+    assert morf.agrees("subst:pl:nom:n:pt", "NOUN", {"Case": "Nom", "Number": "Ptan"})  # „drzwi”
+    assert morf.agrees("prep:gen", "ADP", {})  # przyimek w UD bez przypadku
+    assert morf.agrees("subst:sg:nom:n:ncol", "AUX", {})  # „em” – w UD aglutynant (AUX)
+    an = [("Ania", "subst:sg:dat:f"), ("ani", "conj")]
+    assert morf.proper_only(an, "Ani", "dał", "CCONJ") == [("Ania", "subst:sg:dat:f")]
+    assert morf.proper_only(an, "Ani", None, "CCONJ") == an  # początek zdania: wielka litera nic nie mówi
+    assert morf.proper_only(an, "Ani", "dał", "NOUN") == an  # model nie myli z funkcyjnym → bez zmian
+
+
+def test_morf_licensed_walenty():
+    from iot_mycelium.rozbior import morf
+
+    val = {"dać": {"s": [["KTO/CO", "KOMU/CZEMU", "KOGO/CO"]]}}
+    assert morf.licensed(val, "dać", False) == {"Nom", "Dat", "Acc"}
+    assert "Gen" in morf.licensed(val, "dać", True)  # „nie dał książki”
+    assert morf.licensed(val, "nieznany", False) == set()
