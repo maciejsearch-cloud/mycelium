@@ -17,6 +17,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # gitleaks skanuje całą historię
+      - name: Sekrety (gitleaks, cała historia)
+        env:
+          GL_VER: "8.21.2"
+          GL_SHA: "5bc41815076e6ed6ef8fbecc9d9b75bcae31f39029ceb55da08086315316e3ba"
+        run: |
+          curl -sSL -o /tmp/gl.tgz "https://github.com/gitleaks/gitleaks/releases/download/v${GL_VER}/gitleaks_${GL_VER}_linux_x64.tar.gz"
+          echo "${GL_SHA}  /tmp/gl.tgz" | sha256sum -c -
+          tar -xzf /tmp/gl.tgz -C /tmp gitleaks
+          /tmp/gitleaks detect --no-banner --redact -l warn
+      - name: Brak odpowiedzi kontrolnych (gold) i plików .env w repo
+        run: |
+          bad=$(git ls-files | grep -E '(^|/)\.gold/|^supabase/gold[^/]*\.sql$|(^|/)\.env(\.|$)' | grep -v '\.env\.example$' || true)
+          if [ -n "$bad" ]; then echo "Niedozwolone pliki w repo:"; echo "$bad"; exit 1; fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
