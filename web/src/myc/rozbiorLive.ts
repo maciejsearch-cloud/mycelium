@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from 'react'
 import { SB_KEY, SB_URL, ids } from './store'
 import { analyse, loadModel, predict, routeOf, tokenize, type Analysis, type RbModel, type Route } from './rozbior'
-import { select as selectMorf, type MorfLex } from './morf'
+import { choose as chooseMorf, type MorfLex } from './morf'
 
 export interface RbRow {
   id: number
@@ -158,8 +158,9 @@ export function understand(text: string): Understood | undefined {
   const first = key.split(/(?<=[.!?])\s+/)[0] ?? key
   const { forms, sa } = tokenize(first, M.wv)
   if (!forms.length) return undefined
-  const raw = predict(M, forms.slice(0, 60), st.variant, !!st.morf)
-  const toks = (st.morf ? selectMorf(M.H, raw, st.morf, st.variant) : raw).map(({ lp: _lp, ...t }, i) => ({ ...t, sa: sa[i] ? undefined : 0 }))
+  const fs = forms.slice(0, 60)
+  const raw = predict(M, fs, st.variant, !!st.morf)
+  const toks = (st.morf ? chooseMorf(M, fs, raw, st.morf, st.variant, st.walenty?.verbs) : raw).map(({ lp: _lp, ...t }, i) => ({ ...t, sa: sa[i] ? undefined : 0 }))
   const a = analyse(toks)
   const conf = toks.reduce((s, t) => s + (t.p ?? 0), 0) / toks.length
   const root = a.frames.find((f) => f.clause === 0) ?? a.frames[0]

@@ -1,0 +1,316 @@
+{
+ "what": "Niedeterministyczny NaN gradientu w treningu LoRA (bf16, CPU, micro=2, 3 wątki) – ten sam odłamek, ziarno i adapter",
+ "job": {
+  "id": 12643,
+  "version": 2,
+  "shard": 164,
+  "seed": 275830058,
+  "batch": 8,
+  "lr": 0.001,
+  "adapter": "lm/v2-fe9df60a.bin",
+  "kd": null
+ },
+ "node_logs_2026_10_25": {
+  "train_jobs_logged": 186,
+  "jobs_with_skip": 22,
+  "kd_jobs": [
+   11,
+   50
+  ],
+  "ce_jobs": [
+   11,
+   131
+  ],
+  "nodes": [
+   "box1",
+   "box2"
+  ]
+ },
+ "torch": "2.14.1+cpu",
+ "runs": [
+  {
+   "variant": "before (bez powtórki)",
+   "sdpa": "default",
+   "run": 0,
+   "steps": 6,
+   "skipped": 1,
+   "retried": null,
+   "losses": [
+    3.13,
+    3.256,
+    3.071,
+    3.424,
+    3.12,
+    2.72
+   ]
+  },
+  {
+   "variant": "before (bez powtórki)",
+   "sdpa": "math",
+   "run": 0,
+   "steps": 6,
+   "skipped": 0,
+   "retried": null,
+   "losses": [
+    3.137,
+    3.321,
+    3.072,
+    3.437,
+    3.118,
+    2.692
+   ]
+  },
+  {
+   "variant": "before (bez powtórki)",
+   "sdpa": "default",
+   "run": 1,
+   "steps": 6,
+   "skipped": 0,
+   "retried": null,
+   "losses": [
+    3.131,
+    3.256,
+    3.1,
+    3.421,
+    3.11,
+    2.69
+   ]
+  },
+  {
+   "variant": "before (bez powtórki)",
+   "sdpa": "math",
+   "run": 1,
+   "steps": 6,
+   "skipped": 0,
+   "retried": null,
+   "losses": [
+    3.13,
+    3.262,
+    3.06,
+    3.43,
+    3.123,
+    2.689
+   ]
+  },
+  {
+   "variant": "before (bez powtórki)",
+   "sdpa": "default",
+   "run": 2,
+   "steps": 6,
+   "skipped": 0,
+   "retried": null,
+   "losses": [
+    3.131,
+    3.258,
+    3.064,
+    3.431,
+    3.116,
+    2.691
+   ]
+  },
+  {
+   "variant": "before (bez powtórki)",
+   "sdpa": "math",
+   "run": 2,
+   "steps": 6,
+   "skipped": 0,
+   "retried": null,
+   "losses": [
+    3.145,
+    3.263,
+    3.067,
+    3.428,
+    3.122,
+    2.686
+   ]
+  },
+  {
+   "variant": "before (bez powtórki)",
+   "sdpa": "default",
+   "run": 3,
+   "steps": 6,
+   "skipped": 0,
+   "retried": null,
+   "losses": [
+    3.132,
+    3.255,
+    3.06,
+    3.431,
+    3.129,
+    2.686
+   ]
+  },
+  {
+   "variant": "before (bez powtórki)",
+   "sdpa": "math",
+   "run": 3,
+   "steps": 6,
+   "skipped": 0,
+   "retried": null,
+   "losses": [
+    3.131,
+    3.257,
+    3.065,
+    3.43,
+    3.123,
+    2.687
+   ]
+  },
+  {
+   "variant": "after (powtórka paczki)",
+   "sdpa": "default",
+   "run": 0,
+   "steps": 16,
+   "skipped": 0,
+   "retried": 0,
+   "losses": [
+    3.13,
+    3.256,
+    3.062,
+    3.429,
+    3.126,
+    2.696,
+    3.274,
+    3.164,
+    2.549,
+    3.348,
+    3.073,
+    2.431,
+    2.644,
+    2.833,
+    3.177,
+    2.659
+   ]
+  },
+  {
+   "variant": "after (powtórka paczki)",
+   "sdpa": "default",
+   "run": 1,
+   "steps": 16,
+   "skipped": 0,
+   "retried": 0,
+   "losses": [
+    3.132,
+    3.264,
+    3.066,
+    3.431,
+    3.125,
+    2.688,
+    3.268,
+    3.168,
+    2.548,
+    3.349,
+    3.085,
+    2.452,
+    2.639,
+    2.882,
+    3.433,
+    2.68
+   ]
+  },
+  {
+   "variant": "after (powtórka paczki)",
+   "sdpa": "default",
+   "run": 2,
+   "steps": 16,
+   "skipped": 0,
+   "retried": 0,
+   "losses": [
+    3.178,
+    3.234,
+    3.065,
+    3.435,
+    3.156,
+    2.695,
+    3.267,
+    3.154,
+    2.544,
+    3.356,
+    3.056,
+    2.433,
+    2.676,
+    2.851,
+    3.203,
+    2.648
+   ]
+  },
+  {
+   "variant": "after (powtórka paczki)",
+   "sdpa": "default",
+   "run": 3,
+   "steps": 16,
+   "skipped": 0,
+   "retried": 0,
+   "losses": [
+    3.139,
+    3.234,
+    3.077,
+    3.455,
+    3.118,
+    2.684,
+    3.262,
+    3.173,
+    2.576,
+    3.352,
+    3.053,
+    2.431,
+    2.687,
+    2.862,
+    3.224,
+    2.65
+   ]
+  },
+  {
+   "variant": "after (powtórka paczki)",
+   "sdpa": "default",
+   "run": 4,
+   "steps": 16,
+   "skipped": 0,
+   "retried": 0,
+   "losses": [
+    3.131,
+    3.294,
+    3.063,
+    3.43,
+    3.119,
+    2.689,
+    3.274,
+    3.162,
+    2.546,
+    3.348,
+    3.078,
+    2.44,
+    2.651,
+    2.835,
+    3.21,
+    2.678
+   ]
+  },
+  {
+   "variant": "after (powtórka paczki)",
+   "sdpa": "default",
+   "run": 5,
+   "steps": 16,
+   "skipped": 0,
+   "retried": 2,
+   "losses": [
+    3.175,
+    3.239,
+    3.081,
+    3.425,
+    3.265,
+    2.703,
+    3.267,
+    3.157,
+    2.538,
+    3.343,
+    3.073,
+    2.424,
+    2.672,
+    2.857,
+    3.177,
+    2.657
+   ]
+  }
+ ]
+}

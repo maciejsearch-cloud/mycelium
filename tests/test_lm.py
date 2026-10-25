@@ -145,7 +145,26 @@ def test_nonfinite_step_skipped(monkeypatch):
     tr = lm.Trainer(None, base, ids, mask, batch=2, lr=1e-2, seed=0)
     tr.step()
     out, st = tr.result()
-    assert st["skipped"] == 1 and out.a_qkv.equal(base.a_qkv)
+    assert st["skipped"] == 1 and out.a_qkv.equal(base.a_qkv) and st["retried"] == 1
+
+
+def test_transient_nonfinite_retried(monkeypatch):
+    """Jednorazowy NaN (niedeterministyczny w bf16 na CPU) – paczka liczona ponownie, krok NIE jest pomijany."""
+    base = lm.Lora.init(seed=0)
+    ids = torch.zeros(4, 6, dtype=torch.long)
+    mask = torch.ones(4, 6, dtype=torch.bool)
+    calls = {"n": 0}
+
+    def flaky_nll(m, lora, i, k, kd=None):
+        calls["n"] += 1
+        f = float("nan") if calls["n"] == 1 else 1.0
+        return ((lora.a_qkv.sum() + lora.b_qkv.sum() + lora.a_o.sum() + lora.b_o.sum()) * f).expand(int(k[:, 1:].sum()))
+
+    monkeypatch.setattr(lm, "token_nll", flaky_nll)
+    tr = lm.Trainer(None, base, ids, mask, batch=2, lr=1e-2, seed=0)
+    tr.step()
+    out, st = tr.result()
+    assert st["skipped"] == 0 and st["retried"] == 1 and not out.a_qkv.equal(base.a_qkv)
 
 
 def test_lora_finite_check():
