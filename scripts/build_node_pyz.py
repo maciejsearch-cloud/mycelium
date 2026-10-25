@@ -42,6 +42,10 @@ def build() -> Path:
         z.writestr("iot_mycelium/__init__.py", '"""Mycelium AI – samodzielny węzeł."""\n')
         for f in sorted((SRC / "mesh").glob("*.py")):
             z.writestr(f"iot_mycelium/mesh/{f.name}", f.read_text(encoding="utf-8"))
+        # rozbiór zdań (iot_mycelium.mesh.rbwork): model, zbiór i trening – wymaga numpy, bez niego węzeł go pomija
+        for name in ("__init__", "analiza", "model", "zbior", "trening", "miary", "conllu", "morf"):
+            f = SRC / "rozbior" / f"{name}.py"
+            z.writestr(f"iot_mycelium/rozbior/{f.name}", f.read_text(encoding="utf-8"))
     OUT.write_bytes(b"#!/usr/bin/env python3\n" + buf.getvalue())
     OUT.chmod(0o755)
     (OUT.parent / "mycelium-node.pyz.sha256").write_text(

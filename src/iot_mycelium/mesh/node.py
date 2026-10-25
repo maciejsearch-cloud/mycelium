@@ -516,9 +516,12 @@ def main(argv=None):
 
         n.taxw = TaxoWorker(n, log=log)
     if not a.no_rozbior and train:
-        from .rbwork import RozbiorWorker
-
-        n.rbw = RozbiorWorker(n, log=log)
+        try:
+            from .rbwork import RozbiorWorker
+        except ImportError as e:  # np. plik wykonywalny bez numpy – węzeł działa dalej bez rozbioru
+            log(f"rozbiór wyłączony: brak biblioteki ({e.name})")
+        else:
+            n.rbw = RozbiorWorker(n, log=log)
     from .passive import PassiveWorker
 
     n.pasw = panel.passive = PassiveWorker(n, panel, log=log)
