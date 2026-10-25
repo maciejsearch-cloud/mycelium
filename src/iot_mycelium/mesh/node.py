@@ -425,6 +425,15 @@ def main(argv=None):
         from .selfupdate import signature_lib_ok
 
         sys.exit(0 if signature_lib_ok() else 1)
+    if "--rozbior-selftest" in argv:  # test wydania: prawdziwe zadanie rozbioru (1 epoka PDB, bez zapisu do bazy)
+        try:
+            from .rbwork import selftest as rb_selftest
+        except ImportError as e:
+            print(json.dumps({"ok": False, "reason": f"brak biblioteki {e.name}"}))
+            sys.exit(1)
+        r = rb_selftest()
+        print(json.dumps(r, ensure_ascii=False))
+        sys.exit(0 if r.get("ok") else 1)
     if "--install" in argv or "--uninstall" in argv:
         from .service import main as service
 
