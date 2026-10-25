@@ -238,3 +238,41 @@ def slim(m: dict) -> dict:
     out["per_q"] = dict(list(m.get("per_q", {}).items())[:12])
     out["at"] = datetime.now(UTC).isoformat(timespec="seconds")
     return out
+
+
+def selftest(n_sent: int = 200, n_eval: int = 100) -> dict:
+    """Test wydania (CI pliku wykonywalnego): prawdziwe zadanie rozbioru bez zapisu do bazy.
+
+    Pobiera opublikowany model i odłamek ``train-pdb-*`` ze strony demo, robi 1 epokę na ``n_sent`` zdaniach
+    i ocenia wynik na ``n_eval`` zdaniach testu PDB. Nic nie wysyła (bez uploadu i RPC zapisu).
+    """
+    import math
+    import types
+
+    from ..rozbior import trening
+
+    w = RozbiorWorker(types.SimpleNamespace(id="selftest"), log=lambda *_: None)
+    w.meta = json.loads(w._fetch("meta.json"))
+    rows = w.sb.rpc("myc_rb_list", {"p_limit": 30}) or []
+    pub = [r for r in rows if r.get("status") == "published"]
+    if not pub:
+        return {"ok": False, "reason": "brak opublikowanego modelu"}
+    cur = max(pub, key=lambda r: r["version"])
+    H, W = w.weights(cur["path"])
+    shard = sorted(n for n in w.meta["files"] if n.startswith(TRAIN_PREFIX))[0]
+    sents = zbior.read_files({shard: w.file(shard)}, "train-")[:n_sent]
+    test = zbior.read_files({"test-pdb.json.gz": w.file("test-pdb.json.gz")}, "test-")
+    net = trening.Net(H)
+    net.load_np(W)
+    t0 = time.perf_counter()
+    steps, toks, loss = trening.train_epochs(net, sents, 1, LOCAL_LR, seed=0, log=lambda *_: None)
+    ms = int((time.perf_counter() - t0) * 1000)
+    net.eval()
+    H2, W2 = model.load(model.save("", H, net.export()))
+    m = zbior.evaluate(H2, W2, test, limit=n_eval)
+    ok = steps > 0 and math.isfinite(loss) and 0 < m["role_f1"] <= 1
+    return {
+        "ok": ok, "model": cur["path"], "shard": shard, "n_sent": len(sents), "tokens": toks, "steps": steps,
+        "loss": round(loss, 4), "train_ms": ms, "eval_n": n_eval, "role_f1": round(m["role_f1"], 4),
+        "numpy": np.__version__,
+    }  # fmt: skip
