@@ -69,12 +69,14 @@ def proper_only(an: list[tuple[str, str]], form: str, prev: str | None, upos: st
 
 NKJP_CASE = {"nom": "Nom", "gen": "Gen", "dat": "Dat", "acc": "Acc", "inst": "Ins", "loc": "Loc", "voc": "Voc"}
 NKJP_NUM = {"sg": "Sing", "pl": "Plur"}
+NKJP_GEN = {"m1": "Masc", "m2": "Masc", "m3": "Masc", "f": "Fem", "n": "Neut", "n1": "Neut", "n2": "Neut"}
 NOMINAL = {"subst", "depr", "adj", "ppron12", "ppron3"}
 UD_NOMINAL = {"NOUN", "PROPN", "ADJ", "PRON", "DET"}
 
 
 def agrees(tag: str, u: str, f: dict[str, str]) -> bool:
-    """Analiza UD zgodna z tagiem NKJP: jeśli tag ma przypadek/liczbę, analiza musi mieć ten sam przypadek/liczbę.
+    """Analiza UD zgodna z tagiem NKJP: jeśli tag ma przypadek/liczbę, analiza musi mieć ten sam przypadek/liczbę;
+    rodzaj – gdy tag i analiza go mają (np. „Ani” subst:sg:dat:f nie może dostać Gender=Masc).
     (Mapa tag→UD z TRAIN zawiera szum z wyrównania – np. „subst:sg:dat:f” → „NOUN|” bez cech albo mianownik.)"""
     parts = tag.split(":")
     if parts[0] not in NOMINAL or u not in UD_NOMINAL:  # „prep:gen” → ADP bez przypadku; „em” (subst) → AUX w UD
@@ -85,7 +87,10 @@ def agrees(tag: str, u: str, f: dict[str, str]) -> bool:
     ns = {NKJP_NUM[x] for x in parts if x in NKJP_NUM}
     if "Plur" in ns:
         ns.add("Ptan")  # plurale tantum („drzwi”, „usta”) – w UD Number=Ptan
-    return not (ns and f.get("Number") not in ns)
+    if ns and f.get("Number") not in ns:
+        return False
+    gs = {NKJP_GEN[y] for x in parts for y in x.split(".") if y in NKJP_GEN}
+    return not (gs and "Gender" in f and f["Gender"] not in gs)
 
 
 def ud_key(t: dict[str, Any]) -> str:

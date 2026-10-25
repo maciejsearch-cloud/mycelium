@@ -54,6 +54,7 @@ const REL_MIN = 0.01
 const FUNC_UPOS = new Set(['CCONJ', 'SCONJ', 'PART', 'ADP', 'ADV', 'INTJ'])
 const NKJP_CASE: Record<string, string> = { nom: 'Nom', gen: 'Gen', dat: 'Dat', acc: 'Acc', inst: 'Ins', loc: 'Loc', voc: 'Voc' }
 const NKJP_NUM: Record<string, string> = { sg: 'Sing', pl: 'Plur' }
+const NKJP_GEN: Record<string, string> = { m1: 'Masc', m2: 'Masc', m3: 'Masc', f: 'Fem', n: 'Neut', n1: 'Neut', n2: 'Neut' }
 const NOMINAL = new Set(['subst', 'depr', 'adj', 'ppron12', 'ppron3'])
 const UD_NOMINAL = new Set(['NOUN', 'PROPN', 'ADJ', 'PRON', 'DET'])
 const VAL_CASE: Record<string, string> = { 'KTO/CO': 'Nom', 'KOGO/CO': 'Acc', 'KOMU/CZEMU': 'Dat', 'KIM/CZYM': 'Ins', 'KOGO/CZEGO': 'Gen' }
@@ -74,7 +75,9 @@ function agrees(tag: string, u: string, f: Feats): boolean {
   if (cs.size && !cs.has(f.Case ?? '')) return false
   const ns = new Set(parts.filter((x) => x in NKJP_NUM).map((x) => NKJP_NUM[x]))
   if (ns.has('Plur')) ns.add('Ptan')
-  return !(ns.size && !ns.has(f.Number ?? ''))
+  if (ns.size && !ns.has(f.Number ?? '')) return false
+  const gs = new Set(parts.flatMap((x) => x.split('.')).filter((y) => y in NKJP_GEN).map((y) => NKJP_GEN[y]))
+  return !(gs.size && f.Gender !== undefined && !gs.has(f.Gender))
 }
 
 /** Poprawia lemat, UPOS i cechy tokenów z log-prawdopodobieństwami modelu (t.lp). Styl PDB (jak w czacie). */
