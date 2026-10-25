@@ -69,6 +69,9 @@ class Parser:
     def __init__(self, bin_path: str, lex_path: str):
         self.H, self.W = model.load(Path(bin_path).read_bytes())
         self.lex = json.loads(gzip.decompress(Path(lex_path).read_bytes()))
+        wal = Path(lex_path).with_name("walenty.json.gz")  # schematy czasowników (Walenty) – przypadek dopełnień
+        if wal.exists():
+            self.lex["walenty"] = json.loads(gzip.decompress(wal.read_bytes()))
         self.cache: dict[str, dict] = {}
 
     def __call__(self, s: str) -> dict[str, Any]:

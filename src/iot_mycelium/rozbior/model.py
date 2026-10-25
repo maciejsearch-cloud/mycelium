@@ -179,19 +179,23 @@ def _lstm(x: np.ndarray, wi: np.ndarray, wh: np.ndarray, b: np.ndarray, rev: boo
 
 
 def encode_words(
-    H: dict[str, Any], forms: list[str], tb: str = "pdb"
+    H: dict[str, Any], forms: list[str], tb: str = "pdb", unk: frozenset[int] = frozenset()
 ) -> tuple[np.ndarray, list[list[int]], np.ndarray]:
     wv = H["_wv"] if "_wv" in H else {w: i + 3 for i, w in enumerate(H["words"])}
     cv = H["_cv"] if "_cv" in H else {c: i + 3 for i, c in enumerate(H["chars"])}
     H["_wv"], H["_cv"] = wv, cv
-    wid = np.array([wv.get(w.lower(), UNK) for w in forms], np.int64)
+    wid = np.array([UNK if j in unk else wv.get(w.lower(), UNK) for j, w in enumerate(forms)], np.int64)
     cid = [[cv.get(ch, UNK) for ch in chars_of(w)] for w in forms]
     cas = np.array([casing(w) for w in forms], np.int64)
     return wid, cid, cas
 
 
-def hidden(H: dict[str, Any], W: dict[str, np.ndarray], forms: list[str], tb: str = "pdb") -> np.ndarray:
-    wid, cid, cas = encode_words(H, forms, tb)
+def hidden(
+    H: dict[str, Any], W: dict[str, np.ndarray], forms: list[str], tb: str = "pdb", unk: frozenset[int] = frozenset()
+) -> np.ndarray:
+    """unk = indeksy słów czytanych jako nieznane (tylko znaki + wielkość liter), np. „Ani”, gdy wektor słowa „ani”
+    (spójnik) przeczy analizie Morfeusza."""
+    wid, cid, cas = encode_words(H, forms, tb, unk)
     rows = []
     for j, cs in enumerate(cid):
         e = W["cemb"][cs]  # L × CDIM
@@ -288,11 +292,28 @@ def _find_cycle(heads: list[int]) -> list[int] | None:
     return None
 
 
-def predict(H: dict[str, Any], W: dict[str, np.ndarray], forms: list[str], tb: str = "pdb") -> list[dict[str, Any]]:
-    """Tokeny → [{form, lemma, upos, feats, head, deprel, p}] (p = pewność łuku i etykiety)."""
+def rel_logprior(H: dict[str, Any], counts: dict[str, float]) -> np.ndarray:
+    """log P(etykieta | UPOS) z wygładzeniem +1 (kolejność H["deprels"])."""
+    c = np.array([float(counts.get(d, 0.0)) for d in H["deprels"]]) + 1.0
+    return np.log(c / c.sum()).astype(np.float32)
+
+
+def predict(
+    H: dict[str, Any],
+    W: dict[str, np.ndarray],
+    forms: list[str],
+    tb: str = "pdb",
+    force: dict[int, Any] | None = None,
+    unk: frozenset[int] = frozenset(),
+) -> list[dict[str, Any]]:
+    """Tokeny → [{form, lemma, upos, feats, head, deprel, p}] (p = pewność łuku i etykiety).
+
+    force = {indeks tokenu (od 0): log P(etykieta) w kolejności H["deprels"] [, premia łuku dla nadrzędnika 0..n]} – dla takiego słowa (część mowy ustalona
+    przez Morfeusza) łuk i etykieta są wybierane łącznie: log P(łuk) + log P(etykieta | łuk) + log P(etykieta).
+    unk = słowa czytane jako nieznane (patrz hidden). Bez force/unk wynik jest bit w bit taki sam jak wcześniej."""
     if not forms:
         return []
-    X = hidden(H, W, forms, tb)
+    X = hidden(H, W, forms, tb, unk)
     x = X[1:]
     up = x @ W["upos_w"].T + W["upos_b"]
     feats = {}
@@ -304,15 +325,30 @@ def predict(H: dict[str, Any], W: dict[str, np.ndarray], forms: list[str], tb: s
     S = ad @ W["arc_U"] @ ah.T + (ah @ W["arc_h"])[None, :]  # [d, h]
     S = S - S.max(1, keepdims=True)
     S = S - np.log(np.exp(S).sum(1, keepdims=True))
-    heads = mst(S)
     rd = np.maximum(X @ W["rd_w"].T + W["rd_b"], 0)
     rh = np.maximum(X @ W["rh_w"].T + W["rh_b"], 0)
     one = np.ones((X.shape[0], 1), np.float32)
     rd1, rh1 = np.concatenate([rd, one], 1), np.concatenate([rh, one], 1)
+    lpr: dict[int, np.ndarray] = {}
+    S0 = S
+    if force:
+        S = S.copy()
+        for j, fv in force.items():
+            i = j + 1
+            pr, hb = fv if isinstance(fv, tuple) else (fv, None)
+            lpr[i] = pr
+            R = np.einsum("a,lab,hb->hl", rd1[i], W["rel_U"], rh1)
+            R = R - R.max(1, keepdims=True)
+            R = R - np.log(np.exp(R).sum(1, keepdims=True))
+            S[i] = S[i] + (R + pr[None, :]).max(1) + (0.0 if hb is None else hb)
+    heads = mst(S)
     out = []
     for i in range(1, len(forms) + 1):
         h = heads[i]
         rs = np.einsum("a,lab,b->l", rd1[i], W["rel_U"], rh1[h])
+        if i in lpr:
+            rs = rs - rs.max()
+            rs = rs - np.log(np.exp(rs).sum()) + lpr[i]
         rl = H["deprels"][int(rs.argmax())]
         if h == 0:
             rl = "root"
@@ -334,7 +370,7 @@ def predict(H: dict[str, Any], W: dict[str, np.ndarray], forms: list[str], tb: s
                 "feats": fe,
                 "head": int(h),
                 "deprel": rl,
-                "p": round(float(np.exp(S[i, h])), 3),
+                "p": round(float(np.exp(S0[i, h])), 3),
             }
         )
     return out

@@ -30,6 +30,9 @@ OUT = zbior.DATA / "morf.json.gz"
 RES = ROOT / "results" / "rozbior" / "morf-eval.json"
 PARITY = zbior.DATA / "morf-parity.json"
 N_PARITY = 60
+CASE_BETA = 0.5
+VAL_GAMMA = 1.0
+WALENTY = zbior.DATA / "walenty.json.gz"
 
 
 def build_lex(train, M, min_lemma: int = 2) -> dict:
@@ -88,10 +91,15 @@ def main() -> int:
             "derived_data_license": "CC-BY-NC-SA-4.0" if a.tb == "pdb" else "GPL-3.0",
             "alpha": a.alpha,
             "min_p": 0.02,
+            # wagi kontekstu przypadku (TRAIN UD) i schematu czasownika (Walenty) – dobrane na DEV UD, nie na teście
+            "case_beta": CASE_BETA,
+            "val_gamma": VAL_GAMMA,
             "n_forms": len(lex["forms"]),
         },
         "tagmap": {a.tb: M["tagmap"][a.tb]},
         "flem": flem,
+        "relprior": {a.tb: M["relprior"][a.tb]},
+        "caseprior": {a.tb: M["caseprior"][a.tb]},
         **lex,
     }
     raw = gzip.compress(json.dumps(blob, ensure_ascii=False, separators=(",", ":")).encode(), 9, mtime=0)
@@ -103,8 +111,10 @@ def main() -> int:
     gold = [s["toks"] for s in test]
     base = [model.predict(H, W, [t["form"] for t in s["toks"]], a.tb) for s in test]
     cache: dict = {}
+    val = json.loads(gzip.decompress(WALENTY.read_bytes())) if WALENTY.exists() else None
+    M = {**M, "meta": blob["meta"], "walenty": val}
     full = [morf.choose(H, W, b, M, a.tb, a.alpha, cache=cache) for b in base]
-    lexd = json.loads(gzip.decompress(raw))
+    lexd = {**json.loads(gzip.decompress(raw)), "walenty": val}
     brow = [morf.choose(H, W, b, lexd, a.tb, a.alpha, lex=lexd) for b in base]
     keys = ("upos", "feats", "lemma", "role_f1", "las", "part", "attr_head", "frame_tam", "per_feat")
     n_tok = sum(1 for s in test for t in s["toks"] if t["upos"] != "PUNCT")
