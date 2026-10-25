@@ -1,0 +1,12 @@
+{
+  "name": "chat_regress_v1",
+  "description": "Pytania, na które czat odpowiadał błędnie (zestaw regresji „nigdy więcej”), z wariantami sformułowania i pytaniami kontrolnymi tego samego typu. NIE jest częścią zestawu 2000 pytań bramki LM i nie trafia do treningu.",
+  "items": [
+    { "id": "r01", "q": "Kto był pierwszą kobietą w kosmosie?", "accept": ["tierieszkow", "tereshkova"] },
+    { "id": "r02", "q": "Kim była pierwsza kobieta w kosmosie?", "accept": ["tierieszkow", "tereshkova"] },
+    { "id": "r03", "q": "Kto była pierwszą kobietą w kosmosie?", "accept": ["tierieszkow", "tereshkova"] },
+    { "id": "r04", "q": "Kto był pierwszym człowiekiem w kosmosie?", "accept": ["gagarin"] },
+    { "id": "r05", "q": "Kto był pierwszym człowiekiem na Księżycu?", "accept": ["armstrong"] },
+    { "id": "r06", "q": "Kto był pierwszym królem Polski?", "accept": ["chrobry"] }
+  ]
+}
