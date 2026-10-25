@@ -254,6 +254,9 @@ def _ce_kd(x, y, emb, t_idx, t_logit, T: float, alpha: float):
 
 
 # ---------------------------------------------------------------- trening lokalny
+RETRY_NONFINITE = 1  # ile razy powtórzyć paczkę z nieskończonym gradientem, zanim krok zostanie pominięty
+
+
 class Trainer:
     """Trening adaptera od wersji globalnej krok po kroku (węzeł oddaje CPU czatowi między krokami).
 
@@ -293,6 +296,7 @@ class Trainer:
         self.order = torch.randperm(ids.shape[0], generator=torch.Generator().manual_seed(seed))
         self.losses: list[float] = []
         self.skipped = 0
+        self.retried = 0  # paczki policzone ponownie po nieskończonym gradiencie (patrz step)
         self.tokens = 0
         self.t0 = time.perf_counter()
 
@@ -304,17 +308,33 @@ class Trainer:
         self.opt.zero_grad()
         n_tok = int(self.mask[idx][:, 1:].sum())
         tot = 0.0
+        params = self.lora.tensors()
+        acc = [torch.zeros_like(t) for t in params]
         for j in range(0, B, self.micro):
             k = idx[j : j + self.micro]
             kd = None
             if self.kd is not None:
                 rows = torch.cat([torch.arange(int(self.kd_off[i]), int(self.kd_off[i + 1])) for i in k.tolist()])
                 kd = (self._to(self.kd[0][rows]), self._to(self.kd[1][rows]), self.kd[2], self.kd[3])
-            part = token_nll(self.m, self.lora, self._to(self.ids[k]), self._to(self.mask[k]), kd=kd).sum() / max(
-                1, n_tok
-            )
-            part.backward()
-            tot += float(part.detach())
+            # Nieskończony gradient w bf16 na CPU jest NIEDETERMINISTYCZNY (te same dane, ziarno i adapter: raz NaN, przy
+            # powtórce skończony – pomiar 25.10.2026, odłamek 164). Paczka z NaN jest więc liczona jeszcze raz; dopiero
+            # powtórny NaN pomija cały krok (jak dotąd).
+            for attempt in range(1 + RETRY_NONFINITE):
+                part = token_nll(self.m, self.lora, self._to(self.ids[k]), self._to(self.mask[k]), kd=kd).sum() / max(
+                    1, n_tok
+                )
+                gs = torch.autograd.grad(part, params, allow_unused=True)
+                val = float(part.detach())
+                ok = math.isfinite(val) and all(g is None or bool(torch.isfinite(g).all()) for g in gs)
+                if ok or attempt == RETRY_NONFINITE:
+                    break
+                self.retried += 1
+            for a, g in zip(acc, gs, strict=True):
+                if g is not None:
+                    a.add_(g)
+            tot += val
+        for t, a in zip(params, acc, strict=True):
+            t.grad = a
         finite = math.isfinite(tot) and all(
             t.grad is None or bool(torch.isfinite(t.grad).all()) for t in self.lora.tensors()
         )
@@ -332,6 +352,7 @@ class Trainer:
         ls = [x for x in self.losses if math.isfinite(x)] or [float("nan")]
         return Lora(*[t.detach().cpu().clone() for t in self.lora.tensors()]), {
             "skipped": self.skipped,
+            "retried": self.retried,
             "loss_first": round(ls[0], 5),
             "loss_last": round(ls[-1], 5),
             "loss_mean": round(sum(ls) / len(ls), 5),
