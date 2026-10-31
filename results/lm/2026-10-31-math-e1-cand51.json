@@ -1,0 +1,63 @@
+{
+ "set": "E1 (runda 1, ziarno 1, 24/rodzaj)",
+ "adapter": "lm/v5-48db798a.bin",
+ "gate_eval_sha": "9bebb6f48df885029b02a0e97df6a1371458877b8608d9a4c1e1311f4bc66a0a",
+ "dtype": "bf16 cpu",
+ "s": 139.6,
+ "n": 120,
+ "correct": 31,
+ "acc": 0.2583,
+ "baseline": 0.2667,
+ "per_kind": {
+  "arytmetyka": {
+   "n": 24,
+   "correct": 8,
+   "acc": 0.3333,
+   "baseline": 0.2917
+  },
+  "procenty": {
+   "n": 24,
+   "correct": 5,
+   "acc": 0.2083,
+   "baseline": 0.375
+  },
+  "równania": {
+   "n": 24,
+   "correct": 8,
+   "acc": 0.3333,
+   "baseline": 0.2917
+  },
+  "ułamki": {
+   "n": 24,
+   "correct": 5,
+   "acc": 0.2083,
+   "baseline": 0.2917
+  },
+  "zadanie tekstowe": {
+   "n": 24,
+   "correct": 5,
+   "acc": 0.2083,
+   "baseline": 0.3333
+  }
+ },
+ "per_level": {
+  "1": {
+   "n": 40,
+   "correct": 9,
+   "acc": 0.225,
+   "baseline": 0.325
+  },
+  "2": {
+   "n": 40,
+   "correct": 11,
+   "acc": 0.275,
+   "baseline": 0.35
+  },
+  "3": {
+   "n": 40,
+   "correct": 11,
+   "acc": 0.275,
+   "baseline": 0.325
+  }
+ }
+}
