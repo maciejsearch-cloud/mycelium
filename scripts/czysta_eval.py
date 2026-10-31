@@ -68,10 +68,14 @@ def main():
     ap.add_argument("--python", action="store_true", help="porównaj z logika.Reasoner w Pythonie")
     a = ap.parse_args()
     tasks = selfplay.generate(320, 2)
-    items = [{"id": f"l{i}", "q": t.question} for i, t in enumerate(tasks)] + [{"id": f["id"], "q": f["q"]} for f in FACTS]
+    items = [{"id": f"l{i}", "q": t.question} for i, t in enumerate(tasks)] + [
+        {"id": f["id"], "q": f["q"]} for f in FACTS
+    ]
     tmp = Path(tempfile.mkdtemp(prefix="czysta-"))
     (tmp / "in.json").write_text(json.dumps({"model": a.model, "items": items}, ensure_ascii=False))
-    subprocess.run(["node", "scripts/czysta-eval.mjs", str(tmp / "in.json"), str(tmp / "node.json")], cwd=ROOT / "web", check=True)
+    subprocess.run(
+        ["node", "scripts/czysta-eval.mjs", str(tmp / "in.json"), str(tmp / "node.json")], cwd=ROOT / "web", check=True
+    )
     node = json.loads((tmp / "node.json").read_text())["results"]
     rep = {
         "when": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
@@ -88,11 +92,28 @@ def main():
         rep["python_same"] = not diff
         rep["python_diff"] = len(diff)
     if a.url:
-        env = {**os.environ, "EVAL_URL": a.url, "CZYSTA_ITEMS": str(tmp / "in.json"), "CZYSTA_OUT": str(tmp / "web.json")}
-        subprocess.run(["npx", "playwright", "test", "-c", "playwright.eval.config.ts", "czysta"], cwd=ROOT / "web", env=env, check=True)
+        env = {
+            **os.environ,
+            "EVAL_URL": a.url,
+            "CZYSTA_ITEMS": str(tmp / "in.json"),
+            "CZYSTA_OUT": str(tmp / "web.json"),
+        }
+        subprocess.run(
+            ["npx", "playwright", "test", "-c", "playwright.eval.config.ts", "czysta"],
+            cwd=ROOT / "web",
+            env=env,
+            check=True,
+        )
         web = json.loads((tmp / "web.json").read_text())
-        rep["browser"] = {"url": a.url, "model": web["model"], "logic": score_logic(tasks, web["results"][:320]), "chat_facts": score_facts(web["results"][320:])}
-        rep["browser_vs_node_logic_diff"] = sum(1 for x, y in zip(web["results"][:320], node[:320], strict=True) if x["answer"] != y["answer"])
+        rep["browser"] = {
+            "url": a.url,
+            "model": web["model"],
+            "logic": score_logic(tasks, web["results"][:320]),
+            "chat_facts": score_facts(web["results"][320:]),
+        }
+        rep["browser_vs_node_logic_diff"] = sum(
+            1 for x, y in zip(web["results"][:320], node[:320], strict=True) if x["answer"] != y["answer"]
+        )
     out = ROOT / f"results/czysta/{rep['when'][:16].replace(':', '').replace('T', '-')}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(rep, ensure_ascii=False, indent=1))
@@ -109,7 +130,9 @@ def main():
     for k in ("node_no_kb", "browser"):
         if k in rep:
             L, F = rep[k]["logic"], rep[k]["chat_facts"]
-            print(f"{k}: logika {L['correct']}/{L['n']} ({L['acc']:.1%}), „nie wiem” {L['abstain']}; fakty {F['correct']}/{F['n']}, „nie wiem” {F['abstain']}, błędne {F['wrong']}")
+            print(
+                f"{k}: logika {L['correct']}/{L['n']} ({L['acc']:.1%}), „nie wiem” {L['abstain']}; fakty {F['correct']}/{F['n']}, „nie wiem” {F['abstain']}, błędne {F['wrong']}"
+            )
     print("python_same:", rep["python_same"], "→", out)
 
 
