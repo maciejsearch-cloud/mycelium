@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, type ReactNode } from 'react'
+import { Icon } from '../components/Icon'
 import { Card, Kpi, Src } from '../components/ui'
 import { ago, TimeChart } from '../components/TimeChart'
 import { rbList, type RbRow } from '../myc/rozbiorLive'
@@ -58,7 +59,13 @@ export default function Overview({ snap, progress, go }: { snap: Snapshot; progr
   const live = d && [d.nodes, d.backends, d.lm, d.frags].some((x) => x !== null)
   return (
     <div className="space-y-4">
-      <Hero en={en} live={live} at={d?.at} />
+      <Hero en={en} live={live} at={d?.at} map={<MyceliumViz data={b.store.data} cons={b.cons} me={ids.node} h={narrow ? 300 : 440} />} />
+      <p className="-mt-2 px-1 sm:px-2 text-xs leading-relaxed text-slate-500">
+        <L
+          pl="Mapa: każda kropka to prawdziwe urządzenie z bazy (przeglądarka, Pi/cron). Strzępka do środka = wkład we wspólną wiedzę, strzępki między kropkami = wspólnie ocenione pytania (kolor: zgodność). Kolor kropki = zaufanie z konsensusu, pulsowanie = aktywność w ostatnich 2 min."
+          en="Map: each dot is a real device from the database (browser, Pi/cron). Hypha to the centre = contribution to shared knowledge, hyphae between dots = jointly answered questions (colour: agreement). Dot colour = consensus trust, pulsing = active in the last 2 min."
+        />
+      </p>
       <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4" data-testid="kpis">
         <NodesKpi d={d} lang={lang} />
         <ComputeKpi d={d} lang={lang} />
@@ -83,28 +90,7 @@ export default function Overview({ snap, progress, go }: { snap: Snapshot; progr
         <RozbiorKpi en={en} lang={lang} />
       </div>
 
-      <div className="grid gap-4 xl:grid-cols-3">
-        <Card
-          className="fade-up xl:col-span-2"
-          title={en ? 'The mycelium now (real nodes and links)' : 'Grzybnia teraz (prawdziwe węzły i połączenia)'}
-          right={
-            <a href="?join=1#/teach" className="chip border-spore/30 text-spore hover:bg-spore/10">
-              {en ? 'join as a node →' : 'dołącz jako węzeł →'}
-            </a>
-          }
-        >
-          <div className="-mx-2 rounded-xl bg-[radial-gradient(ellipse_at_center,rgb(94_234_212/0.07),transparent_70%)] sm:mx-0">
-            <MyceliumViz data={b.store.data} cons={b.cons} me={ids.node} h={narrow ? 280 : 420} />
-          </div>
-          <p className="mt-1 text-xs leading-relaxed text-slate-500">
-            <L
-              pl="Każda kropka to prawdziwe urządzenie z bazy (przeglądarka, Pi/cron). Strzępka do środka = wkład we wspólną wiedzę, strzępki między kropkami = wspólnie ocenione pytania (kolor: zgodność). Kolor kropki = zaufanie z konsensusu, pulsowanie = aktywność w ostatnich 2 min."
-              en="Each dot is a real device from the database (browser, Pi/cron). Hypha to the centre = contribution to shared knowledge, hyphae between dots = jointly answered questions (colour: agreement). Dot colour = consensus trust, pulsing = active in the last 2 min."
-            />
-          </p>
-        </Card>
-        <Stages stages={stages} d={d} en={en} lang={lang} onMore={() => go('progress')} />
-      </div>
+      <Stages stages={stages} d={d} en={en} lang={lang} onMore={() => go('progress')} />
 
       <ComputeSplit d={d} en={en} lang={lang} />
 
@@ -136,35 +122,64 @@ function Dots() {
   return <span className="skeleton inline-block h-7 w-16 rounded-lg align-middle" aria-label="…" />
 }
 
-function Hero({ en, live, at }: { en: boolean; live: boolean | undefined; at?: number }) {
+function Hero({ en, live, at, map }: { en: boolean; live: boolean | undefined; at?: number; map: ReactNode }) {
   return (
-    <section className="card card-glow fade-up overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-spore/10 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -bottom-24 right-24 h-56 w-56 rounded-full bg-violet/10 blur-3xl" />
-      <div className="relative grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-3 sm:grid-cols-[auto_1fr_auto] sm:gap-x-4">
-        <LogoMark size={60} className="logo-live h-11 w-11 shrink-0 drop-shadow-[0_0_24px_rgb(94_234_212/0.25)] sm:row-span-2 sm:h-[60px] sm:w-[60px]" />
-        <h1 className="self-end text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">{en ? 'Overview' : 'Przegląd'}</h1>
-        <p className="col-span-2 max-w-3xl text-sm leading-relaxed text-slate-400 sm:col-span-1 sm:col-start-2 sm:row-start-2 sm:-mt-2 sm:self-start">
-          <L
-            pl="Grzybnia agentów AI uczy się na prawdziwych danych i od ludzi. Każda liczba i każdy wykres pochodzi z zapisanych pomiarów (przebiegi treningu, odpowiedzi, zdarzenia węzłów) – bez symulacji. Pod każdą liczbą (i) widać źródło, czas pomiaru i to, czy ktoś sprawdził ją niezależnie."
-            en="A mycelium of AI agents learns from real data and from people. Every number and chart comes from persisted measurements (training runs, answers, node events) – no simulations. Under each number (i) shows its source, when it was measured and whether it was independently checked."
-          />
-        </p>
-        <div className="col-span-2 flex flex-wrap items-center gap-2 sm:col-span-1 sm:col-start-3 sm:row-span-2 sm:row-start-1 sm:flex-col sm:items-end">
-          {live === undefined ? (
-            <span className="chip text-slate-400">{en ? 'connecting…' : 'łączenie…'}</span>
-          ) : live ? (
-            <span className="chip border-spore/30 text-spore" data-testid="db-live">
-              <span className="breathe h-1.5 w-1.5 rounded-full bg-spore" /> {en ? 'database live' : 'baza na żywo'} · {at ? new Date(at).toLocaleTimeString(en ? 'en-GB' : 'pl-PL', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Amsterdam' }) : ''}
+    <section className="card card-glow fade-up overflow-hidden !p-0" data-testid="hero">
+      <div aria-hidden className="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full bg-spore/10 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-32 left-1/3 h-64 w-64 rounded-full bg-violet/10 blur-3xl" />
+      <div className="relative grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <div className="flex flex-col justify-center gap-4 p-5 sm:p-7 lg:py-9 lg:pl-9">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <LogoMark size={40} className="logo-live h-9 w-9 shrink-0 drop-shadow-[0_0_20px_rgb(94_234_212/0.3)]" />
+            <h1 className="eyebrow !text-xs !tracking-[0.2em] text-slate-300">{en ? 'Overview' : 'Przegląd'}</h1>
+            {live === undefined ? (
+              <span className="chip text-slate-400">{en ? 'connecting…' : 'łączenie…'}</span>
+            ) : live ? (
+              <span className="chip border-spore/30 bg-spore/[0.06] text-spore" data-testid="db-live">
+                <span className="breathe h-1.5 w-1.5 rounded-full bg-spore" /> {en ? 'database live' : 'baza na żywo'} · {at ? new Date(at).toLocaleTimeString(en ? 'en-GB' : 'pl-PL', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Amsterdam' }) : ''}
+              </span>
+            ) : (
+              <span className="chip border-rose/30 text-rose" data-testid="db-off">
+                {en ? 'database unreachable' : 'baza niedostępna'}
+              </span>
+            )}
+          </div>
+          <p className="font-display text-[2rem] font-semibold leading-[1.05] tracking-tight text-slate-50 [text-wrap:balance] sm:text-5xl">
+            {en ? (
+              <>
+                An AI that grows like <span className="text-gradient">mycelium</span>
+              </>
+            ) : (
+              <>
+                AI, które rośnie jak <span className="text-gradient">grzybnia</span>
+              </>
+            )}
+          </p>
+          <p className="max-w-xl text-sm leading-relaxed text-slate-400 sm:text-[0.95rem]">
+            <L
+              pl="Grzybnia agentów AI uczy się na prawdziwych danych i od ludzi. Każda liczba i każdy wykres pochodzi z zapisanych pomiarów (przebiegi treningu, odpowiedzi, zdarzenia węzłów) – bez symulacji. Pod każdą liczbą (i) widać źródło, czas pomiaru i to, czy ktoś sprawdził ją niezależnie."
+              en="A mycelium of AI agents learns from real data and from people. Every number and chart comes from persisted measurements (training runs, answers, node events) – no simulations. Under each number (i) shows its source, when it was measured and whether it was independently checked."
+            />
+          </p>
+          <div className="flex flex-wrap items-center gap-2.5">
+            <a href="#/node" className="btn-primary px-4 py-2.5 font-semibold">
+              {en ? 'Share your computer' : 'Udostępnij komputer'} <Icon name="arrow" size={16} />
+            </a>
+            <a href="#/chat" className="btn-ghost px-4 py-2.5">
+              <Icon name="chat" size={16} className="text-spore" /> {en ? 'Talk to the AI' : 'Porozmawiaj z AI'}
+            </a>
+          </div>
+        </div>
+        <div className="night relative m-2 mt-0 overflow-hidden rounded-[1.1rem] ring-1 ring-white/[0.06] lg:my-2 lg:ml-0">
+          <div className="absolute left-3 top-3 z-10 flex flex-wrap items-center gap-2">
+            <span className="chip border-white/10 bg-[rgb(3_8_10/0.6)] text-slate-300 backdrop-blur">
+              <span className="breathe h-1.5 w-1.5 rounded-full bg-spore" /> {en ? 'the mycelium now · real nodes' : 'grzybnia teraz · prawdziwe węzły'}
             </span>
-          ) : (
-            <span className="chip border-rose/30 text-rose" data-testid="db-off">
-              {en ? 'database unreachable' : 'baza niedostępna'}
-            </span>
-          )}
-          <a href="#/node" className="rounded-xl bg-gradient-to-r from-spore to-sky px-3.5 py-1.5 text-sm font-semibold text-ink shadow-[0_8px_30px_-10px_rgb(94_234_212/0.6)] transition hover:brightness-110">
-            {en ? 'Share your computer →' : 'Udostępnij komputer →'}
-          </a>
+            <a href="?join=1#/teach" className="chip border-spore/30 bg-[rgb(3_8_10/0.6)] text-spore backdrop-blur hover:bg-spore/10">
+              {en ? 'join as a node →' : 'dołącz jako węzeł →'}
+            </a>
+          </div>
+          <div className="px-2 pb-3 pt-12 text-xs sm:px-4 lg:pt-10">{map}</div>
         </div>
       </div>
     </section>

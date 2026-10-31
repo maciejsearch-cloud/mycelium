@@ -4,6 +4,9 @@ import './index.css'
 import App from './App.tsx'
 import { I18nProvider } from './i18n'
 import { nodeMode } from './myc/node'
+import { applyTheme } from './myc/theme'
+
+applyTheme()
 
 // ?embed=1 – widżet osadzony na innej stronie (iframe): tylko okienko „Zostań węzłem”
 const EMBED = new URLSearchParams(location.search).has('embed')
