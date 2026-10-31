@@ -37,7 +37,8 @@ KD_FRAC = float(os.environ.get("MYC_LM_KD_FRAC", "0.5"))
 # 31.10: 2 = w każdej rundzie oba odłamki sft (logika + matematyka), zamiast losowo jednego
 SFT_JOBS = int(os.environ.get("MYC_LM_SFT_JOBS", "2"))
 STEPS, BATCH, LR = 16, 8, 1e-3
-SERVER_LRS = (1.0, 0.5)
+# 31.10: krok 0,25 dodany – kandydaci v5 (krok 1/0,5) przegrywali bramkę o 4–13 pytań na 2000
+SERVER_LRS = (1.0, 0.5, 0.25)
 SAFE_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$")  # nazwy plików z meta.json: bez ścieżek (../)
 ADAPTER_PATH = re.compile(r"^lm/v[0-9]{1,6}-[0-9a-f]{8}\.bin$")
 UA = "MyceliumNode/2 (+https://maciejsearch-cloud.github.io/demo/mycelium/)"
@@ -497,6 +498,7 @@ class LMWorker:
     async def _aggregate(self, cur: dict):
         v = cur["version"]
         self._kd_used = self._sft_used = False
+        self._sft_names: set[str] = set()
         es = (await asyncio.to_thread(self.data.meta))["eval"]
         if (cur.get("meta") or {}).get("eval_sha") != es["sha256"]:
             # nowy zbiór testowy: bramka czeka na przeliczenie bieżącej wersji przez niezależnego weryfikatora
@@ -542,6 +544,7 @@ class LMWorker:
                 self._kd_used = True
             if (row.get("metrics") or {}).get("sft"):
                 self._sft_used = True
+                self._sft_names.add(str(row["metrics"]["sft"]))
         # aktualizacja wyraźnie psująca walidację (> 2%) jest odrzucana; gdy dobrych jest < 3, decyduje bramka
         good = [x for x in ok if x[3] <= base_val * 1.02]
         if len(good) >= 3:
@@ -596,7 +599,11 @@ class LMWorker:
             "algo": "init"
             if cur is None
             else ("fedavg-lora-kd" if getattr(self, "_kd_used", False) else "fedavg-lora")
-            + ("+sft-logic" if getattr(self, "_sft_used", False) else ""),
+            + "".join(
+                "+" + k
+                for k in ("sft-logic", "sft-math", "sft-speaker")
+                if any(n.startswith(k) for n in getattr(self, "_sft_names", ()))
+            ),
             "teacher": (getattr(self, "_teacher", None) if getattr(self, "_kd_used", False) else None),
             "server_lr": server_lr,
             "rank": lm.RANK,
