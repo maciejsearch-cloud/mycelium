@@ -24,6 +24,8 @@ const Taxonomy = lazy(() => import('./pages/Taxonomy'))
 const AccountPage = lazy(() => import('./pages/Account'))
 const CirclesPage = lazy(() => import('./pages/CirclesPage'))
 const MocPage = lazy(() => import('./pages/Moc'))
+const WalletPage = lazy(() => import('./pages/Wallet'))
+const Explorer = lazy(() => import('./pages/Explorer'))
 
 const PAGES = [
   { id: 'overview', label: 'Przegląd', icon: 'home' },
@@ -43,6 +45,8 @@ const PAGES = [
   { id: 'verify', label: 'Dowody', icon: 'proof' },
   { id: 'progress', label: 'Postępy projektu', icon: 'flag' },
   { id: 'konto', label: 'Konto', icon: 'user' },
+  { id: 'portfel', label: 'Portfel', icon: 'wallet' },
+  { id: 'eksplorator', label: 'Eksplorator', icon: 'blocks' },
 ] as const
 type PageId = (typeof PAGES)[number]['id']
 
@@ -52,8 +56,8 @@ const GROUPS: { id: string; label: string; icon: string; pages: PageId[]; badge?
   { id: 'rozmowa', label: 'Rozmowa', icon: 'chat', pages: ['chat', 'czat', 'kregi'] },
   { id: 'ucz', label: 'Ucz', icon: 'teach', pages: ['teach', 'tasks'], badge: 'teach' },
   { id: 'weryfikuj', label: 'Weryfikuj', icon: 'check', pages: ['weryfikuj'], badge: 'weryfikuj' },
-  { id: 'wezel', label: 'Węzeł', icon: 'node', pages: ['node', 'session', 'moc'] },
-  { id: 'wiecej', label: 'Więcej', icon: 'more', pages: ['growth', 'knowledge', 'taxonomy', 'ai', 'verify', 'progress', 'konto'] },
+  { id: 'wezel', label: 'Węzeł', icon: 'node', pages: ['node', 'session', 'moc', 'eksplorator'] },
+  { id: 'wiecej', label: 'Więcej', icon: 'more', pages: ['portfel', 'growth', 'knowledge', 'taxonomy', 'ai', 'verify', 'progress', 'konto'] },
 ]
 const groupOf = (p: PageId) => GROUPS.find((g) => g.pages.includes(p))!
 const pageMeta = (p: PageId) => PAGES.find((x) => x.id === p)!
@@ -238,6 +242,8 @@ export default function App() {
             {page === 'progress' && <ProgressPage progress={progress} />}
             {page === 'konto' && <AccountPage />}
             {page === 'kregi' && <CirclesPage />}
+            {page === 'portfel' && <WalletPage />}
+            {page === 'eksplorator' && <Explorer />}
           </Suspense>
         )}
       </main>
