@@ -35,11 +35,11 @@ class FakeSB:
         return len(body["p_jobs"])
 
 
-def _round(sft):
+def _round(sft, n_kd=107):
     w = object.__new__(lmwork.LMWorker)
     w.sb, w.data, w.stats, w.log = FakeSB(), FakeData(sft), {"lm_rounds": 0}, lambda *_: None
     w.node = type("N", (), {"id": "n"})()
-    w.kd_files = lambda: {s: {"name": f"kd-{s:04d}.bin.gz", "sha256": "0" * 64} for s in range(107)}
+    w.kd_files = lambda: {s: {"name": f"kd-{s:04d}.bin.gz", "sha256": "0" * 64} for s in range(n_kd)}
 
     async def latest():
         return {"version": 1}
@@ -91,3 +91,18 @@ def test_selfplay_shard_selection_balanced():
     assert rep["aspekt"]["answers"] == {"nie": 4, "tak": 4}
     assert rep["porządek"]["kept"] == 3
     assert len(out) == 11
+
+
+def test_round_when_every_shard_has_teacher_logits():
+    # 31.10.2026: logity nauczyciela dla wszystkich 399 odłamków → „Sample larger than population” i brak rund
+    jobs = _round(
+        [{"name": "sft-logic-0001.bin.gz", "sha256": "a" * 64}, {"name": "sft-math-0001.bin.gz", "sha256": "b" * 64}],
+        399,
+    )
+    assert len(jobs) == lmwork.ROUND_JOBS
+    sft = sorted(j["params"]["sft"]["name"] for j in jobs if "sft" in j["params"])
+    assert sft == ["sft-logic-0001.bin.gz", "sft-math-0001.bin.gz"]
+    kd = [j for j in jobs if "kd" in j["params"]]
+    assert len(kd) == round(lmwork.KD_FRAC * (lmwork.ROUND_JOBS - 2))
+    plain = [j["params"]["shard"] for j in jobs if "kd" not in j["params"] and "sft" not in j["params"]]
+    assert len(plain) == lmwork.ROUND_JOBS - 2 - len(kd) and not set(plain) & {j["params"]["shard"] for j in kd}

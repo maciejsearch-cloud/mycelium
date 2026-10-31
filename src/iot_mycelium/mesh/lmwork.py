@@ -34,7 +34,8 @@ ROUND_JOBS = int(os.environ.get("MYC_LM_ROUND_JOBS", "12"))
 # udział zadań z destylacją w rundzie (reszta: czysta entropia krzyżowa na Wikipedii) i liczba zadań na odłamkach
 # „rozwiązane poprawnie zadania logiczne” (meta.json → sft); oba ustawienia jawne w params zadania
 KD_FRAC = float(os.environ.get("MYC_LM_KD_FRAC", "0.5"))
-SFT_JOBS = int(os.environ.get("MYC_LM_SFT_JOBS", "1"))
+# 31.10: 2 = w każdej rundzie oba odłamki sft (logika + matematyka), zamiast losowo jednego
+SFT_JOBS = int(os.environ.get("MYC_LM_SFT_JOBS", "2"))
 STEPS, BATCH, LR = 16, 8, 1e-3
 SERVER_LRS = (1.0, 0.5)
 SAFE_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$")  # nazwy plików z meta.json: bez ścieżek (../)
@@ -441,7 +442,14 @@ class LMWorker:
             n_kd = min(round(KD_FRAC * (ROUND_JOBS - n_sft)), len(kdf))
             # część odłamków z logitami nauczyciela (destylacja), reszta losowo bez destylacji
             shards = random.sample(sorted(kdf), n_kd)
-            shards += random.sample(sorted(set(range(n)) - set(kdf)), ROUND_JOBS - n_sft - len(shards))
+            # reszta bez destylacji: najpierw odłamki bez logitów nauczyciela; gdy logity ma (prawie) każdy odłamek
+            # (od 31.10 wszystkie 399), dobieramy pozostałe odłamki i trenujemy je bez destylacji
+            need = ROUND_JOBS - n_sft - len(shards)
+            plain = sorted(set(range(n)) - set(kdf))
+            extra = random.sample(plain, min(need, len(plain)))
+            extra += random.sample(sorted(set(range(n)) - set(shards) - set(extra)), need - len(extra))
+            kd_on = set(shards)
+            shards += extra
             jobs = []
             for f in random.sample(sft, n_sft):
                 # starszy węzeł nie zna „sft” i trenuje zwykły odłamek – w metrics zostaje, co naprawdę liczył
@@ -468,7 +476,7 @@ class LMWorker:
                     "seed": random.randrange(1 << 30),
                     "flops_per_sample": lm.FLOPS_TRAIN_TOKEN,
                 }
-                if s in kdf:
+                if s in kd_on:
                     params["kd"] = {
                         "name": kdf[s]["name"],
                         "sha256": kdf[s]["sha256"],
