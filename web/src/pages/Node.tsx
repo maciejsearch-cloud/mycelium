@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import QRCode from 'qrcode'
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { LmProgress } from '../components/LmProgress'
+import { Samouk } from '../components/Samouk'
 import { PcDownload } from '../components/PcDownload'
 import { Empty, TimeChart, type Point } from '../components/TimeChart'
 import { Card, Kpi, PageHeader } from '../components/ui'
@@ -174,6 +175,7 @@ export default function NodePage({ embed = false }: { embed?: boolean }) {
       </Section>
       <Section id="lm" title={en ? 'Language model progress' : 'Postęp modelu językowego'}>
         <LmProgress />
+        <Samouk />
       </Section>
 
       <Section id="time" open title={en ? 'Nodes over time and leaderboard' : 'Węzły w czasie i ranking'}>
