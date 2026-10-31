@@ -9,6 +9,7 @@ import { badges, type BadgeKey } from './myc/badges'
 import Overview from './pages/Overview'
 
 const RealAI = lazy(() => import('./pages/RealAI'))
+const Czysta = lazy(() => import('./pages/Czysta'))
 const Teach = lazy(() => import('./pages/Teach'))
 const Chat = lazy(() => import('./pages/Chat'))
 const GlobalChat = lazy(() => import('./pages/GlobalChat'))
@@ -31,6 +32,7 @@ const PAGES = [
   { id: 'overview', label: 'Przegląd', icon: 'home' },
   { id: 'chat', label: 'Rozmowa z AI', icon: 'chat' },
   { id: 'czat', label: 'Czat globalny', icon: 'globe' },
+  { id: 'czysta', label: 'Czysta grzybnia', icon: 'hypha' },
   { id: 'kregi', label: 'Kręgi', icon: 'circles' },
   { id: 'teach', label: 'Ucz AI', icon: 'teach' },
   { id: 'tasks', label: 'Zadania', icon: 'tasks' },
@@ -53,7 +55,7 @@ type PageId = (typeof PAGES)[number]['id']
 /** Grupy nawigacji (docs/ux-proposals.md): 5 głównych + „Więcej”. Stare adresy #/… zostają – każda strona należy do grupy. */
 const GROUPS: { id: string; label: string; icon: string; pages: PageId[]; badge?: BadgeKey }[] = [
   { id: 'start', label: 'Start', icon: 'home', pages: ['overview'] },
-  { id: 'rozmowa', label: 'Rozmowa', icon: 'chat', pages: ['chat', 'czat', 'kregi'] },
+  { id: 'rozmowa', label: 'Rozmowa', icon: 'chat', pages: ['chat', 'czysta', 'czat', 'kregi'] },
   { id: 'ucz', label: 'Ucz', icon: 'teach', pages: ['teach', 'tasks'], badge: 'teach' },
   { id: 'weryfikuj', label: 'Weryfikuj', icon: 'check', pages: ['weryfikuj'], badge: 'weryfikuj' },
   { id: 'wezel', label: 'Węzeł', icon: 'node', pages: ['node', 'session', 'moc', 'eksplorator'] },
@@ -228,6 +230,7 @@ export default function App() {
             {page === 'overview' && <Overview snap={snap} progress={progress} go={go} />}
             {page === 'chat' && <Chat />}
             {page === 'czat' && <GlobalChat />}
+            {page === 'czysta' && <Czysta />}
             {page === 'teach' && <Teach />}
             {page === 'weryfikuj' && <Review />}
             {page === 'taxonomy' && <Taxonomy />}

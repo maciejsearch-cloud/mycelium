@@ -171,6 +171,26 @@ export function understand(text: string): Understood | undefined {
   return u
 }
 
+/** Rozbiór dowolnego zdania (bez obcinania do pierwszego zdania) – ten sam potok co `understand`: tokenizacja →
+ *  model grzybni → słownik Morfeusza/Walenty → analiza. Dla czystej grzybni (myc/czysta.ts). `conf` = średnie p łuków. */
+export function parseSentence(text: string): { a: Analysis; conf: number } | undefined {
+  const M = st.model
+  if (!M) return undefined
+  const key = '\u0001' + text.trim().slice(0, 400)
+  const hit = cache.get(key)
+  if (hit) return { a: hit.a, conf: hit.conf }
+  const { forms, sa } = tokenize(text.trim(), M.wv)
+  if (!forms.length) return undefined
+  const fs = forms.slice(0, 60)
+  const raw = predict(M, fs, st.variant, !!st.morf)
+  const toks = (st.morf ? chooseMorf(M, fs, raw, st.morf, st.variant, st.walenty?.verbs) : raw).map(({ lp: _lp, ...t }, i) => ({ ...t, sa: sa[i] ? undefined : 0 }))
+  const a = analyse(toks)
+  const conf = toks.reduce((s, t) => s + (t.p ?? 0), 0) / toks.length
+  cache.set(key, { text, a, conf, ms: 0, route: routeOf(a, text) })
+  if (cache.size > 400) cache.delete(cache.keys().next().value as string)
+  return { a, conf }
+}
+
 /** Zapis rozbioru do Weryfikuj („rozbiór zdania”) – tylko za zgodą na użycie wiadomości do nauki; bez danych osobowych. */
 export async function logParse(u: Understood): Promise<number | undefined> {
   const toks = u.a.tokens.map((t) => ({ form: t.form, lemma: t.lemma, upos: t.upos, head: String(t.head), deprel: t.deprel, part: t.part ?? undefined, q: t.q ?? undefined, of: t.of ? String(t.of) : undefined }))
