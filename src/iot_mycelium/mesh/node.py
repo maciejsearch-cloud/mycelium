@@ -20,7 +20,6 @@ import contextlib
 import hashlib
 import json
 import os
-import platform
 import re
 import signal
 import sys
