@@ -18,18 +18,8 @@ export interface LocalView {
   ppl?: number
   err?: string
   loadMs?: number
-  threads?: number // wątki WASM (1 = bez izolacji COOP/COEP)
+  threads?: number // osobne wątki robocze liczące mnożenia macierzy (WASM), 1 = jeden wątek
   warmMs?: number // jednorazowe wstępne policzenie stałego promptu systemowego
-}
-
-/** Izolacja strony (SharedArrayBuffer) przez service worker – włączana dopiero, gdy użytkownik sam uruchamia model. */
-async function ensureIsolated(): Promise<boolean> {
-  if (typeof window === 'undefined' || window.crossOriginIsolated || !navigator.serviceWorker?.controller || typeof caches === 'undefined') return false
-  if (sessionStorage.getItem('myc.coiTried')) return false // przeglądarka nie obsługuje – bez pętli przeładowań
-  sessionStorage.setItem('myc.coiTried', '1')
-  await (await caches.open('myc-coi')).put('on', new Response('1'))
-  location.reload()
-  return true
 }
 
 type Msg = Record<string, unknown>
@@ -75,14 +65,6 @@ class LocalLM {
   /** Wczytaj (raz na kartę). remember = wczytuj automatycznie przy kolejnych wizytach. */
   start(remember = true) {
     if (remember) localStorage.setItem(LOCAL_KEY, '1')
-    if (!this.loading && remember && typeof window !== 'undefined' && !window.crossOriginIsolated && navigator.serviceWorker?.controller) {
-      // jedno przeładowanie, po nim model wczytuje się sam (zgoda zapamiętana) i liczy na wszystkich rdzeniach
-      this.loading = ensureIsolated().then((r) => {
-        this.loading = undefined
-        if (!r) void this.start(false)
-      })
-      return this.loading
-    }
     this.loading ??= this.load().catch((e) => {
       this.view.status = 'error'
       this.view.err = String((e as Error).message ?? e).slice(0, 120)
@@ -100,7 +82,6 @@ class LocalLM {
     this.loading = undefined
     this.view = { status: 'off', loaded: 0, shards: 0 }
     void caches?.delete('myc-local-lm-v1').catch(() => undefined)
-    void caches?.delete('myc-coi').catch(() => undefined)
     this.emit()
   }
 
@@ -140,6 +121,8 @@ class LocalLM {
     w.postMessage({
       t: 'init',
       backend: new URLSearchParams(location.search).get('backend') ?? 'auto',
+      // bez WebGPU: mnożenia macierzy dzielone wierszami na kilka wątków roboczych (GitHub Pages nie pozwala na wątki WASM)
+      pool: Math.max(1, Math.min(6, Number(new URLSearchParams(location.search).get('threads')) || (navigator.hardwareConcurrency || 2) - 1)),
     })
     const ini = await init
     this.view.backend = ini.backend as string

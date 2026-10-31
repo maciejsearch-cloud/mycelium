@@ -21,6 +21,7 @@ import {
   type ShardId,
 } from './qwen'
 import { tfKernel } from './tfkernel'
+import { poolKernel } from './pool'
 
 let K: Kernel = jsKernel
 let kready: Promise<void> | undefined
@@ -73,15 +74,17 @@ self.onmessage = async (ev: MessageEvent) => {
   try {
     if (m.t === 'init') {
       kready ??= tfKernel(m.backend ?? 'auto')
-        .then((k) => {
+        .then(async (k) => {
           K = k
+          // bez karty graficznej: pula wątków WASM (tylko model w przeglądarce prosi o nią – węzły sieci zostają przy jednym)
+          if (k.name !== 'webgpu' && (m.pool ?? 1) > 1) K = await poolKernel(m.pool).catch(() => k)
         })
         .catch(() => {
           K = jsKernel
         })
       await kready
-      const iso = (self as unknown as { crossOriginIsolated?: boolean }).crossOriginIsolated === true
-      post({ t: 'init', backend: K.name, threads: K.name === 'wasm' && iso ? Math.max(1, Math.min(8, (navigator.hardwareConcurrency || 2) - 1)) : 1 })
+      const [bk, th] = K.name.split('×')
+      post({ t: 'init', backend: bk, threads: Number(th) || 1 })
     } else if (m.t === 'lora') {
       lora = m.buf ? parseLora(m.buf) : undefined
       post({ t: 'lora', ok: true })
