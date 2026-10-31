@@ -303,10 +303,11 @@ end $$;
 -- Adres po pseudonimie (do wysyłania na pseudonim) i pseudonim po adresie (eksplorator). Tylko aktywne portfele.
 create or replace function public.myc_wallet_dir(p_handle text default null, p_pubs text[] default null) returns jsonb
 language sql stable security definer set search_path = public, pg_temp as $$
-  select coalesce(jsonb_agg(jsonb_build_object('pub', w.pub, 'handle', a.handle, 'room', w.room, 'active', w.active)), '[]')
-  from myc_wallets w join myc_accounts a on a.id = w.account_id
-  where (p_handle is not null and w.active and lower(a.handle) = lower(btrim(p_handle)) and a.room = 'main')
-     or (p_pubs is not null and w.pub = any (p_pubs[1:200]))
+  select coalesce(jsonb_agg(x.j order by x.o), '[]') from (
+    select jsonb_build_object('pub', w.pub, 'handle', a.handle, 'room', w.room, 'active', w.active) j, (w.room <> 'main')::int o
+    from myc_wallets w join myc_accounts a on a.id = w.account_id
+    where (p_handle is not null and w.active and lower(a.handle) = lower(btrim(p_handle)))   -- najpierw pokój main
+       or (p_pubs is not null and w.pub = any (p_pubs[1:200]))) x
 $$;
 
 -- ------------------------------------------------------------------ przelew
