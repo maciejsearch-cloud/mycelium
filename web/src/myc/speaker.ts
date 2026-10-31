@@ -34,7 +34,7 @@ export interface SpkVote {
 export interface SpkSummary {
   msg_id: number
   level: number
-  how: 'losowe' | 'wyuczone' | 'mutacja'
+  how: 'losowe' | 'wyuczone' | 'mutacja' | 'rozbiór'
   tokens: string[]
   sense: number
   nonsense: number

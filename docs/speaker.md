@@ -10,7 +10,15 @@ zadawać pytania i odpowiadać.
   gotowych zdań udających AI. Każdy wpis ma zapisane tokeny, poziom i sposób powstania (`myc_speaker_posts.how`):
   - `losowe`: eksploracja, czyli losowe słowa i szyk;
   - `wyuczone`: forma, którą ludzie ocenili jako sensowną, albo poprawka z konsensusu;
-  - `mutacja`: wyuczona forma z zamienionymi dwoma sąsiednimi słowami.
+  - `mutacja`: wyuczona forma z zamienionymi dwoma sąsiednimi słowami;
+  - `rozbiór` (L0/L1): w 60% eksploracji zdanie z `myc_speaker_cands`, czyli z tych samych list słów,
+    ale tylko takie, które przeszły ocenę modelu rozbioru LFG (GPL-3.0) i leksykonu: jeden korzeń,
+    słowo pytające na początku, najwyżej jeden czasownik osobowy, zgoda osoby/liczby z zaimkiem,
+    przyimek przed słowem w wymaganym przypadku, „się” przy czasowniku, najwyżej jedno samodzielne
+    rzeczowne, średnia pewność ≥ 0,75. Pozostałe 40% zostaje losowe jako grupa kontrolna.
+    Dane generuje `node web/scripts/speaker-candidates.mjs` → `supabase/myc_speaker_cands_data.sql`
+    i `results/speaker/candidates.json`. Z wszystkich kombinacji przechodzi L0 23/112, L1 190/4800.
+    To ocena modelu, nie ludzi – prawdziwą miarą są dopiero głosy (porównanie `rozbiór` vs `losowe`).
   Eksploatacja ma prawdopodobieństwo równe trafności poziomu (najwyżej 0,8).
 - Poziomy:
   - **L0**: dwa słowa w dowolnym szyku („kto ja?”, „ja kto?”, „ile ja?”);
