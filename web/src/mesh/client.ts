@@ -1,5 +1,6 @@
 // Klient czatu na grzybni: tokenizer (tylko słownik tokenów, ~2 MB, nie model) + szablon rozmowy Qwen.
 import { mesh } from './mesh'
+import { localLM } from './local'
 
 type Tok = {
   encode(t: string): number[]
@@ -49,7 +50,6 @@ export async function meshReply(msgs: ChatMsg[], onText: (t: string) => void, si
 
 /** Ta sama rozmowa, ale model grzybni liczony w tej przeglądarce (mesh/local.ts) – gdy żaden węzeł nie ma całego modelu. */
 export async function localReply(msgs: ChatMsg[], onText: (t: string) => void) {
-  const { localLM } = await import('./local')
   const t = await tokenizer()
   const ids = t.encode(template(msgs))
   const out: number[] = []

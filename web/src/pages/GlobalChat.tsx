@@ -7,13 +7,26 @@ import { gchat, type GMsg } from '../myc/gchat'
 import { classifyIntent, INTENT_PL, loadApprovedPatterns, type Intent, type LangPattern } from '../myc/intent'
 import { loadRegister, type Register } from '../myc/register'
 import { ownerKey } from '../myc/store'
+import { SpeakerPanel, SpeakerTools } from '../components/Speaker'
+import { speakerState, speakerSummary, type SpkState, type SpkSummary } from '../myc/speaker'
 
 const time = (s: string) => new Date(s).toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })
 const day = (s: string) => new Date(s).toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit' })
 
 function Badge({ m, en }: { m: Pick<GMsg, 'kind' | 'role'>; en: boolean }) {
+  if (m.kind === 'ai')
+    return (
+      <span className="chip border-sky-400/50 bg-sky-400/10 px-1.5 py-0 text-[10px] font-semibold text-sky-300" data-testid="badge-ai">
+        {en ? 'AI · mycelium' : 'AI · grzybnia'}
+      </span>
+    )
   if (m.kind === 'node') return <span className="chip border-amber/40 px-1.5 py-0 text-[10px] text-amber">{en ? 'node bot' : 'bot węzła'}</span>
-  if (m.role === 'developer') return <span className="chip border-violet/50 bg-violet/10 px-1.5 py-0 text-[10px] font-semibold text-violet" data-testid="badge-dev">Developer</span>
+  if (m.role === 'developer')
+    return (
+      <span className="chip border-violet/50 bg-violet/10 px-1.5 py-0 text-[10px] font-semibold text-violet" data-testid="badge-dev">
+        Developer
+      </span>
+    )
   if (m.role === 'moderator') return <span className="chip border-sky/50 px-1.5 py-0 text-[10px] text-sky">{en ? 'Moderator' : 'Moderator'}</span>
   return null
 }
@@ -35,6 +48,8 @@ export default function GlobalChat() {
   const [keyIn, setKeyIn] = useState('')
   const [modHandle, setModHandle] = useState('')
   const end = useRef<HTMLDivElement>(null)
+  const [spk, setSpk] = useState<SpkState | null>(null)
+  const [sums, setSums] = useState<Map<number, SpkSummary>>(new Map())
   const me = gchat.me
   const canMod = me?.role === 'developer' || me?.role === 'moderator'
 
@@ -47,6 +62,21 @@ export default function GlobalChat() {
   useEffect(() => {
     if (account.me) void circles.mine().then(setMine, () => setMine([]))
   }, [account.me?.id])
+  // mówca AI: stan poziomów + podsumowania ocen widocznych wpisów AI (odświeżane przy nowych wiadomościach i co 30 s)
+  const aiIds = gchat.channel == null ? gchat.msgs.filter((m) => m.kind === 'ai' && !m.deleted).map((m) => m.id) : []
+  const aiKey = aiIds.join(',')
+  const refreshSpk = () => {
+    void speakerState().then(setSpk, () => undefined)
+    void speakerSummary(aiIds).then(
+      (xs) => setSums(new Map(xs.map((x) => [x.msg_id, x]))),
+      () => undefined,
+    )
+  }
+  useEffect(() => {
+    refreshSpk()
+    const t = setInterval(refreshSpk, 30_000)
+    return () => clearInterval(t)
+  }, [aiKey, account.me?.id]) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     end.current?.scrollIntoView({ block: 'end' })
   }, [gchat.msgs.length, gchat.channel])
@@ -99,10 +129,18 @@ export default function GlobalChat() {
         </span>
         {gchat.stats && (
           <>
-            <span className="chip border-white/10">{L('wiadomości', 'messages')}: {gchat.stats.messages}</span>
-            <span className="chip border-white/10">{L('dziś', 'today')}: {gchat.stats.today}</span>
-            <span className="chip border-white/10">{L('osoby', 'people')}: {gchat.stats.people}</span>
-            <span className="chip border-white/10">{L('węzły', 'nodes')}: {gchat.stats.nodes}</span>
+            <span className="chip border-white/10">
+              {L('wiadomości', 'messages')}: {gchat.stats.messages}
+            </span>
+            <span className="chip border-white/10">
+              {L('dziś', 'today')}: {gchat.stats.today}
+            </span>
+            <span className="chip border-white/10">
+              {L('osoby', 'people')}: {gchat.stats.people}
+            </span>
+            <span className="chip border-white/10">
+              {L('węzły', 'nodes')}: {gchat.stats.nodes}
+            </span>
           </>
         )}
         {gchat.roles.length > 0 && (
@@ -114,20 +152,30 @@ export default function GlobalChat() {
 
       {account.me && (
         <div className="no-scrollbar flex gap-1 overflow-x-auto" role="tablist" aria-label={L('Kanały', 'Channels')}>
-          {[{ id: null as number | null, name: L('# globalny', '# global') }, ...mine.map((c) => ({ id: c.id as number | null, name: `◎ ${c.name}${c.frozen ? ' ❄' : ''}` }))].map((c) => (
-            <button
-              key={String(c.id)}
-              role="tab"
-              aria-selected={gchat.channel === c.id}
-              onClick={() => void gchat.open(c.id)}
-              className={`shrink-0 rounded-xl px-3 py-2 text-sm ${gchat.channel === c.id ? 'bg-spore/15 text-glow ring-1 ring-spore/25' : 'bg-white/[0.03] text-slate-400'}`}
-            >
-              {c.name}
-            </button>
-          ))}
+          {[{ id: null as number | null, name: L('# globalny', '# global') }, ...mine.map((c) => ({ id: c.id as number | null, name: `◎ ${c.name}${c.frozen ? ' ❄' : ''}` }))].map(
+            (c) => (
+              <button
+                key={String(c.id)}
+                role="tab"
+                aria-selected={gchat.channel === c.id}
+                onClick={() => void gchat.open(c.id)}
+                className={`shrink-0 rounded-xl px-3 py-2 text-sm ${gchat.channel === c.id ? 'bg-spore/15 text-glow ring-1 ring-spore/25' : 'bg-white/[0.03] text-slate-400'}`}
+              >
+                {c.name}
+              </button>
+            ),
+          )}
         </div>
       )}
-      {gchat.channel != null && <p className="text-xs text-slate-500">{L('Kanał kręgu: widzą go tylko członkowie kręgu (sprawdza baza, także na żywo). Te wiadomości nie trafiają do nauki modelu.', 'Circle channel: only circle members can see it (enforced by the database, live too). These messages are not used for training.')}</p>}
+      {gchat.channel == null && <SpeakerPanel st={spk} dev={me?.role === 'developer'} en={en} onChange={setSpk} />}
+      {gchat.channel != null && (
+        <p className="text-xs text-slate-500">
+          {L(
+            'Kanał kręgu: widzą go tylko członkowie kręgu (sprawdza baza, także na żywo). Te wiadomości nie trafiają do nauki modelu.',
+            'Circle channel: only circle members can see it (enforced by the database, live too). These messages are not used for training.',
+          )}
+        </p>
+      )}
 
       {pinned.length > 0 && (
         <div className="rounded-2xl border border-violet/25 bg-violet/[0.06] p-3 text-sm" data-testid="gchat-pinned">
@@ -144,7 +192,9 @@ export default function GlobalChat() {
         <div className="max-h-[62dvh] flex-1 space-y-1 overflow-y-auto p-3" data-testid="gchat-list" aria-live="polite">
           {gchat.msgs.length === 0 && gchat.status !== 'loading' && (
             <p className="py-10 text-center text-sm text-slate-500" data-testid="gchat-empty">
-              {gchat.error ? `${L('Nie udało się wczytać', 'Could not load')}: ${gchat.error}` : L('Jeszcze nikt tu nie napisał. Bądź pierwsza/pierwszy.', 'Nobody has written here yet. Be the first.')}
+              {gchat.error
+                ? `${L('Nie udało się wczytać', 'Could not load')}: ${gchat.error}`
+                : L('Jeszcze nikt tu nie napisał. Bądź pierwsza/pierwszy.', 'Nobody has written here yet. Be the first.')}
             </p>
           )}
           {gchat.msgs.map((m, i) => {
@@ -157,26 +207,37 @@ export default function GlobalChat() {
                 {showDay && <div className="my-2 text-center text-[11px] text-slate-600">{day(m.created_at)}</div>}
                 <div className={`group relative rounded-xl px-2.5 py-1.5 ${own ? 'bg-spore/[0.06]' : 'hover:bg-white/[0.03]'}`} data-testid="gchat-msg">
                   <div className="flex flex-wrap items-center gap-1.5 text-xs">
-                    <b className={m.kind === 'node' ? 'text-amber' : m.role === 'developer' ? 'text-violet' : 'text-slate-200'}>{m.handle}</b>
+                    <b className={m.kind === 'ai' ? 'text-sky-300' : m.kind === 'node' ? 'text-amber' : m.role === 'developer' ? 'text-violet' : 'text-slate-200'}>{m.handle}</b>
                     <Badge m={m} en={en} />
                     <span className="text-slate-600">{time(m.created_at)}</span>
                     {m.intent && m.intent !== 'stwierdzenie' && <span className="text-[10px] text-slate-500">· {INTENT_PL[m.intent as Intent]?.[en ? 1 : 0] ?? m.intent}</span>}
-                    {m.tags.filter((t) => ['wulgarne', 'obraźliwe', 'potoczne', 'slang', 'ironiczne'].includes(t)).map((t) => (
-                      <span key={t} className="chip border-amber/25 px-1 py-0 text-[10px] text-amber/80">
-                        {t}
-                      </span>
-                    ))}
+                    {m.tags
+                      .filter((t) => ['wulgarne', 'obraźliwe', 'potoczne', 'slang', 'ironiczne'].includes(t))
+                      .map((t) => (
+                        <span key={t} className="chip border-amber/25 px-1 py-0 text-[10px] text-amber/80">
+                          {t}
+                        </span>
+                      ))}
                     {m.pinned && <span className="text-[10px] text-violet">📌</span>}
                     {me && !m.deleted && (
-                      <button className="ml-auto px-1.5 text-slate-500 hover:text-slate-200" aria-label={L('akcje', 'actions')} onClick={() => setMenu(menu === m.id ? null : m.id)}>
+                      <button
+                        className="ml-auto px-1.5 text-slate-500 hover:text-slate-200"
+                        aria-label={L('akcje', 'actions')}
+                        onClick={() => setMenu(menu === m.id ? null : m.id)}
+                      >
                         ⋯
                       </button>
                     )}
                   </div>
-                  {rt && <div className="mt-0.5 truncate border-l-2 border-white/10 pl-2 text-xs text-slate-500">↪ {rt.handle}: {rt.body ?? L('(usunięta)', '(deleted)')}</div>}
+                  {rt && (
+                    <div className="mt-0.5 truncate border-l-2 border-white/10 pl-2 text-xs text-slate-500">
+                      ↪ {rt.handle}: {rt.body ?? L('(usunięta)', '(deleted)')}
+                    </div>
+                  )}
                   <div className={`whitespace-pre-wrap break-words text-[15px] leading-snug ${m.deleted ? 'italic text-slate-600' : 'text-slate-100'}`}>
                     {m.deleted ? L('wiadomość usunięta', 'message deleted') : m.body}
                   </div>
+                  {m.kind === 'ai' && !m.deleted && sums.get(m.id) && <SpeakerTools s={sums.get(m.id)!} canRate={!!me} en={en} onDone={refreshSpk} />}
                   {menu === m.id && (
                     <div className="mt-1 flex flex-wrap gap-1 text-xs" data-testid="gchat-menu">
                       <button className="rounded-lg border border-white/10 px-2 py-1.5" onClick={() => (setReply(m), setMenu(null))}>
@@ -201,11 +262,17 @@ export default function GlobalChat() {
                       )}
                       {me?.role === 'developer' && !own && (
                         <>
-                          <button className="rounded-lg border border-rose/40 px-2 py-1.5 text-rose" onClick={() => confirm(L(`Zablokować ${m.handle} w czacie?`, `Ban ${m.handle} from chat?`)) && void mod('ban', m)}>
+                          <button
+                            className="rounded-lg border border-rose/40 px-2 py-1.5 text-rose"
+                            onClick={() => confirm(L(`Zablokować ${m.handle} w czacie?`, `Ban ${m.handle} from chat?`)) && void mod('ban', m)}
+                          >
                             {L('zablokuj', 'ban')}
                           </button>
                           {m.kind === 'user' && m.role !== 'moderator' && (
-                            <button className="rounded-lg border border-sky/30 px-2 py-1.5 text-sky" onClick={() => void mod('grant_role', m, { role: 'moderator', handle: m.handle })}>
+                            <button
+                              className="rounded-lg border border-sky/30 px-2 py-1.5 text-sky"
+                              onClick={() => void mod('grant_role', m, { role: 'moderator', handle: m.handle })}
+                            >
                               {L('nadaj Moderatora', 'make Moderator')}
                             </button>
                           )}
@@ -228,21 +295,29 @@ export default function GlobalChat() {
         <div className="border-t border-white/5 p-3">
           {!account.me ? (
             <p className="text-sm text-slate-400" data-testid="gchat-login">
-              {L('Czytać może każdy. Żeby pisać, załóż anonimowe konto (sam pseudonim, bez e-maila) w zakładce ', 'Anyone can read. To write, create an anonymous account (just a pseudonym, no e-mail) in ')}
+              {L(
+                'Czytać może każdy. Żeby pisać, załóż anonimowe konto (sam pseudonim, bez e-maila) w zakładce ',
+                'Anyone can read. To write, create an anonymous account (just a pseudonym, no e-mail) in ',
+              )}
               <a className="text-spore underline" href="#/konto">
                 {L('Konto', 'Account')}
               </a>
               .
               {ownerKey.get() && (
                 <span className="mt-1 block text-violet" data-testid="gchat-owner-hint">
-                  {L('To urządzenie ma klucz właściciela z Weryfikuj – po założeniu konta dostaniesz tu rolę Developer automatycznie.', 'This device has the owner key from Verify – once you create an account you get the Developer role here automatically.')}
+                  {L(
+                    'To urządzenie ma klucz właściciela z Weryfikuj – po założeniu konta dostaniesz tu rolę Developer automatycznie.',
+                    'This device has the owner key from Verify – once you create an account you get the Developer role here automatically.',
+                  )}
                 </span>
               )}
             </p>
           ) : me?.banned ? (
             <p className="text-sm text-rose">{L('To konto jest zablokowane w czacie.', 'This account is banned from chat.')}</p>
           ) : me?.muted_until ? (
-            <p className="text-sm text-amber">{L('Wyciszenie do', 'Muted until')} {new Date(me.muted_until).toLocaleString('pl-PL')}</p>
+            <p className="text-sm text-amber">
+              {L('Wyciszenie do', 'Muted until')} {new Date(me.muted_until).toLocaleString('pl-PL')}
+            </p>
           ) : frozen ? (
             <p className="text-sm text-sky">❄ {L('Krąg zamrożony przez Developera – tylko do odczytu.', 'Circle frozen by the Developer – read-only.')}</p>
           ) : (
@@ -271,7 +346,12 @@ export default function GlobalChat() {
                   className="min-h-[3rem] flex-1 resize-none rounded-xl border border-white/10 bg-black/30 px-3 py-2.5 text-base text-slate-100 placeholder:text-slate-500 focus:border-spore/50 focus:outline-none"
                   data-testid="gchat-input"
                 />
-                <button onClick={() => void send()} disabled={busy || !text.trim()} className="rounded-xl bg-spore px-4 py-3 font-semibold text-ink disabled:opacity-50" data-testid="gchat-send">
+                <button
+                  onClick={() => void send()}
+                  disabled={busy || !text.trim()}
+                  className="rounded-xl bg-spore px-4 py-3 font-semibold text-ink disabled:opacity-50"
+                  data-testid="gchat-send"
+                >
                   {L('Wyślij', 'Send')}
                 </button>
               </div>
@@ -290,9 +370,18 @@ export default function GlobalChat() {
       {me && (
         <Card title={L('Prywatność i nauka', 'Privacy and learning')}>
           <label className="flex items-start gap-3 text-sm" data-testid="gchat-train">
-            <input type="checkbox" className="mt-1 h-5 w-5 accent-[#5eead4]" checked={me.train_ok} onChange={(e) => void gchat.setTrain(e.target.checked).catch((x: Error) => setErr(x.message))} />
+            <input
+              type="checkbox"
+              className="mt-1 h-5 w-5 accent-[#5eead4]"
+              checked={me.train_ok}
+              onChange={(e) => void gchat.setTrain(e.target.checked).catch((x: Error) => setErr(x.message))}
+            />
             <span>
-              <b>{me.train_ok ? L('Moje wiadomości uczą model (włączone)', 'My messages teach the model (on)') : L('Moje wiadomości NIE uczą modelu', 'My messages do NOT teach the model')}</b>
+              <b>
+                {me.train_ok
+                  ? L('Moje wiadomości uczą model (włączone)', 'My messages teach the model (on)')
+                  : L('Moje wiadomości NIE uczą modelu', 'My messages do NOT teach the model')}
+              </b>
               <br />
               <span className="text-xs text-slate-400">
                 {L(
@@ -311,10 +400,18 @@ export default function GlobalChat() {
             <p className="text-xs text-slate-400">
               {L('Rola przypięta do Twojego konta kluczem właściciela (to urządzenie: ', 'Role bound to your account by the owner key (this device: ')}
               {me.owner_device ? L('potwierdzone', 'confirmed') : L('inne urządzenie konta', 'another device of the account')}).{' '}
-              {L('Możesz przypinać, usuwać, wyciszać, blokować, nadawać Moderatora i zatwierdzać wzorce w Weryfikuj (Twój głos = złota etykieta).', 'You can pin, delete, mute, ban, grant Moderator and approve patterns in Verify (your vote = gold label).')}
+              {L(
+                'Możesz przypinać, usuwać, wyciszać, blokować, nadawać Moderatora i zatwierdzać wzorce w Weryfikuj (Twój głos = złota etykieta).',
+                'You can pin, delete, mute, ban, grant Moderator and approve patterns in Verify (your vote = gold label).',
+              )}
             </p>
             <div className="flex gap-2">
-              <input value={modHandle} onChange={(e) => setModHandle(e.target.value)} placeholder={L('pseudonim', 'pseudonym')} className="min-w-0 flex-1 rounded-xl border border-white/10 bg-black/30 px-3 py-2" />
+              <input
+                value={modHandle}
+                onChange={(e) => setModHandle(e.target.value)}
+                placeholder={L('pseudonim', 'pseudonym')}
+                className="min-w-0 flex-1 rounded-xl border border-white/10 bg-black/30 px-3 py-2"
+              />
               <button className="rounded-xl border border-sky/30 px-3 text-sky" onClick={() => void mod('grant_role', null, { role: 'moderator', handle: modHandle })}>
                 + {L('Moderator', 'Moderator')}
               </button>
@@ -345,12 +442,32 @@ export default function GlobalChat() {
         <details className="text-xs text-slate-500">
           <summary className="cursor-pointer">{L('Jestem właścicielką – mam klucz właściciela', 'I am the owner – I have the owner key')}</summary>
           <div className="mt-2 flex gap-2">
-            <input type="password" autoComplete="off" value={keyIn} onChange={(e) => setKeyIn(e.target.value)} className="min-w-0 flex-1 rounded-xl border border-white/10 bg-black/30 px-3 py-2" placeholder={L('klucz właściciela', 'owner key')} />
-            <button className="rounded-xl border border-violet/40 px-3 text-violet" onClick={() => void gchat.claimOwner(keyIn).then(() => setKeyIn(''), (e: Error) => setErr(e.message))}>
+            <input
+              type="password"
+              autoComplete="off"
+              value={keyIn}
+              onChange={(e) => setKeyIn(e.target.value)}
+              className="min-w-0 flex-1 rounded-xl border border-white/10 bg-black/30 px-3 py-2"
+              placeholder={L('klucz właściciela', 'owner key')}
+            />
+            <button
+              className="rounded-xl border border-violet/40 px-3 text-violet"
+              onClick={() =>
+                void gchat.claimOwner(keyIn).then(
+                  () => setKeyIn(''),
+                  (e: Error) => setErr(e.message),
+                )
+              }
+            >
               {L('Potwierdź', 'Confirm')}
             </button>
           </div>
-          <p className="mt-1">{L('Urządzenie z kluczem zapisanym w Weryfikuj dostaje rolę Developer automatycznie. Klucz nie jest zapisywany w bazie (tylko porównanie skrótu).', 'A device with the key saved in Verify gets the Developer role automatically. The key is never stored in the database (hash comparison only).')}</p>
+          <p className="mt-1">
+            {L(
+              'Urządzenie z kluczem zapisanym w Weryfikuj dostaje rolę Developer automatycznie. Klucz nie jest zapisywany w bazie (tylko porównanie skrótu).',
+              'A device with the key saved in Verify gets the Developer role automatically. The key is never stored in the database (hash comparison only).',
+            )}
+          </p>
         </details>
       )}
     </div>
