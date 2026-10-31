@@ -287,7 +287,7 @@ begin
   perform pg_advisory_xact_lock(hashtext('myc_faucet:' || acc));
   select max(at) into last from myc_wallet_faucet where account_id = acc;
   if last > now() - interval '20 hours' then
-    raise exception 'myc: kran już użyty – następny raz po %', to_char(last + interval '20 hours' at time zone 'Europe/Amsterdam', 'DD.MM HH24:MI') using errcode = 'PT429';
+    raise exception 'myc: kran już użyty – następny raz po %', to_char((last + interval '20 hours') at time zone 'Europe/Amsterdam', 'DD.MM HH24:MI') using errcode = 'PT429';
   end if;
   if (select count(*) from myc_wallet_faucet where ip = v_ip and day = d) >= 3 then
     raise exception 'myc: limit kranu dla tej sieci (3 konta na dobę)' using errcode = 'PT429';
