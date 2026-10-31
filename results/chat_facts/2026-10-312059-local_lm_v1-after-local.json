@@ -1,0 +1,51 @@
+{
+ "summary": {
+  "set": "local_lm_v1",
+  "url": "http://localhost:4193/",
+  "label": "after-local",
+  "at": "2026-10-31T20:59:50.561Z",
+  "viewport": {
+   "width": 1280,
+   "height": 720
+  },
+  "meshFull": "0",
+  "chip": "LM v4 · wasm · 6 wątk. · gotowy · 74 s · prompt 5.8 s",
+  "loadMs": 73948,
+  "n": 4,
+  "generated_locally": 2
+ },
+ "rows": [
+  {
+   "q": "Cześć! Jak się masz?",
+   "text": "Cześć! Jestem Mycelium AI. Możesz mnie o coś zapytać, poprosić o pomoc, wkleić tekst do przeczytania albo mnie czegoś nauczyć.",
+   "stats": "greet · 1107.8 ms",
+   "ms": 1177,
+   "path": "browser",
+   "local": false
+  },
+  {
+   "q": "Napisz jedno zdanie o lesie.",
+   "text": "Les jest trudnym, lepiej nie.\n(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)",
+   "stats": "11 tok · 7.02 tok/s · pierwszy token 5.0 s · razem 7.0 s · prompt 182 tok (98 z pamięci K/V) · w tej przeglądarce (wasm · 6 wątk.) · bez źródła",
+   "ms": 7092,
+   "path": "browser",
+   "local": true
+  },
+  {
+   "q": "Co lubisz robić?",
+   "text": "To pytanie o mnie: jestem Mycelium AI – programem działającym w przeglądarkach wolontariuszy. Nie mam wieku, domu ani ciała, więc nie odpowiem na to z Wikipedii o kimś innym. Zapytaj „kim jesteś?”, a opowiem, jak działam.",
+   "stats": "aboutme · 299.5 ms",
+   "ms": 352,
+   "path": "browser",
+   "local": false
+  },
+  {
+   "q": "Opowiedz mi krótko, czym jest grzybnia.",
+   "text": "Grzybnia to forma plechy grzybów, stanowiąca wegetatywne ciało grzybów.\nUżyte strzępki: #58671 → #58672 (wiktionary)",
+   "stats": "30 tok · 5.18 tok/s · pierwszy token 13.9 s · razem 20.4 s · prompt 390 tok (193 z pamięci K/V) · w tej przeglądarce (wasm · 6 wątk.)",
+   "ms": 20454,
+   "path": "browser",
+   "local": true
+  }
+ ]
+}

@@ -1,7 +1,8 @@
 // Model grzybni w tej przeglądarce (bez węzłów): Qwen2.5-0.5B-Instruct (Apache-2.0) z opublikowanym adapterem LoRA
 // modelu językowego grzybni (najnowsza wersja z myc_models, SHA-256 sprawdzane) scalonym z wagami przy wczytywaniu.
 // Osobny Worker – ta przeglądarka NIE staje się węzłem sieci i nikomu nie liczy. Wagi: zakresy bajtów prosto z
-// Hugging Face (int8 po wczytaniu, ok. 0,5 GB RAM), zapisane w Cache Storage – kolejne wizyty bez pobierania.
+// Hugging Face (int8 przy wczytaniu, potem float32 w tfjs – zmierzone ok. 4,4 GB RAM całej przeglądarki), zapisane w Cache Storage –
+// kolejne wizyty bez pobierania. Bez WebGPU mnożenia macierzy liczy pula wątków roboczych (pool.ts).
 import { SB_KEY, SB_URL } from '../myc/store'
 import { SHARDS } from './qwen'
 
@@ -18,6 +19,8 @@ export interface LocalView {
   ppl?: number
   err?: string
   loadMs?: number
+  threads?: number // osobne wątki robocze liczące mnożenia macierzy (WASM), 1 = jeden wątek
+  warmMs?: number // jednorazowe wstępne policzenie stałego promptu systemowego
 }
 
 type Msg = Record<string, unknown>
@@ -119,8 +122,12 @@ class LocalLM {
     w.postMessage({
       t: 'init',
       backend: new URLSearchParams(location.search).get('backend') ?? 'auto',
+      // bez WebGPU: mnożenia macierzy dzielone wierszami na kilka wątków roboczych (GitHub Pages nie pozwala na wątki WASM)
+      pool: Math.max(1, Math.min(6, Number(new URLSearchParams(location.search).get('threads')) || (navigator.hardwareConcurrency || 2) - 1)),
     })
-    this.view.backend = (await init).backend as string
+    const ini = await init
+    this.view.backend = ini.backend as string
+    this.view.threads = ini.threads as number
     const lo = this.once('lora')
     w.postMessage({ t: 'lora', buf: lora }, lora ? [lora] : [])
     await lo
@@ -134,18 +141,37 @@ class LocalLM {
       this.view.shards++
       this.emit()
     }
-    this.view.status = 'ready'
     this.view.loadMs = performance.now() - t0
+    this.view.status = 'ready'
     this.emit()
   }
 
-  async generate(
+  /** Wstępnie policz stały początek rozmowy (prompt systemowy) – pierwsza odpowiedź liczy już tylko pytanie. */
+  async warm(ids: number[], conv: string) {
+    if (this.view.status !== 'ready' || !this.w || this.view.warmMs !== undefined) return
+    const t0 = performance.now()
+    this.view.warmMs = 0
+    await this.generate(ids, { conv, maxNew: 1, temp: 0, onToken: () => undefined, prefillOnly: true }).catch(() => undefined)
+    this.view.warmMs = performance.now() - t0
+    this.emit()
+  }
+
+  // jedno generowanie naraz (wstępne liczenie promptu i pytanie dzielą tę samą pamięć K/V rozmowy)
+  private queue: Promise<unknown> = Promise.resolve()
+  generate(...a: Parameters<LocalLM['gen1']>): ReturnType<LocalLM['gen1']> {
+    const run = this.queue.then(() => this.gen1(...a))
+    this.queue = run.catch(() => undefined)
+    return run
+  }
+
+  private async gen1(
     ids: number[],
     o: {
       conv: string
       maxNew: number
       temp: number
       onToken: (id: number) => void
+      prefillOnly?: boolean
     },
   ) {
     if (this.view.status !== 'ready' || !this.w) throw new Error('local-not-ready')
@@ -161,6 +187,7 @@ class LocalLM {
       ids,
       maxNew: o.maxNew,
       temp: o.temp,
+      prefillOnly: o.prefillOnly,
     })
     const m = await res
     this.toks.delete(rid)

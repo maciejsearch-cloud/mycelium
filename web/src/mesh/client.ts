@@ -48,6 +48,12 @@ export async function meshReply(msgs: ChatMsg[], onText: (t: string) => void, si
   }
 }
 
+/** Stały początek rozmowy (prompt systemowy bez faktów) policzony z góry w modelu przeglądarki – wspólny dla wszystkich pytań. */
+export async function localWarm(sys: string) {
+  const t = await tokenizer()
+  await localLM.warm(t.encode(`<|im_start|>system\n${sys}<|im_end|>\n`), CONV)
+}
+
 /** Ta sama rozmowa, ale model grzybni liczony w tej przeglądarce (mesh/local.ts) – gdy żaden węzeł nie ma całego modelu. */
 export async function localReply(msgs: ChatMsg[], onText: (t: string) => void) {
   const t = await tokenizer()

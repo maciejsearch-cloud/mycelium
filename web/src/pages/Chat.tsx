@@ -24,13 +24,15 @@ import { wikiAnswer } from '../myc/wiki'
 import { personalQ } from '../myc/person'
 import RozbiorTable from '../components/RozbiorTable'
 import { ensureRozbior, understand } from '../myc/rozbiorLive'
-import { localReply, meshReply, type ChatMsg } from '../mesh/client'
+import { localReply, localWarm, meshReply, type ChatMsg } from '../mesh/client'
 import { LOCAL_MB, localLM, type LocalView } from '../mesh/local'
 import { MODEL, SHARDS } from '../mesh/qwen'
 
 type Turn = {
   role: 'user' | 'assistant'
   text: string
+  /** dokładna treść wysłana do modelu / wygenerowana przez model (historia = wspólny początek pamięci K/V) */
+  sent?: string
   pending?: string
   mode?: 'lite' | 'mesh' | 'local'
   used?: Used[]
@@ -42,6 +44,12 @@ type Turn = {
   stats?: string
   lite?: string
 }
+
+/** Stały prompt systemowy modelu grzybni (bez faktów – te są w treści pytania), wspólny dla węzłów i przeglądarki. */
+const sysPrompt = (en: boolean) =>
+  en
+    ? 'You are Mycelium AI, a helpful assistant running on a mycelium of volunteer browsers. Answer in English, briefly and kindly. When the message lists facts verified by the mycelium, use them – they override your own knowledge. If you are not sure, say so.'
+    : 'Jesteś Mycelium AI, pomocnym asystentem działającym na grzybni przeglądarek wolontariuszy. Odpowiadaj po polsku, krótko i życzliwie. Gdy wiadomość zawiera fakty sprawdzone przez grzybnię, korzystaj z nich – są ważniejsze niż Twoja wiedza. Jeśli nie masz pewności, powiedz to.'
 
 const truthTxt = (d: Doc & { url?: string }, en: boolean) =>
   d.dict
@@ -114,6 +122,10 @@ export default function Chat() {
   const mv = mesh.view
   useSyncExternalStore(localLM.subscribe, localLM.getVersion)
   const lv = localLM.view
+  // model w przeglądarce gotowy → od razu policz stały prompt systemowy (pierwsze pytanie liczy już tylko siebie)
+  useEffect(() => {
+    if (lv.status === 'ready') void localWarm(sysPrompt(en))
+  }, [lv.status, en])
   const [busy, setBusy] = useState(false)
   const [reg, setReg] = useState<Register | undefined>()
   const [pats, setPats] = useState<LangPattern[]>([])
@@ -541,15 +553,21 @@ export default function Chat() {
     }
     // pełny model na węzłach grzybni
     const facts = [...(wdUsed ? [wdUsed] : []), ...thUsed.slice(0, 2), ...r.used.filter((d) => d.dict || d.votes > 0)].slice(0, 5)
-    const sys = en
-      ? `You are Mycelium AI, a helpful assistant running on a mycelium of volunteer browsers. Answer in English, briefly and kindly. ${facts.length ? 'Facts verified by the mycelium (use them, they override your own knowledge):\n' + facts.map((d) => `- ${d.text} (${truthTxt(d, true)})`).join('\n') : ''} If you are not sure, say so.`
-      : `Jesteś Mycelium AI, pomocnym asystentem działającym na grzybni przeglądarek wolontariuszy. Odpowiadaj po polsku, krótko i życzliwie. ${facts.length ? 'Fakty sprawdzone przez grzybnię (korzystaj z nich, są ważniejsze niż Twoja wiedza):\n' + facts.map((d) => `- ${d.text} (${truthTxt(d, false)})`).join('\n') : ''} Jeśli nie masz pewności, powiedz to.`
-    const hist: ChatMsg[] = turns.slice(-6).map((t) => ({ role: t.role, content: t.text }))
-    const msgs: ChatMsg[] = [{ role: 'system', content: sys }, ...hist, { role: 'user', content: q }]
+    // stały prompt systemowy (bez faktów) – węzły i przeglądarka trzymają jego pamięć K/V, więc liczą tylko nowe pytanie;
+    // fakty z bazy idą w treści tego pytania (a w historii zostaje dokładnie to, co wysłano – wspólny początek się zgadza)
+    const sys = sysPrompt(en)
+    const ftxt = facts.length
+      ? (en ? 'Facts verified by the mycelium (use them, they override your own knowledge):\n' : 'Fakty sprawdzone przez grzybnię (korzystaj z nich, są ważniejsze niż Twoja wiedza):\n') +
+        facts.map((d) => `- ${d.text} (${truthTxt(d, en)})`).join('\n') +
+        (en ? '\n\nQuestion: ' : '\n\nPytanie: ')
+      : ''
+    const sent = ftxt + q
+    const hist: ChatMsg[] = turns.slice(-6).map((t) => ({ role: t.role, content: t.sent ?? t.text }))
+    const msgs: ChatMsg[] = [{ role: 'system', content: sys }, ...hist, { role: 'user', content: sent }]
     setBusy(true)
     setTurns((ts) => [
       ...ts,
-      { role: 'user', text: q },
+      { role: 'user', text: q, sent },
       {
         role: 'assistant',
         text: '',
@@ -578,7 +596,7 @@ export default function Chat() {
       .then((res) => {
         const st =
           res.mode === 'local'
-            ? `${res.tokens.length} tok · ${res.tps.toFixed(2)} tok/s · ${en ? 'first token' : 'pierwszy token'} ${(res.firstMs / 1000).toFixed(1)} s · ${en ? 'total' : 'razem'} ${((performance.now() - t0) / 1000).toFixed(1)} s · ${en ? 'in this browser' : 'w tej przeglądarce'} (${localLM.view.backend ?? '?'})`
+            ? `${res.tokens.length} tok · ${res.tps.toFixed(2)} tok/s · ${en ? 'first token' : 'pierwszy token'} ${(res.firstMs / 1000).toFixed(1)} s · ${en ? 'total' : 'razem'} ${((performance.now() - t0) / 1000).toFixed(1)} s · prompt ${res.promptTokens} tok${res.reused ? ` (${res.reused} ${en ? 'from KV cache' : 'z pamięci K/V'})` : ''} · ${en ? 'in this browser' : 'w tej przeglądarce'} (${localLM.view.backend ?? '?'}${localLM.view.backend === 'wasm' ? ` · ${localLM.view.threads ?? 1} ${en ? 'threads' : 'wątk.'}` : ''})`
             : `${res.tokens.length} tok · ${res.tps.toFixed(2)} tok/s · ${en ? 'first token' : 'pierwszy token'} ${(res.firstMs / 1000).toFixed(1)} s · prompt ${res.promptTokens} tok${res.reused ? ` (${res.reused} ${en ? 'from KV cache' : 'z pamięci K/V'})` : ''} · ${res.mode === 'full' ? (en ? 'whole model on 1 node' : 'cały model na 1 węźle') : `${new Set(res.route.map((x) => x.node)).size} ${en ? 'nodes' : 'węzłów'}`}${res.retries ? ` · failover ×${res.retries}` : ''}`
         // walidacja: liczby w odpowiedzi muszą pochodzić ze źródła (Wikidata / fakty grzybni)
         const srcNums = [...(wd?.nums ?? []), ...facts.flatMap((d) => numbersIn(d.text))]
@@ -599,7 +617,7 @@ export default function Chat() {
           text = `${res.text}\n${en ? '(No source: this is only the small model’s answer and may be untrue.)' : '(Bez źródła: to tylko odpowiedź małego modelu i może być nieprawdziwa.)'}`
           check = en ? ' · no source' : ' · bez źródła'
         }
-        upd((t) => ({ ...t, text: text || t.text, stats: st + check }))
+        upd((t) => ({ ...t, text: text || t.text, sent: res.text, stats: st + check }))
         const md = viaNode ? 'mesh' : 'local'
         void logExchange(dstate.turns, q, text || r.text, md, md, en ? 'en' : 'pl')
         logA(text || r.text, md, md, facts as Used[])
@@ -969,8 +987,10 @@ function LocalCard({ lv, en }: { lv: LocalView; en: boolean }) {
           {lv.status === 'ready' ? (
             <>
               <span className="chip border-spore/40 text-spore" data-testid="local-ready">
-                LM v{lv.version ?? '?'} · {lv.backend} · {en ? 'ready' : 'gotowy'}
+                LM v{lv.version ?? '?'} · {lv.backend}
+                {lv.backend === 'wasm' ? ` · ${lv.threads ?? 1} ${en ? (lv.threads === 1 ? 'thread' : 'threads') : 'wątk.'}` : ''} · {en ? 'ready' : 'gotowy'}
                 {lv.loadMs ? ` · ${(lv.loadMs / 1000).toFixed(0)} s` : ''}
+                {lv.warmMs ? ` · prompt ${(lv.warmMs / 1000).toFixed(1)} s` : ''}
               </span>
               <button className="text-xs text-slate-400 underline" onClick={() => localLM.forget()}>
                 {en ? 'turn off and free disk' : 'wyłącz i zwolnij dysk'}
@@ -989,8 +1009,8 @@ function LocalCard({ lv, en }: { lv: LocalView; en: boolean }) {
         </div>
         <p className="mt-1 text-xs text-slate-400">
           {en
-            ? `No node holds the whole model right now, so the chat can generate in your browser: ${MODEL.id} (${MODEL.license}) with the latest verified mycelium adapter (LoRA${lv.acc !== undefined ? `, test ${(lv.acc * 100).toFixed(2)}%` : ''}${lv.ppl ? `, perplexity ${Number(lv.ppl).toFixed(2)}` : ''}). Weights come straight from Hugging Face, are kept in the browser cache and need ~0.6 GB of RAM – best on a computer. This browser does not become a node. Facts still come only from sources, otherwise “I don't know”.`
-            : `Żaden węzeł nie ma teraz całego modelu, więc czat może generować w Twojej przeglądarce: ${MODEL.id} (${MODEL.license}) z najnowszym zweryfikowanym adapterem grzybni (LoRA${lv.acc !== undefined ? `, test ${(lv.acc * 100).toFixed(2)}%` : ''}${lv.ppl ? `, perpleksja ${Number(lv.ppl).toFixed(2)}` : ''}). Wagi pobierane prosto z Hugging Face, zostają w pamięci przeglądarki, potrzeba ok. 0,6 GB RAM – najlepiej na komputerze. Przeglądarka nie staje się węzłem. Fakty dalej tylko ze źródeł, inaczej „nie wiem”.`}
+            ? `No node holds the whole model right now, so the chat can generate in your browser: ${MODEL.id} (${MODEL.license}) with the latest verified mycelium adapter (LoRA${lv.acc !== undefined ? `, test ${(lv.acc * 100).toFixed(2)}%` : ''}${lv.ppl ? `, perplexity ${Number(lv.ppl).toFixed(2)}` : ''}). Weights come straight from Hugging Face, are kept in the browser cache; it needs a lot of memory (measured ~4.4 GB for the whole browser on a computer, weights unpacked to float32) – best on a computer with ≥ 8 GB RAM. Without a GPU the work is split across several worker threads. This browser does not become a node. Facts still come only from sources, otherwise “I don't know”.`
+            : `Żaden węzeł nie ma teraz całego modelu, więc czat może generować w Twojej przeglądarce: ${MODEL.id} (${MODEL.license}) z najnowszym zweryfikowanym adapterem grzybni (LoRA${lv.acc !== undefined ? `, test ${(lv.acc * 100).toFixed(2)}%` : ''}${lv.ppl ? `, perpleksja ${Number(lv.ppl).toFixed(2)}` : ''}). Wagi pobierane prosto z Hugging Face, zostają w pamięci przeglądarki; potrzeba dużo pamięci (zmierzone ok. 4,4 GB dla całej przeglądarki na komputerze, wagi rozpakowane do float32) – najlepiej komputer z ≥ 8 GB RAM. Bez karty graficznej liczenie dzielone jest na kilka wątków roboczych. Przeglądarka nie staje się węzłem. Fakty dalej tylko ze źródeł, inaczej „nie wiem”.`}
         </p>
       </div>
     </Card>
