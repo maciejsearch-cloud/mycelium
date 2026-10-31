@@ -43,6 +43,7 @@ export default function Czysta() {
   const [rowsErr, setRowsErr] = useState<string>()
   const [q, setQ] = useState('')
   const [res, setRes] = useState<PureAnswer>()
+  const [askN, setAskN] = useState(0)
   const [logged, setLogged] = useState<number | 'optout' | 'rate' | 'err' | undefined>()
   const [fb, setFb] = useState<string>()
   const [corr, setCorr] = useState('')
@@ -71,6 +72,7 @@ export default function Czysta() {
     if (!text.trim() || rb.status !== 'ready') return
     const r = answerPure(text, parseSentence, kb)
     setRes(r)
+    setAskN((n) => n + 1)
     setFb(undefined)
     setCorr('')
     setLogged(undefined)
@@ -104,7 +106,10 @@ export default function Czysta() {
     try {
       const r = await voteAnswer(logged, v, v === 'correct' ? scrub(corr.trim()).slice(0, 600) : undefined)
       if (r.ok) setFb(r.voter === 'owner' ? 'Zapisane – głos właścicielki rozstrzyga od razu.' : `Zapisane w Weryfikuj (głosów: ${r.votes ?? 1}). Decyzja zapada przy ≥ 3 głosach i pewności ≥ 95%.`)
-      else if (r.reason === 'own') v === 'correct' ? asPair() : setFb('Na odpowiedź na własne pytanie nie głosujesz – czeka w Weryfikuj na ocenę innych osób.')
+      else if (r.reason === 'own') {
+        if (v === 'correct') asPair()
+        else setFb('Na odpowiedź na własne pytanie nie głosujesz – czeka w Weryfikuj na ocenę innych osób.')
+      }
       else setFb(`Nie zapisano (${r.reason ?? 'błąd'}).`)
     } catch (e) {
       setFb(`Nie zapisano: ${(e as Error).message}`)
@@ -181,7 +186,7 @@ export default function Czysta() {
             </div>
           </Card>
 
-          {res && <AnswerCard r={res} logged={logged} fb={fb} corr={corr} setCorr={setCorr} vote={vote} />}
+          {res && <AnswerCard n={askN} r={res} logged={logged} fb={fb} corr={corr} setCorr={setCorr} vote={vote} />}
 
           <Card title="Naucz ją faktu albo reguły">
             <p className="mb-2 text-sm text-slate-400">
@@ -225,10 +230,10 @@ export default function Czysta() {
   )
 }
 
-function AnswerCard({ r, logged, fb, corr, setCorr, vote }: { r: PureAnswer; logged: number | 'optout' | 'rate' | 'err' | undefined; fb?: string; corr: string; setCorr: (s: string) => void; vote: (v: 'confirm' | 'disagree' | 'correct') => void }) {
+function AnswerCard({ n, r, logged, fb, corr, setCorr, vote }: { n: number; r: PureAnswer; logged: number | 'optout' | 'rate' | 'err' | undefined; fb?: string; corr: string; setCorr: (s: string) => void; vote: (v: 'confirm' | 'disagree' | 'correct') => void }) {
   const known = r.answer != null
   return (
-    <section className="card card-glow fade-up" data-testid="czysta-result">
+    <section className="card card-glow fade-up" data-testid="czysta-result" data-n={n} data-source={r.source}>
       <div className="eyebrow mb-1">Odpowiedź</div>
       <p className={`font-display text-2xl font-semibold ${known ? 'text-glow' : 'text-amber'}`} data-testid="czysta-answer">
         {known ? r.answer : 'nie wiem'}

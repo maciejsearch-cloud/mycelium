@@ -1,0 +1,401 @@
+{
+ "when": "2026-11-01T00:06:26+01:00",
+ "model": "v3-dc3648e4.bin",
+ "tasks": "selfplay.generate(320, 2) + chat_facts_v1",
+ "node_no_kb": {
+  "logic": {
+   "n": 320,
+   "correct": 204,
+   "abstain": 106,
+   "acc": 0.6375,
+   "per_category": {
+    "analogia": {
+     "n": 31,
+     "correct": 0,
+     "abstain": 31,
+     "acc": 0.0
+    },
+    "aspekt": {
+     "n": 24,
+     "correct": 24,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "ciąg": {
+     "n": 14,
+     "correct": 0,
+     "abstain": 14,
+     "acc": 0.0
+    },
+    "kolejność w czasie": {
+     "n": 18,
+     "correct": 11,
+     "abstain": 7,
+     "acc": 0.6111
+    },
+    "kwantyfikatory": {
+     "n": 19,
+     "correct": 19,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "liczebniki": {
+     "n": 21,
+     "correct": 0,
+     "abstain": 21,
+     "acc": 0.0
+    },
+    "negacja": {
+     "n": 8,
+     "correct": 8,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "nie wszystkie": {
+     "n": 14,
+     "correct": 14,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "odmiana": {
+     "n": 29,
+     "correct": 17,
+     "abstain": 5,
+     "acc": 0.5862
+    },
+    "porządek": {
+     "n": 25,
+     "correct": 25,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "przyczyna": {
+     "n": 15,
+     "correct": 12,
+     "abstain": 0,
+     "acc": 0.8
+    },
+    "sprzeczność": {
+     "n": 9,
+     "correct": 9,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "sylogizm": {
+     "n": 30,
+     "correct": 30,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "warunki": {
+     "n": 10,
+     "correct": 10,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "zadanie tekstowe": {
+     "n": 28,
+     "correct": 0,
+     "abstain": 28,
+     "acc": 0.0
+    },
+    "łańcuch": {
+     "n": 25,
+     "correct": 25,
+     "abstain": 0,
+     "acc": 1.0
+    }
+   }
+  },
+  "chat_facts": {
+   "n": 40,
+   "correct": 0,
+   "abstain": 40,
+   "wrong": 0,
+   "rows": [
+    {
+     "id": "f01",
+     "q": "Jaka jest stolica Australii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f02",
+     "q": "Jaka jest stolica Kanady?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f03",
+     "q": "Kto napisał „Pana Tadeusza”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f04",
+     "q": "Kto napisał „Lalkę”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f05",
+     "q": "Kto odkrył penicylinę?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f06",
+     "q": "Kto namalował „Mona Lisę”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f07",
+     "q": "W którym roku Polska przystąpiła do Unii Europejskiej?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f08",
+     "q": "W którym roku zaczęła się II wojna światowa?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f09",
+     "q": "Ile mieszkańców ma Kraków?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f10",
+     "q": "Jaka jest najdłuższa rzeka w Polsce?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f11",
+     "q": "Jaki jest najwyższy szczyt Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f12",
+     "q": "Jaki jest symbol chemiczny złota?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f13",
+     "q": "Kto był pierwszym królem Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f14",
+     "q": "Kto sformułował teorię względności?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f15",
+     "q": "Co to jest fotosynteza?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f16",
+     "q": "Co to jest wombat?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f17",
+     "q": "Jaka jest stolica Łotwy?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f18",
+     "q": "Kiedy urodził się Fryderyk Chopin?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f19",
+     "q": "Na jakim kontynencie leży Egipt?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f20",
+     "q": "Jaka jest stolica Japonii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f21",
+     "q": "Jaka jest powierzchnia Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f22",
+     "q": "Kto był pierwszym człowiekiem na Księżycu?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f23",
+     "q": "Jak nazywa się największa planeta Układu Słonecznego?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f24",
+     "q": "W którym roku odbyła się bitwa pod Grunwaldem?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f25",
+     "q": "Kto napisał „Quo vadis”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f26",
+     "q": "Kto odkrył polon i rad?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f27",
+     "q": "Jaka jest stolica Hiszpanii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f28",
+     "q": "Co to jest kot?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f29",
+     "q": "Jaka waluta obowiązuje w Japonii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f30",
+     "q": "Ile mieszkańców ma Warszawa?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f31",
+     "q": "Kiedy zmarł Jan Paweł II?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f32",
+     "q": "Kto napisał słowa Mazurka Dąbrowskiego?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f33",
+     "q": "Jaka jest wysokość Mount Everestu?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f34",
+     "q": "W jakim mieście jest Wawel?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f35",
+     "q": "Kto napisał „Ferdydurke”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f36",
+     "q": "Co to jest grzybnia?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f37",
+     "q": "Jaki pierwiastek ma symbol Fe?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f38",
+     "q": "W którym roku upadł mur berliński?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f39",
+     "q": "Jaka jest stolica Brazylii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f40",
+     "q": "Kto był pierwszym prezydentem Stanów Zjednoczonych?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    }
+   ]
+  }
+ },
+ "python_same": true,
+ "python_diff": 0
+}

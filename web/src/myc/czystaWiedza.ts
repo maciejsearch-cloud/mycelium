@@ -181,7 +181,7 @@ export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefin
   const pconf = parses.length ? parses.reduce((x, p) => x + p.conf, 0) / parses.length : 0
   const done = (answer: string | null, source: Source, extra: Partial<PureAnswer>): PureAnswer => ({ input: text, answer, source, trace, used: [], conf: 0, parses, missing: [], ms: performance.now() - t0, ...extra })
   if (!parses.length) return done(null, 'brak', { missing: ['model rozbioru nie jest wczytany albo zdanie jest puste'] })
-  trace.push({ kind: 'rozbiór', text: `${parses.length} ${parses.length === 1 ? 'zdanie' : 'zdań'}, pewność rozbioru ${Math.round(pconf * 100)}%` })
+  trace.push({ kind: 'rozbiór', text: `${parses.length} ${parses.length === 1 ? 'zdanie' : parses.length % 10 >= 2 && parses.length % 10 <= 4 && (parses.length % 100 < 12 || parses.length % 100 > 14) ? 'zdania' : 'zdań'}, pewność rozbioru ${Math.round(pconf * 100)}%` })
 
   // 1) rozumujący na samym tekście (przesłanki w pytaniu)
   const R = new Reasoner(parse)
