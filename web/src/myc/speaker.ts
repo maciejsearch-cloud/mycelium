@@ -61,8 +61,8 @@ async function call<T>(fn: string, args: Record<string, unknown>): Promise<T> {
   if (!r.ok) throw new Error(String(r.status))
   return (await r.json()) as T
 }
-export const speakerState = () => call<SpkState>('myc_speaker_state', {})
-export const speakerSummary = (ids: number[]) => (ids.length ? call<SpkSummary[]>('myc_speaker_summary', { p_ids: ids.slice(-200) }) : Promise.resolve([]))
+export const speakerState = () => call<SpkState | null>('myc_speaker_state', {}).then((x) => (x && Array.isArray(x.levels) ? x : null))
+export const speakerSummary = (ids: number[]) => (ids.length ? call<SpkSummary[]>('myc_speaker_summary', { p_ids: ids.slice(-200) }).then((x) => (Array.isArray(x) ? x.filter((s) => Array.isArray(s?.tokens)) : [])) : Promise.resolve([]))
 export const speakerRate = (msg: number, v: Partial<{ sense: 1 | -1; category: string; task: string; labels: string[]; order: number[]; fixed: string; answer: string }>) =>
   account.rpc('myc_speaker_rate', {
     p_msg: msg,
