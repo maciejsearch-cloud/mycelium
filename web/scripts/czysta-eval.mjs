@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os'
 const here = new URL('.', import.meta.url).pathname
 const dir = mkdtempSync(join(tmpdir(), 'czysta-'))
 // transpilacja plików TS (jak rozbior-parity.mjs); import.meta.env → wartości domyślne z kodu
-for (const f of ['czysta', 'czystaWiedza', 'rozbior', 'morf', 'retrieval', 'store']) {
+for (const f of ['czysta', 'czystaLiczby', 'czystaWiedza', 'rozbior', 'morf', 'retrieval', 'store']) {
   const src = readFileSync(join(here, `../src/myc/${f}.ts`), 'utf8')
     .replace(/import\.meta\.env\.[A-Z_]+/g, 'undefined')
     .replace(/from '\.\/([A-Za-z]+)'/g, "from './$1.mjs'")
@@ -42,7 +42,7 @@ const parseFn = (text) => {
 const kb = job.kb ?? { facts: [], qa: [], loadedAt: '', skipped: 0 }
 const t0 = Date.now()
 const res = job.items.map((it) => {
-  const a = m.answerPure(it.q, parseFn, kb)
+  const a = m.answerPure(it.q, parseFn, kb, lex)
   return { id: it.id, answer: a.answer, source: a.source, method: a.method ?? null, conf: a.conf, trace: a.trace.map((s) => `${s.kind}: ${s.text}`), missing: a.missing }
 })
 writeFileSync(outp, JSON.stringify({ n: res.length, ms: Date.now() - t0, results: res }))

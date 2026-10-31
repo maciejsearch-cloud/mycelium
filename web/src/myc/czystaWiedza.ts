@@ -5,6 +5,8 @@
 import type { Analysis } from './rozbior'
 import { Reasoner, literal, litPl, rulesAndFact, sentences, stem, Tree, DROP_UPOS, DROP_LEM, type Lit, type Method, type Step } from './czysta'
 import { tokens as rtokens } from './retrieval'
+import { numeric, type NumMethod } from './czystaLiczby'
+import type { MorfLex } from './morf'
 import { SB_KEY, SB_URL } from './store'
 
 /** źródła strzępków uznawane za decyzję ludzi (inne: wikidata, wiktionary, wordnet, plwordnet, captcha – pominięte) */
@@ -123,13 +125,13 @@ export interface ParsedSentence {
   a: Analysis
   conf: number
 }
-export type Source = 'logika' | 'para' | 'fakt' | 'brak'
+export type Source = 'logika' | 'liczby' | 'para' | 'fakt' | 'brak'
 export interface PureAnswer {
   input: string
   /** krótka odpowiedź (tak / nie / nie wiadomo / imię / tekst z wiedzy) albo null = nie wiem */
   answer: string | null
   source: Source
-  method?: Method | 'para pytanie–odpowiedź' | 'fakt z wiedzy'
+  method?: Method | NumMethod | 'para pytanie–odpowiedź' | 'fakt z wiedzy'
   trace: Step[]
   used: (PFact | PQA)[]
   conf: number
@@ -160,7 +162,7 @@ export function normalise(text: string): string {
   return s
 }
 
-export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefined): PureAnswer {
+export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefined, lex?: MorfLex): PureAnswer {
   const t0 = performance.now()
   const text = normalise(input)
   const trace: Step[] = [{ kind: 'wejście', text: text === input.trim() ? `„${text}”` : `„${input.trim()}” → po normalizacji „${text}”` }]
@@ -188,7 +190,17 @@ export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefin
   const a1 = R.answer(text)
   trace.push(...R.trace)
   if (a1 != null) return done(a1, 'logika', { method: R.method, conf: pconf })
-  const missing = R.trace.filter((s) => s.kind === 'brak').map((s) => s.text)
+  // 2) reguły liczbowe i analogie (czystaLiczby.ts): arytmetyka, zadania tekstowe, ciągi, liczebniki, analogie
+  const nt: Step[] = []
+  const nr = numeric(text, { parse, lex, trace: nt, facts: kb?.facts.filter((f) => f.truth === 'tak').map((f) => ({ id: f.id, text: f.text })) })
+  if (nr) {
+    trace.push(...nt)
+    const used = kb ? kb.facts.filter((f) => nr.used?.includes(f.id)) : []
+    return done(nr.answer, nr.method.startsWith('analogia (relacja') ? 'fakt' : 'liczby', { method: nr.method, used, conf: pconf })
+  }
+  const numMissing = nt.filter((s) => s.kind === 'brak').map((s) => s.text)
+  if (numMissing.length) trace.push(...nt)
+  const missing = [...R.trace.filter((s) => s.kind === 'brak').map((s) => s.text), ...numMissing]
 
   const sents = sentences(text)
   const q = sents.filter((s) => s.endsWith('?')).pop()

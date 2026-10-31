@@ -22,7 +22,7 @@ interface Wyniki {
 }
 const pct = (x: number) => `${(x * 100).toFixed(1).replace('.', ',')}%`
 const fmt = (iso?: string) => (iso ? new Date(iso).toLocaleString('pl-PL', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Amsterdam' }) : '–')
-const SRC_PL: Record<string, string> = { logika: 'rozumowanie z ról zdania', para: 'para pytanie → odpowiedź od ludzi', fakt: 'fakt zatwierdzony przez ludzi', brak: 'nie wiem' }
+const SRC_PL: Record<string, string> = { logika: 'rozumowanie z ról zdania', liczby: 'reguły liczbowe i odmiana', para: 'para pytanie → odpowiedź od ludzi', fakt: 'fakt zatwierdzony przez ludzi', brak: 'nie wiem' }
 
 /** przykłady wejścia (nie dane) – po jednym na każdy rodzaj rozumowania */
 const EXAMPLES = [
@@ -70,7 +70,7 @@ export default function Czysta() {
 
   const ask = (text: string) => {
     if (!text.trim() || rb.status !== 'ready') return
-    const r = answerPure(text, parseSentence, kb)
+    const r = answerPure(text, parseSentence, kb, rb.morf)
     setRes(r)
     setAskN((n) => n + 1)
     setFb(undefined)
