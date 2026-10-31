@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import { Card, PageHeader } from '../components/ui'
+import { Icon } from '../components/Icon'
+import { LogoMark } from '../components/Logo'
 import { L, useI18n } from '../i18n'
 import { FACT_CONF, useBrain } from '../myc/brain'
 import { chatConsent, convId, logExchange } from '../myc/chatlog'
@@ -709,14 +711,24 @@ export default function Chat() {
       <Card>
         <div className="max-h-[60vh] min-h-48 space-y-3 overflow-y-auto pr-1" data-testid="chat-log">
           {turns.length === 0 && (
-            <p className="text-sm text-slate-500">
-              {en
-                ? 'Say hi, ask “Is Riga the capital of Latvia?”, “what is a wombat?”, “what is 15% of 240?”, or paste a paragraph.'
-                : 'Przywitaj się, zapytaj „Czy Ryga jest stolicą Łotwy?”, „co to jest wombat?”, „ile to 15% z 240?” albo wklej akapit tekstu.'}
-            </p>
+            <div className="flex flex-col items-center gap-3 py-8 text-center">
+              <LogoMark size={52} className="logo-live drop-shadow-[0_0_24px_rgb(94_234_212/0.3)]" />
+              <p className="max-w-md text-sm text-slate-400">
+                {en
+                  ? 'Say hi, ask “Is Riga the capital of Latvia?”, “what is a wombat?”, “what is 15% of 240?”, or paste a paragraph.'
+                  : 'Przywitaj się, zapytaj „Czy Ryga jest stolicą Łotwy?”, „co to jest wombat?”, „ile to 15% z 240?” albo wklej akapit tekstu.'}
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {(en ? ['Is Riga the capital of Latvia?', 'what is a wombat?', 'what is 15% of 240?'] : ['Czy Ryga jest stolicą Łotwy?', 'co to jest wombat?', 'ile to 15% z 240?']).map((q) => (
+                  <button key={q} type="button" onClick={() => setInput(q)} className="chip border-spore/25 px-3 py-1.5 text-slate-200 hover:border-spore/50 hover:bg-spore/10">
+                    {q}
+                  </button>
+                ))}
+              </div>
+            </div>
           )}
           {turns.map((t, i) => (
-            <div key={i} className={t.role === 'user' ? 'ml-auto max-w-[85%] whitespace-pre-wrap rounded-2xl bg-spore/10 px-3 py-2 text-sm text-slate-100' : 'max-w-[95%]'}>
+            <div key={i} className={t.role === 'user' ? 'ml-auto max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-br-md bg-gradient-to-br from-spore/20 to-sky/10 px-3.5 py-2.5 text-sm text-slate-50 ring-1 ring-spore/20' : 'max-w-[95%] rounded-2xl rounded-bl-md bg-white/[0.03] px-3.5 py-2.5 ring-1 ring-white/[0.06]'}>
               {t.role === 'user' && (
                 <>
                   {t.text}
@@ -753,7 +765,7 @@ export default function Chat() {
                       </span>
                     )}
                   </div>
-                  <div className="whitespace-pre-wrap text-sm text-slate-200" data-testid="reply">
+                  <div className="whitespace-pre-wrap text-[0.95rem] leading-relaxed text-slate-100" data-testid="reply">
                     {t.text ||
                       (busy && i === turns.length - 1
                         ? t.mode === 'local'
@@ -789,7 +801,7 @@ export default function Chat() {
                     <button
                       disabled={t.saved}
                       onClick={() => save(i)}
-                      className="mt-2 rounded-lg border border-violet/40 px-3 py-1 text-xs text-violet disabled:opacity-60"
+                      className="mt-2 rounded-full border border-violet/40 px-3 py-1 text-xs font-medium text-violet hover:bg-violet/10 disabled:opacity-60"
                       data-testid="chat-save"
                     >
                       {t.saved
@@ -843,11 +855,11 @@ export default function Chat() {
             }}
             maxLength={4000}
             placeholder={en ? 'Type a message… (Shift+Enter = new line)' : 'Napisz wiadomość… (Shift+Enter = nowa linia)'}
-            className="w-full resize-y rounded-xl border border-white/10 bg-ink/60 px-3 py-2 text-sm"
+            className="w-full resize-y rounded-2xl border border-white/10 bg-black/30 px-3.5 py-2.5 text-[0.95rem] placeholder:text-slate-500"
             data-testid="chat-input"
           />
-          <button disabled={busy} className="rounded-xl border border-spore/40 px-4 text-sm text-spore disabled:opacity-50" data-testid="chat-send">
-            {en ? 'Send' : 'Wyślij'}
+          <button disabled={busy} className="btn-primary shrink-0 px-4 font-semibold disabled:opacity-50" data-testid="chat-send">
+            {en ? 'Send' : 'Wyślij'} <Icon name="arrow" size={15} />
           </button>
         </form>
       </Card>

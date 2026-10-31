@@ -19,12 +19,19 @@ export function LogoMark({ size = 36, tile = true, className = '' }: { size?: nu
           <stop offset=".6" stopColor="#99f6e4" />
           <stop offset="1" stopColor="#5eead4" />
         </radialGradient>
-        <linearGradient id={bg} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#0f2a25" />
-          <stop offset="1" stopColor="#060f0d" />
+        <radialGradient id={bg} cx="27" cy="30" r="44" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#16443a" />
+          <stop offset=".55" stopColor="#0a1f1a" />
+          <stop offset="1" stopColor="#030908" />
+        </radialGradient>
+        <linearGradient id={`r${id}`} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#5eead4" stopOpacity=".55" />
+          <stop offset=".5" stopColor="#5eead4" stopOpacity=".08" />
+          <stop offset="1" stopColor="#a78bfa" stopOpacity=".45" />
         </linearGradient>
       </defs>
       {tile && <rect width="64" height="64" rx="15" fill={`url(#${bg})`} />}
+      {tile && <rect x=".75" y=".75" width="62.5" height="62.5" rx="14.25" fill="none" stroke={`url(#r${id})`} strokeWidth="1.5" />}
       <g transform={tile ? 'translate(5.5 4.8) scale(.84)' : undefined}>
         <g fill="none" stroke={`url(#${h})`} strokeLinecap="round">
           <g strokeWidth="4.2" className="logo-hypha">
@@ -63,8 +70,8 @@ export function LogoMark({ size = 36, tile = true, className = '' }: { size?: nu
 export function Wordmark({ sub }: { sub?: string }) {
   return (
     <div className="leading-tight">
-      <div className="text-[1.05rem] font-semibold tracking-tight text-slate-50">
-        Mycelium <span className="bg-gradient-to-r from-spore to-violet bg-clip-text text-transparent">AI</span>
+      <div className="font-display text-[1.1rem] font-semibold tracking-tight text-slate-50">
+        Mycelium <span className="text-gradient">AI</span>
       </div>
       {sub && <div className="hidden text-[11px] text-slate-400 sm:block">{sub}</div>}
     </div>
