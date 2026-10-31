@@ -45,7 +45,9 @@ export function httpRange(url: string, onBytes?: (n: number) => void): RangeFetc
     for (let i = 0; ; i++) {
       let got = 0
       try {
-        const r = await fetch(url, { headers: { Range: `bytes=${s}-${e - 1}` } })
+        const r = await fetch(url, {
+          headers: { Range: `bytes=${s}-${e - 1}` },
+        })
         if (r.status !== 206 && r.status !== 200) throw new Error(`HTTP ${r.status}`)
         if (!r.body || !onBytes) return await r.arrayBuffer()
         const out = new Uint8Array(e - s)
@@ -108,7 +110,8 @@ export function bf16ToF32(buf: ArrayBuffer, off: number, n: number): Float32Arra
   return out
 }
 
-export function quantRows(buf: ArrayBuffer, off: number, rows: number, cols: number, rowStart = 0): Q8 {
+/** add(r, row): opcjonalna poprawka wiersza przed kwantyzacją (scalenie adaptera LoRA z wagami bazowymi). */
+export function quantRows(buf: ArrayBuffer, off: number, rows: number, cols: number, rowStart = 0, add?: (r: number, row: Float32Array) => void): Q8 {
   const u = new Uint16Array(buf, off + rowStart * cols * 2, rows * cols)
   const q = new Int8Array(rows * cols)
   const s = new Float32Array(rows)
@@ -120,6 +123,10 @@ export function quantRows(buf: ArrayBuffer, off: number, rows: number, cols: num
     for (let c = 0; c < cols; c++) {
       const v = bf16(u, r * cols + c, tmp, f)
       row[c] = v
+    }
+    if (add) add(r, row)
+    for (let c = 0; c < cols; c++) {
+      const v = row[c]
       const a = v < 0 ? -v : v
       if (a > m) m = a
     }
@@ -178,7 +185,11 @@ export interface Kernel {
   mm(h: unknown, x: Float32Array, T: number, b?: Float32Array): Float32Array | Promise<Float32Array>
   free?(h: unknown): void
 }
-export const jsKernel: Kernel = { name: 'js', prep: (w) => w, mm: (h, x, T, b) => matmul(h as Q8, x, T, b) }
+export const jsKernel: Kernel = {
+  name: 'js',
+  prep: (w) => w,
+  mm: (h, x, T, b) => matmul(h as Q8, x, T, b),
+}
 
 interface Layer {
   ln1: Float32Array
@@ -212,7 +223,74 @@ export interface EmbShard {
 export type Shard = LayerShard | EmbShard
 
 /** Pobiera i przygotowuje fragment. Zwraca też liczbę pobranych bajtów. */
-export async function loadShard(get: RangeFetch, header: Header, base: number, id: ShardId, K: Kernel = jsKernel): Promise<{ shard: Shard; bytes: number }> {
+// ── adapter LoRA modelu językowego grzybni (src/iot_mycelium/mesh/lm.py: MYCLORA1, rank 4 na qkv i o, fp16) ──
+export interface Lora {
+  rank: number
+  scale: number
+  aQkv: Float32Array // L×896×r
+  bQkv: Float32Array // L×r×1152
+  aO: Float32Array // L×896×r
+  bO: Float32Array // L×r×896
+  meta: Record<string, unknown>
+}
+const QKV_OUT = (MODEL.heads + 2 * MODEL.kvHeads) * MODEL.headDim
+
+export function f16ToF32(u: Uint16Array): Float32Array {
+  const out = new Float32Array(u.length)
+  for (let i = 0; i < u.length; i++) {
+    const h = u[i]
+    const s = h & 0x8000 ? -1 : 1
+    const e = (h >> 10) & 0x1f
+    const f = h & 0x3ff
+    out[i] = e === 0 ? s * 2 ** -14 * (f / 1024) : e === 31 ? (f ? NaN : s * Infinity) : s * 2 ** (e - 15) * (1 + f / 1024)
+  }
+  return out
+}
+
+export function parseLora(buf: ArrayBuffer): Lora {
+  const b = new Uint8Array(buf)
+  if (new TextDecoder().decode(b.slice(0, 8)) !== 'MYCLORA1') throw new Error('to nie jest adapter grzybni')
+  const n = new DataView(buf).getUint32(8, true)
+  const h = JSON.parse(new TextDecoder().decode(b.slice(12, 12 + n))) as {
+    rank: number
+    alpha: number
+    layers: number
+  }
+  if (h.layers !== MODEL.layers) throw new Error('niezgodny kształt adaptera')
+  const r = h.rank
+  const L = MODEL.layers
+  const sizes = [L * MODEL.hidden * r, L * r * QKV_OUT, L * MODEL.hidden * r, L * r * MODEL.hidden]
+  const body = b.slice(12 + n)
+  if (body.byteLength !== sizes.reduce((x, y) => x + y, 0) * 2) throw new Error('zły rozmiar adaptera')
+  const all = f16ToF32(new Uint16Array(body.buffer))
+  const parts: Float32Array[] = []
+  let o = 0
+  for (const k of sizes) (parts.push(all.subarray(o, o + k)), (o += k))
+  return {
+    rank: r,
+    scale: h.alpha / r,
+    aQkv: parts[0],
+    bQkv: parts[1],
+    aO: parts[2],
+    bO: parts[3],
+    meta: h,
+  }
+}
+
+/** Poprawka wiersza wag W[out][in] (układ safetensors) z adaptera: W[o][c] += scale · Σ_k A[l][c][k] · B[l][k][o + off]. */
+function loraRow(A: Float32Array, B: Float32Array, l: number, rank: number, outDim: number, off: number, scale: number) {
+  const H = MODEL.hidden
+  return (r: number, row: Float32Array) => {
+    const o = r + off
+    for (let k = 0; k < rank; k++) {
+      const bk = B[(l * rank + k) * outDim + o] * scale
+      if (!bk) continue
+      for (let c = 0; c < H; c++) row[c] += A[(l * H + c) * rank + k] * bk
+    }
+  }
+}
+
+export async function loadShard(get: RangeFetch, header: Header, base: number, id: ShardId, K: Kernel = jsKernel, lora?: Lora): Promise<{ shard: Shard; bytes: number }> {
   const names = shardTensors(header, id)
   if (id[0] === 'E') {
     const t = header['model.embed_tokens.weight']
@@ -221,7 +299,10 @@ export async function loadShard(get: RangeFetch, header: Header, base: number, i
     const s = base + t.data_offsets[0] + r0 * cols * 2
     const buf = await get(s, s + (r1 - r0) * cols * 2)
     const E = quantRows(buf, 0, r1 - r0, cols)
-    return { shard: { kind: 'E', id, start: r0, end: r1, E, head: K.prep(E) }, bytes: buf.byteLength }
+    return {
+      shard: { kind: 'E', id, start: r0, end: r1, E, head: K.prep(E) },
+      bytes: buf.byteLength,
+    }
   }
   // każda warstwa jest w pliku ciągła (nazwy tensorów są posortowane), ale warstwy 2, 10, 11… nie leżą po kolei –
   // więc pobieramy osobny zakres na warstwę (+ norma końcowa), dokładnie tyle bajtów, ile trzeba
@@ -244,11 +325,15 @@ export async function loadShard(get: RangeFetch, header: Header, base: number, i
     const { buf, lo } = bufs.get(n)!
     return bf16ToF32(buf, t.data_offsets[0] - lo, (t.data_offsets[1] - t.data_offsets[0]) / 2)
   }
-  const m = (n: string) => {
+  const m = (n: string, add?: (r: number, row: Float32Array) => void) => {
     const t = header[n]
     const { buf, lo } = bufs.get(n)!
-    return K.prep(quantRows(buf, t.data_offsets[0] - lo, t.shape[0], t.shape[1]))
+    return K.prep(quantRows(buf, t.data_offsets[0] - lo, t.shape[0], t.shape[1], 0, add))
   }
+  const qd = MODEL.heads * MODEL.headDim
+  const kd = MODEL.kvHeads * MODEL.headDim
+  const lq = (l: number, off: number) => (lora ? loraRow(lora.aQkv, lora.bQkv, l, lora.rank, QKV_OUT, off, lora.scale) : undefined)
+  const lo_ = (l: number) => (lora ? loraRow(lora.aO, lora.bO, l, lora.rank, MODEL.hidden, 0, lora.scale) : undefined)
   const i = Number(id.slice(1))
   const layers: Layer[] = []
   for (let l = i * LAYERS_PER_SHARD; l < (i + 1) * LAYERS_PER_SHARD; l++) {
@@ -256,10 +341,10 @@ export async function loadShard(get: RangeFetch, header: Header, base: number, i
     layers.push({
       ln1: f(p + 'input_layernorm.weight'),
       ln2: f(p + 'post_attention_layernorm.weight'),
-      q: m(p + 'self_attn.q_proj.weight'),
-      k: m(p + 'self_attn.k_proj.weight'),
-      v: m(p + 'self_attn.v_proj.weight'),
-      o: m(p + 'self_attn.o_proj.weight'),
+      q: m(p + 'self_attn.q_proj.weight', lq(l, 0)),
+      k: m(p + 'self_attn.k_proj.weight', lq(l, qd)),
+      v: m(p + 'self_attn.v_proj.weight', lq(l, qd + kd)),
+      o: m(p + 'self_attn.o_proj.weight', lo_(l)),
       qb: f(p + 'self_attn.q_proj.bias'),
       kb: f(p + 'self_attn.k_proj.bias'),
       vb: f(p + 'self_attn.v_proj.bias'),
@@ -281,7 +366,12 @@ export interface KV {
 }
 export function newKV(nLayers: number, cap = 256): KV {
   const d = MODEL.kvHeads * MODEL.headDim
-  return { k: Array.from({ length: nLayers }, () => new Float32Array(cap * d)), v: Array.from({ length: nLayers }, () => new Float32Array(cap * d)), len: 0, cap }
+  return {
+    k: Array.from({ length: nLayers }, () => new Float32Array(cap * d)),
+    v: Array.from({ length: nLayers }, () => new Float32Array(cap * d)),
+    len: 0,
+    cap,
+  }
 }
 function growKV(kv: KV, need: number) {
   if (need <= kv.cap) return

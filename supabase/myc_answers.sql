@@ -21,7 +21,7 @@ create table if not exists public.myc_chat_answers (
   has_source boolean not null default false,
   register text not null default 'neutralne' check (register in ('neutralne', 'potoczne', 'wulgarne', 'obraźliwe', 'slang', 'ironiczne')),
   act text check (act is null or act ~ '^[a-z_]{2,24}$'),
-  mode text not null default 'lite' check (mode in ('lite', 'mesh')),
+  mode text not null default 'lite' check (mode in ('lite', 'mesh', 'local')),
   node_id uuid not null,
   contributor_id uuid,
   status text not null default 'pending' check (status in ('pending', 'confirmed', 'wrong', 'corrected')),
@@ -122,7 +122,7 @@ begin
     case when p_intent in ('pytanie', 'emocja', 'niezgoda', 'nauka', 'rozmowa', 'polecenie') then p_intent else 'pytanie' end,
     jsonb_array_length(src) > 0,
     case when p_register in ('neutralne', 'potoczne', 'wulgarne', 'obraźliwe', 'slang', 'ironiczne') then p_register else 'neutralne' end,
-    case when p_act ~ '^[a-z_]{2,24}$' then p_act end, case when p_mode = 'mesh' then 'mesh' else 'lite' end, p_node, p_contrib)
+    case when p_act ~ '^[a-z_]{2,24}$' then p_act end, case when p_mode in ('mesh', 'local') then p_mode else 'lite' end, p_node, p_contrib)
   returning id into id_;
   return jsonb_build_object('logged', true, 'id', id_);
 end $$;

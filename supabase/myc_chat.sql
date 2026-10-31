@@ -8,7 +8,7 @@ create table if not exists public.myc_chats (
   user_text text not null check (char_length(user_text) between 1 and 4000),
   reply text not null check (char_length(reply) between 1 and 6000),
   act text not null check (act ~ '^[a-z_]{2,20}$'),
-  mode text not null default 'lite' check (mode in ('lite', 'mesh')),
+  mode text not null default 'lite' check (mode in ('lite', 'mesh', 'local')),
   lang text not null default 'pl' check (lang in ('pl', 'en')),
   feedback smallint check (feedback in (-1, 1)),
   created_at timestamptz not null default now()

@@ -8,7 +8,7 @@ export interface GMsg {
   id: number
   room: string
   circle_id: number | null
-  kind: 'user' | 'node'
+  kind: 'user' | 'node' | 'ai'
   handle: string
   role: 'developer' | 'moderator' | null
   body: string | null
@@ -112,7 +112,8 @@ class GChat {
         const i = this.msgs.findIndex((x) => x.id === m.id)
         if (i >= 0) this.msgs[i] = m
         else this.msgs = [...this.msgs, m].slice(-200)
-        if (p.eventType === 'INSERT' && m.kind === 'user' && this.channel == null && this.stats) this.stats = { ...this.stats, messages: this.stats.messages + 1, today: this.stats.today + 1 }
+        if (p.eventType === 'INSERT' && m.kind === 'user' && this.channel == null && this.stats)
+          this.stats = { ...this.stats, messages: this.stats.messages + 1, today: this.stats.today + 1 }
         this.emit()
       })
       .subscribe((s) => {
@@ -124,7 +125,9 @@ class GChat {
   async loadMeta() {
     const room = gchatRoom()
     const pub = (fn: string, body: unknown) =>
-      fetch(`${SB_URL}/rest/v1/rpc/${fn}`, { method: 'POST', headers: { apikey: SB_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then((r) => (r.ok ? r.json() : null))
+      fetch(`${SB_URL}/rest/v1/rpc/${fn}`, { method: 'POST', headers: { apikey: SB_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then((r) =>
+        r.ok ? r.json() : null,
+      )
     const [st, roles] = await Promise.all([pub('myc_gchat_stats', { p_room: room }).catch(() => null), pub('myc_gchat_roles', { p_room: room }).catch(() => null)])
     this.stats = st && typeof (st as GStats).messages === 'number' ? (st as GStats) : null
     this.roles = Array.isArray(roles) ? (roles as { handle: string; role: string }[]) : []
@@ -159,11 +162,21 @@ class GChat {
     await account.rpc('myc_gchat_post', { p_body: body, p_reply_to: replyTo, p_intent: intent, p_tags: tags, p_circle: this.channel })
   }
   async mod(action: string, msg: number | null, extra: { minutes?: number; role?: string; reason?: string; handle?: string } = {}) {
-    await account.rpc('myc_gchat_mod', { p_action: action, p_msg: msg, p_minutes: extra.minutes ?? null, p_role: extra.role ?? null, p_reason: extra.reason ?? null, p_handle: extra.handle ?? null })
+    await account.rpc('myc_gchat_mod', {
+      p_action: action,
+      p_msg: msg,
+      p_minutes: extra.minutes ?? null,
+      p_role: extra.role ?? null,
+      p_reason: extra.reason ?? null,
+      p_handle: extra.handle ?? null,
+    })
     void this.loadMeta()
   }
   modlog() {
-    return account.rpc<{ at: string; actor: string; actor_role: string; action: string; msg_id: number | null; target: string | null; detail: Record<string, unknown> }[]>('myc_gchat_modlog', { p_limit: 50 })
+    return account.rpc<{ at: string; actor: string; actor_role: string; action: string; msg_id: number | null; target: string | null; detail: Record<string, unknown> }[]>(
+      'myc_gchat_modlog',
+      { p_limit: 50 },
+    )
   }
   async setTrain(ok: boolean) {
     this.me = await account.rpc<GMe>('myc_gchat_set_train', { p_ok: ok })

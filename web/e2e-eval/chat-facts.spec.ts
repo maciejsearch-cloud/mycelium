@@ -23,6 +23,7 @@ test('chat facts eval', async ({ page, baseURL }) => {
     await page.evaluate(() => (localStorage.setItem('myc.chatlog', '0'), localStorage.setItem('myc.train', '0')))
     const input = page.getByTestId('chat-input')
     await input.fill(it.q)
+    const t0 = Date.now()
     await page.getByTestId('chat-send').click()
     const reply = page.getByTestId('reply').last()
     await reply.waitFor({ timeout: 60_000 })
@@ -31,6 +32,7 @@ test('chat facts eval', async ({ page, baseURL }) => {
     const done = await page
       .waitForFunction(() => !document.querySelector('[data-testid=chat-send]')?.hasAttribute('disabled'), null, { timeout: 60_000 })
       .then(() => true, () => false)
+    const ms = Date.now() - t0
     await page.waitForTimeout(300)
     const text = (await reply.textContent()) ?? ''
     const turn = page.locator('[data-testid=reply]').last().locator('xpath=..')
@@ -38,7 +40,10 @@ test('chat facts eval', async ({ page, baseURL }) => {
     const links = await turn.locator('a[href^="http"]').evaluateAll((as) => as.map((a) => (a as HTMLAnchorElement).href))
     const stats = `${(await turn.getByTestId('turn-stats').textContent()) ?? ''}${done ? '' : ' · TIMEOUT 60 s'}`
     const r = score(it, text, sources, links)
-    rows.push({ id: it.id, q: it.q, verdict: r, text, sources, links, stats })
+    // ścieżka odpowiedzi (węzeł / przeglądarka) i czy w chwili pytania jakiś węzeł miał cały model
+    const path = await turn.getByTestId('answer-path').getAttribute('data-path').catch(() => null)
+    const meshFull = await page.getByTestId('mesh-status').getAttribute('data-full').catch(() => null)
+    rows.push({ id: it.id, q: it.q, verdict: r, text, sources, links, stats, ms, path, meshFull })
     console.log(`${it.id} ${r.padEnd(14)} ${text.replace(/\s+/g, ' ').slice(0, 110)}`)
   }
   const n = rows.length
@@ -55,6 +60,13 @@ test('chat facts eval', async ({ page, baseURL }) => {
     dont_know: count('dont_know'),
     wrong: count('wrong'),
     ...(set.items.some((i) => i.honest) ? { honest: count('honest') } : {}),
+    viewport: page.viewportSize(),
+    latency_ms: (() => {
+      const xs = rows.map((r) => r.ms).sort((a, b) => a - b)
+      return { median: xs[Math.floor(xs.length / 2)], p90: xs[Math.floor(xs.length * 0.9)], max: xs[xs.length - 1] }
+    })(),
+    paths: rows.reduce((a: Record<string, number>, r) => ((a[String(r.path)] = (a[String(r.path)] ?? 0) + 1), a), {}),
+    mesh_full_seen: rows.some((r) => r.meshFull === '1'),
   }
   console.log(JSON.stringify(summary))
   const out = resolve(here, `../../results/chat_facts/${summary.at.slice(0, 16).replace(/[:T]/g, '')}-${set.name === 'chat_facts_v1' ? '' : `${set.name}-`}${summary.label}.json`)
