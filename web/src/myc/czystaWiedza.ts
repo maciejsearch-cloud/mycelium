@@ -257,6 +257,7 @@ export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefin
   } else {
     // pytanie otwarte: fakt, który zawiera WSZYSTKIE słowa treści pytania; odpowiedź = pozostałe słowa faktu
     let best: { f: PFact; rest: string; extra: number } | undefined
+    const qLemmas = new Set(qa.tokens.map((t) => (t.lemma || t.form).toLowerCase()))
     for (const f of cands) {
       if (f.truth !== 'tak') continue
       let fa: Analysis
@@ -269,7 +270,8 @@ export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefin
       if (!qStems.every((x) => fs.has(x))) continue
       const rest = fa.tokens.filter((t) => {
         const lem = (t.lemma || t.form).toLowerCase()
-        return !(t.upos === 'PUNCT' || DROP_UPOS.has(t.upos) || DROP_LEM.has(lem)) && !qset.has(stem(lem))
+        // pomijamy słowa z pytania (ten sam lemat); temat 5-literowy łączy np. „grzybnia” i „grzyba”, więc tu lemat
+        return !(t.upos === 'PUNCT' || DROP_UPOS.has(t.upos) || DROP_LEM.has(lem)) && !qLemmas.has(lem)
       })
       if (!rest.length) continue
       const extra = rest.length
