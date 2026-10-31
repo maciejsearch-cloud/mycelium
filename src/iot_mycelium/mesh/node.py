@@ -20,7 +20,6 @@ import contextlib
 import hashlib
 import json
 import os
-import platform
 import re
 import signal
 import sys
@@ -541,7 +540,7 @@ def main(argv=None):
 
     log("ładuję model (pierwszy raz pobiera ok. 988 MB z Hugging Face, ze wznawianiem i sumą SHA-256)…")
     m = Qwen(ensure_weights(log), torch.bfloat16 if a.dtype == "bf16" else torch.float32)
-    n = Node(m, nid, f"{platform.node()}/{a.name}", log)
+    n = Node(m, nid, a.name, log)  # bez nazwy komputera (hostname) w publicznej obecności
     train = not a.no_train and not (0 < ram < 2)
     # 1.11.2026 pomiar na boxie (3 wątki, bf16): micro 2 = 151 tok/s, micro 4 = 515 tok/s (3,3 GB), całość = 501 tok/s
     # (3,7 GB) – micro 2 marnowało ⅔ mocy; 2 zostaje tylko przy bardzo małym limicie RAM
