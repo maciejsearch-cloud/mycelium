@@ -253,6 +253,19 @@ export default function GlobalChat() {
                       <button className="rounded-lg border border-white/10 px-2 py-1.5" onClick={() => (setReply(m), setMenu(null))}>
                         ↪ {L('odpowiedz', 'reply')}
                       </button>
+                      {m.kind === 'user' && !own && !m.deleted && (
+                        <button
+                          className="rounded-lg border border-spore/30 px-2 py-1.5 text-spore"
+                          data-testid="gchat-tip"
+                          title={L('Napiwek w tokenach testowych MYC-test (bez wartości)', 'Tip in MYC-test test tokens (no value)')}
+                          onClick={() => {
+                            sessionStorage.setItem('myc.walletDraft', JSON.stringify({ to: '@' + m.handle, memo: `napiwek czat #${m.id}`, amount: '0,50' }))
+                            location.hash = '/portfel'
+                          }}
+                        >
+                          {L('napiwek MYC-test', 'tip MYC-test')}
+                        </button>
+                      )}
                       {(own || canMod) && (
                         <button className="rounded-lg border border-rose/30 px-2 py-1.5 text-rose" onClick={() => void mod('delete', m)}>
                           {L('usuń', 'delete')}

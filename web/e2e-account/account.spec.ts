@@ -77,7 +77,7 @@ test('anonimowe konto: zakładanie, kod odzyskiwania, polecenie, portfel, odzysk
 
 test('CSP: strony działają bez naruszeń polityki', async ({ browser }) => {
   const p = await open(browser, './#/overview')
-  for (const id of ['overview', 'chat', 'teach', 'weryfikuj', 'tasks', 'node', 'session', 'knowledge', 'taxonomy', 'growth', 'ai', 'verify', 'progress', 'konto']) {
+  for (const id of ['overview', 'chat', 'teach', 'weryfikuj', 'tasks', 'node', 'session', 'knowledge', 'taxonomy', 'growth', 'ai', 'verify', 'progress', 'konto', 'portfel', 'eksplorator']) {
     await p.goto(`./#/${id}`)
     await p.waitForTimeout(2500)
   }

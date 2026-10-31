@@ -94,6 +94,7 @@ class Node:
         self.lmw = None  # LMWorker (model językowy grzybni)
         self.taxw = None  # TaxoWorker (samoorganizująca się taksonomia słów)
         self.rbw = None  # RozbiorWorker (rozbiór zdań – warstwa rozumienia)
+        self.walw = None  # WalletWorker (walidacja księgi MYC-test)
 
     def _kv(self, key: str, start: int) -> Session:
         s = self.kv.get(key)
@@ -258,6 +259,8 @@ class Node:
             "taxo_last": self.taxw.last_job if self.taxw else None,
             **(self.rbw.stats if self.rbw else {}),
             "rb_last": self.rbw.last_job if self.rbw else None,
+            **(self.walw.stats if getattr(self, "walw", None) else {}),
+            "wallet_last": self.walw.last_job if getattr(self, "walw", None) else None,
             "label": self.net.state.get("label"),
             "backend": self.net.state.get("backend"),
             "id": self.id,
@@ -293,12 +296,19 @@ class Node:
                 if was is not None or conn:
                     panel.history.add("net", "połączono z grzybnią" if conn else "rozłączono – ponawiam")
                 was = conn
-            for name, w in (("lm", self.lmw), ("taxo", self.taxw), ("rozbior", self.rbw)):
+            for name, w in (
+                ("lm", self.lmw),
+                ("taxo", self.taxw),
+                ("rozbior", self.rbw),
+                ("wallet", getattr(self, "walw", None)),
+            ):
                 j = getattr(w, "last_job", None) if w else None
                 if j and j.get("at") and j["at"] != seen.get(name):
                     seen[name] = j["at"]
                     if name == "lm":
                         msg = f"model językowy: {j.get('kind')}{' (destylacja)' if j.get('kd') else ''} v{j.get('version')}"
+                    elif name == "wallet":
+                        msg = f"portfel MYC-test: walidacja do bloku {j.get('id')} ({j.get('sigs', 0)} podpisów)"
                     elif name == "rozbior":
                         msg = f"rozbiór zdań: {j.get('kind')} v{j.get('version')}"
                     else:
@@ -344,6 +354,8 @@ class Node:
             tasks.append(asyncio.create_task(self.rbw.run(stop)))
         if getattr(self, "pasw", None):
             tasks.append(asyncio.create_task(self.pasw.run(stop)))
+        if getattr(self, "walw", None):
+            tasks.append(asyncio.create_task(self.walw.run(stop)))
         if not os.environ.get("MYC_NO_PRESENCE"):
             tasks.append(asyncio.create_task(presence()))
         with contextlib.suppress(KeyboardInterrupt, asyncio.CancelledError):
@@ -443,6 +455,12 @@ def main(argv=None):
         r = rb_selftest()
         print(json.dumps(r, ensure_ascii=False))
         sys.exit(0 if r.get("ok") else 1)
+    if "--wallet-selftest" in argv:  # test wydania: podpisy Ed25519, łańcuch, Merkle i odrzucenie podwójnego wydania
+        from .walletwork import selftest as wallet_selftest
+
+        r = wallet_selftest()
+        print(json.dumps(r, ensure_ascii=False))
+        sys.exit(0 if r.get("ok") else 1)
     if "--install" in argv or "--uninstall" in argv:
         from .service import main as service
 
@@ -472,6 +490,7 @@ def main(argv=None):
     ap.add_argument("--no-lm", action="store_true", help="bez zadań modelu językowego (tylko czat)")
     ap.add_argument("--no-taxo", action="store_true", help="bez grupowania słów (taksonomia)")
     ap.add_argument("--no-rozbior", action="store_true", help="bez rozbioru zdań (warstwa rozumienia)")
+    ap.add_argument("--no-wallet", action="store_true", help="bez walidacji transakcji MYC-test (portfel)")
     ap.add_argument(
         "--max-ram-gb",
         type=float,
@@ -542,6 +561,13 @@ def main(argv=None):
             log(f"rozbiór wyłączony: brak biblioteki ({e.name})")
         else:
             n.rbw = RozbiorWorker(n, log=log)
+    if not a.no_wallet:
+        try:
+            from .walletwork import WalletWorker
+
+            n.walw = WalletWorker(n, log=log)
+        except Exception as e:  # noqa: BLE001 – walidacja portfela nie może zatrzymać węzła
+            log(f"walidacja portfela wyłączona: {e}")
     from .passive import PassiveWorker
 
     n.pasw = panel.passive = PassiveWorker(n, panel, log=log)
