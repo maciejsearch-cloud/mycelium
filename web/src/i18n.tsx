@@ -32,6 +32,8 @@ const EN: Record<string, string> = {
   'agenci IoT · wspólna grzybnia': 'IoT agents · shared mycelium',
   'Dane z': 'Data from',
   Repozytorium: 'Repository',
+  'Motyw ciemny': 'Dark theme',
+  'Motyw jasny': 'Light theme',
   'na żywo': 'live',
   'tryb nagrany': 'recorded mode',
   benchmarki: 'benchmarks',
@@ -62,9 +64,9 @@ export function L({ pl, en }: { pl: ReactNode; en: ReactNode }) {
 export function LangSwitch() {
   const { lang, setLang } = useI18n()
   return (
-    <div className="inline-flex overflow-hidden rounded-lg border border-white/10 text-xs" role="group" aria-label="Język / Language">
+    <div className="inline-flex h-9 items-center rounded-full border border-white/10 p-0.5 text-xs" role="group" aria-label="Język / Language">
       {(['pl', 'en'] as const).map((l) => (
-        <button key={l} onClick={() => setLang(l)} aria-pressed={lang === l} className={`px-2 py-1 uppercase ${lang === l ? 'bg-spore/15 text-glow' : 'text-slate-400 hover:text-slate-200'}`}>
+        <button key={l} onClick={() => setLang(l)} aria-pressed={lang === l} className={`h-full rounded-full px-2.5 font-medium uppercase ${lang === l ? 'bg-spore/15 text-glow ring-1 ring-spore/30' : 'text-slate-400 hover:text-slate-200'}`}>
           {l}
         </button>
       ))}

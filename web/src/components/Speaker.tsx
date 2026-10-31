@@ -1,9 +1,10 @@
 // Mówca AI w czacie globalnym: narzędzia pod wpisem (ocena, kategoria, etykiety, szyk słów dotykiem, poprawka/odpowiedź)
 // i panel poziomów z trafnością (plus sterowanie dla Developera). Liczby wyłącznie z bazy; brak ocen = „brak ocen”.
+import { LogoMark } from './Logo'
 import { useState } from 'react'
 import { bare, LEVEL_NAME, speakerAdmin, speakerRate, SPK_CATS, SPK_TASKS, type SpkState, type SpkSummary } from '../myc/speaker'
 
-const btn = 'rounded-lg border px-2 py-1.5 text-xs'
+const btn = 'rounded-full border px-2.5 py-1 text-xs font-medium hover:bg-white/[0.05] disabled:opacity-50'
 
 export function SpeakerTools({ s, canRate, en, onDone }: { s: SpkSummary; canRate: boolean; en: boolean; onDone: () => void }) {
   const L = (pl: string, e: string) => (en ? e : pl)
@@ -29,10 +30,10 @@ export function SpeakerTools({ s, canRate, en, onDone }: { s: SpkSummary; canRat
   return (
     <div className="mt-1 text-xs" data-testid="spk-tools">
       <div className="flex flex-wrap items-center gap-1.5 text-slate-400">
-        <span className="chip border-sky-400/40 px-1.5 py-0 text-[10px] text-sky-300" title={L('sposób powstania wpisu', 'how the post was made')}>
+        <span className="chip border-sky-400/30 bg-sky-400/[0.06] px-2 py-0 text-[10px] text-sky-300" title={L('sposób powstania wpisu', 'how the post was made')}>
           {LEVEL_NAME[s.level]?.[en ? 1 : 0]} · {s.how}
         </span>
-        <span data-testid="spk-score">
+        <span data-testid="spk-score" className="tabular-nums text-slate-400">
           👍 {s.sense} · 👎 {s.nonsense}
           {s.category ? ` · ${s.category}` : ''}
           {s.task_type ? ` · ${s.task_type}` : ''}
@@ -42,7 +43,7 @@ export function SpeakerTools({ s, canRate, en, onDone }: { s: SpkSummary; canRat
           <>
             <button
               disabled={busy}
-              className={`${btn} ${mine?.sense === 1 ? 'border-spore bg-spore/15 text-spore' : 'border-white/10'}`}
+              className={`${btn} ${mine?.sense === 1 ? 'border-spore bg-spore/15 text-spore' : 'border-spore/25 text-spore'}`}
               onClick={() => void send({ sense: 1 })}
               data-testid="spk-sense"
             >
@@ -50,7 +51,7 @@ export function SpeakerTools({ s, canRate, en, onDone }: { s: SpkSummary; canRat
             </button>
             <button
               disabled={busy}
-              className={`${btn} ${mine?.sense === -1 ? 'border-rose bg-rose/15 text-rose' : 'border-white/10'}`}
+              className={`${btn} ${mine?.sense === -1 ? 'border-rose bg-rose/15 text-rose' : 'border-rose/25 text-rose'}`}
               onClick={() => void send({ sense: -1 })}
               data-testid="spk-nonsense"
             >
@@ -69,7 +70,7 @@ export function SpeakerTools({ s, canRate, en, onDone }: { s: SpkSummary; canRat
         </div>
       ) : null}
       {open && canRate && (
-        <div className="mt-2 space-y-2 rounded-xl border border-white/10 p-2" data-testid="spk-panel">
+        <div className="mt-2 space-y-2 rounded-2xl border border-white/10 bg-white/[0.02] p-2.5" data-testid="spk-panel">
           <div className="flex flex-wrap gap-1">
             {SPK_CATS.map((c) => (
               <button key={c} className={`${btn} ${mine?.category === c ? 'border-spore text-spore' : 'border-white/10'}`} onClick={() => void send({ category: c })}>
@@ -197,10 +198,11 @@ export function SpeakerPanel({ st, dev, en, onChange }: { st: SpkState | null; d
     speakerAdmin(a, v).then(onChange, (e: Error) => setErr(e.message))
   }
   return (
-    <details className="rounded-2xl border border-sky-400/20 bg-sky-400/[0.04] p-3 text-sm" data-testid="spk-state" data-level={st.level} open>
-      <summary className="cursor-pointer">
-        <b className="text-sky-300">Grzybnia AI</b> {L('mówi sama', 'speaks on its own')} · {L('poziom', 'level')}{' '}
-        <b data-testid="spk-level">{LEVEL_NAME[st.level]?.[en ? 1 : 0]}</b> ·{' '}
+    <details className="card card-hover border-sky-400/20 !p-4 text-sm" data-testid="spk-state" data-level={st.level} open>
+      <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-1.5 gap-y-1 [&::-webkit-details-marker]:hidden">
+        <LogoMark size={28} className="logo-live mr-1 shrink-0" />
+        <b className="font-display text-[0.95rem] text-sky-300">Grzybnia AI</b> {L('mówi sama', 'speaks on its own')} · {L('poziom', 'level')}{' '}
+        <b data-testid="spk-level" className="chip border-sky-400/30 bg-sky-400/[0.08] py-0 text-sky-300">{LEVEL_NAME[st.level]?.[en ? 1 : 0]}</b> ·{' '}
         {st.enabled ? (
           L(`co ${Math.round(st.interval_s / 60)} min`, `every ${Math.round(st.interval_s / 60)} min`)
         ) : (
@@ -213,7 +215,7 @@ export function SpeakerPanel({ st, dev, en, onChange }: { st: SpkState | null; d
           'Posts are composed by a curriculum generator in the database (no nodes): random words at first, then more and more of the forms you rate as sensible and your corrections. The level goes up when ≥ 20 rated posts of the level are ≥ 70% “makes sense”. Only consensus (≥ 2 people with the same fix) from people with learning on is used for training.',
         )}
       </p>
-      <table className="mt-2 w-full text-xs tabular-nums" data-testid="spk-levels">
+      <table className="mt-3 w-full text-xs tabular-nums [&_td]:border-t [&_td]:border-white/[0.05] [&_td]:py-1.5 [&_th]:pb-1 [&_th]:font-medium" data-testid="spk-levels">
         <thead className="text-slate-500">
           <tr>
             <th className="text-left">{L('poziom', 'level')}</th>

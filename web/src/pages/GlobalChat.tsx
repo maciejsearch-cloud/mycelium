@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import { Card, PageHeader } from '../components/ui'
+import { Icon } from '../components/Icon'
+import { LogoMark } from '../components/Logo'
 import { useI18n } from '../i18n'
 import { account } from '../myc/account'
 import { circles, type CircleLite } from '../myc/circles'
@@ -188,7 +190,7 @@ export default function GlobalChat() {
         </div>
       )}
 
-      <section className="card flex min-h-[50dvh] flex-col p-0">
+      <section className="card flex min-h-[50dvh] flex-col overflow-hidden !p-0">
         <div className="max-h-[62dvh] flex-1 space-y-1 overflow-y-auto p-3" data-testid="gchat-list" aria-live="polite">
           {gchat.msgs.length === 0 && gchat.status !== 'loading' && (
             <p className="py-10 text-center text-sm text-slate-500" data-testid="gchat-empty">
@@ -204,12 +206,20 @@ export default function GlobalChat() {
             const own = me && m.kind === 'user' && m.handle === me.handle
             return (
               <div key={m.id}>
-                {showDay && <div className="my-2 text-center text-[11px] text-slate-600">{day(m.created_at)}</div>}
-                <div className={`group relative rounded-xl px-2.5 py-1.5 ${own ? 'bg-spore/[0.06]' : 'hover:bg-white/[0.03]'}`} data-testid="gchat-msg">
+                {showDay && (
+                  <div className="my-3 flex items-center gap-3 text-[11px] font-medium text-slate-500">
+                    <span className="h-px flex-1 bg-white/[0.06]" />
+                    {day(m.created_at)}
+                    <span className="h-px flex-1 bg-white/[0.06]" />
+                  </div>
+                )}
+                <div className={`group relative flex gap-2.5 rounded-2xl px-2 py-2 sm:px-2.5 ${own ? 'bg-spore/[0.06] ring-1 ring-spore/10' : 'hover:bg-white/[0.03]'}`} data-testid="gchat-msg">
+                  <Avatar m={m} />
+                  <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-1.5 text-xs">
                     <b className={m.kind === 'ai' ? 'text-sky-300' : m.kind === 'node' ? 'text-amber' : m.role === 'developer' ? 'text-violet' : 'text-slate-200'}>{m.handle}</b>
                     <Badge m={m} en={en} />
-                    <span className="text-slate-600">{time(m.created_at)}</span>
+                    <span className="text-slate-500">{time(m.created_at)}</span>
                     {m.intent && m.intent !== 'stwierdzenie' && <span className="text-[10px] text-slate-500">· {INTENT_PL[m.intent as Intent]?.[en ? 1 : 0] ?? m.intent}</span>}
                     {m.tags
                       .filter((t) => ['wulgarne', 'obraźliwe', 'potoczne', 'slang', 'ironiczne'].includes(t))
@@ -285,6 +295,7 @@ export default function GlobalChat() {
                       )}
                     </div>
                   )}
+                  </div>
                 </div>
               </div>
             )
@@ -343,13 +354,13 @@ export default function GlobalChat() {
                     }
                   }}
                   placeholder={L(`Napisz jako ${me?.handle ?? '…'}`, `Write as ${me?.handle ?? '…'}`)}
-                  className="min-h-[3rem] flex-1 resize-none rounded-xl border border-white/10 bg-black/30 px-3 py-2.5 text-base text-slate-100 placeholder:text-slate-500 focus:border-spore/50 focus:outline-none"
+                  className="min-h-[3rem] flex-1 resize-none rounded-2xl border border-white/10 bg-black/30 px-3.5 py-2.5 text-base text-slate-100 placeholder:text-slate-500 focus:border-spore/50 focus:outline-none"
                   data-testid="gchat-input"
                 />
                 <button
                   onClick={() => void send()}
                   disabled={busy || !text.trim()}
-                  className="rounded-xl bg-spore px-4 py-3 font-semibold text-ink disabled:opacity-50"
+                  className="btn-primary px-4 py-3 font-semibold disabled:opacity-50"
                   data-testid="gchat-send"
                 >
                   {L('Wyślij', 'Send')}
@@ -471,5 +482,27 @@ export default function GlobalChat() {
         </details>
       )}
     </div>
+  )
+}
+
+/** Awatar autora: Grzybnia AI – znak grzybni, węzeł – heksagon, człowiek – inicjał w kolorze z pseudonimu. */
+function Avatar({ m }: { m: { kind: string; handle: string; role?: string | null } }) {
+  if (m.kind === 'ai') return <LogoMark size={30} className="mt-0.5 shrink-0" />
+  if (m.kind === 'node')
+    return (
+      <span aria-hidden className="mt-0.5 grid h-[30px] w-[30px] shrink-0 place-items-center rounded-xl bg-amber/10 text-amber ring-1 ring-amber/25">
+        <Icon name="node" size={16} />
+      </span>
+    )
+  let h = 0
+  for (const c of m.handle) h = (h * 31 + c.charCodeAt(0)) % 360
+  return (
+    <span
+      aria-hidden
+      className="mt-0.5 grid h-[30px] w-[30px] shrink-0 place-items-center rounded-full text-[13px] font-semibold ring-1 ring-white/10"
+      style={{ color: '#fff', background: m.role === 'developer' ? 'linear-gradient(135deg,#8b5cf6,#5eead4)' : `hsl(${h} 45% 34%)` }}
+    >
+      {m.handle.replace(/[^\p{L}\p{N}]/gu, '').slice(0, 1).toUpperCase() || '?'}
+    </span>
   )
 }

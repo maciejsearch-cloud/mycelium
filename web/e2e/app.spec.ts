@@ -123,3 +123,13 @@ test('prawdziwe AI: tabela agentów, federacja i przełącznik PL/EN', async ({ 
   await page.reload()
   await expect(page.getByRole('heading', { level: 1, name: 'Real AI' })).toBeVisible()
 })
+
+test('motyw: ciemny domyślnie, przełącznik jasny zapamiętany po odświeżeniu', async ({ page }) => {
+  await page.goto('./')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await page.getByTestId('theme-toggle').filter({ visible: true }).first().click()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+  await page.reload()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+  await expect(page.getByRole('heading', { name: 'Przegląd', exact: true })).toBeVisible()
+})

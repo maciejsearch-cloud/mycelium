@@ -1,5 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { LogoMark, Wordmark } from './components/Logo'
+import { Icon } from './components/Icon'
+import { setTheme, themeStore } from './myc/theme'
 import { fmtDate, useData } from './data'
 import { LangSwitch, useI18n } from './i18n'
 import { captureRef } from './myc/account'
@@ -23,33 +25,33 @@ const AccountPage = lazy(() => import('./pages/Account'))
 const CirclesPage = lazy(() => import('./pages/CirclesPage'))
 
 const PAGES = [
-  { id: 'overview', label: 'Przegląd', icon: '◉' },
-  { id: 'chat', label: 'Rozmowa z AI', icon: '✉' },
-  { id: 'czat', label: 'Czat globalny', icon: '☷' },
-  { id: 'kregi', label: 'Kręgi', icon: '⚭' },
-  { id: 'teach', label: 'Ucz AI', icon: '✎' },
-  { id: 'tasks', label: 'Zadania', icon: '▦' },
-  { id: 'weryfikuj', label: 'Weryfikuj', icon: '☑' },
-  { id: 'node', label: 'Zostań węzłem', icon: '⬢' },
-  { id: 'session', label: 'Sesja', icon: '⚡' },
-  { id: 'growth', label: 'Wzrost', icon: '❋' },
-  { id: 'knowledge', label: 'Wiedza', icon: '◈' },
-  { id: 'taxonomy', label: 'Taksonomia', icon: '❖' },
-  { id: 'ai', label: 'Prawdziwe AI', icon: '✦' },
-  { id: 'verify', label: 'Dowody', icon: '✓' },
-  { id: 'progress', label: 'Postępy projektu', icon: '⚑' },
-  { id: 'konto', label: 'Konto', icon: '☺' },
+  { id: 'overview', label: 'Przegląd', icon: 'home' },
+  { id: 'chat', label: 'Rozmowa z AI', icon: 'chat' },
+  { id: 'czat', label: 'Czat globalny', icon: 'globe' },
+  { id: 'kregi', label: 'Kręgi', icon: 'circles' },
+  { id: 'teach', label: 'Ucz AI', icon: 'teach' },
+  { id: 'tasks', label: 'Zadania', icon: 'tasks' },
+  { id: 'weryfikuj', label: 'Weryfikuj', icon: 'check' },
+  { id: 'node', label: 'Zostań węzłem', icon: 'node' },
+  { id: 'session', label: 'Sesja', icon: 'bolt' },
+  { id: 'growth', label: 'Wzrost', icon: 'growth' },
+  { id: 'knowledge', label: 'Wiedza', icon: 'book' },
+  { id: 'taxonomy', label: 'Taksonomia', icon: 'tree' },
+  { id: 'ai', label: 'Prawdziwe AI', icon: 'spark' },
+  { id: 'verify', label: 'Dowody', icon: 'proof' },
+  { id: 'progress', label: 'Postępy projektu', icon: 'flag' },
+  { id: 'konto', label: 'Konto', icon: 'user' },
 ] as const
 type PageId = (typeof PAGES)[number]['id']
 
 /** Grupy nawigacji (docs/ux-proposals.md): 5 głównych + „Więcej”. Stare adresy #/… zostają – każda strona należy do grupy. */
 const GROUPS: { id: string; label: string; icon: string; pages: PageId[]; badge?: BadgeKey }[] = [
-  { id: 'start', label: 'Start', icon: '◉', pages: ['overview'] },
-  { id: 'rozmowa', label: 'Rozmowa', icon: '✉', pages: ['chat', 'czat', 'kregi'] },
-  { id: 'ucz', label: 'Ucz', icon: '✎', pages: ['teach', 'tasks'], badge: 'teach' },
-  { id: 'weryfikuj', label: 'Weryfikuj', icon: '☑', pages: ['weryfikuj'], badge: 'weryfikuj' },
-  { id: 'wezel', label: 'Węzeł', icon: '⬢', pages: ['node', 'session'] },
-  { id: 'wiecej', label: 'Więcej', icon: '☰', pages: ['growth', 'knowledge', 'taxonomy', 'ai', 'verify', 'progress', 'konto'] },
+  { id: 'start', label: 'Start', icon: 'home', pages: ['overview'] },
+  { id: 'rozmowa', label: 'Rozmowa', icon: 'chat', pages: ['chat', 'czat', 'kregi'] },
+  { id: 'ucz', label: 'Ucz', icon: 'teach', pages: ['teach', 'tasks'], badge: 'teach' },
+  { id: 'weryfikuj', label: 'Weryfikuj', icon: 'check', pages: ['weryfikuj'], badge: 'weryfikuj' },
+  { id: 'wezel', label: 'Węzeł', icon: 'node', pages: ['node', 'session'] },
+  { id: 'wiecej', label: 'Więcej', icon: 'more', pages: ['growth', 'knowledge', 'taxonomy', 'ai', 'verify', 'progress', 'konto'] },
 ]
 const groupOf = (p: PageId) => GROUPS.find((g) => g.pages.includes(p))!
 const pageMeta = (p: PageId) => PAGES.find((x) => x.id === p)!
@@ -117,25 +119,26 @@ export default function App() {
 
   return (
     <div className="mx-auto flex min-h-dvh max-w-[90rem] flex-col lg:flex-row lg:gap-8 lg:px-6 lg:pt-6">
-      <aside className="sticky top-0 z-30 border-b border-white/5 bg-ink/80 backdrop-blur-xl lg:top-6 lg:h-[calc(100dvh-3rem)] lg:overflow-y-auto lg:w-60 lg:shrink-0 lg:border-0 lg:bg-transparent lg:backdrop-blur-none">
-        <div className="flex items-center justify-between gap-2 px-3 pt-2.5 sm:px-6 lg:px-1 lg:pt-0">
-          <a href="#/overview" className="flex items-center gap-2.5 py-1" aria-label="Mycelium AI">
-            <LogoMark size={34} className="logo-live shrink-0" />
+      <aside className="sticky top-0 z-30 border-b border-white/[0.06] bg-ink/75 backdrop-blur-xl lg:top-6 lg:flex lg:h-[calc(100dvh-3rem)] lg:w-64 lg:shrink-0 lg:flex-col lg:overflow-y-auto lg:rounded-[1.5rem] lg:border lg:border-white/[0.07] lg:bg-moss/50 lg:p-3 lg:shadow-[0_30px_60px_-40px_rgb(0_0_0/0.9)]">
+        <div className="flex items-center justify-between gap-2 px-3 py-2 sm:px-6 lg:px-2 lg:py-1.5">
+          <a href="#/overview" className="flex items-center gap-2.5 rounded-xl py-1" aria-label="Mycelium AI">
+            <LogoMark size={36} className="logo-live shrink-0 drop-shadow-[0_0_14px_rgb(94_234_212/0.25)]" />
             <Wordmark sub={t('agenci IoT · wspólna grzybnia')} />
           </a>
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-1.5 lg:hidden">
             <span className="hidden sm:inline-flex">
               <SourceBadge source={source} />
             </span>
+            <ThemeToggle />
             <LangSwitch />
             <a
               href="#/konto"
               data-testid="account-icon"
               aria-label={t('Konto')}
               aria-current={page === 'konto' ? 'page' : undefined}
-              className={`grid h-8 w-8 place-items-center rounded-full border text-sm ${page === 'konto' ? 'border-spore/50 bg-spore/15 text-glow' : 'border-white/10 text-slate-300'}`}
+              className={`grid h-9 w-9 place-items-center rounded-full border ${page === 'konto' ? 'border-spore/50 bg-spore/15 text-glow' : 'border-white/10 text-slate-300 hover:border-white/20'}`}
             >
-              ☺
+              <Icon name="user" size={17} />
             </a>
           </div>
         </div>
@@ -148,10 +151,11 @@ export default function App() {
                 ref={page === id ? activeRef : undefined}
                 onClick={() => go(id)}
                 aria-current={page === id ? 'page' : undefined}
-                className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm transition ${
-                  page === id ? 'bg-spore/15 font-medium text-glow ring-1 ring-spore/30' : 'text-slate-400 ring-1 ring-white/10'
+                className={`flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm ${
+                  page === id ? 'bg-spore/15 font-medium text-glow ring-1 ring-spore/35' : 'text-slate-400 ring-1 ring-white/10 hover:text-slate-200'
                 }`}
               >
+                <Icon name={pageMeta(id).icon} size={15} className={page === id ? 'text-spore' : 'opacity-70'} />
                 {t(pageMeta(id).label)}
                 <Badge k={BADGE_OF[id]} />
               </button>
@@ -159,10 +163,10 @@ export default function App() {
           </nav>
         )}
         {/* komputer: boczne menu w 6 grupach */}
-        <nav aria-label={t('Sekcje')} className="mt-6 hidden flex-col gap-3 lg:flex">
+        <nav aria-label={t('Sekcje')} className="mt-5 hidden flex-col gap-4 lg:flex">
           {GROUPS.map((g) => (
             <div key={g.id}>
-              <div className="px-3 pb-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-slate-500">{t(g.label)}</div>
+              <div className="px-3 pb-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-slate-500">{t(g.label)}</div>
               <div className="flex flex-col gap-0.5">
                 {g.pages.map((id) => {
                   const p = pageMeta(id)
@@ -171,15 +175,14 @@ export default function App() {
                       key={id}
                       onClick={() => go(id)}
                       aria-current={page === id ? 'page' : undefined}
-                      className={`group flex items-center gap-2 rounded-xl px-3 py-1.5 text-left text-sm transition ${
+                      className={`group relative flex items-center gap-2.5 rounded-xl px-3 py-2 text-left text-sm ${
                         page === id
-                          ? 'bg-gradient-to-r from-spore/15 to-spore/[0.03] font-medium text-glow ring-1 ring-spore/25'
-                          : 'text-slate-400 hover:bg-white/[0.04] hover:text-slate-200'
+                          ? 'bg-gradient-to-r from-spore/[0.16] to-spore/[0.02] font-medium text-glow'
+                          : 'text-slate-400 hover:bg-white/[0.04] hover:text-slate-100'
                       }`}
                     >
-                      <span aria-hidden className={`w-4 text-center transition ${page === id ? 'text-spore' : 'opacity-70 group-hover:opacity-100'}`}>
-                        {p.icon}
-                      </span>
+                      {page === id && <span aria-hidden className="absolute inset-y-1.5 left-0 w-[3px] rounded-full bg-spore shadow-[0_0_12px_rgb(94_234_212/0.8)]" />}
+                      <Icon name={p.icon} size={17} className={page === id ? 'text-spore' : 'opacity-75 group-hover:opacity-100'} />
                       <span className="flex-1">{t(p.label)}</span>
                       <Badge k={BADGE_OF[id]} />
                     </button>
@@ -189,10 +192,11 @@ export default function App() {
             </div>
           ))}
         </nav>
-        <div className="mt-6 hidden space-y-2 px-1 text-xs text-slate-500 lg:block">
+        <div className="mt-auto hidden space-y-2.5 border-t border-white/[0.06] px-2 pt-4 text-xs text-slate-500 lg:block">
           <SourceBadge source={source} />
-          <div>
+          <div className="flex items-center gap-2">
             <LangSwitch />
+            <ThemeToggle />
           </div>
           {snap && (
             <p>
@@ -200,14 +204,15 @@ export default function App() {
             </p>
           )}
           <p>
-            <a className="underline decoration-white/20 hover:text-slate-300" href="https://github.com/maciejsearch-cloud/mycelium">
+            <a className="inline-flex items-center gap-1.5 hover:text-slate-200" href="https://github.com/maciejsearch-cloud/mycelium">
+              <Icon name="repo" size={14} />
               {t('Repozytorium')}
             </a>
           </p>
         </div>
       </aside>
       <BottomBar page={page} go={go} more={more} setMore={setMore} />
-      <main className="min-w-0 flex-1 overflow-x-clip px-3 pb-[calc(6rem+env(safe-area-inset-bottom))] pt-4 sm:px-6 lg:px-0 lg:pb-16 lg:pt-0">
+      <main className="min-w-0 flex-1 overflow-x-clip px-3 pb-[calc(6.5rem+env(safe-area-inset-bottom))] pt-4 sm:px-6 lg:px-0 lg:pb-16 lg:pt-0">
         {error && <div className="card border-rose/30 text-rose">
             {t('Nie udało się wczytać danych')}: {error}
           </div>}
@@ -245,15 +250,16 @@ function BottomBar({ page, go, more, setMore }: { page: PageId; go: (p: PageId) 
   return (
     <>
       {more && (
-        <div className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden" onClick={() => setMore(false)}>
+        <div className="fixed inset-0 z-40 bg-[rgb(0_0_0/0.55)] backdrop-blur-sm lg:hidden" onClick={() => setMore(false)}>
           <div
             role="dialog"
             aria-label={t('Więcej')}
             data-testid="more-sheet"
-            className="absolute inset-x-0 bottom-0 rounded-t-3xl border-t border-white/10 bg-ink px-3 pb-[calc(5.5rem+env(safe-area-inset-bottom))] pt-3 shadow-2xl"
+            className="fade-up absolute inset-x-0 bottom-0 rounded-t-[1.75rem] border-t border-white/10 bg-moss px-3 pb-[calc(5.75rem+env(safe-area-inset-bottom))] pt-3 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-white/15" />
+            <div className="eyebrow mb-2 px-1">{t('Więcej')}</div>
             <div className="grid grid-cols-2 gap-2">
               {wiecej.pages.map((id) => {
                 const p = pageMeta(id)
@@ -262,10 +268,10 @@ function BottomBar({ page, go, more, setMore }: { page: PageId; go: (p: PageId) 
                     key={id}
                     onClick={() => go(id)}
                     aria-current={page === id ? 'page' : undefined}
-                    className={`flex items-center gap-2 rounded-2xl px-3 py-3 text-left text-sm ${page === id ? 'bg-spore/15 text-glow ring-1 ring-spore/30' : 'bg-white/[0.04] text-slate-200'}`}
+                    className={`flex items-center gap-2.5 rounded-2xl px-3 py-3 text-left text-sm ${page === id ? 'bg-spore/15 text-glow ring-1 ring-spore/30' : 'bg-white/[0.04] text-slate-200 ring-1 ring-white/[0.05]'}`}
                   >
-                    <span aria-hidden className="w-5 text-center text-spore">
-                      {p.icon}
+                    <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-spore/10 text-spore">
+                      <Icon name={p.icon} size={17} />
                     </span>
                     {t(p.label)}
                   </button>
@@ -278,7 +284,7 @@ function BottomBar({ page, go, more, setMore }: { page: PageId; go: (p: PageId) 
       <nav
         aria-label={t('Główne')}
         data-testid="bottom-bar"
-        className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-6 border-t border-white/10 bg-ink/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl lg:hidden"
+        className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-6 border-t border-white/[0.08] bg-ink/85 px-1 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl lg:hidden"
       >
         {GROUPS.map((g) => {
           const active = g.id === 'wiecej' ? more || (cur.id === g.id && !more) : cur.id === g.id && !more
@@ -289,18 +295,36 @@ function BottomBar({ page, go, more, setMore }: { page: PageId; go: (p: PageId) 
               onClick={() => (g.id === 'wiecej' ? setMore(!more) : (setMore(false), go(cur.id === g.id ? page : g.pages[0])))}
               aria-current={cur.id === g.id ? 'page' : undefined}
               aria-expanded={g.id === 'wiecej' ? more : undefined}
-              className={`relative flex flex-col items-center gap-0.5 py-2 text-[0.68rem] ${active ? 'text-glow' : 'text-slate-400'}`}
+              className={`relative flex flex-col items-center gap-1 pb-1.5 pt-2 text-[0.68rem] font-medium ${active ? 'text-glow' : 'text-slate-400'}`}
             >
-              <span aria-hidden className={`text-lg leading-none ${active ? 'text-spore' : ''}`}>
-                {g.icon}
+              <span aria-hidden className={`grid h-7 w-12 place-items-center rounded-full ${active ? 'bg-spore/15 text-spore shadow-[0_0_16px_-2px_rgb(94_234_212/0.45)]' : ''}`}>
+                <Icon name={g.icon} size={19} strokeWidth={active ? 2 : 1.75} />
               </span>
               {t(g.label)}
-              <Badge k={g.badge} className="absolute right-[18%] top-1" />
+              <Badge k={g.badge} className="absolute right-[14%] top-1" />
             </button>
           )
         })}
       </nav>
     </>
+  )
+}
+
+function ThemeToggle() {
+  const { t } = useI18n()
+  const theme = useSyncExternalStore(themeStore.subscribe, themeStore.get)
+  const light = theme === 'light'
+  return (
+    <button
+      type="button"
+      data-testid="theme-toggle"
+      onClick={() => setTheme(light ? 'dark' : 'light')}
+      aria-label={light ? t('Motyw ciemny') : t('Motyw jasny')}
+      title={light ? t('Motyw ciemny') : t('Motyw jasny')}
+      className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-slate-300 hover:border-white/20 hover:text-slate-100"
+    >
+      <Icon name={light ? 'moon' : 'sun'} size={17} />
+    </button>
   )
 }
 
