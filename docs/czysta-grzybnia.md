@@ -83,3 +83,7 @@ Model rozbioru v3 (`v3-dc3648e4.bin`, ten sam co na stronie), zbudowana strona w
 - **chat_facts_v1 (40 pytań o fakty)**: **4/40 trafne**, 36 × „nie wiem”, 0 błędnych. Grzybnia zna tylko fakty
   zatwierdzone przez ludzi: stolice Australii, Łotwy i Japonii oraz „Co to jest grzybnia?”. Dla porównania czat z modelem
   i Wikipedią: 40/40.
+
+Potwierdzenie na żywo (1.11.2026 00:41, https://maciejsearch-cloud.github.io/demo/mycelium/, wylogowana przeglądarka,
+nauka wyłączona): te same liczby – logika 204/320, fakty 4/40 (0 błędnych); `results/czysta/2026-11-01-0041.json`.
+Tabela na stronie czyta `web/public/data/czysta/wyniki.json` z tego pomiaru.

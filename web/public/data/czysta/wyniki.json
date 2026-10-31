@@ -1,0 +1,115 @@
+{
+ "when": "2026-11-01T00:41:52+01:00",
+ "model": "model grzybni v3",
+ "logic": {
+  "n": 320,
+  "correct": 204,
+  "abstain": 106,
+  "acc": 0.6375,
+  "per_category": {
+   "analogia": {
+    "n": 31,
+    "correct": 0,
+    "abstain": 31,
+    "acc": 0.0
+   },
+   "aspekt": {
+    "n": 24,
+    "correct": 24,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "ciąg": {
+    "n": 14,
+    "correct": 0,
+    "abstain": 14,
+    "acc": 0.0
+   },
+   "kolejność w czasie": {
+    "n": 18,
+    "correct": 11,
+    "abstain": 7,
+    "acc": 0.6111
+   },
+   "kwantyfikatory": {
+    "n": 19,
+    "correct": 19,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "liczebniki": {
+    "n": 21,
+    "correct": 0,
+    "abstain": 21,
+    "acc": 0.0
+   },
+   "negacja": {
+    "n": 8,
+    "correct": 8,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "nie wszystkie": {
+    "n": 14,
+    "correct": 14,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "odmiana": {
+    "n": 29,
+    "correct": 17,
+    "abstain": 5,
+    "acc": 0.5862
+   },
+   "porządek": {
+    "n": 25,
+    "correct": 25,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "przyczyna": {
+    "n": 15,
+    "correct": 12,
+    "abstain": 0,
+    "acc": 0.8
+   },
+   "sprzeczność": {
+    "n": 9,
+    "correct": 9,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "sylogizm": {
+    "n": 30,
+    "correct": 30,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "warunki": {
+    "n": 10,
+    "correct": 10,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "zadanie tekstowe": {
+    "n": 28,
+    "correct": 0,
+    "abstain": 28,
+    "acc": 0.0
+   },
+   "łańcuch": {
+    "n": 25,
+    "correct": 25,
+    "abstain": 0,
+    "acc": 1.0
+   }
+  }
+ },
+ "chat_facts": {
+  "n": 40,
+  "correct": 4,
+  "abstain": 36,
+  "wrong": 0
+ },
+ "python_same": null
+}
