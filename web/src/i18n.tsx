@@ -40,6 +40,7 @@ const EN: Record<string, string> = {
   'Backend niedostępny – dane nagrane z prawdziwych przebiegów': 'Backend offline – data recorded from real runs',
   'Nie udało się wczytać danych': 'Could not load data',
   Sekcje: 'Sections',
+  'Czysta grzybnia': 'Pure mycelium',
 }
 
 const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: (s: string) => string }>({ lang: 'pl', setLang: () => {}, t: (s) => s })
