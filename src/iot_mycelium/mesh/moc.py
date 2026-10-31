@@ -50,7 +50,7 @@ class Reporter:
         for k in WORK_KEYS:
             d = cur.get(k, 0.0) - prev.get(k, 0.0)
             if d > 0.05:
-                work[k] = round(min(d, iv * 2), 1)
+                work[k] = round(min(d, max(iv, self.every, 60.0) * 2), 1)
         return {
             "iv": round(iv),
             "cpu": avg("cpu"),
