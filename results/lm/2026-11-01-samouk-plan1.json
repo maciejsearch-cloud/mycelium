@@ -1,0 +1,119 @@
+{
+ "id": 1,
+ "at": "2026-10-31 23:07:30.493839+00",
+ "measured": {
+  "s": 177.3,
+  "base": {
+   "path": "lm/v4-3c7ab239.bin",
+   "version": 4
+  },
+  "cand": null,
+  "probe_sha": "694af5aadf592fb257e01ef2c84d6e8d350882bebda031a2311d764ee2594637"
+ },
+ "stats": {
+  "role": {
+   "n": 40,
+   "acc": 0.325,
+   "p_right": 0.3113,
+   "progress": null
+  },
+  "logika": {
+   "n": 40,
+   "acc": 0.225,
+   "p_right": 0.2751,
+   "progress": null
+  },
+  "przypadki": {
+   "n": 40,
+   "acc": 0.225,
+   "p_right": 0.2299,
+   "progress": null
+  },
+  "matematyka": {
+   "n": 40,
+   "acc": 0.225,
+   "p_right": 0.2315,
+   "progress": null
+  }
+ },
+ "alloc": {
+  "role": 2,
+  "logika": 2,
+  "przypadki": 3,
+  "matematyka": 2
+ },
+ "why": {
+  "role": {
+   "err": 0.675,
+   "jobs": 2,
+   "share": 0.1569,
+   "value": 0.5441,
+   "reason": "najsłabszy obszar: trafność 32% na 40 pytaniach próbnych, mała pewność (średnio 31% na poprawną odpowiedź), postęp po treningu jeszcze nie zmierzony – sprawdzam, czy da się tu czegoś nauczyć",
+   "explore": 0,
+   "progress": null,
+   "uncertainty": 0.6887
+  },
+  "logika": {
+   "err": 0.775,
+   "jobs": 2,
+   "share": 0.2606,
+   "value": 0.605,
+   "reason": "najsłabszy obszar: trafność 22% na 40 pytaniach próbnych, mała pewność (średnio 28% na poprawną odpowiedź), postęp po treningu jeszcze nie zmierzony – sprawdzam, czy da się tu czegoś nauczyć",
+   "explore": 0,
+   "progress": null,
+   "uncertainty": 0.7249
+  },
+  "przypadki": {
+   "err": 0.775,
+   "jobs": 3,
+   "share": 0.2918,
+   "value": 0.6185,
+   "reason": "najsłabszy obszar: trafność 22% na 40 pytaniach próbnych, mała pewność (średnio 23% na poprawną odpowiedź), postęp po treningu jeszcze nie zmierzony – sprawdzam, czy da się tu czegoś nauczyć",
+   "explore": 0,
+   "progress": null,
+   "uncertainty": 0.7701
+  },
+  "matematyka": {
+   "err": 0.775,
+   "jobs": 2,
+   "share": 0.2906,
+   "value": 0.618,
+   "reason": "najsłabszy obszar: trafność 22% na 40 pytaniach próbnych, mała pewność (średnio 23% na poprawną odpowiedź), postęp po treningu jeszcze nie zmierzony – sprawdzam, czy da się tu czegoś nauczyć",
+   "explore": 0,
+   "progress": null,
+   "uncertainty": 0.7685
+  }
+ },
+ "shards": [
+  {
+   "n": 256,
+   "name": "self-logika-20261031-2307.bin.gz",
+   "type": "logika",
+   "sha256": "2ca869b6e5a318a586d674d44c1ca1e5a8f8ecc0fcfc649388eccec7effa8b51"
+  },
+  {
+   "n": 256,
+   "name": "self-matematyka-20261031-2307.bin.gz",
+   "type": "matematyka",
+   "sha256": "76b587bcf2bb3abe5c7778976d2a9f999a0bcbbd39b566fec0cd3f69140d0bfe"
+  },
+  {
+   "n": 256,
+   "name": "self-przypadki-20261031-2307.bin.gz",
+   "type": "przypadki",
+   "sha256": "e2e9414079a28a638fe3f2712a25dd1963f3633f796d6024e81abf9c16e0c74b"
+  },
+  {
+   "n": 256,
+   "name": "self-role-20261031-2307.bin.gz",
+   "type": "role",
+   "sha256": "d2b999229e6363d243b91ee0dc6d031dbcb4b645d4d0d71aa04edb12d30e44b4"
+  }
+ ],
+ "wiki_jobs": 3,
+ "probe": {
+  "n": 40,
+  "sha": "694af5aadf592fb257e01ef2c84d6e8d350882bebda031a2311d764ee2594637",
+  "seed": 7
+ }
+}
