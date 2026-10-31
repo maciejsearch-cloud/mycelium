@@ -146,3 +146,20 @@ Brak certyfikatu wydawcy Windows (Authenticode) i notaryzacji Apple – to wymag
 - Nagrody krypto: brak tokena i escrow; wymagają osobnego audytu programu Solana i analizy MiCA przed uruchomieniem.
 - Czat globalny: brak CAPTCHA przy zakładaniu konta (limity jak wyżej); fałszywe węzły z prawdziwym wkładem mogą pisać
   (3/min). Klasyfikacja intencji i etykiety rejestru liczone w przeglądarce – to tylko kandydaci, decyduje głosowanie.
+
+## Audyt 01.11.2026 (zależności, Node.js, Supabase, frontend, węzeł, telemetria)
+
+| # | Obszar | Ustalenie | Waga | Stan |
+|---|--------|-----------|------|------|
+| A1 | CI | Node.js 20 w `ci.yml` i `live-watch.yml` – koniec wsparcia (EOL) 30.04.2026. | Średnia | Naprawione: Node.js 24 (aktywne LTS) |
+| A2 | Węzeł (prywatność) | Węzeł Pythona ogłaszał w publicznej obecności Realtime etykietę `nazwa_komputera/nazwa` (`platform.node()`) – wyciek nazwy hosta wolontariusza. | Średnia | Naprawione: tylko nazwa węzła (`--name`) |
+| A3 | Frontend (CSP) | `script-src` dopuszcza `cdn.jsdelivr.net` (onnxruntime-web dla modelu w przeglądarce, wersja przypięta, bez SRI). Przejęcie CDN = wykonanie skryptu na stronie (a klucz właścicielki leży w `localStorage`). | Średnia | Decyzja: hostować onnxruntime-web u siebie (≈ +10–20 MB w demo) i usunąć jsDelivr z CSP |
+| A4 | Pliki węzła PC | Workflow budowania instaluje zależności bez przypiętych wersji/skrótów (`pyinstaller`, `sigstore`, `psutil`, `numpy`, `torch`); akcje przypięte tagiem, nie SHA. Wersja DirectML wymaga `torch==2.4.1` (stary; luki dotyczą `torch.load`, którego węzeł nie używa). Python 3.12 – wspierany do 10.2028. | Niska | Do decyzji: plik `requirements-build.txt` z `--require-hashes`, akcje po SHA |
+| A5 | Supabase | 10 funkcji `security definer` z `p_key` (sprzątanie e2e, `myc_review_*`, `myc_ci_eval`, `myc_lang_extract_e2e`) bez `myc_rl`. Klucz jest sprawdzany przez skrót SHA-256 (min. 8 znaków); nieudana próba kończy się wyjątkiem, więc licznik w tej samej transakcji i tak by się wycofał – limit nic by nie dał. Zgadnięcie 31-znakowego klucza jest niewykonalne. | Niska | Bez zmian; decyzja: podnieść minimalną długość kluczy recenzentów do 20 znaków |
+| A6 | Supabase | Nowe tabele `myc_lm_self`, `myc_lm_curriculum`, `myc_moc`, `myc_moc_hour`: RLS, anon tylko `select`; zapis telemetrii wyłącznie przez `myc_moc_push` (limit `myc_rl` na węzeł, ≥ 45 s między raportami, globalnie ≤ 300/min, zakresy wartości, lista dozwolonych rodzajów pracy). Rollup/GC tylko z pg_cron. | – | OK |
+| A7 | Telemetria | `myc_moc` nie zapisuje IP, nazwy hosta ani konta – tylko id węzła, CPU/GPU/RAM, wątki, urządzenie, sekundy pracy; 48 h surowo, 30 dni godzinowo. | – | OK |
+| A8 | Zależności | `npm audit`: 0. `pip-audit` (requirements): 0. Środowisko węzłów na tym komputerze: `setuptools 78.1.0` (PYSEC-2025-49, GHSA-xmj3-9gf7-h52w). | Niska | Naprawione lokalnie: setuptools 84.2.1 |
+| A9 | Sekrety | `gitleaks` 8.28 – cała historia `mycelium`: 0 trafień. Job gitleaks w CI działa. | – | OK |
+| A10 | Samoaktualizacja | Węzeł weryfikuje podpis Sigstore z dokładną tożsamością workflow (`mycelium-node-build.yml@refs/heads/main`) i wydawcą OIDC GitHub; brak podpisu = brak aktualizacji. | – | OK |
+| A11 | Frontend (XSS) | Brak `innerHTML`/`dangerouslySetInnerHTML`/`eval` w `web/src`; czat i „Mówca” renderowane jako tekst przez React. `img-src *` (tylko obrazy). | Info | OK |
+| A12 | Projekt współdzielony | W tej samej bazie są tabele innej aplikacji z prawami zapisu anon (pilnowane politykami RLS). Poza zakresem Mycelium. | Info | Do decyzji: osobny projekt Supabase |
