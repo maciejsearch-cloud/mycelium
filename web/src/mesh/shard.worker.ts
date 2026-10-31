@@ -80,7 +80,8 @@ self.onmessage = async (ev: MessageEvent) => {
           K = jsKernel
         })
       await kready
-      post({ t: 'init', backend: K.name })
+      const iso = (self as unknown as { crossOriginIsolated?: boolean }).crossOriginIsolated === true
+      post({ t: 'init', backend: K.name, threads: K.name === 'wasm' && iso ? Math.max(1, Math.min(8, (navigator.hardwareConcurrency || 2) - 1)) : 1 })
     } else if (m.t === 'lora') {
       lora = m.buf ? parseLora(m.buf) : undefined
       post({ t: 'lora', ok: true })
@@ -135,6 +136,12 @@ self.onmessage = async (ev: MessageEvent) => {
           for (let i = 0; i < h.length; i++) h[i] += y[i]
         }
         for (const l of LAYER_SHARDS) h = await runLayers(shards.get(l) as Extract<Shard, { kind: 'L' }>, kvFor(l, m.conv, pos), h, T, K)
+        if (m.prefillOnly) {
+          pos += T
+          done.push(...seq)
+          firstMs = performance.now() - t0
+          break
+        }
         const last = h.slice((T - 1) * MODEL.hidden)
         const cands = (await Promise.all(EMB_SHARDS.map((e) => topLogits(shards.get(e) as Extract<Shard, { kind: 'E' }>, last, 40, K)))).flat()
         const nx = sample(cands, [...prompt, ...out].slice(-48), m.temp ?? 0.5, 0.9, rnd)

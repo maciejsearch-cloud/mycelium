@@ -18,6 +18,18 @@ export interface LocalView {
   ppl?: number
   err?: string
   loadMs?: number
+  threads?: number // wątki WASM (1 = bez izolacji COOP/COEP)
+  warmMs?: number // jednorazowe wstępne policzenie stałego promptu systemowego
+}
+
+/** Izolacja strony (SharedArrayBuffer) przez service worker – włączana dopiero, gdy użytkownik sam uruchamia model. */
+async function ensureIsolated(): Promise<boolean> {
+  if (typeof window === 'undefined' || window.crossOriginIsolated || !navigator.serviceWorker?.controller || typeof caches === 'undefined') return false
+  if (sessionStorage.getItem('myc.coiTried')) return false // przeglądarka nie obsługuje – bez pętli przeładowań
+  sessionStorage.setItem('myc.coiTried', '1')
+  await (await caches.open('myc-coi')).put('on', new Response('1'))
+  location.reload()
+  return true
 }
 
 type Msg = Record<string, unknown>
@@ -63,6 +75,14 @@ class LocalLM {
   /** Wczytaj (raz na kartę). remember = wczytuj automatycznie przy kolejnych wizytach. */
   start(remember = true) {
     if (remember) localStorage.setItem(LOCAL_KEY, '1')
+    if (!this.loading && remember && typeof window !== 'undefined' && !window.crossOriginIsolated && navigator.serviceWorker?.controller) {
+      // jedno przeładowanie, po nim model wczytuje się sam (zgoda zapamiętana) i liczy na wszystkich rdzeniach
+      this.loading = ensureIsolated().then((r) => {
+        this.loading = undefined
+        if (!r) void this.start(false)
+      })
+      return this.loading
+    }
     this.loading ??= this.load().catch((e) => {
       this.view.status = 'error'
       this.view.err = String((e as Error).message ?? e).slice(0, 120)
@@ -80,6 +100,7 @@ class LocalLM {
     this.loading = undefined
     this.view = { status: 'off', loaded: 0, shards: 0 }
     void caches?.delete('myc-local-lm-v1').catch(() => undefined)
+    void caches?.delete('myc-coi').catch(() => undefined)
     this.emit()
   }
 
@@ -120,7 +141,9 @@ class LocalLM {
       t: 'init',
       backend: new URLSearchParams(location.search).get('backend') ?? 'auto',
     })
-    this.view.backend = (await init).backend as string
+    const ini = await init
+    this.view.backend = ini.backend as string
+    this.view.threads = ini.threads as number
     const lo = this.once('lora')
     w.postMessage({ t: 'lora', buf: lora }, lora ? [lora] : [])
     await lo
@@ -134,18 +157,37 @@ class LocalLM {
       this.view.shards++
       this.emit()
     }
-    this.view.status = 'ready'
     this.view.loadMs = performance.now() - t0
+    this.view.status = 'ready'
     this.emit()
   }
 
-  async generate(
+  /** Wstępnie policz stały początek rozmowy (prompt systemowy) – pierwsza odpowiedź liczy już tylko pytanie. */
+  async warm(ids: number[], conv: string) {
+    if (this.view.status !== 'ready' || !this.w || this.view.warmMs !== undefined) return
+    const t0 = performance.now()
+    this.view.warmMs = 0
+    await this.generate(ids, { conv, maxNew: 1, temp: 0, onToken: () => undefined, prefillOnly: true }).catch(() => undefined)
+    this.view.warmMs = performance.now() - t0
+    this.emit()
+  }
+
+  // jedno generowanie naraz (wstępne liczenie promptu i pytanie dzielą tę samą pamięć K/V rozmowy)
+  private queue: Promise<unknown> = Promise.resolve()
+  generate(...a: Parameters<LocalLM['gen1']>): ReturnType<LocalLM['gen1']> {
+    const run = this.queue.then(() => this.gen1(...a))
+    this.queue = run.catch(() => undefined)
+    return run
+  }
+
+  private async gen1(
     ids: number[],
     o: {
       conv: string
       maxNew: number
       temp: number
       onToken: (id: number) => void
+      prefillOnly?: boolean
     },
   ) {
     if (this.view.status !== 'ready' || !this.w) throw new Error('local-not-ready')
@@ -161,6 +203,7 @@ class LocalLM {
       ids,
       maxNew: o.maxNew,
       temp: o.temp,
+      prefillOnly: o.prefillOnly,
     })
     const m = await res
     this.toks.delete(rid)
