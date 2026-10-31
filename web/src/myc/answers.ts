@@ -27,7 +27,7 @@ export interface ChatAnswer {
   has_source: boolean
   register: ARegister
   act: string | null
-  mode: 'lite' | 'mesh'
+  mode: 'lite' | 'mesh' | 'local'
   status: AStatus
   posterior: number
   n_votes: number
@@ -77,7 +77,7 @@ export interface LogIn {
   intent: AIntent
   register: ARegister
   act: string
-  mode: 'lite' | 'mesh'
+  mode: 'lite' | 'mesh' | 'local'
   name?: string
 }
 export async function logAnswer(a: LogIn): Promise<{ logged: boolean; id?: number; reason?: string }> {

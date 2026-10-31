@@ -8,7 +8,7 @@ export const chatConsent = {
 }
 export const convId = crypto.randomUUID()
 
-export async function logExchange(turn: number, user_text: string, reply: string, act: string, mode: 'lite' | 'mesh', lang: 'pl' | 'en'): Promise<boolean> {
+export async function logExchange(turn: number, user_text: string, reply: string, act: string, mode: 'lite' | 'mesh' | 'local', lang: 'pl' | 'en'): Promise<boolean> {
   if (!chatConsent.get()) return false
   try {
     const r = await fetch(`${SB_URL}/rest/v1/myc_chats`, {

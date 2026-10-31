@@ -1,15 +1,54 @@
 // Worker węzła: trzyma przydzielone fragmenty modelu i liczy je na żądanie (KV osobno na rozmowę).
-import { EMB_SHARDS, LAYER_SHARDS, embed, sample, httpRange, jsKernel, loadShard, MODEL, newKV, readHeader, runLayers, topLogits, type Header, type Kernel, type KV, type Shard, type ShardId } from './qwen'
+import {
+  parseLora,
+  type Lora,
+  EMB_SHARDS,
+  LAYER_SHARDS,
+  embed,
+  sample,
+  httpRange,
+  jsKernel,
+  loadShard,
+  MODEL,
+  newKV,
+  readHeader,
+  runLayers,
+  topLogits,
+  type Header,
+  type Kernel,
+  type KV,
+  type Shard,
+  type ShardId,
+} from './qwen'
 import { tfKernel } from './tfkernel'
 
 let K: Kernel = jsKernel
 let kready: Promise<void> | undefined
 let hdr: Promise<{ header: Header; base: number }> | undefined
 const shards = new Map<ShardId, Shard>()
+// adapter LoRA (model językowy grzybni) scalany z wagami przy wczytywaniu – tylko w lokalnym modelu przeglądarki
+let lora: Lora | undefined
 const kvs = new Map<string, { kv: KV; at: number }>()
 const stops = new Set<string>()
 // pełny model w tym węźle: tokeny rozmowy już policzone (wspólny początek kolejnej wypowiedzi pomijamy)
 const genDone = new Map<string, number[]>()
+// lokalny model przeglądarki: surowe zakresy bajtów zapisywane w Cache Storage (kolejne wizyty bez ponownego pobierania ~1 GB)
+function cachedRange(url: string, onBytes: (n: number) => void) {
+  const net = httpRange(url, onBytes)
+  return async (s: number, e: number) => {
+    const key = `${url}?range=${s}-${e}`
+    const c = await caches.open('myc-local-lm-v1').catch(() => undefined)
+    const hit = await c?.match(key).catch(() => undefined)
+    if (hit) {
+      const b = await hit.arrayBuffer()
+      onBytes(b.byteLength)
+      return b
+    }
+    const b = await net(s, e)
+    void c?.put(key, new Response(b.slice(0))).catch(() => undefined)
+    return b
+  }
+}
 const post = (m: unknown, tr: Transferable[] = []) => (self as unknown as Worker).postMessage(m, tr)
 
 function kvFor(shard: ShardId, conv: string, start: number): KV {
@@ -42,6 +81,9 @@ self.onmessage = async (ev: MessageEvent) => {
         })
       await kready
       post({ t: 'init', backend: K.name })
+    } else if (m.t === 'lora') {
+      lora = m.buf ? parseLora(m.buf) : undefined
+      post({ t: 'lora', ok: true })
     } else if (m.t === 'load') {
       await kready
       hdr ??= readHeader(httpRange(MODEL.url))
@@ -49,19 +91,14 @@ self.onmessage = async (ev: MessageEvent) => {
       let got = 0
       let last = 0
       const t0 = performance.now()
-      const { shard, bytes } = await loadShard(
-        httpRange(MODEL.url, (n) => {
-          got += n
-          if (got - last > 2e6) {
-            last = got
-            post({ t: 'progress', id: m.id, loaded: got })
-          }
-        }),
-        header,
-        base,
-        m.id,
-        K,
-      )
+      const onB = (n: number) => {
+        got += n
+        if (got - last > 2e6) {
+          last = got
+          post({ t: 'progress', id: m.id, loaded: got })
+        }
+      }
+      const { shard, bytes } = await loadShard(m.cache && typeof caches !== 'undefined' ? cachedRange(MODEL.url, onB) : httpRange(MODEL.url, onB), header, base, m.id, K, lora)
       shards.set(m.id, shard)
       post({ t: 'loaded', id: m.id, bytes, ms: performance.now() - t0 })
     } else if (m.t === 'drop') {
@@ -116,7 +153,14 @@ self.onmessage = async (ev: MessageEvent) => {
       genDone.set(m.conv, done)
       while (genDone.size > 6) genDone.delete(genDone.keys().next().value!)
       const dt = (performance.now() - t1) / 1000
-      post({ t: 'res', rid: m.rid, n: out.length, tps: out.length > 1 && dt > 0 ? (out.length - 1) / dt : 0, firstMs, reused })
+      post({
+        t: 'res',
+        rid: m.rid,
+        n: out.length,
+        tps: out.length > 1 && dt > 0 ? (out.length - 1) / dt : 0,
+        firstMs,
+        reused,
+      })
     } else if (m.t === 'run') {
       const s = shards.get(m.shard)
       if (!s) throw new Error('no-shard')
@@ -145,6 +189,11 @@ self.onmessage = async (ev: MessageEvent) => {
       } else throw new Error('bad-op')
     }
   } catch (e) {
-    post({ t: m.t === 'run' ? 'res' : 'error', rid: m.rid, id: m.id, err: String((e as Error).message ?? e) })
+    post({
+      t: m.t === 'run' ? 'res' : 'error',
+      rid: m.rid,
+      id: m.id,
+      err: String((e as Error).message ?? e),
+    })
   }
 }
