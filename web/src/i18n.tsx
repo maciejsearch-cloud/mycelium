@@ -7,6 +7,7 @@ const EN: Record<string, string> = {
   'Ucz AI': 'Teach the AI',
   Zadania: 'Tasks',
   Sesja: 'Session',
+  Moc: 'Compute',
   Rozmowa: 'Conversation',
   'Czat globalny': 'Global chat',
   Wiedza: 'Knowledge',

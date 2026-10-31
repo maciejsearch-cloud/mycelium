@@ -560,7 +560,14 @@ class LMWorker:
                 self.log(f"runda modelu językowego v{v}: {k} zadań treningu")
             return
         if len(res) >= 3 and not open_:
-            await self._aggregate(cur)
+            # ocena kandydatów (do 3 × 2000 pytań) – liczona w planiście jako lm_eval, w telemetrii osobno (lm_aggregate)
+            sched = getattr(self.node, "sched", None)
+            tok = sched.start("lm_eval") if sched is not None else None
+            try:
+                await self._aggregate(cur)
+            finally:
+                if sched is not None:
+                    sched.end(tok, label="lm_aggregate")
 
     async def _aggregate(self, cur: dict):
         v = cur["version"]
