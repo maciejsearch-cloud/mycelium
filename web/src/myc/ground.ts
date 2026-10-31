@@ -1,5 +1,6 @@
 // Ugruntowanie odpowiedzi w sprawdzonych źródłach: Wikidata (liczby i encje, CC0) + fakty grzybni.
 // Czysta logika (parsowanie liczb, walidacja) + pobieranie z API Wikidata (CORS: origin=*).
+import { fetchRetry } from './fetchRetry'
 
 export interface Grounded {
   qid: string
@@ -114,7 +115,7 @@ export const UNSURE = (en: boolean) =>
 const WD = 'https://www.wikidata.org/w/api.php'
 type Fetch = (url: string) => Promise<unknown>
 const getJson: Fetch = async (url) => {
-  const r = await fetch(url)
+  const r = await fetchRetry(url)
   if (!r.ok) throw new Error(`Wikidata ${r.status}`)
   return r.json()
 }

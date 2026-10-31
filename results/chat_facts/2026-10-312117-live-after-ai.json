@@ -1,0 +1,669 @@
+{
+ "summary": {
+  "set": "chat_facts_v1",
+  "set_sha256": "f0a67d1c8a3e907bfd647a9132ff013f4920e4ca62163ad7fef51bcf201ae9a9",
+  "url": "https://maciejsearch-cloud.github.io/demo/mycelium/",
+  "label": "live-after-ai",
+  "at": "2026-10-31T21:17:00.011Z",
+  "n": 40,
+  "correct_with_source": 39,
+  "correct_no_source": 0,
+  "dont_know": 1,
+  "wrong": 0,
+  "viewport": {
+   "width": 1280,
+   "height": 720
+  },
+  "latency_ms": {
+   "median": 2350,
+   "p90": 5084,
+   "max": 6100
+  },
+  "paths": {
+   "browser": 40
+  },
+  "mesh_full_seen": true
+ },
+ "rows": [
+  {
+   "id": "f01",
+   "q": "Jaka jest stolica Australii?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Australia – stolica: Canberra.\nŹródło: Wikidata Q408.",
+   "sources": [
+    "[1] Australia – stolica: Canberra — źródło · 0 głosów · Wikidata Q408"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q408"
+   ],
+   "stats": "wikidata · 898.5 ms",
+   "ms": 1445,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f02",
+   "q": "Jaka jest stolica Kanady?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Kanada – stolica: Ottawa.\nŹródło: Wikidata Q16.",
+   "sources": [
+    "[1] Kanada – stolica: Ottawa — źródło · 0 głosów · Wikidata Q16"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q16"
+   ],
+   "stats": "wikidata · 1715.2 ms",
+   "ms": 2262,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f03",
+   "q": "Kto napisał „Pana Tadeusza”?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Pan Tadeusz”): Pan Tadeusz, czyli ostatni zajazd na Litwie – poemat epicki Adama Mickiewicza wydany w dwóch tomach w 1834 w Paryżu przez Aleksandra Jełowickiego. … W 2012 była publicznie odczytywana w akcji społecznej propagującej znajomość literatury polskiej Narodowe Czytanie Pana Tadeusza.\nŹródło: https://pl.wikipedia.org/wiki/Pan_Tadeusz",
+   "sources": [
+    "[1] Pan Tadeusz, czyli ostatni zajazd na Litwie – poemat epicki Adama Mickiewicza wydany w dwóch tomach w 1834 w Paryżu przez Aleksandra Jełowickiego. … W 2012 była publicznie odczytywana w akcji społecznej propagującej znajomość literatury polskiej Narodowe Czytanie Pana Tadeusza. — źródło · 0 głosów · Wikipedia: Pan Tadeusz (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Pan_Tadeusz"
+   ],
+   "stats": "wikipedia · 4747.5 ms",
+   "ms": 5084,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f04",
+   "q": "Kto napisał „Lalkę”?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Lalka (powieść)”): Lalka – powieść społeczno-obyczajowa Bolesława Prusa publikowana w odcinkach w latach 1887–1889 w dzienniku „Kurier Codzienny”, wydana w 1890 w Warszawie w wydawnictwie „Gebethner i Wolff”.\nŹródło: https://pl.wikipedia.org/wiki/Lalka_(powie%C5%9B%C4%87)",
+   "sources": [
+    "[1] Lalka – powieść społeczno-obyczajowa Bolesława Prusa publikowana w odcinkach w latach 1887–1889 w dzienniku „Kurier Codzienny”, wydana w 1890 w Warszawie w wydawnictwie „Gebethner i Wolff”. — źródło · 0 głosów · Wikipedia: Lalka (powieść) (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Lalka_(powie%C5%9B%C4%87)"
+   ],
+   "stats": "wikipedia · 3722.7 ms",
+   "ms": 4159,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f05",
+   "q": "Kto odkrył penicylinę?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Alexander Fleming”): Alexander Fleming (ur. 6 sierpnia 1881 w Lochfield koło Darvel w East Ayrshire, zm. 11 marca 1955 w Londynie) – szkocki bakteriolog i lekarz. … Odkrywca lizozymu i penicyliny.\nŹródło: https://pl.wikipedia.org/wiki/Alexander_Fleming",
+   "sources": [
+    "[1] Alexander Fleming (ur. 6 sierpnia 1881 w Lochfield koło Darvel w East Ayrshire, zm. 11 marca 1955 w Londynie) – szkocki bakteriolog i lekarz. … Odkrywca lizozymu i penicyliny. — źródło · 0 głosów · Wikipedia: Alexander Fleming (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Alexander_Fleming"
+   ],
+   "stats": "wikipedia · 2064.2 ms",
+   "ms": 2239,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f06",
+   "q": "Kto namalował „Mona Lisę”?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Mona Lisa”): Mona Lisa (wł. Gioconda) – obraz olejny namalowany na topolowej desce przez Leonarda da Vinci, artystę włoskiego renesansu.\nŹródło: https://pl.wikipedia.org/wiki/Mona_Lisa",
+   "sources": [
+    "[1] Mona Lisa (wł. Gioconda) – obraz olejny namalowany na topolowej desce przez Leonarda da Vinci, artystę włoskiego renesansu. — źródło · 0 głosów · Wikipedia: Mona Lisa (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Mona_Lisa"
+   ],
+   "stats": "wikipedia · 2328.8 ms",
+   "ms": 2509,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f07",
+   "q": "W którym roku Polska przystąpiła do Unii Europejskiej?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Polska w Unii Europejskiej”): Polska w Unii Europejskiej – Polska jest członkiem Unii Europejskiej od 1 maja 2004 na mocy Traktatu akcesyjnego podpisanego 16 kwietnia 2003 roku w Atenach, stanowiącego prawną podstawę przystąpienia (akcesji) Polski do Unii Europejskiej.\nŹródło: https://pl.wikipedia.org/wiki/Polska_w_Unii_Europejskiej",
+   "sources": [
+    "[1] Polska w Unii Europejskiej – Polska jest członkiem Unii Europejskiej od 1 maja 2004 na mocy Traktatu akcesyjnego podpisanego 16 kwietnia 2003 roku w Atenach, stanowiącego prawną podstawę przystąpienia (akcesji) Polski do Unii Europejskiej. — źródło · 0 głosów · Wikipedia: Polska w Unii Europejskiej (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Polska_w_Unii_Europejskiej"
+   ],
+   "stats": "wikipedia · 5349.5 ms",
+   "ms": 5737,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f08",
+   "q": "W którym roku zaczęła się II wojna światowa?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „II wojna światowa”): II wojna światowa – największa i najkrwawsza wojna w dziejach, zaliczana do wojen totalnych, światowych i hegemonicznych, trwająca od 1 września 1939 roku do 2 września 1945 roku.\nŹródło: https://pl.wikipedia.org/wiki/II_wojna_%C5%9Bwiatowa",
+   "sources": [
+    "[1] II wojna światowa – największa i najkrwawsza wojna w dziejach, zaliczana do wojen totalnych, światowych i hegemonicznych, trwająca od 1 września 1939 roku do 2 września 1945 roku. — źródło · 0 głosów · Wikipedia: II wojna światowa (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/II_wojna_%C5%9Bwiatowa"
+   ],
+   "stats": "wikipedia · 2284.1 ms",
+   "ms": 2525,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f09",
+   "q": "Ile mieszkańców ma Kraków?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Kraków – liczba ludności: 804 237 (stan na 2023).\nŹródło: Wikidata Q31487.",
+   "sources": [
+    "[1] Kraków – liczba ludności: 804 237 (2023) — źródło · 0 głosów · Wikidata Q31487"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q31487"
+   ],
+   "stats": "wikidata · 661.9 ms",
+   "ms": 1070,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f10",
+   "q": "Jaka jest najdłuższa rzeka w Polsce?",
+   "verdict": "dont_know",
+   "text": "Nie wiem, naucz mnie – sprawdziłam pamięć wiedzy grzybni, Wikidata i Wikipedię i nie znalazłam źródła, które potwierdza odpowiedź, więc nie zgaduję. Znasz odpowiedź? Napisz ją w następnej wiadomości – trafi do głosowania w Weryfikuj.",
+   "sources": [],
+   "links": [],
+   "stats": "nosource · 931.3 ms",
+   "ms": 1348,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f11",
+   "q": "Jaki jest najwyższy szczyt Polski?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Polska – najwyższy punkt: Rysy.\nŹródło: Wikidata Q36.",
+   "sources": [
+    "[1] Polska – najwyższy punkt: Rysy — źródło · 0 głosów · Wikidata Q36"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q36"
+   ],
+   "stats": "wikidata · 1590.4 ms",
+   "ms": 2056,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f12",
+   "q": "Jaki jest symbol chemiczny złota?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Złoto”): Złoto (Au, łac. aurum) – pierwiastek chemiczny o liczbie atomowej 79. Złoto jest gęstym, miękkim i błyszczącym metalem, najbardziej kowalnym i ciągliwym spośród wszystkich znanych metali.\nŹródło: https://pl.wikipedia.org/wiki/Z%C5%82oto",
+   "sources": [
+    "[1] Złoto (Au, łac. aurum) – pierwiastek chemiczny o liczbie atomowej 79. Złoto jest gęstym, miękkim i błyszczącym metalem, najbardziej kowalnym i ciągliwym spośród wszystkich znanych metali. — źródło · 0 głosów · Wikipedia: Złoto (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Z%C5%82oto"
+   ],
+   "stats": "wikipedia · 4967.9 ms",
+   "ms": 5178,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f13",
+   "q": "Kto był pierwszym królem Polski?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Król”): Król (łac. rex) – tytuł osoby sprawującej najwyższą władzę w państwie o ustroju monarchicznym; władca przeważnie koronowany w specjalnym obrzędzie; najpowszechniej występujący tytuł monarszy. … Pierwszym królem Polski był Bolesław I Chrobry ukoronowany w 1025 roku.\nŹródło: https://pl.wikipedia.org/wiki/Kr%C3%B3l",
+   "sources": [
+    "[1] Król (łac. rex) – tytuł osoby sprawującej najwyższą władzę w państwie o ustroju monarchicznym; władca przeważnie koronowany w specjalnym obrzędzie; najpowszechniej występujący tytuł monarszy. … Pierwszym królem Polski był Bolesław I Chrobry ukoronowany w 1025 roku. — źródło · 0 głosów · Wikipedia: Król (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Kr%C3%B3l"
+   ],
+   "stats": "wikipedia · 3102.8 ms",
+   "ms": 3533,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f14",
+   "q": "Kto sformułował teorię względności?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Teoria względności”): Teoria względności (Alberta Einsteina) – nazwa dwóch klasycznych teorii fizycznych: Szczególna teoria względności (STW) – teoria czasoprzestrzeni i ruchu, odnosząca się głównie do inercjalnych układów odniesienia, opublikowana w 1905 roku.\nŹródło: https://pl.wikipedia.org/wiki/Teoria_wzgl%C4%99dno%C5%9Bci",
+   "sources": [
+    "[1] Teoria względności (Alberta Einsteina) – nazwa dwóch klasycznych teorii fizycznych: Szczególna teoria względności (STW) – teoria czasoprzestrzeni i ruchu, odnosząca się głównie do inercjalnych układów odniesienia, opublikowana w 1905 roku. — źródło · 0 głosów · Wikipedia: Teoria względności (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Teoria_wzgl%C4%99dno%C5%9Bci"
+   ],
+   "stats": "wikipedia · 1700.2 ms",
+   "ms": 2032,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f15",
+   "q": "Co to jest fotosynteza?",
+   "verdict": "correct_source",
+   "text": "Fotosynteza to proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] fotosynteza: proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] fotosynteza – definicja – proces wytwarzania przez rośliny zielone i niektóre bakterie związków organicznych z dwutlenku węgla i wody przy udziale światła → fotosynteza (pojęcie) — słownik 86% · 16 głosów · strzępki #58144 → #58145 (wiktionary)"
+   ],
+   "links": [],
+   "stats": "word · 1048.2 ms",
+   "ms": 1642,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f16",
+   "q": "Co to jest wombat?",
+   "verdict": "correct_source",
+   "text": "Wombat to australijski torbacz o brunatnoszarej sierści.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\n• wombat: Zwierzę › Ssak\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] wombat: australijski torbacz o brunatnoszarej sierści — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] wombat: Zwierzę › Ssak — słownik · 0 głosów · słownik",
+    "[3] wombat – definicja – australijski torbacz o brunatnoszarej sierści → wombat (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 90% · 17 głosów · strzępki #58146 → #17023 → #3339 → #3554 → #3581 (wiktionary)",
+    "[4] wombat – jest – Ssak → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #16255 → #3339 → #3554 → #3581 (plwordnet)",
+    "[5] wombat – jest – Zwierzę → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #16256 → #3554 → #3581 (plwordnet)"
+   ],
+   "links": [],
+   "stats": "word · 1636.7 ms",
+   "ms": 2008,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f17",
+   "q": "Jaka jest stolica Łotwy?",
+   "verdict": "correct_source",
+   "text": "Wiem to: Ryga jest stolicą Łotwy. – według grzybni prawda (99%, 2 głosy).",
+   "sources": [
+    "[1] Ryga jest stolicą Łotwy. — prawda 99% · 2 głosów · wiedza"
+   ],
+   "links": [],
+   "stats": "fact · 571.1 ms",
+   "ms": 992,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f18",
+   "q": "Kiedy urodził się Fryderyk Chopin?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Fryderyk Chopin – data urodzenia: 01.03.1810.\nŹródło: Wikidata Q1268.",
+   "sources": [
+    "[1] Fryderyk Chopin – data urodzenia: 01.03.1810 — źródło · 0 głosów · Wikidata Q1268"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q1268"
+   ],
+   "stats": "wikidata · 579.1 ms",
+   "ms": 1245,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f19",
+   "q": "Na jakim kontynencie leży Egipt?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Egipt”): Egipt (arab. ‏مصر‎, Miṣr; dialekt egipski Máṣr, /masˤɾ/; łac. Aegyptus; gr. Αίγυπτος, Aígyptos), nazwa oficjalna Arabska Republika Egiptu (arab. ‏جمهوريّة مصر العربيّة‎, Dżumhurijjat Misr al-Arabijja) – państwo położone w północno-wschodniej Afryce z półwyspem Synaj w zachodniej Azji.\nŹródło: https://pl.wikipedia.org/wiki/Egipt",
+   "sources": [
+    "[1] Egipt (arab. ‏مصر‎, Miṣr; dialekt egipski Máṣr, /masˤɾ/; łac. Aegyptus; gr. Αίγυπτος, Aígyptos), nazwa oficjalna Arabska Republika Egiptu (arab. ‏جمهوريّة مصر العربيّة‎, Dżumhurijjat Misr al-Arabijja) – państwo położone w północno-wschodniej Afryce z półwyspem Synaj w zachodniej Azji. — źródło · 0 głosów · Wikipedia: Egipt (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Egipt"
+   ],
+   "stats": "wikipedia · 2618.6 ms",
+   "ms": 3120,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f20",
+   "q": "Jaka jest stolica Japonii?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Japonia – stolica: Tokio.\nŹródło: Wikidata Q17.",
+   "sources": [
+    "[1] Japonia – stolica: Tokio — źródło · 0 głosów · Wikidata Q17"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q17"
+   ],
+   "stats": "wikidata · 769.9 ms",
+   "ms": 1008,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f21",
+   "q": "Jaka jest powierzchnia Polski?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Polska – powierzchnia: 312 683 km².\nŹródło: Wikidata Q36.",
+   "sources": [
+    "[1] Polska – powierzchnia: 312 683 km² — źródło · 0 głosów · Wikidata Q36"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q36"
+   ],
+   "stats": "wikidata · 1105.7 ms",
+   "ms": 1727,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f22",
+   "q": "Kto był pierwszym człowiekiem na Księżycu?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Neil Armstrong”): Neil Alden Armstrong (ur. 5 sierpnia 1930 w Wapakoneta, zm. 25 sierpnia 2012 w Cincinnati) – amerykański astronauta, dowódca misji Apollo 11. 21 lipca 1969 (według czasu UTC) jako pierwszy człowiek stanął na Księżycu.\nŹródło: https://pl.wikipedia.org/wiki/Neil_Armstrong",
+   "sources": [
+    "[1] Neil Alden Armstrong (ur. 5 sierpnia 1930 w Wapakoneta, zm. 25 sierpnia 2012 w Cincinnati) – amerykański astronauta, dowódca misji Apollo 11. 21 lipca 1969 (według czasu UTC) jako pierwszy człowiek stanął na Księżycu. — źródło · 0 głosów · Wikipedia: Neil Armstrong (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Neil_Armstrong"
+   ],
+   "stats": "wikipedia · 2073.6 ms",
+   "ms": 2350,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f23",
+   "q": "Jak nazywa się największa planeta Układu Słonecznego?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Jowisz”): Jowisz – gazowy olbrzym, największa planeta Układu Słonecznego.\nŹródło: https://pl.wikipedia.org/wiki/Jowisz",
+   "sources": [
+    "[1] Jowisz – gazowy olbrzym, największa planeta Układu Słonecznego. — źródło · 0 głosów · Wikipedia: Jowisz (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Jowisz"
+   ],
+   "stats": "wikipedia · 961.5 ms",
+   "ms": 1568,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f24",
+   "q": "W którym roku odbyła się bitwa pod Grunwaldem?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Bitwa pod Grunwaldem”): Bitwa pod Grunwaldem (zwana w języku niemieckim pierwszą bitwą pod Tannenbergiem „Schlacht bei Tannenberg”, a w języku litewskim bitwą pod Żalgirisem „Žalgirio mūšis”) – jedna z największych bitew w historii średniowiecznej Europy (pod względem liczby uczestników), stoczona na polach pod Grunwaldem 15 lipca 1410 roku, w czasie trwania wielkiej wojny między siłami zakonu krzyżackiego, wspomaganego przez rycerstwo zachodnioeuropejskie (głównie z Czech, z wielu księstw śląskich, z Pomorza Zachodniego i z pozostałych państw Świętego Cesarstwa Rzymskiego) pod dowództwem wielkiego mistrza Ulricha…\nŹródło: https://pl.wikipedia.org/wiki/Bitwa_pod_Grunwaldem",
+   "sources": [
+    "[1] Bitwa pod Grunwaldem (zwana w języku niemieckim pierwszą bitwą pod Tannenbergiem „Schlacht bei Tannenberg”, a w języku litewskim bitwą pod Żalgirisem „Žalgirio mūšis”) – jedna z największych bitew w historii średniowiecznej Europy (pod względem liczby uczestników), stoczona na polach pod Grunwaldem 15 lipca 1410 roku, w czasie trwania wielkiej wojny między siłami zakonu krzyżackiego, wspomaganego przez rycerstwo zachodnioeuropejskie (głównie z Czech, z wielu księstw śląskich, z Pomorza Zachodniego i z pozostałych państw Świętego Cesarstwa Rzymskiego) pod dowództwem wielkiego mistrza Ulricha… — źródło · 0 głosów · Wikipedia: Bitwa pod Grunwaldem (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Bitwa_pod_Grunwaldem"
+   ],
+   "stats": "wikipedia · 2942.3 ms",
+   "ms": 3128,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f25",
+   "q": "Kto napisał „Quo vadis”?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Quo vadis”): Powieść z czasów Nerona – powieść historyczna Henryka Sienkiewicza. … Odwołuje się on do słów Quo vadis, Domine?\nŹródło: https://pl.wikipedia.org/wiki/Quo_vadis",
+   "sources": [
+    "[1] Powieść z czasów Nerona – powieść historyczna Henryka Sienkiewicza. … Odwołuje się on do słów Quo vadis, Domine? — źródło · 0 głosów · Wikipedia: Quo vadis (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Quo_vadis"
+   ],
+   "stats": "wikipedia · 2216.4 ms",
+   "ms": 2396,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f26",
+   "q": "Kto odkrył polon i rad?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Maria Skłodowska-Curie”): Maria Salomea Skłodowska-Curie (ur. 7 listopada 1867 w Warszawie, zm. 4 lipca 1934 w Passy) – polsko-francuska uczona w dziedzinach fizyki doświadczalnej i chemii fizycznej, podwójna noblistka – laureatka Nagrody Nobla z fizyki (1903) i chemii (1911). … Po raz drugi została nagrodzona w 1911 r. – z chemii za odkrycie polonu i radu, wydzielenie czystego radu i badanie właściwości chemicznych pierwiastków promieniotwórczych.\nŹródło: https://pl.wikipedia.org/wiki/Maria_Sk%C5%82odowska-Curie",
+   "sources": [
+    "[1] Maria Salomea Skłodowska-Curie (ur. 7 listopada 1867 w Warszawie, zm. 4 lipca 1934 w Passy) – polsko-francuska uczona w dziedzinach fizyki doświadczalnej i chemii fizycznej, podwójna noblistka – laureatka Nagrody Nobla z fizyki (1903) i chemii (1911). … Po raz drugi została nagrodzona w 1911 r. – z chemii za odkrycie polonu i radu, wydzielenie czystego radu i badanie właściwości chemicznych pierwiastków promieniotwórczych. — źródło · 0 głosów · Wikipedia: Maria Skłodowska-Curie (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Maria_Sk%C5%82odowska-Curie"
+   ],
+   "stats": "wikipedia · 3517.1 ms",
+   "ms": 3670,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f27",
+   "q": "Jaka jest stolica Hiszpanii?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Hiszpania – stolica: Madryt.\nŹródło: Wikidata Q29.",
+   "sources": [
+    "[1] Hiszpania – stolica: Madryt — źródło · 0 głosów · Wikidata Q29"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q29"
+   ],
+   "stats": "wikidata · 865.2 ms",
+   "ms": 999,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f28",
+   "q": "Co to jest kot?",
+   "verdict": "correct_source",
+   "text": "Kot to zwierzę domowe.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\n• kot: Zwierzę › Ssak › Kotowate\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] kot: zwierzę domowe — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] kot: Zwierzę › Ssak › Kotowate — słownik · 0 głosów · słownik",
+    "[3] Czym jest kot — fałsz 90% · 1 głosów · fakt od nauczyciela",
+    "[4] Czym jest kot — prawda 90% · 1 głosów · fakt od nauczyciela",
+    "[5] kot – definicja – zwierzę domowe → kot (pojęcie) → Kotowate (pojęcie) → Ssak (pojęcie) → Zwierzę (pojęcie) — słownik 90% · 14 głosów · strzępki #58539 → #19205 → #2621 → #3339 → #3554 (wiktionary)",
+    "[6] kot – jest – Osoba → Osoba (pojęcie) → Osoba (temat) — słownik 85% · 1 głosów · strzępki #18124 → #3047 → #3576 (plwordnet)",
+    "[7] kot – jest – Ssak → Ssak (pojęcie) → Zwierzę (pojęcie) → Zwierzę (temat) — słownik 85% · 1 głosów · strzępki #18125 → #3339 → #3554 → #3581 (plwordnet)"
+   ],
+   "links": [],
+   "stats": "word · 1579.4 ms",
+   "ms": 2003,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f29",
+   "q": "Jaka waluta obowiązuje w Japonii?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Jen”): Jen (jap. 円 en; dosł. „koło, krąg”) – jednostka walutowa Japonii, kod walutowy według ISO 4217: JPY.\nŹródło: https://pl.wikipedia.org/wiki/Jen",
+   "sources": [
+    "[1] Jen (jap. 円 en; dosł. „koło, krąg”) – jednostka walutowa Japonii, kod walutowy według ISO 4217: JPY. — źródło · 0 głosów · Wikipedia: Jen (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Jen"
+   ],
+   "stats": "wikipedia · 2216.0 ms",
+   "ms": 2755,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f30",
+   "q": "Ile mieszkańców ma Warszawa?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Warszawa – liczba ludności: 1 862 402 (stan na 2024).\nŹródło: Wikidata Q270.",
+   "sources": [
+    "[1] Warszawa – liczba ludności: 1 862 402 (2024) — źródło · 0 głosów · Wikidata Q270"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q270"
+   ],
+   "stats": "wikidata · 557.2 ms",
+   "ms": 999,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f31",
+   "q": "Kiedy zmarł Jan Paweł II?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Jan Paweł II – data śmierci: 02.04.2005.\nŹródło: Wikidata Q989.",
+   "sources": [
+    "[1] Jan Paweł II – data śmierci: 02.04.2005 — źródło · 0 głosów · Wikidata Q989"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q989"
+   ],
+   "stats": "wikidata · 614.7 ms",
+   "ms": 1295,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f32",
+   "q": "Kto napisał słowa Mazurka Dąbrowskiego?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Józef Wybicki”): Józef Rufin Wybicki herbu Rogala (ur. 29 września 1747 w Będominie, zm. 10 marca 1822 w Manieczkach) – polski pisarz i polityk, szambelan Stanisława Augusta Poniatowskiego w 1780 roku, wolnomularz, Wielki Mason, napisał słowa Pieśni Legionów Polskich we Włoszech – późniejszego polskiego hymnu narodowego Mazurka Dąbrowskiego.\nŹródło: https://pl.wikipedia.org/wiki/J%C3%B3zef_Wybicki",
+   "sources": [
+    "[1] Józef Rufin Wybicki herbu Rogala (ur. 29 września 1747 w Będominie, zm. 10 marca 1822 w Manieczkach) – polski pisarz i polityk, szambelan Stanisława Augusta Poniatowskiego w 1780 roku, wolnomularz, Wielki Mason, napisał słowa Pieśni Legionów Polskich we Włoszech – późniejszego polskiego hymnu narodowego Mazurka Dąbrowskiego. — źródło · 0 głosów · Wikipedia: Józef Wybicki (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/J%C3%B3zef_Wybicki"
+   ],
+   "stats": "wikipedia · 2385.9 ms",
+   "ms": 2610,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f33",
+   "q": "Jaka jest wysokość Mount Everestu?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Mount Everest”): Mount Everest, Czomolungma (tyb. ཇོ་མོ་གླང་མ, ZWPY Qomolangma, Wylie Jo mo glang ma; nep. सगरमाथा, Sagarmāthā; chiń. upr. 珠穆朗玛峰; pinyin Zhūmùlǎngmǎ Fēng) – najwyższy szczyt Ziemi (8849 m n.p.m.[patrz niżej], podaje się też wysokość 8844 (pomiary chińskie) lub 8850 (pomiary amerykańskie)), ośmiotysięcznik położony w Himalajach Wysokich (Centralnych), na granicy Nepalu i Chińskiej Republiki Ludowej (Tybetu).\nŹródło: https://pl.wikipedia.org/wiki/Mount_Everest",
+   "sources": [
+    "[1] Mount Everest, Czomolungma (tyb. ཇོ་མོ་གླང་མ, ZWPY Qomolangma, Wylie Jo mo glang ma; nep. सगरमाथा, Sagarmāthā; chiń. upr. 珠穆朗玛峰; pinyin Zhūmùlǎngmǎ Fēng) – najwyższy szczyt Ziemi (8849 m n.p.m.[patrz niżej], podaje się też wysokość 8844 (pomiary chińskie) lub 8850 (pomiary amerykańskie)), ośmiotysięcznik położony w Himalajach Wysokich (Centralnych), na granicy Nepalu i Chińskiej Republiki Ludowej (Tybetu). — źródło · 0 głosów · Wikipedia: Mount Everest (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Mount_Everest"
+   ],
+   "stats": "wikipedia · 2207.9 ms",
+   "ms": 2656,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f34",
+   "q": "W jakim mieście jest Wawel?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Wawel”): Wawel – wzgórze na Pomoście Krakowskim, w Krakowie w dzielnicy I Stare Miasto, na lewym brzegu Wisły.\nŹródło: https://pl.wikipedia.org/wiki/Wawel",
+   "sources": [
+    "[1] Wawel – wzgórze na Pomoście Krakowskim, w Krakowie w dzielnicy I Stare Miasto, na lewym brzegu Wisły. — źródło · 0 głosów · Wikipedia: Wawel (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Wawel"
+   ],
+   "stats": "wikipedia · 2492.7 ms",
+   "ms": 2875,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f35",
+   "q": "Kto napisał „Ferdydurke”?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Ferdydurke”): Ferdydurke – awangardowa powieść Witolda Gombrowicza opublikowana w 1937 (datowana 1938), przełożona na wiele języków, uznana za wybitny utwór już przed II wojną światową.\nŹródło: https://pl.wikipedia.org/wiki/Ferdydurke",
+   "sources": [
+    "[1] Ferdydurke – awangardowa powieść Witolda Gombrowicza opublikowana w 1937 (datowana 1938), przełożona na wiele języków, uznana za wybitny utwór już przed II wojną światową. — źródło · 0 głosów · Wikipedia: Ferdydurke (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Ferdydurke"
+   ],
+   "stats": "wikipedia · 2856.0 ms",
+   "ms": 3093,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f36",
+   "q": "Co to jest grzybnia?",
+   "verdict": "correct_source",
+   "text": "Grzybnia to forma plechy grzybów, stanowiąca wegetatywne ciało grzybów.\nŹródło: Wikisłownik, znaczenie 1.1 (rzeczownik).\nJeśli znasz lepszą definicję, napisz ją – zapiszę do weryfikacji.",
+   "sources": [
+    "[1] grzybnia: forma plechy grzybów, stanowiąca wegetatywne ciało grzybów — słownik · 0 głosów · Wikisłownik, znaczenie 1.1 (rzeczownik)",
+    "[2] Grzybnia to podziemna część grzyba. — prawda 99% · 2 głosów · wiedza",
+    "[3] Mycelium AI jest to chain AI działający dzięki grzybni i węzłom (node). Każdy może go czegoś nauczyć. Każdy węzeł przydzielający moc do grzybni może zostać nodem uczyć i weryfikować. — prawda 99% · 2 głosów · fakt od nauczyciela",
+    "[4] grzybnia – definicja – forma plechy grzybów, stanowiąca wegetatywne ciało grzybów → grzybnia (pojęcie) — słownik 80% · 13 głosów · strzępki #58671 → #58672 (wiktionary)"
+   ],
+   "links": [],
+   "stats": "word · 1653.5 ms",
+   "ms": 1760,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f37",
+   "q": "Jaki pierwiastek ma symbol Fe?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Żelazo”): Żelazo (Fe, łac. ferrum) – pierwiastek chemiczny o liczbie atomowej 26, metal z VIII grupy pobocznej układu okresowego, należący do grupy metali przejściowych.\nŹródło: https://pl.wikipedia.org/wiki/%C5%BBelazo",
+   "sources": [
+    "[1] Żelazo (Fe, łac. ferrum) – pierwiastek chemiczny o liczbie atomowej 26, metal z VIII grupy pobocznej układu okresowego, należący do grupy metali przejściowych. — źródło · 0 głosów · Wikipedia: Żelazo (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/%C5%BBelazo"
+   ],
+   "stats": "wikipedia · 3590.3 ms",
+   "ms": 4016,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f38",
+   "q": "W którym roku upadł mur berliński?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „Mur Berliński”): Mur Berliński, również mur berliński (niem. Berliner Mauer) – system umocnień o długości ok. 156 km (betonowy mur, okopy, zapory drutowe, miny). … Od 13 sierpnia 1961 do 9 listopada 1989 oddzielał Berlin Zachodni od Berlina Wschodniego i NRD.\nŹródło: https://pl.wikipedia.org/wiki/Mur_Berli%C5%84ski",
+   "sources": [
+    "[1] Mur Berliński, również mur berliński (niem. Berliner Mauer) – system umocnień o długości ok. 156 km (betonowy mur, okopy, zapory drutowe, miny). … Od 13 sierpnia 1961 do 9 listopada 1989 oddzielał Berlin Zachodni od Berlina Wschodniego i NRD. — źródło · 0 głosów · Wikipedia: Mur Berliński (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/Mur_Berli%C5%84ski"
+   ],
+   "stats": "wikipedia · 5696.9 ms",
+   "ms": 6100,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f39",
+   "q": "Jaka jest stolica Brazylii?",
+   "verdict": "correct_source",
+   "text": "Według Wikidata: Brazylia – stolica: Brasília.\nŹródło: Wikidata Q155.",
+   "sources": [
+    "[1] Brazylia – stolica: Brasília — źródło · 0 głosów · Wikidata Q155"
+   ],
+   "links": [
+    "https://www.wikidata.org/wiki/Q155"
+   ],
+   "stats": "wikidata · 992.2 ms",
+   "ms": 1124,
+   "path": "browser",
+   "meshFull": "1"
+  },
+  {
+   "id": "f40",
+   "q": "Kto był pierwszym prezydentem Stanów Zjednoczonych?",
+   "verdict": "correct_source",
+   "text": "Według Wikipedii (artykuł „George Washington”): George Washington (forma spolszczona: Jerzy Waszyngton; ur. 11 lutego?/22 lutego 1732 w Pope’s Creek, zm. 14 grudnia 1799 w Mount Vernon) – amerykański generał, polityk, mąż stanu, 1. prezydent Stanów Zjednoczonych (1789–1797).\nŹródło: https://pl.wikipedia.org/wiki/George_Washington",
+   "sources": [
+    "[1] George Washington (forma spolszczona: Jerzy Waszyngton; ur. 11 lutego?/22 lutego 1732 w Pope’s Creek, zm. 14 grudnia 1799 w Mount Vernon) – amerykański generał, polityk, mąż stanu, 1. prezydent Stanów Zjednoczonych (1789–1797). — źródło · 0 głosów · Wikipedia: George Washington (CC BY-SA)"
+   ],
+   "links": [
+    "https://pl.wikipedia.org/wiki/George_Washington"
+   ],
+   "stats": "wikipedia · 3291.5 ms",
+   "ms": 3597,
+   "path": "browser",
+   "meshFull": "1"
+  }
+ ]
+}

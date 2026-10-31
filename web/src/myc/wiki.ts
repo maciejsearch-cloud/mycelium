@@ -1,6 +1,7 @@
 // Odpowiedzi ze źródła: polska Wikipedia (pl.wikipedia.org, CC BY-SA, publiczne API z origin=*; host już w CSP).
 // Odpowiedź jest WYDOBYWCZA – zdanie przepisane dosłownie ze wstępu artykułu, z linkiem. Nic tu nie jest generowane:
 // gdy żadne zdanie nie pokrywa pytania wystarczająco, zwracamy undefined i czat mówi uczciwie „nie wiem”.
+import { fetchRetry } from './fetchRetry'
 
 export interface WikiHit {
   title: string
@@ -239,7 +240,7 @@ export const MIN_WIKI_COVER = 0.5
 
 type Get = (url: string) => Promise<unknown>
 const getJson: Get = async (url) => {
-  const r = await fetch(url)
+  const r = await fetchRetry(url)
   if (!r.ok) throw new Error(`Wikipedia ${r.status}`)
   return r.json()
 }
