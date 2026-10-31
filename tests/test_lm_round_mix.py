@@ -35,8 +35,9 @@ class FakeSB:
         return len(body["p_jobs"])
 
 
-def _round(sft, n_kd=107):
+def _round(sft, n_kd=107, plan=None):
     w = object.__new__(lmwork.LMWorker)
+    w.curriculum = lambda: plan
     w.sb, w.data, w.stats, w.log = FakeSB(), FakeData(sft), {"lm_rounds": 0}, lambda *_: None
     w.node = type("N", (), {"id": "n"})()
     w.kd_files = lambda: {s: {"name": f"kd-{s:04d}.bin.gz", "sha256": "0" * 64} for s in range(n_kd)}
@@ -106,3 +107,22 @@ def test_round_when_every_shard_has_teacher_logits():
     assert len(kd) == round(lmwork.KD_FRAC * (lmwork.ROUND_JOBS - 2))
     plain = [j["params"]["shard"] for j in jobs if "kd" not in j["params"] and "sft" not in j["params"]]
     assert len(plain) == lmwork.ROUND_JOBS - 2 - len(kd) and not set(plain) & {j["params"]["shard"] for j in kd}
+
+
+def test_round_follows_curiosity_plan_with_little_wikipedia():
+    sh = [{"type": t, "name": f"self-{t}-20261101-0000.bin.gz", "sha256": c * 64} for t, c in
+          (("logika", "a"), ("matematyka", "b"), ("przypadki", "c"), ("role", "d"))]  # fmt: skip
+    plan = {"id": 7, "alloc": {"logika": 2, "matematyka": 4, "przypadki": 1, "role": 2}, "shards": sh, "wiki_jobs": 3}
+    jobs = _round([{"name": "sft-logic-0001.bin.gz", "sha256": "a" * 64}], 399, plan)
+    assert len(jobs) == 12
+    self_ = [j["params"]["sft"] for j in jobs if j["params"].get("sft", {}).get("src") == "self"]
+    assert len(self_) == 9 and sum(s["type"] == "matematyka" for s in self_) == 4
+    assert all(j["params"]["plan"] == 7 for j in jobs if "plan" in j["params"])
+    wiki = [j for j in jobs if "sft" not in j["params"]]
+    assert len(wiki) == 3 and all("kd" in j["params"] for j in wiki)
+
+
+def test_self_shard_name_is_pinned():
+    w = object.__new__(lmwork.LMWorker)
+    with pytest.raises(ValueError):
+        w.self_shard({"name": "../etc/passwd", "sha256": "0" * 64})

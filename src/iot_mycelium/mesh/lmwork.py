@@ -36,6 +36,10 @@ ROUND_JOBS = int(os.environ.get("MYC_LM_ROUND_JOBS", "12"))
 KD_FRAC = float(os.environ.get("MYC_LM_KD_FRAC", "0.5"))
 # 31.10: 2 = w każdej rundzie oba odłamki sft (logika + matematyka), zamiast losowo jednego
 SFT_JOBS = int(os.environ.get("MYC_LM_SFT_JOBS", "2"))
+# Samouk (31.10, decyzja właścicielki: mniej Wikipedii): gdy jest plan w myc_lm_curriculum (nie starszy niż doba),
+# runda = WIKI_JOBS zadań na Wikipedii (z destylacją) + reszta na zadaniach, które grzybnia sama wybrała i ułożyła
+WIKI_JOBS = int(os.environ.get("MYC_LM_WIKI_JOBS", "3"))
+SELF_NAME = re.compile(r"^self-[a-z]+-[0-9]{8}-[0-9]{4}\.bin\.gz$")
 STEPS, BATCH, LR = 16, 8, 1e-3
 # 31.10: krok 0,25 dodany – kandydaci v5 (krok 1/0,5) przegrywali bramkę o 4–13 pytań na 2000
 SERVER_LRS = (1.0, 0.5, 0.25)
@@ -294,7 +298,11 @@ class LMWorker:
         ]
         base = await self.adapter(cur["path"])
         kd, kd_info = None, {}
-        if isinstance(p.get("sft"), dict):
+        if isinstance(p.get("sft"), dict) and p["sft"].get("src") == "self":
+            # zadania ułożone przez samouka (plan w myc_lm_curriculum, plik w myc_lm_self – zapis tylko właściciel)
+            ids, mask = await asyncio.to_thread(self.self_shard, p["sft"])
+            kd_info = {"sft": p["sft"]["name"]}
+        elif isinstance(p.get("sft"), dict):
             # odłamek z poprawnie rozwiązanymi zadaniami logicznymi (strata tylko na odpowiedzi), bez destylacji
             ids, mask = await asyncio.to_thread(self.data.sft, p["sft"])
             kd_info = {"sft": p["sft"]["name"]}
@@ -391,6 +399,35 @@ class LMWorker:
         a = min(1.0, max(0.0, float(spec.get("alpha", lm.KD_ALPHA))))
         return idx, lg, T, a
 
+    def self_shard(self, spec: dict):
+        """Odłamek samouka: nazwa wg wzorca, SHA-256 z zadania = SHA-256 w tabeli = SHA-256 pobranych bajtów."""
+        name, sha = str(spec.get("name", "")), str(spec.get("sha256", ""))
+        if not SELF_NAME.match(name):
+            raise ValueError("niedozwolona nazwa odłamka samouka")
+        p = self.data.dir / name
+        b = p.read_bytes() if p.exists() else b""
+        if lm.sha256(b) != sha:
+            rows = self.sb.get(f"myc_lm_self?name=eq.{name}&select=sha256,data")
+            if not rows or rows[0]["sha256"] != sha:
+                raise ValueError("odłamek samouka nieznany albo zmieniony")
+            b = base64.b64decode(rows[0]["data"])
+            if lm.sha256(b) != sha:
+                raise ValueError(f"suma SHA-256 nie zgadza się: {name}")
+            p.write_bytes(b)
+        _, ids, mask, _ = lm.unpack_data(gzip.decompress(b))
+        return ids, mask
+
+    def curriculum(self) -> dict | None:
+        """Najnowszy plan samouka (nie starszy niż doba) albo None."""
+        try:
+            rows = self.sb.get(
+                "myc_lm_curriculum?select=id,at,alloc,shards,wiki_jobs&order=id.desc&limit=1"
+                "&at=gt." + time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() - 86400))
+            )
+        except Exception:  # noqa: BLE001 – brak tabeli/sieci = dawny skład rundy
+            return None
+        return rows[0] if rows else None
+
     def kd_files(self) -> dict[int, dict]:
         """Odłamki z gotowymi logitami nauczyciela (pusto, gdy wydania jeszcze nie ma)."""
         try:
@@ -439,19 +476,49 @@ class LMWorker:
                 for f in (await asyncio.to_thread(self.data.meta)).get("sft", [])
                 if SAFE_NAME.match(str(f.get("name", "")))
             ]
-            n_sft = min(SFT_JOBS, len(sft), ROUND_JOBS)
-            n_kd = min(round(KD_FRAC * (ROUND_JOBS - n_sft)), len(kdf))
+            plan = await asyncio.to_thread(self.curriculum)
+            self_jobs = []
+            if plan:
+                by = {sh["type"]: sh for sh in plan.get("shards") or [] if SELF_NAME.match(str(sh.get("name", "")))}
+                for t, k in sorted((plan.get("alloc") or {}).items()):
+                    if t in by:
+                        self_jobs += [(t, by[t])] * max(0, int(k))
+                self_jobs = self_jobs[: max(0, ROUND_JOBS - 1)]
+            if self_jobs:
+                sft = []
+                n_sft = 0
+                wiki = max(1, min(int(plan.get("wiki_jobs") or WIKI_JOBS), ROUND_JOBS - len(self_jobs)))
+                n_kd = min(wiki, len(kdf))
+            else:
+                n_sft = min(SFT_JOBS, len(sft), ROUND_JOBS)
+                n_kd = min(round(KD_FRAC * (ROUND_JOBS - n_sft)), len(kdf))
             # część odłamków z logitami nauczyciela (destylacja), reszta losowo bez destylacji
             shards = random.sample(sorted(kdf), n_kd)
             # reszta bez destylacji: najpierw odłamki bez logitów nauczyciela; gdy logity ma (prawie) każdy odłamek
             # (od 31.10 wszystkie 399), dobieramy pozostałe odłamki i trenujemy je bez destylacji
-            need = ROUND_JOBS - n_sft - len(shards)
+            need = (wiki - len(shards)) if self_jobs else ROUND_JOBS - n_sft - len(shards)
             plain = sorted(set(range(n)) - set(kdf))
             extra = random.sample(plain, min(need, len(plain)))
             extra += random.sample(sorted(set(range(n)) - set(shards) - set(extra)), need - len(extra))
             kd_on = set(shards)
             shards += extra
             jobs = []
+            for t, sh in self_jobs:
+                jobs.append(
+                    {
+                        "kind": "train",
+                        "params": {
+                            "shard": random.randrange(n),
+                            "sft": {"name": sh["name"], "sha256": sh["sha256"], "src": "self", "type": t},
+                            "plan": plan["id"],
+                            "steps": STEPS,
+                            "batch": BATCH,
+                            "lr": LR,
+                            "seed": random.randrange(1 << 30),
+                            "flops_per_sample": lm.FLOPS_TRAIN_TOKEN,
+                        },
+                    }
+                )
             for f in random.sample(sft, n_sft):
                 # starszy węzeł nie zna „sft” i trenuje zwykły odłamek – w metrics zostaje, co naprawdę liczył
                 jobs.append(
@@ -601,7 +668,15 @@ class LMWorker:
             else ("fedavg-lora-kd" if getattr(self, "_kd_used", False) else "fedavg-lora")
             + "".join(
                 "+" + k
-                for k in ("sft-logic", "sft-math", "sft-speaker")
+                for k in (
+                    "sft-logic",
+                    "sft-math",
+                    "sft-speaker",
+                    "self-logika",
+                    "self-matematyka",
+                    "self-przypadki",
+                    "self-role",
+                )
                 if any(n.startswith(k) for n in getattr(self, "_sft_names", ()))
             ),
             "teacher": (getattr(self, "_teacher", None) if getattr(self, "_kd_used", False) else None),
@@ -609,7 +684,12 @@ class LMWorker:
             "rank": lm.RANK,
             "params": lm.N_PARAMS,
             "base": "Qwen2.5-0.5B-Instruct",
-            "data": "plwiki-20231101 (CC BY-SA 4.0)",
+            "data": "plwiki-20231101 (CC BY-SA 4.0)"
+            + (
+                " + zadania samouka (program)"
+                if any(n.startswith("self-") for n in getattr(self, "_sft_names", ()))
+                else ""
+            ),
             "flops": lm.FLOPS_EVAL_TOKEN,
             "sha256": lm.sha256(b),
             "val_base": None if base_val is None else round(base_val, 5),
