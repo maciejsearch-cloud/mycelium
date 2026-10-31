@@ -95,7 +95,10 @@ def test_selfplay_shard_selection_balanced():
 
 def test_round_when_every_shard_has_teacher_logits():
     # 31.10.2026: logity nauczyciela dla wszystkich 399 odłamków → „Sample larger than population” i brak rund
-    jobs = _round([{"name": "sft-logic-0001.bin.gz", "sha256": "a" * 64}, {"name": "sft-math-0001.bin.gz", "sha256": "b" * 64}], 399)
+    jobs = _round(
+        [{"name": "sft-logic-0001.bin.gz", "sha256": "a" * 64}, {"name": "sft-math-0001.bin.gz", "sha256": "b" * 64}],
+        399,
+    )
     assert len(jobs) == lmwork.ROUND_JOBS
     sft = sorted(j["params"]["sft"]["name"] for j in jobs if "sft" in j["params"])
     assert sft == ["sft-logic-0001.bin.gz", "sft-math-0001.bin.gz"]
