@@ -24,6 +24,7 @@ const Review = lazy(() => import('./pages/Review'))
 const Taxonomy = lazy(() => import('./pages/Taxonomy'))
 const AccountPage = lazy(() => import('./pages/Account'))
 const CirclesPage = lazy(() => import('./pages/CirclesPage'))
+const MocPage = lazy(() => import('./pages/Moc'))
 
 const PAGES = [
   { id: 'overview', label: 'Przegląd', icon: 'home' },
@@ -36,6 +37,7 @@ const PAGES = [
   { id: 'weryfikuj', label: 'Weryfikuj', icon: 'check' },
   { id: 'node', label: 'Zostań węzłem', icon: 'node' },
   { id: 'session', label: 'Sesja', icon: 'bolt' },
+  { id: 'moc', label: 'Moc', icon: 'gauge' },
   { id: 'growth', label: 'Wzrost', icon: 'growth' },
   { id: 'knowledge', label: 'Wiedza', icon: 'book' },
   { id: 'taxonomy', label: 'Taksonomia', icon: 'tree' },
@@ -52,7 +54,7 @@ const GROUPS: { id: string; label: string; icon: string; pages: PageId[]; badge?
   { id: 'rozmowa', label: 'Rozmowa', icon: 'chat', pages: ['chat', 'czysta', 'czat', 'kregi'] },
   { id: 'ucz', label: 'Ucz', icon: 'teach', pages: ['teach', 'tasks'], badge: 'teach' },
   { id: 'weryfikuj', label: 'Weryfikuj', icon: 'check', pages: ['weryfikuj'], badge: 'weryfikuj' },
-  { id: 'wezel', label: 'Węzeł', icon: 'node', pages: ['node', 'session'] },
+  { id: 'wezel', label: 'Węzeł', icon: 'node', pages: ['node', 'session', 'moc'] },
   { id: 'wiecej', label: 'Więcej', icon: 'more', pages: ['growth', 'knowledge', 'taxonomy', 'ai', 'verify', 'progress', 'konto'] },
 ]
 const groupOf = (p: PageId) => GROUPS.find((g) => g.pages.includes(p))!
@@ -231,6 +233,7 @@ export default function App() {
             {page === 'tasks' && <Tasks />}
             {page === 'node' && <NodePage />}
             {page === 'session' && <SessionPage />}
+            {page === 'moc' && <MocPage />}
             {page === 'knowledge' && <Knowledge />}
             {page === 'growth' && <Growth />}
             {page === 'ai' && <RealAI snap={snap} />}

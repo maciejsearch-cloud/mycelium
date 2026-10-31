@@ -274,11 +274,20 @@ class Node:
 
     async def telemetry(self, panel, stop: asyncio.Event):
         """Co 2 s: pomiar CPU/GPU/RAM, zdarzenia do historii (zadania, połączenie), prośba o restart z panelu."""
+        from .lmwork import Supa
+        from .moc import Reporter
+
         seen: dict[str, float] = {}
         was = None
+        rep = Reporter(self.id, Supa())
         while not stop.is_set():
             s = await asyncio.to_thread(panel.monitor.sample)
             s["busy"] = panel.sched.view()["busy_pct"]
+            rep.add(s)
+            if rep.due():
+                dev = getattr(self.lmw, "backend", "cpu") if self.lmw else "cpu"
+                data = rep.build(panel.sched.totals, torch.get_num_threads(), dev)
+                await asyncio.to_thread(rep.post, data)
             conn = self.net.ws is not None
             if conn != was:
                 if was is not None or conn:
@@ -515,7 +524,9 @@ def main(argv=None):
     m = Qwen(ensure_weights(log), torch.bfloat16 if a.dtype == "bf16" else torch.float32)
     n = Node(m, nid, f"{platform.node()}/{a.name}", log)
     train = not a.no_train and not (0 < ram < 2)
-    micro = 2 if 0 < ram < 4 else None
+    # 1.11.2026 pomiar na boxie (3 wątki, bf16): micro 2 = 151 tok/s, micro 4 = 515 tok/s (3,3 GB), całość = 501 tok/s
+    # (3,7 GB) – micro 2 marnowało ⅔ mocy; 2 zostaje tylko przy bardzo małym limicie RAM
+    micro = (2 if ram < 3 else 4) if 0 < ram < 4 else None
     if not a.no_lm:
         from .lmwork import LMWorker
 
