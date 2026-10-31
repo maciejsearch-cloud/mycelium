@@ -2223,6 +2223,40 @@
    ],
    "gate_eval_sha": "9bebb6f48df885029b02a0e97df6a1371458877b8608d9a4c1e1311f4bc66a0a",
    "license": "dane generowane programem (repozytorium projektu)"
+  },
+  {
+   "name": "sft-math-0001.bin.gz",
+   "sha256": "58840dd59bc9449871c1a9c5eb08dc13a16c68539200791a00221c2b7a54f3ca",
+   "bytes": 35269,
+   "n": 1000,
+   "answer_tokens": 3494,
+   "too_long": 0,
+   "per_kind": {
+    "arytmetyka": 200,
+    "ułamki": 200,
+    "procenty": 200,
+    "równania": 200,
+    "zadanie tekstowe": 200
+   },
+   "per_level": {
+    "1": 337,
+    "2": 362,
+    "3": 301
+   },
+   "kind": "sft-math",
+   "source": "zadania matematyczne generowane programem (mesh/zadania.py), odpowiedź liczona programem",
+   "seeds": [
+    1000,
+    "…"
+   ],
+   "held_out": {
+    "round1_seed": 1,
+    "round1_per_kind": 24,
+    "queue": "queue.json",
+    "n_hashes": 312
+   },
+   "gate_eval_sha": "9bebb6f48df885029b02a0e97df6a1371458877b8608d9a4c1e1311f4bc66a0a",
+   "license": "dane generowane programem (repozytorium projektu)"
   }
  ]
 }

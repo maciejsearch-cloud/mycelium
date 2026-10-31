@@ -1,0 +1,141 @@
+{
+ "when": "2026-10-25",
+ "what": "pomiar lokalny przed/po jednym zadaniu treningu (16 kroków × 8, lr 1e-3, jak na węźle) od opublikowanego LM, bf16 CPU",
+ "base_model": "lm v4",
+ "shard_sha256": "58840dd59bc9449871c1a9c5eb08dc13a16c68539200791a00221c2b7a54f3ca",
+ "E1": "runda 1 (ziarno 1), 120 zadań, dystraktory z generatora",
+ "E2": "te same pytania z odpowiedzią całkowitą (86), 3 losowe dystraktory v±1..12",
+ "before": {
+  "E1": {
+   "acc": 0.175,
+   "correct": 21,
+   "n": 120,
+   "per_kind": {
+    "arytmetyka": "3/24",
+    "ułamki": "6/24",
+    "procenty": "1/24",
+    "równania": "6/24",
+    "zadanie tekstowe": "5/24"
+   }
+  },
+  "E2": {
+   "acc": 0.2093,
+   "correct": 18,
+   "n": 86,
+   "per_kind": {
+    "arytmetyka": "5/24",
+    "procenty": "0/14",
+    "równania": "7/24",
+    "zadanie tekstowe": "6/24"
+   }
+  }
+ },
+ "after_shard_generator_distractors (wysyłany)": {
+  "E1": {
+   "acc": 0.5333,
+   "correct": 64,
+   "n": 120,
+   "per_kind": {
+    "arytmetyka": "16/24",
+    "ułamki": "7/24",
+    "procenty": "9/24",
+    "równania": "19/24",
+    "zadanie tekstowe": "13/24"
+   }
+  },
+  "E2": {
+   "acc": 0.3605,
+   "correct": 31,
+   "n": 86,
+   "per_kind": {
+    "arytmetyka": "8/24",
+    "procenty": "6/14",
+    "równania": "8/24",
+    "zadanie tekstowe": "9/24"
+   }
+  },
+  "train": {
+   "skipped": 0,
+   "loss_first": 1.61893,
+   "loss_last": 0.27917,
+   "loss_mean": 0.48527,
+   "tokens": 16384,
+   "steps": 16,
+   "s": 24.19
+  }
+ },
+ "after_question_only (porównanie, bez opcji w treningu)": {
+  "E1": {
+   "acc": 0.2083,
+   "correct": 25,
+   "n": 120,
+   "per_kind": {
+    "arytmetyka": "6/24",
+    "ułamki": "7/24",
+    "procenty": "5/24",
+    "równania": "5/24",
+    "zadanie tekstowe": "2/24"
+   }
+  },
+  "E2": {
+   "acc": 0.2093,
+   "correct": 18,
+   "n": 86,
+   "per_kind": {
+    "arytmetyka": "4/24",
+    "procenty": "3/14",
+    "równania": "6/24",
+    "zadanie tekstowe": "5/24"
+   }
+  },
+  "train": {
+   "skipped": 0,
+   "loss_first": 2.16513,
+   "loss_last": 0.52599,
+   "loss_mean": 0.95202,
+   "tokens": 16384,
+   "steps": 16,
+   "s": 23.72
+  }
+ },
+ "after_random_distractors (porównanie)": {
+  "E1": {
+   "acc": 0.325,
+   "correct": 39,
+   "n": 120,
+   "per_kind": {
+    "arytmetyka": "9/24",
+    "ułamki": "9/24",
+    "procenty": "7/24",
+    "równania": "8/24",
+    "zadanie tekstowe": "6/24"
+   }
+  },
+  "E2": {
+   "acc": 0.2791,
+   "correct": 24,
+   "n": 86,
+   "per_kind": {
+    "arytmetyka": "7/24",
+    "procenty": "4/14",
+    "równania": "6/24",
+    "zadanie tekstowe": "7/24"
+   }
+  },
+  "train": {
+   "skipped": 0,
+   "loss_first": 1.50968,
+   "loss_last": 0.35817,
+   "loss_mean": 0.58257,
+   "tokens": 16384,
+   "steps": 16,
+   "s": 43.46
+  }
+ },
+ "heuristic_baselines_E1": {
+  "middle_value_of_4": 0.4625,
+  "max_digit_overlap": 0.4,
+  "note": "dystraktory generatora zdradzają odpowiedź układem – dlatego E2"
+ },
+ "caveat": "jedno ziarno, n=120/86; to nie jest wynik sieci – bramka publikacji (2000 pytań, f32) decyduje o wydaniu"
+}
