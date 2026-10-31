@@ -1,0 +1,2375 @@
+{
+ "summary": {
+  "model": "rb-lfg-70793f8d.bin",
+  "sha": "70793f8d",
+  "at": "2026-10-31T21:53:27.478Z",
+  "L0": {
+   "all": 112,
+   "ok": 23,
+   "reasons": {
+    "dwa-rzeczowniki": 14,
+    "szyk": 56,
+    "pewność": 42,
+    "przyimek": 16,
+    "zgoda": 8
+   }
+  },
+  "L1": {
+   "all": 4800,
+   "ok": 190,
+   "reasons": {
+    "szyk": 2400,
+    "zgoda": 2266,
+    "pewność": 1276,
+    "bez-czasownika": 2693,
+    "dwa-rzeczowniki": 1222,
+    "dwa-czasowniki": 2586,
+    "przyimek": 1374,
+    "się": 85
+   }
+  }
+ },
+ "ok": [
+  {
+   "level": 0,
+   "text": "kto to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.959,
+   "root": "to"
+  },
+  {
+   "level": 0,
+   "text": "co ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.818,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "co ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.793,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "ile ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.788,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "gdzie ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.974,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "gdzie ona?",
+   "ok": true,
+   "why": [],
+   "conf": 0.953,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "gdzie my?",
+   "ok": true,
+   "why": [],
+   "conf": 0.921,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "gdzie wy?",
+   "ok": true,
+   "why": [],
+   "conf": 0.889,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "gdzie oni?",
+   "ok": true,
+   "why": [],
+   "conf": 0.958,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "gdzie to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.926,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "jak my?",
+   "ok": true,
+   "why": [],
+   "conf": 0.902,
+   "root": "my"
+  },
+  {
+   "level": 0,
+   "text": "jak wy?",
+   "ok": true,
+   "why": [],
+   "conf": 0.763,
+   "root": "wy"
+  },
+  {
+   "level": 0,
+   "text": "jak oni?",
+   "ok": true,
+   "why": [],
+   "conf": 0.773,
+   "root": "oni"
+  },
+  {
+   "level": 0,
+   "text": "jak to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.897,
+   "root": "to"
+  },
+  {
+   "level": 0,
+   "text": "kiedy my?",
+   "ok": true,
+   "why": [],
+   "conf": 0.892,
+   "root": "my"
+  },
+  {
+   "level": 0,
+   "text": "kiedy to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.933,
+   "root": "to"
+  },
+  {
+   "level": 0,
+   "text": "czy ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.987,
+   "root": "ja"
+  },
+  {
+   "level": 0,
+   "text": "czy ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.924,
+   "root": "ty"
+  },
+  {
+   "level": 0,
+   "text": "czy on?",
+   "ok": true,
+   "why": [],
+   "conf": 0.926,
+   "root": "on"
+  },
+  {
+   "level": 0,
+   "text": "czy ona?",
+   "ok": true,
+   "why": [],
+   "conf": 0.988,
+   "root": "ona"
+  },
+  {
+   "level": 0,
+   "text": "czy my?",
+   "ok": true,
+   "why": [],
+   "conf": 0.993,
+   "root": "my"
+  },
+  {
+   "level": 0,
+   "text": "czy oni?",
+   "ok": true,
+   "why": [],
+   "conf": 0.989,
+   "root": "oni"
+  },
+  {
+   "level": 0,
+   "text": "czy to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.986,
+   "root": "to"
+  },
+  {
+   "level": 1,
+   "text": "ile ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.788,
+   "root": "ile"
+  },
+  {
+   "level": 1,
+   "text": "ile mam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.997,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "ile masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "ile ma?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "ma"
+  },
+  {
+   "level": 1,
+   "text": "ile lat?",
+   "ok": true,
+   "why": [],
+   "conf": 0.903,
+   "root": "lat"
+  },
+  {
+   "level": 1,
+   "text": "ile dni?",
+   "ok": true,
+   "why": [],
+   "conf": 0.832,
+   "root": "dni"
+  },
+  {
+   "level": 1,
+   "text": "ile ja mam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.959,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "ile ty masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.969,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "ile mam ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.993,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "ile mam lat?",
+   "ok": true,
+   "why": [],
+   "conf": 0.97,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "ile mam dni?",
+   "ok": true,
+   "why": [],
+   "conf": 0.978,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "ile masz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.987,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "ile masz lat?",
+   "ok": true,
+   "why": [],
+   "conf": 0.981,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "ile masz dni?",
+   "ok": true,
+   "why": [],
+   "conf": 0.991,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "ile ma lat?",
+   "ok": true,
+   "why": [],
+   "conf": 0.996,
+   "root": "ma"
+  },
+  {
+   "level": 1,
+   "text": "ile lat mam?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "ile lat masz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "ile lat ma?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "ma"
+  },
+  {
+   "level": 1,
+   "text": "ile lat jest?",
+   "ok": true,
+   "why": [],
+   "conf": 0.927,
+   "root": "jest"
+  },
+  {
+   "level": 1,
+   "text": "ile dni mam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.996,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "ile jest lat?",
+   "ok": true,
+   "why": [],
+   "conf": 0.959,
+   "root": "ile"
+  },
+  {
+   "level": 1,
+   "text": "kto jest?",
+   "ok": true,
+   "why": [],
+   "conf": 0.966,
+   "root": "jest"
+  },
+  {
+   "level": 1,
+   "text": "kto tam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.996,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.959,
+   "root": "to"
+  },
+  {
+   "level": 1,
+   "text": "kto mówi?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto jest tam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.967,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto jest to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.956,
+   "root": "to"
+  },
+  {
+   "level": 1,
+   "text": "kto jestem tam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.997,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto jestem to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.979,
+   "root": "to"
+  },
+  {
+   "level": 1,
+   "text": "kto jesteś tam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.996,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto jesteś to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.963,
+   "root": "to"
+  },
+  {
+   "level": 1,
+   "text": "kto tam jest?",
+   "ok": true,
+   "why": [],
+   "conf": 0.968,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.967,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.979,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam mówi?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto to mówi?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto mówi tam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto mówi to?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto jest tam to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.807,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto jestem tam to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.809,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto jesteś tam to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.843,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam jest to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.904,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam jestem to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.855,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam jesteś to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.936,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam to jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.872,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam to jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.789,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto tam to mówi?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto tam mówi to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto to tam jest?",
+   "ok": true,
+   "why": [],
+   "conf": 0.814,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto to tam jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.83,
+   "root": "tam"
+  },
+  {
+   "level": 1,
+   "text": "kto to tam mówi?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto to mówi tam?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto mówi tam to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.991,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "kto mówi to tam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.971,
+   "root": "mówi"
+  },
+  {
+   "level": 1,
+   "text": "gdzie ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.974,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.97,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.977,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie mieszkasz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mieszkasz"
+  },
+  {
+   "level": 1,
+   "text": "gdzie mieszkam?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mieszkam"
+  },
+  {
+   "level": 1,
+   "text": "gdzie jest?",
+   "ok": true,
+   "why": [],
+   "conf": 0.848,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie dom?",
+   "ok": true,
+   "why": [],
+   "conf": 0.931,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie ja jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.927,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie ja mieszkam?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mieszkam"
+  },
+  {
+   "level": 1,
+   "text": "gdzie ty jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.947,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie ty mieszkasz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "mieszkasz"
+  },
+  {
+   "level": 1,
+   "text": "gdzie jestem ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.976,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie jesteś ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.986,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "gdzie mieszkasz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mieszkasz"
+  },
+  {
+   "level": 1,
+   "text": "gdzie mieszkasz dom?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "mieszkasz"
+  },
+  {
+   "level": 1,
+   "text": "gdzie mieszkam ja?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mieszkam"
+  },
+  {
+   "level": 1,
+   "text": "gdzie mieszkam dom?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "mieszkam"
+  },
+  {
+   "level": 1,
+   "text": "gdzie jest dom?",
+   "ok": true,
+   "why": [],
+   "conf": 0.986,
+   "root": "gdzie"
+  },
+  {
+   "level": 1,
+   "text": "jak imię?",
+   "ok": true,
+   "why": [],
+   "conf": 0.979,
+   "root": "imię"
+  },
+  {
+   "level": 1,
+   "text": "jak ty masz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak ty czujesz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.976,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię mam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.966,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "jak imię się?",
+   "ok": true,
+   "why": [],
+   "conf": 0.925,
+   "root": "imię"
+  },
+  {
+   "level": 1,
+   "text": "jak imię czujesz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.988,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię czuję?",
+   "ok": true,
+   "why": [],
+   "conf": 0.982,
+   "root": "czuję"
+  },
+  {
+   "level": 1,
+   "text": "jak ty masz imię?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak ty masz się?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak ty imię masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.979,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak ty imię czujesz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.993,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak ty się masz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak ty się czujesz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak ty czujesz imię?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak ty czujesz się?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię ty masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.962,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię ty czujesz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.977,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię masz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.933,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię masz się?",
+   "ok": true,
+   "why": [],
+   "conf": 0.958,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię mam się?",
+   "ok": true,
+   "why": [],
+   "conf": 0.975,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "jak imię na czuję?",
+   "ok": true,
+   "why": [],
+   "conf": 0.758,
+   "root": "imię"
+  },
+  {
+   "level": 1,
+   "text": "jak imię się masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.977,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię się mam?",
+   "ok": true,
+   "why": [],
+   "conf": 0.972,
+   "root": "mam"
+  },
+  {
+   "level": 1,
+   "text": "jak imię się czujesz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.995,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię się czuję?",
+   "ok": true,
+   "why": [],
+   "conf": 0.991,
+   "root": "czuję"
+  },
+  {
+   "level": 1,
+   "text": "jak imię czujesz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.962,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię czujesz się?",
+   "ok": true,
+   "why": [],
+   "conf": 0.977,
+   "root": "czujesz"
+  },
+  {
+   "level": 1,
+   "text": "jak imię czuję się?",
+   "ok": true,
+   "why": [],
+   "conf": 0.978,
+   "root": "czuję"
+  },
+  {
+   "level": 1,
+   "text": "co ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.793,
+   "root": "co"
+  },
+  {
+   "level": 1,
+   "text": "co ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.818,
+   "root": "co"
+  },
+  {
+   "level": 1,
+   "text": "co ty robisz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "robisz"
+  },
+  {
+   "level": 1,
+   "text": "co ty lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "co ty masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "co ja robię?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "robię"
+  },
+  {
+   "level": 1,
+   "text": "co to ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.79,
+   "root": "co"
+  },
+  {
+   "level": 1,
+   "text": "co to ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.777,
+   "root": "co"
+  },
+  {
+   "level": 1,
+   "text": "co to robisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.993,
+   "root": "robisz"
+  },
+  {
+   "level": 1,
+   "text": "co to robię?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "robię"
+  },
+  {
+   "level": 1,
+   "text": "co to lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "co to masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.997,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "co ty robisz to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.995,
+   "root": "robisz"
+  },
+  {
+   "level": 1,
+   "text": "co ty lubisz to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.995,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "co ty to ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.785,
+   "root": "co"
+  },
+  {
+   "level": 1,
+   "text": "co ty to robisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "robisz"
+  },
+  {
+   "level": 1,
+   "text": "co ty to lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "co ty to masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.998,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "co ty masz to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.993,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "co ja robię to?",
+   "ok": true,
+   "why": [],
+   "conf": 0.998,
+   "root": "robię"
+  },
+  {
+   "level": 1,
+   "text": "co ja to ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.804,
+   "root": "co"
+  },
+  {
+   "level": 1,
+   "text": "co ja to robię?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "robię"
+  },
+  {
+   "level": 1,
+   "text": "co to ty robisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.991,
+   "root": "robisz"
+  },
+  {
+   "level": 1,
+   "text": "co to ty lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.993,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "co to ty masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.981,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "co to ja robię?",
+   "ok": true,
+   "why": [],
+   "conf": 0.995,
+   "root": "robię"
+  },
+  {
+   "level": 1,
+   "text": "co to robię ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.991,
+   "root": "robię"
+  },
+  {
+   "level": 1,
+   "text": "co to masz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.977,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.924,
+   "root": "ty"
+  },
+  {
+   "level": 1,
+   "text": "czy ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.987,
+   "root": "ja"
+  },
+  {
+   "level": 1,
+   "text": "czy jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.998,
+   "root": "jesteś"
+  },
+  {
+   "level": 1,
+   "text": "czy jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.997,
+   "root": "jestem"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.998,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.995,
+   "root": "grzybnia"
+  },
+  {
+   "level": 1,
+   "text": "czy ty jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.88,
+   "root": "jesteś"
+  },
+  {
+   "level": 1,
+   "text": "czy ty lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy ty masz?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy jesteś tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.904,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy jestem ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.761,
+   "root": "ja"
+  },
+  {
+   "level": 1,
+   "text": "czy jestem tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.961,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz tu?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 1,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.996,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy tu jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.994,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy tu lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.988,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.968,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy grzybnia tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.984,
+   "root": "grzybnia"
+  },
+  {
+   "level": 1,
+   "text": "czy ty jesteś tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.981,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy ty lubisz tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.998,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy ty lubisz grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy ty masz tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.998,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy ty masz grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.999,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy ty tu jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.982,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy ty tu lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.996,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy ty tu masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.988,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy ja jestem tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.99,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy ja tu jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.977,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy jesteś ty tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.886,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy jesteś tu ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.862,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy jestem ja tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.949,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy jestem tu ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.945,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz ty tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.997,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz ty grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.976,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz tu ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.998,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz tu grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.981,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz grzybnia ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.841,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy lubisz grzybnia tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.883,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz ty tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.995,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz ty grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.955,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz tu ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.994,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz tu grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.979,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz grzybnia ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.919,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy masz grzybnia tu?",
+   "ok": true,
+   "why": [],
+   "conf": 0.911,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu ty jesteś?",
+   "ok": true,
+   "why": [],
+   "conf": 0.986,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy tu ty lubisz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.947,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu ty masz?",
+   "ok": true,
+   "why": [],
+   "conf": 0.961,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu ja jestem?",
+   "ok": true,
+   "why": [],
+   "conf": 0.989,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy tu jesteś ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.995,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy tu jestem ja?",
+   "ok": true,
+   "why": [],
+   "conf": 0.994,
+   "root": "tu"
+  },
+  {
+   "level": 1,
+   "text": "czy tu lubisz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.956,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu lubisz grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.959,
+   "root": "lubisz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu masz ty?",
+   "ok": true,
+   "why": [],
+   "conf": 0.937,
+   "root": "masz"
+  },
+  {
+   "level": 1,
+   "text": "czy tu masz grzybnia?",
+   "ok": true,
+   "why": [],
+   "conf": 0.912,
+   "root": "masz"
+  }
+ ],
+ "sample_rejected": [
+  {
+   "level": 0,
+   "text": "kto ja?",
+   "ok": false,
+   "why": [
+    "dwa-rzeczowniki"
+   ],
+   "conf": 0.917,
+   "root": "kto"
+  },
+  {
+   "level": 0,
+   "text": "ja kto?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "dwa-rzeczowniki",
+    "pewność"
+   ],
+   "conf": 0.682,
+   "root": "kto"
+  },
+  {
+   "level": 0,
+   "text": "kto ty?",
+   "ok": false,
+   "why": [
+    "dwa-rzeczowniki"
+   ],
+   "conf": 0.943,
+   "root": "kto"
+  },
+  {
+   "level": 0,
+   "text": "ty kto?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "dwa-rzeczowniki",
+    "pewność"
+   ],
+   "conf": 0.677,
+   "root": "kto"
+  },
+  {
+   "level": 0,
+   "text": "kto on?",
+   "ok": false,
+   "why": [
+    "dwa-rzeczowniki"
+   ],
+   "conf": 0.874,
+   "root": "kto"
+  },
+  {
+   "level": 0,
+   "text": "on kto?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "dwa-rzeczowniki",
+    "pewność"
+   ],
+   "conf": 0.544,
+   "root": "on"
+  },
+  {
+   "level": 0,
+   "text": "kto ona?",
+   "ok": false,
+   "why": [
+    "dwa-rzeczowniki"
+   ],
+   "conf": 0.754,
+   "root": "ona"
+  },
+  {
+   "level": 0,
+   "text": "ona kto?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "dwa-rzeczowniki",
+    "pewność"
+   ],
+   "conf": 0.677,
+   "root": "ona"
+  },
+  {
+   "level": 0,
+   "text": "kto my?",
+   "ok": false,
+   "why": [
+    "dwa-rzeczowniki"
+   ],
+   "conf": 0.973,
+   "root": "my"
+  },
+  {
+   "level": 0,
+   "text": "my kto?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "dwa-rzeczowniki"
+   ],
+   "conf": 0.806,
+   "root": "my"
+  },
+  {
+   "level": 0,
+   "text": "kto wy?",
+   "ok": false,
+   "why": [
+    "dwa-rzeczowniki",
+    "pewność"
+   ],
+   "conf": 0.626,
+   "root": "kto"
+  },
+  {
+   "level": 0,
+   "text": "wy kto?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "dwa-rzeczowniki",
+    "pewność"
+   ],
+   "conf": 0.651,
+   "root": "wy"
+  },
+  {
+   "level": 0,
+   "text": "kto oni?",
+   "ok": false,
+   "why": [
+    "dwa-rzeczowniki"
+   ],
+   "conf": 0.967,
+   "root": "oni"
+  },
+  {
+   "level": 0,
+   "text": "oni kto?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "dwa-rzeczowniki"
+   ],
+   "conf": 0.848,
+   "root": "oni"
+  },
+  {
+   "level": 0,
+   "text": "to kto?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 1,
+   "root": "to"
+  },
+  {
+   "level": 0,
+   "text": "ja co?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek"
+   ],
+   "conf": 0.935,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "ty co?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek"
+   ],
+   "conf": 0.975,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "co on?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.737,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "on co?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek"
+   ],
+   "conf": 0.943,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "co ona?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.626,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "ona co?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek",
+    "pewność"
+   ],
+   "conf": 0.733,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "co my?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.574,
+   "root": "my"
+  },
+  {
+   "level": 0,
+   "text": "my co?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek",
+    "pewność"
+   ],
+   "conf": 0.701,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "co wy?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.548,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "wy co?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek",
+    "pewność"
+   ],
+   "conf": 0.565,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "co oni?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.547,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "oni co?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek",
+    "pewność"
+   ],
+   "conf": 0.684,
+   "root": "co"
+  },
+  {
+   "level": 0,
+   "text": "co to?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.561,
+   "root": "to"
+  },
+  {
+   "level": 0,
+   "text": "to co?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek"
+   ],
+   "conf": 0.995,
+   "root": "to"
+  },
+  {
+   "level": 0,
+   "text": "ja ile?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "zgoda"
+   ],
+   "conf": 0.997,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ile ty?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.746,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ty ile?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "zgoda"
+   ],
+   "conf": 0.985,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ile on?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.712,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "on ile?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.986,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ile ona?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.643,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ona ile?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.9,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ile my?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.517,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "my ile?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "pewność"
+   ],
+   "conf": 0.591,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ile wy?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.522,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "wy ile?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.762,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ile oni?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.548,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "oni ile?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.828,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "ile to?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.655,
+   "root": "ile"
+  },
+  {
+   "level": 0,
+   "text": "to ile?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.999,
+   "root": "to"
+  },
+  {
+   "level": 0,
+   "text": "ja gdzie?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "zgoda"
+   ],
+   "conf": 1,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "gdzie ty?",
+   "ok": false,
+   "why": [
+    "zgoda"
+   ],
+   "conf": 0.975,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "ty gdzie?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "zgoda"
+   ],
+   "conf": 0.999,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "gdzie on?",
+   "ok": false,
+   "why": [
+    "zgoda"
+   ],
+   "conf": 0.98,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "on gdzie?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "zgoda"
+   ],
+   "conf": 0.998,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "ona gdzie?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.992,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "my gdzie?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.987,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "wy gdzie?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.945,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "oni gdzie?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "zgoda"
+   ],
+   "conf": 0.996,
+   "root": "gdzie"
+  },
+  {
+   "level": 0,
+   "text": "to gdzie?",
+   "ok": false,
+   "why": [
+    "szyk"
+   ],
+   "conf": 0.996,
+   "root": "to"
+  },
+  {
+   "level": 0,
+   "text": "jak ja?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.394,
+   "root": "jak"
+  },
+  {
+   "level": 0,
+   "text": "ja jak?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek"
+   ],
+   "conf": 0.896,
+   "root": "jak"
+  },
+  {
+   "level": 0,
+   "text": "jak ty?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.544,
+   "root": "jak"
+  },
+  {
+   "level": 0,
+   "text": "ty jak?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek"
+   ],
+   "conf": 0.885,
+   "root": "jak"
+  },
+  {
+   "level": 0,
+   "text": "jak on?",
+   "ok": false,
+   "why": [
+    "pewność"
+   ],
+   "conf": 0.449,
+   "root": "jak"
+  },
+  {
+   "level": 0,
+   "text": "on jak?",
+   "ok": false,
+   "why": [
+    "szyk",
+    "przyimek"
+   ],
+   "conf": 0.865,
+   "root": "jak"
+  }
+ ]
+}
