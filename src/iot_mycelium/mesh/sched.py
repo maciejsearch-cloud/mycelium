@@ -25,6 +25,7 @@ KINDS = {
     "lm_eval": "Ocena wersji modelu (bramka 2000 pytań)",
     "taxo": "Słowa i strzępki (kategorie, fragmenty)",
     "rozbior": "Rozumienie zdań (rozbiór: części mowy, części zdania, role) – uczenie federacyjne",
+    "wallet": "Walidacja transakcji MYC-test (podpisy Ed25519, łańcuch skrótów, korzeń Merkle, dowód pracy)",
 }
 # rodzaje, których węzeł PC jeszcze nie dostaje (pokazywane uczciwie jako niedostępne)
 PLANNED = {
