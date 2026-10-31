@@ -1,7 +1,8 @@
 // Model grzybni w tej przeglądarce (bez węzłów): Qwen2.5-0.5B-Instruct (Apache-2.0) z opublikowanym adapterem LoRA
 // modelu językowego grzybni (najnowsza wersja z myc_models, SHA-256 sprawdzane) scalonym z wagami przy wczytywaniu.
 // Osobny Worker – ta przeglądarka NIE staje się węzłem sieci i nikomu nie liczy. Wagi: zakresy bajtów prosto z
-// Hugging Face (int8 po wczytaniu, ok. 0,5 GB RAM), zapisane w Cache Storage – kolejne wizyty bez pobierania.
+// Hugging Face (int8 przy wczytaniu, potem float32 w tfjs – zmierzone ok. 4,4 GB RAM całej przeglądarki), zapisane w Cache Storage –
+// kolejne wizyty bez pobierania. Bez WebGPU mnożenia macierzy liczy pula wątków roboczych (pool.ts).
 import { SB_KEY, SB_URL } from '../myc/store'
 import { SHARDS } from './qwen'
 
