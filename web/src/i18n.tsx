@@ -25,6 +25,8 @@ const EN: Record<string, string> = {
   Weryfikuj: 'Verify',
   'Zostań węzłem': 'Become a node',
   Konto: 'Account',
+  Portfel: 'Wallet',
+  Eksplorator: 'Explorer',
   Benchmarki: 'Benchmarks',
   Ewolucja: 'Evolution',
   'Krzywe uczenia': 'Learning curves',
