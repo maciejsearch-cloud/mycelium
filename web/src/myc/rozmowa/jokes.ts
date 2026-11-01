@@ -2,7 +2,7 @@
 // na Hugging Face nie ma licencji, a regulamin serwisu zabrania rozpowszechniania; Nonsensopedia – CC BY-SA 3.0 – to
 // długie artykuły). Dlatego żarty są AUTORSKIE (napisane dla projektu, GPL-3.0 jak repozytorium) i tak są oznaczone
 // w czacie: „żart z szablonu (autorski)”. Nie udajemy, że wymyśliła je sieć.
-export const JOKE_CITE = 'żart autorski z listy grzybni (web/src/myc/rozmowa/jokes.ts, GPL-3.0)'
+export const JOKE_CITE = 'żart autorski z listy grzybni (web/src/myc/rozmowa/jokes.ts, MIT)'
 export const JOKES: string[] = [
   'Dlaczego grzybnia nie chodzi na imprezy? Bo i tak wszyscy mówią, że rozrasta się po kątach 🍄',
   'Mam bardzo rozległe znajomości. Dosłownie – pod całym lasem.',

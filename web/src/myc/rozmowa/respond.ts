@@ -2,6 +2,7 @@
 // (relations.ts), pamięci czatu i parach dialogowych zatwierdzonych przez ludzi. Każda odpowiedź ma źródło
 // (reguła / ludzie / pamięć / fakt) i identyfikator reguły – pokazywane w czacie. Brak cenzury: ton bywa luźny,
 // wulgaryzmy rozmówcy nie są blokowane ani karane.
+import { factQuery, factReply } from './facts'
 import { JOKES, JOKE_CITE } from './jokes'
 import { reconciled, toneOf } from './relations'
 import type { Lexicons, Reply, ReplyContext, Understanding } from './types'
@@ -212,6 +213,8 @@ export function respond(u: Understanding, ctx: ReplyContext, lex: Lexicons = {})
       const lines = hits.slice(0, 2).map((h) => `${h.handle} ${when(h.at, now)}: „${h.text.slice(0, 140)}”`)
       return { text: `Pamiętam: ${lines.join('; ')}.`, source: 'pamięć', rule: 'pamiec.trafienie', addressed: true }
     }
+    const fq = ctx.facts ? factQuery(u) : null
+    if (fq && ctx.facts) return factReply(fq, ctx.facts)
     if (u.acts.includes('o_mnie')) return selfReply(u, ctx)
     if (u.acts.includes('komplement')) {
       const text = tone === 'chłodno' ? 'Dzięki… choć pamiętam, że wcześniej nie było tak miło 😉' : pick(['Dziękuję! 😊 Miło mi. O czym pogadamy?', 'Ojej, dzięki 🍄 Też lubię z tobą gadać.'], r)

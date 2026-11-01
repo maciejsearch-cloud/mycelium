@@ -1,8 +1,10 @@
 // Pomiar rozmówcy czatu na zestawie rozmów (results/rozmowa/*.json): zachowanie (kategorie) i poprawność rozbioru.
-// Uruchom: node scripts/rozmowa-eval.mjs [frozen|dev|frozen-v2] [--before] [--out plik.json] [--min N] (CI: kod wyjścia 1, gdy wynik < N)
+// Uruchom: node scripts/rozmowa-eval.mjs [frozen|dev|frozen-v2|dev-v2] [--before] [--out plik.json] [--min N] (CI: kod wyjścia 1, gdy wynik < N)
 //  --before = stan sprzed zmian: w czacie nie było rozmówcy (brak odpowiedzi, relacji i moderacji), a rozbiór to surowy
 //             wynik modelu czytany najprostszym ekstraktorem (korzeń, jego cechy, nsubj, „?”).
 import { readFileSync, writeFileSync } from 'node:fs'
+// jak RPC myc_rozmowa_recall: lemat równy albo wspólny początek (≥ 3 litery, długość − 2): „nuda” ~ „nudzić”
+const stemEq = (c, q) => c === q || (q.length >= 4 && c.slice(0, Math.max(3, q.length - 2)) === q.slice(0, Math.max(3, q.length - 2)))
 import { rozmowaEnv } from './shared/rozmowa-env.mjs'
 
 const args = process.argv.slice(2)
@@ -58,9 +60,11 @@ for (const it of data.items) {
     if (u.acts.includes('przypomnienie')) {
       const h = handles.find((x) => x.toLowerCase() === (u.subj ?? '').toLowerCase() || u.toks.some((k) => k.f === x))
       const lem = u.content.filter((c) => !['pisać', 'napisać', 'mówić', 'powiedzieć', 'wspominać'].includes(c))
-      recall = history.filter((m) => m.author !== who && (h ? m.author === h : m.u.content.some((c) => lem.includes(c)))).map((m) => ({ handle: m.author, at: new Date(m.at).toISOString(), text: m.text }))
+      recall = history.filter((m) => m.author !== who && (h ? m.author === h : m.u.content.some((c) => lem.some((q) => stemEq(c, q))))).map((m) => ({ handle: m.author, at: new Date(m.at).toISOString(), text: m.text }))
     }
-    const reply = before ? undefined : Rp.respond(u, { handle: who, rel: prevRel, recall, rnd: () => 0, now: new Date(at), self: {} }, env.lex)
+    // fakty: tylko jawny zestaw strzępków zapisany w pozycji testu (it.facts) – jak odczyt myc_frags w procesie rozmówcy
+    const facts = it.facts && env.mods.facts.factQuery(u) ? it.facts : undefined
+    const reply = before ? undefined : Rp.respond(u, { handle: who, rel: prevRel, recall, facts, rnd: () => 0, now: new Date(at), self: {} }, env.lex)
     history.push(msg)
     last = { u, reply, text }
   }
@@ -82,6 +86,8 @@ for (const it of data.items) {
     zalew: () => mods.some((m) => m.kind === 'mute_auto'),
     przypomnienie: () => rule === 'pamiec.trafienie' && it.seq.slice(0, -1).some(([w, t]) => last.reply.text.includes(w) && last.reply.text.includes(t.slice(0, 20))),
     cisza: () => !last.reply,
+    fakt: () => rule.startsWith('fakt') && (!it.expect || it.expect.every((w) => last.reply.text.toLowerCase().includes(w))),
+    nie_pamiec: () => !rule.startsWith('pamiec'),
   }
   const ok = okBy[it.cat]()
   let parse

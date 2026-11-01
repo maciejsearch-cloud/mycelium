@@ -9,7 +9,7 @@ import { rozmowaEnv } from './shared/rozmowa-env.mjs'
 const SB_URL = 'https://agortpieeygmcttjwjfx.supabase.co'
 const SB_KEY = 'sb_publishable_O6NCXONs9ZOb13j_od4mnw_KqJlH98P' // klucz publiczny (ten sam co w web/src/myc/store.ts)
 const KEY = readFileSync(process.env.MYC_ROZMOWA_KEY_FILE ?? '/workspace/projects/myc-nodes/rozmowa.key', 'utf8').trim()
-const VERSION = 'rozmowa-worker-2'
+const VERSION = 'rozmowa-worker-3'
 const once = process.argv.includes('--once')
 const log = (...a) => console.log(new Date().toISOString(), ...a)
 
@@ -19,8 +19,14 @@ async function rpc(fn, body) {
   return r.json()
 }
 
+async function rest(path) {
+  const r = await fetch(`${SB_URL}/rest/v1${path}`, { headers: { apikey: SB_KEY }, signal: AbortSignal.timeout(15000) })
+  if (!r.ok) throw new Error(`rest: ${r.status}`)
+  return r.json()
+}
+
 const env = await rozmowaEnv()
-const { respond: Rp, relations: Rel, moderation: Mod, learn: Ln } = env.mods
+const { respond: Rp, relations: Rel, moderation: Mod, learn: Ln, facts: Fx } = env.mods
 log('start', VERSION, 'model', env.model.file, 'emo', env.lex.emo.meta.n)
 const win = [] // okno moderacji (ostatnie 24 h)
 const SAY = new Set(['pisać', 'napisać', 'mówić', 'powiedzieć', 'wspominać', 'wspomnieć', 'gadać'])
@@ -38,11 +44,27 @@ async function handle(m, ctx) {
   if (u.acts.includes('przypomnienie')) {
     const h = handles.find((x) => x.toLowerCase() === (u.subj ?? '').toLowerCase() || u.toks.some((k) => k.f.toLowerCase() === x.toLowerCase()))
     const lem = u.content.filter((c) => !SAY.has(c) && !handles.some((x) => x.toLowerCase() === c.toLowerCase()))
-    recall = (h || lem.length) ? await rpc('myc_rozmowa_recall', { p_key: KEY, p_handle: h ?? null, p_lemmas: h ? null : lem, p_before: m.id, p_limit: 3 }) : []
+    // „wczoraj” / „dziś” / „przedwczoraj” zawęża do dnia (strefa Europe/Amsterdam); słowa czasu nie są treścią
+    const DAYS = { dzisiaj: 0, dziś: 0, wczoraj: 1, przedwczoraj: 2 }
+    const dayW = u.toks.map((k) => k.f.toLowerCase()).find((f) => f in DAYS)
+    const lemQ = lem.filter((c) => !(c in DAYS))
+    recall = (h || lemQ.length) ? await rpc('myc_rozmowa_recall', { p_key: KEY, p_handle: h ?? null, p_lemmas: h ? null : lemQ, p_before: m.id, p_limit: dayW ? 10 : 3 }) : []
+    if (dayW) {
+      const day = (d) => new Date(d).toLocaleDateString('sv-SE', { timeZone: 'Europe/Amsterdam' })
+      const want = day(Date.now() - DAYS[dayW] * 86400e3)
+      recall = recall.filter((r) => day(r.at) === want).slice(0, 3)
+    }
+  }
+  // pytanie o wiedzę → strzępki z bazy (publiczny odczyt myc_frags; bez strzępka = uczciwe „nie mam w bazie”)
+  let facts
+  const fq = u.addressed ? Fx.factQuery(u) : null
+  if (fq) {
+    const subj = encodeURIComponent(fq.subj.replace(/[*,()%]/g, ''))
+    facts = await rest(`/myc_frags?select=id,subj,rel,obj,source,trust,status,n_support&room=eq.main&layer=eq.0&status=neq.rejected&subj=ilike.${subj}&rel=in.(${fq.rels.join(',')})&order=trust.desc&limit=12`).catch(() => undefined)
   }
   const relPrev = m.train_ok ? m.rel ?? undefined : undefined
   const relNew = m.train_ok ? Rel.applyRel(relPrev, u, m.at) : null
-  const reply = ctx.cfg.enabled ? Rp.respond(u, { handle: m.handle, rel: relPrev, optedOut: !m.train_ok, self: ctx.self, recall, pairs: ctx.pairs, replyToAi: m.reply_to_ai }, env.lex) : undefined
+  const reply = ctx.cfg.enabled ? Rp.respond(u, { handle: m.handle, rel: relPrev, optedOut: !m.train_ok, self: ctx.self, recall, facts, pairs: ctx.pairs, replyToAi: m.reply_to_ai }, env.lex) : undefined
   const mm = { id: m.id, author: m.author, text: m.body, at: Date.parse(m.at), u }
   win.push(mm)
   while (win.length && Date.now() - win[0].at > 24 * 3600e3) win.shift()
