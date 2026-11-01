@@ -1,0 +1,2420 @@
+{
+ "set": "szkolne_dev_v1",
+ "split": "dev (do rozwijania reguł)",
+ "frozen": "2026-11-01",
+ "licence": "Zadania z Zintegrowanej Platformy Edukacyjnej (zpe.gov.pl, MEN). Licencje źródeł: CC BY-SA 3.0 (Eduexpert, klasy 1–3) i CC BY 3.0 (Politechnika Łódzka, Contentplus.pl). Zestaw jako całość: CC BY-SA 3.0, z uznaniem autorstwa jak w polu source każdego zadania.",
+ "gold_format": "gold = lista alternatyw; każda alternatywa = lista elementów, które wszystkie muszą wystąpić w odpowiedzi (scripts/szkolne_eval.py)",
+ "n": 101,
+ "items": [
+  {
+   "id": "szk-1-015",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "W klasie jest 15 chłopców i 10 dziewczynek. O ilu więcej jest chłopców niż dziewczynek?",
+   "gold": [
+    [
+     "5"
+    ]
+   ],
+   "source": {
+    "zpe_id": "Pvopzw5cl",
+    "title": "Rozśpiewana I klasa",
+    "exercise": "Ćw. 4",
+    "url": "https://zpe.gov.pl/pdf/Pvopzw5cl",
+    "pdf": "https://zpe.gov.pl/pdf/Pvopzw5cl",
+    "grade_label": "szkoła podstawowa, klasa 1",
+    "pdf_line": 299,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-016",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "Marcel wybrał się na jesienny spacer w poszukiwaniu darów lasu. Podczas swojej wędrówki znalazł 6 kasztanów, 7 żołędzi, 2 szyszki świerku i 5 kolorowych liści dębu i klonu. Ile łącznie darów lasu znalazł Marcel?",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PkcRyVagS",
+    "title": "Popularne drzewa w Polsce",
+    "exercise": "Ćw. 3",
+    "url": "https://zpe.gov.pl/pdf/PkcRyVagS",
+    "pdf": "https://zpe.gov.pl/pdf/PkcRyVagS",
+    "grade_label": "szkoła podstawowa, klasa 1",
+    "pdf_line": 266,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-017",
+   "grade": "1",
+   "category": "jednostki",
+   "q": "Babcia kupiła składniki do upieczenia ciasta: 1 kilogram cukru, 1 kilogram mąki i 2 kilogramy jabłek. Ile ważyły razem kupione przez babcię składniki?",
+   "gold": [
+    [
+     "4"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P3cbQvjSK",
+    "title": "Pieczemy świąteczne pierniki",
+    "exercise": "Ćw. 3",
+    "url": "https://zpe.gov.pl/pdf/P3cbQvjSK",
+    "pdf": "https://zpe.gov.pl/pdf/P3cbQvjSK",
+    "grade_label": "szkoła podstawowa, klasa 1",
+    "pdf_line": 213,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-2-014",
+   "grade": "2",
+   "category": "zadania_tekstowe",
+   "q": "Do Krainy Działań przybyło 5 Stworków. Następnego dnia przybyło 2 razy więcej Stworków. Kolejnego dnia doszło 3 razy więcej niż pierwszego dnia. Ile razem stworków przybyło do Krainy Działań?",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P10q68cup",
+    "title": "Tabliczka mnożenia na wesoło",
+    "exercise": "Ćw. 1",
+    "url": "https://zpe.gov.pl/pdf/P10q68cup",
+    "pdf": "https://zpe.gov.pl/pdf/P10q68cup",
+    "grade_label": "szkoła podstawowa, klasa 2",
+    "pdf_line": 119,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-2-015",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 5 · 6",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P10q68cup",
+    "title": "Tabliczka mnożenia na wesoło",
+    "exercise": "Pol. 1.1",
+    "url": "https://zpe.gov.pl/pdf/P10q68cup",
+    "pdf": "https://zpe.gov.pl/pdf/P10q68cup",
+    "grade_label": "szkoła podstawowa, klasa 2",
+    "pdf_line": 98,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-2-016",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 7 · 3",
+   "gold": [
+    [
+     "21"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P10q68cup",
+    "title": "Tabliczka mnożenia na wesoło",
+    "exercise": "Pol. 1.2",
+    "url": "https://zpe.gov.pl/pdf/P10q68cup",
+    "pdf": "https://zpe.gov.pl/pdf/P10q68cup",
+    "grade_label": "szkoła podstawowa, klasa 2",
+    "pdf_line": 98,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-2-017",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 3 · 8",
+   "gold": [
+    [
+     "24"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P10q68cup",
+    "title": "Tabliczka mnożenia na wesoło",
+    "exercise": "Pol. 1.3",
+    "url": "https://zpe.gov.pl/pdf/P10q68cup",
+    "pdf": "https://zpe.gov.pl/pdf/P10q68cup",
+    "grade_label": "szkoła podstawowa, klasa 2",
+    "pdf_line": 98,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-2-018",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 7 · 6",
+   "gold": [
+    [
+     "42"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P10q68cup",
+    "title": "Tabliczka mnożenia na wesoło",
+    "exercise": "Pol. 1.4",
+    "url": "https://zpe.gov.pl/pdf/P10q68cup",
+    "pdf": "https://zpe.gov.pl/pdf/P10q68cup",
+    "grade_label": "szkoła podstawowa, klasa 2",
+    "pdf_line": 98,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-2-019",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 8 · 6",
+   "gold": [
+    [
+     "48"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P10q68cup",
+    "title": "Tabliczka mnożenia na wesoło",
+    "exercise": "Pol. 1.5",
+    "url": "https://zpe.gov.pl/pdf/P10q68cup",
+    "pdf": "https://zpe.gov.pl/pdf/P10q68cup",
+    "grade_label": "szkoła podstawowa, klasa 2",
+    "pdf_line": 98,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-2-020",
+   "grade": "2",
+   "category": "zadania_tekstowe",
+   "q": "Rozwiąż zadanie. Tona piasku kosztuje 320 zł, natomiast tona soli drogowej 920 zł. Oblicz, o ile więcej kosztuje sól.",
+   "gold": [
+    [
+     "600"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PKylwaI7t",
+    "title": "Sól i rośliny",
+    "exercise": "Ćw. 4",
+    "url": "https://zpe.gov.pl/pdf/PKylwaI7t",
+    "pdf": "https://zpe.gov.pl/pdf/PKylwaI7t",
+    "grade_label": "szkoła podstawowa, klasa 2",
+    "pdf_line": 203,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-037",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wstaw prawidłowy wynik dzielenia. 36 : 4 =",
+   "gold": [
+    [
+     "9"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P174sFoPG",
+    "title": "Matematyczne wyzwania",
+    "exercise": "Ćw. 1.1",
+    "url": "https://zpe.gov.pl/pdf/P174sFoPG",
+    "pdf": "https://zpe.gov.pl/pdf/P174sFoPG",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 128,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-038",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wstaw prawidłowy wynik dzielenia. 42 : 7 =",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P174sFoPG",
+    "title": "Matematyczne wyzwania",
+    "exercise": "Ćw. 1.2",
+    "url": "https://zpe.gov.pl/pdf/P174sFoPG",
+    "pdf": "https://zpe.gov.pl/pdf/P174sFoPG",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 128,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-039",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wstaw prawidłowy wynik dzielenia. 56 : 8 =",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P174sFoPG",
+    "title": "Matematyczne wyzwania",
+    "exercise": "Ćw. 1.3",
+    "url": "https://zpe.gov.pl/pdf/P174sFoPG",
+    "pdf": "https://zpe.gov.pl/pdf/P174sFoPG",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 128,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-040",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wstaw prawidłowy wynik dzielenia. 24 : 3 =",
+   "gold": [
+    [
+     "8"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P174sFoPG",
+    "title": "Matematyczne wyzwania",
+    "exercise": "Ćw. 1.4",
+    "url": "https://zpe.gov.pl/pdf/P174sFoPG",
+    "pdf": "https://zpe.gov.pl/pdf/P174sFoPG",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 128,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-041",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsca wyniki działań. 37 - 13 - 8 =",
+   "gold": [
+    [
+     "16"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PG6eZXwfo",
+    "title": "Kolejność działań matematycznych",
+    "exercise": "Ćw. 1.1",
+    "url": "https://zpe.gov.pl/pdf/PG6eZXwfo",
+    "pdf": "https://zpe.gov.pl/pdf/PG6eZXwfo",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 87,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-042",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsca wyniki działań. 25 + 5 · 5 =",
+   "gold": [
+    [
+     "50"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PG6eZXwfo",
+    "title": "Kolejność działań matematycznych",
+    "exercise": "Ćw. 1.2",
+    "url": "https://zpe.gov.pl/pdf/PG6eZXwfo",
+    "pdf": "https://zpe.gov.pl/pdf/PG6eZXwfo",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 87,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-043",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsca wyniki działań. 100 - 4 · 4 =",
+   "gold": [
+    [
+     "84"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PG6eZXwfo",
+    "title": "Kolejność działań matematycznych",
+    "exercise": "Ćw. 1.3",
+    "url": "https://zpe.gov.pl/pdf/PG6eZXwfo",
+    "pdf": "https://zpe.gov.pl/pdf/PG6eZXwfo",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 87,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-044",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsca wyniki działań. 48 : 6 + 22 =",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PG6eZXwfo",
+    "title": "Kolejność działań matematycznych",
+    "exercise": "Ćw. 1.4",
+    "url": "https://zpe.gov.pl/pdf/PG6eZXwfo",
+    "pdf": "https://zpe.gov.pl/pdf/PG6eZXwfo",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 87,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-045",
+   "grade": "3",
+   "category": "geometria",
+   "q": "Jeden z boków trójkąta mierzy 5 cm. Drugi bok jest 2 razy dłuższy od pierwszego, a trzeci o 4 cm dłuższy od drugiego. Oblicz obwód tego trójkąta.",
+   "gold": [
+    [
+     "29"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PnIeL5v9B",
+    "title": "Mierzymy obwody figur geometrycznych",
+    "exercise": "Ćw. 3",
+    "url": "https://zpe.gov.pl/pdf/PnIeL5v9B",
+    "pdf": "https://zpe.gov.pl/pdf/PnIeL5v9B",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 183,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-3-046",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Kredka Janka ma 5 cm długości, a nowa kredka Jurka ma 13 cm długości. O ile cm kredka Jurka jest dłuższa?",
+   "gold": [
+    [
+     "8"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PBKGKBo88",
+    "title": "Jednostki długości",
+    "exercise": "Ćw. 2",
+    "url": "https://zpe.gov.pl/pdf/PBKGKBo88",
+    "pdf": "https://zpe.gov.pl/pdf/PBKGKBo88",
+    "grade_label": "szkoła podstawowa, klasa 3",
+    "pdf_line": 324,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-3-001",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. stół",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1GyZczYZ",
+    "title": "Części mowy",
+    "exercise": "Ćw. 1.1",
+    "url": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "pdf": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "grade_label": "szkoła podstawowa, klasa 1‐3",
+    "pdf_line": 55,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-3-002",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. mówią",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1GyZczYZ",
+    "title": "Części mowy",
+    "exercise": "Ćw. 1.2",
+    "url": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "pdf": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "grade_label": "szkoła podstawowa, klasa 1‐3",
+    "pdf_line": 55,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-3-003",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. zielona",
+   "gold": [
+    [
+     "przymiotnik"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1GyZczYZ",
+    "title": "Części mowy",
+    "exercise": "Ćw. 1.3",
+    "url": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "pdf": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "grade_label": "szkoła podstawowa, klasa 1‐3",
+    "pdf_line": 55,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-3-004",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. siedemnasty",
+   "gold": [
+    [
+     "liczebnik"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1GyZczYZ",
+    "title": "Części mowy",
+    "exercise": "Ćw. 1.4",
+    "url": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "pdf": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "grade_label": "szkoła podstawowa, klasa 1‐3",
+    "pdf_line": 55,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-3-005",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. wołali",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1GyZczYZ",
+    "title": "Części mowy",
+    "exercise": "Ćw. 1.5",
+    "url": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "pdf": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "grade_label": "szkoła podstawowa, klasa 1‐3",
+    "pdf_line": 55,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-3-006",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. podłoga",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1GyZczYZ",
+    "title": "Części mowy",
+    "exercise": "Ćw. 1.6",
+    "url": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "pdf": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "grade_label": "szkoła podstawowa, klasa 1‐3",
+    "pdf_line": 55,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-3-007",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. sprytne",
+   "gold": [
+    [
+     "przymiotnik"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1GyZczYZ",
+    "title": "Części mowy",
+    "exercise": "Ćw. 1.7",
+    "url": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "pdf": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "grade_label": "szkoła podstawowa, klasa 1‐3",
+    "pdf_line": 55,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-1-3-008",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. dwa",
+   "gold": [
+    [
+     "liczebnik"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1GyZczYZ",
+    "title": "Części mowy",
+    "exercise": "Ćw. 1.8",
+    "url": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "pdf": "https://zpe.gov.pl/pdf/P1GyZczYZ",
+    "grade_label": "szkoła podstawowa, klasa 1‐3",
+    "pdf_line": 55,
+    "author": "Eduexpert Sp. z o.o.",
+    "licence": "CC BY-SA 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-003",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Która liczba jest o 8 mniejsza od 35?",
+   "gold": [
+    [
+     "27"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Porównywanie różnicowe, Ćw. 2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 778,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-005",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "O ile liczba 24 jest mniejsza od liczby 40?",
+   "gold": [
+    [
+     "16"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Porównywanie różnicowe, Ćw. 4",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 784,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-007",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Do sklepu przywieziono zestawy klocków. Pierwszego dnia sprzedano 24 zestawy, a drugiego dnia o 18 więcej. Ile zestawów klocków sprzedano drugiego dnia?",
+   "gold": [
+    [
+     "42"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Porównywanie różnicowe, Ćw. 6",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 799,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-009",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Tomek ma 9 lat, a jego tata jest od niego o 23 lata starszy. Ile lat ma tata Tomka?",
+   "gold": [
+    [
+     "32"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Porównywanie różnicowe, Ćw. 16",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 929,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-012",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 35 : 7",
+   "gold": [
+    [
+     "5"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Dzielenie pamięciowe, Ćw. 2.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 72,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-013",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 63 : 9",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Dzielenie pamięciowe, Ćw. 2.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 72,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-014",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 72 : 8",
+   "gold": [
+    [
+     "9"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Dzielenie pamięciowe, Ćw. 2.3",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 72,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-017",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Oblicz, ile to lat: 48 miesięcy",
+   "gold": [
+    [
+     "4"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Dzielenie pamięciowe, Ćw. 10.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 1143,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-018",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Oblicz, ile to lat: 72 miesiące",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Dzielenie pamięciowe, Ćw. 10.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 1143,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-024",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Pani Kasia wydaje miesięcznie 15 złotych na swoje ulubione tygodniki. Ile pieniędzy wyda na tygodniki przez pół roku?",
+   "gold": [
+    [
+     "90"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Zadania tekstowe (mnożenie i dzielenie), Ćw. 23",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 1846,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-027",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Kacper ma trzy rodzaje samochodzików. Plastikowych ma 12, metalowych dwa razy mniej, a drewnianych ma dwa razy mniej niż metalowych. Ile wszystkich samochodzików ma Kacper?",
+   "gold": [
+    [
+     "21"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Zadania tekstowe (mnożenie i dzielenie), Ćw. 29",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 1911,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-028",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Znajdź liczbę o 17 większą od 38",
+   "gold": [
+    [
+     "55"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Kolejność działań, Ćw. 8.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": null,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-4-029",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Znajdź liczbę 5 razy mniejszą od 90",
+   "gold": [
+    [
+     "18"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Kolejność działań, Ćw. 8.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": null,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-4-036",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 3 zł 15 gr = … gr",
+   "gold": [
+    [
+     "315"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Obliczenia związane z pieniędzmi, Ćw. 2.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 6212,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-037",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 27 zł 45 gr = … gr",
+   "gold": [
+    [
+     "2745"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Obliczenia związane z pieniędzmi, Ćw. 2.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 6212,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-038",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 4 zł 3 gr = … gr",
+   "gold": [
+    [
+     "403"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Obliczenia związane z pieniędzmi, Ćw. 2.3",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 6212,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-042",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Konrad kupił na swoje urodziny 30 lizaków w cenie 35 gr za sztukę. Ile Konrad zapłacił za lizaki?",
+   "gold": [
+    [
+     "10,50"
+    ],
+    [
+     "10 zł 50 gr"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Trening mistrza (praktyczne zastosowania), Ćw. 12a",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 6799,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-046",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Oblicz obwód kwadratu o boku podanej długości. 5 cm",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Obwód wielokąta, Ćw. 4.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 11376,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-047",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Oblicz obwód kwadratu o boku podanej długości. 16 cm",
+   "gold": [
+    [
+     "64"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Obwód wielokąta, Ćw. 4.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 11376,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-049",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Obwód prostokąta wynosi 40 cm, a jeden z jego boków ma długość 8 cm. Długość drugiego boku tego prostokąta wynosi … cm.",
+   "gold": [
+    [
+     "12"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Obwód wielokąta, Ćw. 8",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 11424,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-051",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. Wykorzystaj to, że dodawanie jest łączne i przemienne. 13 + 9 + 7",
+   "gold": [
+    [
+     "29"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Dodawanie pamięciowe, Ćw. 5.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 295,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-052",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. Wykorzystaj to, że dodawanie jest łączne i przemienne. 28 + 15 + 2 + 25",
+   "gold": [
+    [
+     "70"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Dodawanie pamięciowe, Ćw. 5.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 295,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-055",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Wykonaj odejmowanie. 68 − 15",
+   "gold": [
+    [
+     "53"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Odejmowanie pamięciowe, Ćw. 6.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 568,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-058",
+   "grade": "4",
+   "category": "logika_ciagi",
+   "q": "Przepisz podane liczby w kolejności rosnącej, to znaczy od najmniejszej do największej. 897, 629, 2683, 2698, 13456, 13564",
+   "gold": [
+    [
+     "629",
+     "897",
+     "2683",
+     "2698",
+     "13456",
+     "13564"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PEc4RsM3J",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa IV)",
+    "exercise": "Porównywanie liczb, Ćw. 5.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PEc4RsM3J",
+    "pdf": "https://zpe.gov.pl/pdf/PEc4RsM3J",
+    "grade_label": "klasa 4 (wg tytułu e-podręcznika)",
+    "pdf_line": 4057,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-002",
+   "grade": "5",
+   "category": "zadania_tekstowe",
+   "q": "Każdy uczeń zjada w szkole 42 kg owoców w ciągu roku. Ilu uczniów jest w tej szkole, jeśli w ciągu roku wydano dzieciom 18 270 kg owoców?",
+   "gold": [
+    [
+     "435"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Działania pisemne, Ćw. 19",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 1562,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-010",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Zapisz podane kwoty, używając liczb dwumianowanych. 30,01 zł = … zł … gr",
+   "gold": [
+    [
+     "30",
+     "1"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Liczby dziesiętne, Ćw. 8.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 9722,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-011",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Zapisz podane kwoty, używając liczb dwumianowanych. 3,2 zł = … zł … gr",
+   "gold": [
+    [
+     "3",
+     "20"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Liczby dziesiętne, Ćw. 8.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 9722,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-015",
+   "grade": "5",
+   "category": "jednostki",
+   "q": "Zapisz podane masy, używając liczb dziesiętnych. 1 cm 2 mm = … cm",
+   "gold": [
+    [
+     "1,2"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Liczby dziesiętne, Ćw. 14.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 9794,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-016",
+   "grade": "5",
+   "category": "jednostki",
+   "q": "Zapisz podane masy, używając liczb dziesiętnych. 3 km 20 m = … km",
+   "gold": [
+    [
+     "3,02"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Liczby dziesiętne, Ćw. 14.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 9794,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-018",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Kasia kupiła sześć jednakowych jogurtów, każdy o masie 0,15 kg. Ile kilogramów ważyły wszystkie jogurty?",
+   "gold": [
+    [
+     "0,9"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Mnożenie liczb dziesiętnych przez naturalne, Ćw. 2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 10600,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-021",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz w pamięci. 6 ∙ 0,5",
+   "gold": [
+    [
+     "3"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Mnożenie liczb dziesiętnych przez naturalne, Ćw. 7.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 593,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-022",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz w pamięci. 4 ∙ 1,5",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Mnożenie liczb dziesiętnych przez naturalne, Ćw. 7.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 593,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-023",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz w pamięci. 2 ∙ 2,3",
+   "gold": [
+    [
+     "4,6"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Mnożenie liczb dziesiętnych przez naturalne, Ćw. 7.3",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 593,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-025",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz. 2,19 : 3",
+   "gold": [
+    [
+     "0,73"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Dzielenie liczb dziesiętnych przez naturalne, Ćw. 7.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 12,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-026",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz. 20,5 : 5",
+   "gold": [
+    [
+     "4,1"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Dzielenie liczb dziesiętnych przez naturalne, Ćw. 7.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 12,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-030",
+   "grade": "5",
+   "category": "zadania_tekstowe",
+   "q": "Ala kupiła 2 długopisy po 2,85 zł oraz 3 zeszyty po 1,45 zł. Ile zapłaciła za zakupy?",
+   "gold": [
+    [
+     "10,05"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Łączenie działań na liczbach dziesiętnych, Ćw. 6",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 12227,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-035",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole kwadratu, którego bok ma długość 6 cm",
+   "gold": [
+    [
+     "36"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Pole prostokąta i kwadratu, Ćw. 8.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": null,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-5-036",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole kwadratu, którego bok ma długość 7 dm",
+   "gold": [
+    [
+     "49"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Pole prostokąta i kwadratu, Ćw. 8.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": null,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-5-039",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Pan Andrzej ma dwie działki w kształcie prostokąta. Pole jednej działki jest równe 60 a, a druga ma wymiary 50 m i 150 m. Oblicz, jaką powierzchnię w hektarach zajmują razem obie działki pana Andrzeja.",
+   "gold": [
+    [
+     "1,35"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Pole prostokąta i kwadratu, Ćw. 11",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": 13680,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-5-040",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta, w którym jeden z boków ma długość 5 cm, a drugi jest od niego o 4 cm dłuższy.",
+   "gold": [
+    [
+     "45"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Obliczanie pól wielokątów – trening, Ćw. 1.1",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": null,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-5-041",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta, w którym obwód jest równy 30 cm, a jeden z boków ma długość 12 cm.",
+   "gold": [
+    [
+     "36"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P4KexLAYo",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa V)",
+    "exercise": "Obliczanie pól wielokątów – trening, Ćw. 1.2",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P4KexLAYo",
+    "pdf": "https://zpe.gov.pl/pdf/P4KexLAYo",
+    "grade_label": "klasa 5 (wg tytułu e-podręcznika)",
+    "pdf_line": null,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-6-002",
+   "grade": "6",
+   "category": "ulamki",
+   "q": "Pani Kasia zapłaciła 113,42 zł za 26,5 litra benzyny. Oblicz, ile złotych kosztuje litr tej benzyny.",
+   "gold": [
+    [
+     "4,28"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 30",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 2129,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-004",
+   "grade": "6",
+   "category": "ulamki",
+   "q": "Adrian kupił 0,3 kg mandarynek po 4,89 zł za kilogram. Ile złotych zapłacił Adrian za mandarynki? Podaj wynik zaokrąglony do części setnych.",
+   "gold": [
+    [
+     "1,47"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 8",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 4425,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-008",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Oblicz pole kwadratu, którego przekątna ma długość 12 cm.",
+   "gold": [
+    [
+     "72"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 7",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 6211,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-009",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Jedna przekątna rombu ma długość 12 cm, a druga jest od niej o 4 cm krótsza. Oblicz pole tego rombu.",
+   "gold": [
+    [
+     "48"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 14",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 6278,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-013",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Odległość między Adamowem i Piotrkowem jest równa 195 km. Oblicz, z jaką średnią prędkością jedzie pociąg, jeżeli z Adamowa wyjeżdża o godzinie 19 : 17, a w Piotrkowie jest o godzinie 21 : 47.",
+   "gold": [
+    [
+     "78"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 11 (prędkość)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 7662,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-015",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Zimą buty kosztowały 240 zł. Na wiosnę obniżono ich cenę o 20 %. Latem była kolejna obniżka – tym razem o 10 %. O ile złotych były tańsze te buty latem niż zimą?",
+   "gold": [
+    [
+     "67,20"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 10 (procenty)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 8182,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-019",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Lodówka kosztowała 1400 zł. Jej cenę obniżono o 20 %. Ile kosztuje lodówka po obniżce ceny?",
+   "gold": [
+    [
+     "1120"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 12 (trening)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 8703,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-021",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Po piętnastoprocentowej obniżce gra kosztowała o 12 złotych mniej niż poprzednio. Jaka była cena gry przed obniżką?",
+   "gold": [
+    [
+     "80"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 17 (trening)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 8801,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-023",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Gdy pewną liczbę zwiększymy 5 razy i od iloczynu odejmiemy 35, otrzymamy 30. Jaka to liczba?",
+   "gold": [
+    [
+     "13"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 4 (równania)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 9901,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-026",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Franek kupił lizaki po 50 gr za sztukę oraz bombonierkę za 27 zł. Za zakupy zapłacił 39 zł. Ile lizaków kupił?",
+   "gold": [
+    [
+     "24"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 12 (równania)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 9953,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-6-028",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Krawędź sześcianu ma długość 5 cm. Oblicz sumę długości wszystkich krawędzi tego sześcianu.",
+   "gold": [
+    [
+     "60"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P80Mb74Qq",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa VI)",
+    "exercise": "Ćw. 5 (bryły)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/P80Mb74Qq",
+    "pdf": "https://zpe.gov.pl/pdf/P80Mb74Qq",
+    "grade_label": "klasa 6 (wg tytułu e-podręcznika)",
+    "pdf_line": 10510,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-7-003",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "W wyniku dzielenia pewnej liczby naturalnej przez 7 otrzymujemy 4 i reszta 2. Ta liczba to",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 10",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": 407,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-7-005",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "Skorzystaj z algorytmu Euklidesa i oblicz NWD liczb: 4290, 1210.",
+   "gold": [
+    [
+     "110"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 18",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": 541,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-7-008",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Woda stanowi około 0,65 masy ciała Zuzi. Ile waży dziewczynka, jeżeli woda w jej organizmie waży 18,2 kg?",
+   "gold": [
+    [
+     "28"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 20 (dziesiętne)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": 1749,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-7-011",
+   "grade": "7",
+   "category": "jednostki",
+   "q": "2 kilogramy 54 dekagramy to",
+   "gold": [
+    [
+     "2540 g"
+    ],
+    [
+     "2,54 kg"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 3 (jednostki)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": 3307,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-7-013",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Samochód, który spala 5,5 litra benzyny na każde 100 km, jechał 2 h i 40 min z prędkością 60 km/h. Ile kosztowała benzyna, którą spalił samochód podczas podróży, jeżeli litr benzyny kosztuje 5,80 zł?",
+   "gold": [
+    [
+     "51,04"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 11 (wyrażenia)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": 3686,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-7-015",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "Podczas Finału Wielkiej Orkiestry Świątecznej Pomocy została zebrana kwota 50 657 747,68 zł. Zapisz tę liczbę z dokładnością do tysięcy złotych",
+   "gold": [
+    [
+     "50658000"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 1.1 (przybliżenia)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": 3993,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-7-021",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Znajdź wielkość, której 10% jest równe 0,3 g",
+   "gold": [
+    [
+     "3"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 2.5 (procenty)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": null,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-7-022",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Znajdź wielkość, której 20 % jest równe 56 kg",
+   "gold": [
+    [
+     "280"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 2.2 (procenty)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": null,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": false
+   }
+  },
+  {
+   "id": "szk-7-024",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Cenę rakiety do gry w tenisa, która kosztowała 600 zł, podwyższono dwukrotnie o 5 %. Oblicz cenę rakiety po obu podwyżkach.",
+   "gold": [
+    [
+     "661,50"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 12 (obniżki)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": 6010,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-7-026",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "W 150 g serka granulowanego białko stanowi 16,5 %. Ile gramów białka znajduje się w tym produkcie?",
+   "gold": [
+    [
+     "24,75"
+    ]
+   ],
+   "source": {
+    "zpe_id": "PMMNZskur",
+    "title": "Odkryj, zrozum, zastosuj… (e-podręcznik PŁ, klasa I gimnazjum = 7. rok nauki)",
+    "exercise": "Ćw. 5 (procenty)",
+    "url": "https://zpe.gov.pl/b/odkryj-zrozum-zastosuj/PMMNZskur",
+    "pdf": "https://zpe.gov.pl/pdf/PMMNZskur",
+    "grade_label": "klasa 7 (wg tytułu e-podręcznika)",
+    "pdf_line": 5918,
+    "author": "Zespół autorski Politechniki Łódzkiej",
+    "licence": "CC BY 3.0",
+    "licence_note": "treść ćwiczeń tekstowych bez osobnej stopki; zasoby książki PŁ oznaczone CC BY 3.0 (pojedyncze interaktywne zasoby CC BY NC 3.0 nie zostały użyte)",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-036",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. kogut",
+   "gold": [
+    [
+     "męski zwierzęcy"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1C3PVn1x",
+    "title": "Płeć a rodzaj gramatyczny wyrazów",
+    "exercise": "Ćw. 4.1",
+    "url": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "pdf": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 448,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-037",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. akwarium",
+   "gold": [
+    [
+     "nijaki"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1C3PVn1x",
+    "title": "Płeć a rodzaj gramatyczny wyrazów",
+    "exercise": "Ćw. 4.2",
+    "url": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "pdf": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 448,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-038",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. ratusz",
+   "gold": [
+    [
+     "męski rzeczowy"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1C3PVn1x",
+    "title": "Płeć a rodzaj gramatyczny wyrazów",
+    "exercise": "Ćw. 4.3",
+    "url": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "pdf": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 448,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-039",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. fabryka",
+   "gold": [
+    [
+     "żeński"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1C3PVn1x",
+    "title": "Płeć a rodzaj gramatyczny wyrazów",
+    "exercise": "Ćw. 4.4",
+    "url": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "pdf": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 448,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-040",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. łobuz",
+   "gold": [
+    [
+     "męski osobowy"
+    ],
+    [
+     "męskoosobowy"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1C3PVn1x",
+    "title": "Płeć a rodzaj gramatyczny wyrazów",
+    "exercise": "Ćw. 4.5",
+    "url": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "pdf": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 448,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-041",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. ciasto",
+   "gold": [
+    [
+     "nijaki"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1C3PVn1x",
+    "title": "Płeć a rodzaj gramatyczny wyrazów",
+    "exercise": "Ćw. 4.6",
+    "url": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "pdf": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 448,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-042",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. kaczka",
+   "gold": [
+    [
+     "żeński"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1C3PVn1x",
+    "title": "Płeć a rodzaj gramatyczny wyrazów",
+    "exercise": "Ćw. 4.7",
+    "url": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "pdf": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 448,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-043",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. cudzoziemiec",
+   "gold": [
+    [
+     "męski osobowy"
+    ],
+    [
+     "męskoosobowy"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P1C3PVn1x",
+    "title": "Płeć a rodzaj gramatyczny wyrazów",
+    "exercise": "Ćw. 4.8",
+    "url": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "pdf": "https://zpe.gov.pl/pdf/P1C3PVn1x",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 448,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-044",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Bogowie olimpijscy często decydowali o losach ludzi.",
+   "gold": [
+    [
+     "męskoosobowy"
+    ],
+    [
+     "męski osobowy"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P6VZVKStu",
+    "title": "Przymiotnik – blisko rzeczownika",
+    "exercise": "Ćw. 10.1",
+    "url": "https://zpe.gov.pl/pdf/P6VZVKStu",
+    "pdf": "https://zpe.gov.pl/pdf/P6VZVKStu",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 138,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-045",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Żony herosów bywały zazdrosne o swych mężów.",
+   "gold": [
+    [
+     "niemęskoosobowy"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P6VZVKStu",
+    "title": "Przymiotnik – blisko rzeczownika",
+    "exercise": "Ćw. 10.2",
+    "url": "https://zpe.gov.pl/pdf/P6VZVKStu",
+    "pdf": "https://zpe.gov.pl/pdf/P6VZVKStu",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 138,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  },
+  {
+   "id": "szk-4-8-046",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Herosi bywali niezwykle uparci.",
+   "gold": [
+    [
+     "męskoosobowy"
+    ],
+    [
+     "męski osobowy"
+    ]
+   ],
+   "source": {
+    "zpe_id": "P6VZVKStu",
+    "title": "Przymiotnik – blisko rzeczownika",
+    "exercise": "Ćw. 10.3",
+    "url": "https://zpe.gov.pl/pdf/P6VZVKStu",
+    "pdf": "https://zpe.gov.pl/pdf/P6VZVKStu",
+    "grade_label": "Szkoła podstawowa IV–VIII (bez klasy)",
+    "pdf_line": 138,
+    "author": "Contentplus.pl sp. z o.o.",
+    "licence": "CC BY 3.0",
+    "verbatim": true
+   }
+  }
+ ]
+}
