@@ -9,7 +9,7 @@
     "prebuild": "node scripts/gen-progress.mjs",
     "build": "tsc -b && vite build",
     "typecheck": "tsc -b",
-    "lint": "oxlint src && node scripts/check-authenticity.mjs && node scripts/czysta-check.mjs",
+    "lint": "oxlint src && node scripts/check-authenticity.mjs && node scripts/czysta-check.mjs && node scripts/szkolne-guards.mjs",
     "preview": "vite preview",
     "e2e": "playwright test",
     "e2e:live": "playwright test -c playwright.live.config.ts"

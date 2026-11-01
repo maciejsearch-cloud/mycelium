@@ -136,6 +136,11 @@ export function relative(text: string, ctx: NumCtx): NumResult | null {
   }
   // „Oblicz sumę / różnicę / iloczyn / iloraz liczb A i B”
   m = new RegExp(`(sum|różnic|iloczyn|iloraz)\\p{L}* (?:liczb )?${W} i ${W}`, 'iu').exec(t)
+  // bezpiecznik: „O ile suma liczb A i B jest większa od ich różnicy?” – w poleceniu jest drugie działanie/porównanie
+  if (m && /(o ile|ile razy|większ|mniejsz|(?<![\p{L}])od ich|niż)/iu.test(t.slice(0, m.index) + t.slice(m.index + m[0].length))) {
+    ctx.trace.push({ kind: 'brak', text: `bezpiecznik: „${m[0]}” to tylko część polecenia – jest w nim jeszcze porównanie, którego nie umiem złożyć` })
+    return null
+  }
   if (m) {
     const [a, b] = [Q.parse(m[2])!, Q.parse(m[3])!]
     const k = m[1].toLowerCase()

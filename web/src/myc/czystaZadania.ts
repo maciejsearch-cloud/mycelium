@@ -109,6 +109,18 @@ export function shopping(text: string, ctx: NumCtx): NumResult | null {
     return { answer: n.pl(), method: 'szkoła: zadanie tekstowe' }
   }
   if (buys.some((b) => b.noun)) return null
+  // bezpiecznik: pytanie nie o sumę zakupów („ile mu zostało”, „ile kosztował kilogram mieszanki”, „jedna sztuka”)
+  if (/(zostało|zostanie|reszt\p{L}*|brakuje|kilogram\p{L}* |litr\p{L}* |(?<![\p{L}\d])(jeden|jedna|jedno|1)\s+\p{L}+|średni\p{L}*|mieszank\p{L}*)/iu.test(q)) {
+    ctx.trace.push({ kind: 'brak', text: 'bezpiecznik: pytanie nie dotyczy kwoty za całe zakupy – nie podaję sumy' })
+    return null
+  }
+  // bezpiecznik: każda liczba z treści musi należeć do jakiegoś zakupu („mając przy sobie 7,50 zł” – nie wiem, co z nią zrobić)
+  const usedN = buys.reduce((a, b) => a + (b.n.n === 0n ? 1 : 2), 0) + fixed.length
+  const allN = [...t.matchAll(new RegExp(N, 'gu'))].length
+  if (allN > usedN) {
+    ctx.trace.push({ kind: 'brak', text: `bezpiecznik: w treści jest ${allN} liczb, zakupy używają ${usedN} – któraś liczba nie ma roli` })
+    return null
+  }
   if (!/(ile|oblicz).*(zapłaci|kosztowa|wyda|złotych|zł(?![\p{L}\d])|pieniędzy|kwot)/iu.test(q) || quantities(q).some((x) => x.dim === 'pieniądze')) return null
   let r = total
   const k = rounding(t)
@@ -319,7 +331,7 @@ export function percentStory(text: string, ctx: NumCtx): NumResult | null {
         v = nv
       }
     }
-    if (/(?<![\p{L}\d])o ile(?![\p{L}\d])/iu.test(q)) {
+    if (/(?<![\p{L}\d])o ile(?![\p{L}\d])|różnic\p{L}*/iu.test(q)) {
       const d = start.v.cmp(v) > 0 ? start.v.sub(v) : v.sub(start.v)
       ctx.trace.push({ kind: 'wniosek', text: `różnica: ${zl(start.v)} − ${zl(v)} = ${zl(d)}` })
       return { answer: zl(d), method: 'szkoła: procenty' }

@@ -277,6 +277,9 @@ export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefin
     // pytanie otwarte: fakt, który zawiera WSZYSTKIE słowa treści pytania; odpowiedź = pozostałe słowa faktu
     let best: { f: PFact; rest: string; extra: number } | undefined
     const qLemmas = new Set(qa.tokens.map((t) => (t.lemma || t.form).toLowerCase()))
+    // bezpiecznik: pytanie o liczbę („Jaka to liczba?”, „Ile …?”, „O ile …?”) – fakt bez liczby nie jest odpowiedzią
+    const askNum = /^(ile|ilu)(?![\p{L}])|jak\p{L}* (?:to )?liczb|(?<![\p{L}])o ile(?![\p{L}])|ile razy/iu.test(q)
+    const NUMW = /\d|(?<![\p{L}])(zero|jed(en|na|no)|dwa|dwie|trzy|cztery|pięć|sześć|siedem|osiem|dziewięć|dziesięć|sto|tysiąc)(?![\p{L}])/iu
     for (const f of cands) {
       if (f.truth !== 'tak') continue
       let fa: Analysis
@@ -293,6 +296,7 @@ export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefin
         return !(t.upos === 'PUNCT' || DROP_UPOS.has(t.upos) || DROP_LEM.has(lem)) && !qLemmas.has(lem)
       })
       if (!rest.length) continue
+      if (askNum && !rest.some((t) => NUMW.test(t.form) || t.upos === 'NUM')) continue
       const extra = rest.length
       if (!best || extra < best.extra) best = { f, rest: rest.map((t) => t.form).join(' '), extra }
     }

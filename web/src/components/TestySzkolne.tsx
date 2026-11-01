@@ -154,6 +154,31 @@ export default function TestySzkolne({ solve, ready }: { solve: (q: string) => P
             </tbody>
           </table>
 
+          {w.runs.length > 1 && (
+            <div className="mt-4" data-testid="szk-runs">
+              <div className="eyebrow mb-1">Postęp w czasie (każdy pomiar na żywej stronie)</div>
+              <ul className="grid gap-1.5">
+                {w.runs.map((r) => (
+                  <li key={r.file} className="text-[12px]" data-testid="szk-run" data-label={r.label}>
+                    <div className="flex justify-between gap-2 text-slate-400">
+                      <span>
+                        {fmt(r.when)} · <span className="text-slate-300">{r.label}</span>
+                      </span>
+                      <span>
+                        <b className="text-spore">{r.ok}</b> dobrze · <b className="text-rose-300">{r.zle}</b> źle · <b className="text-amber">{r.nie_wiem}</b> nie wiem
+                      </span>
+                    </div>
+                    <div className="mt-0.5 flex h-2 overflow-hidden rounded-full bg-white/[0.04]" aria-hidden>
+                      <div className="bg-spore/70" style={{ width: `${(100 * r.ok) / r.n}%` }} />
+                      <div className="bg-rose-400/70" style={{ width: `${(100 * r.zle) / r.n}%` }} />
+                      <div className="bg-amber/40" style={{ width: `${(100 * r.nie_wiem) / r.n}%` }} />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {after && (
             <details className="mt-3 text-sm">
               <summary className="cursor-pointer text-slate-200">Wyniki według kategorii</summary>
