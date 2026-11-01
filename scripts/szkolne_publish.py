@@ -27,7 +27,11 @@ def run_summary(p: Path, rep: dict) -> dict:
         c["n"] += 1
         c[r["verdict"]] += 1
     keys = ("when", "label", "mode", "url", "n", "ok", "zle", "nie_wiem", "per_grade")
-    return {**{k: rep.get(k) for k in keys}, "file": str(p.relative_to(ROOT)), "per_category": dict(sorted(cats.items()))}
+    return {
+        **{k: rep.get(k) for k in keys},
+        "file": str(p.relative_to(ROOT)),
+        "per_category": dict(sorted(cats.items())),
+    }
 
 
 def main() -> None:
@@ -70,7 +74,9 @@ def main() -> None:
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
-    print(f"→ {OUT.relative_to(ROOT)}: {len(out['runs'])} pomiarów czystej grzybni, LM: {'tak' if lm else 'brak'}, {len(tasks)} zadań")
+    print(
+        f"→ {OUT.relative_to(ROOT)}: {len(out['runs'])} pomiarów czystej grzybni, LM: {'tak' if lm else 'brak'}, {len(tasks)} zadań"
+    )
 
 
 if __name__ == "__main__":
