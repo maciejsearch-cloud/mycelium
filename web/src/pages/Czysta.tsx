@@ -18,7 +18,10 @@ interface Wyniki {
   model: string
   logic: { n: number; correct: number; abstain: number; acc: number; per_category: Record<string, { n: number; correct: number; abstain: number; acc: number }> }
   chat_facts: { n: number; correct: number; abstain: number; wrong: number }
+  fresh_seed7?: Wyniki['logic']
+  reworded?: { n: number; correct: number; acc: number; per_category: Record<string, { n: number; correct: number; abstain: number; acc: number }> }
   python_same: boolean | null
+  before?: Record<'logic' | 'fresh_seed7' | 'reworded', { correct: number; n: number; per_category: Record<string, number> }> & { file: string }
 }
 const pct = (x: number) => `${(x * 100).toFixed(1).replace('.', ',')}%`
 const fmt = (iso?: string) => (iso ? new Date(iso).toLocaleString('pl-PL', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Amsterdam' }) : '–')
@@ -464,9 +467,32 @@ function Scores({ w }: { w: Wyniki | null | undefined }) {
               <div className="eyebrow">320 zadań logicznych</div>
               <div className="font-display text-2xl text-spore">{pct(w.logic.acc)}</div>
               <div className="text-xs text-slate-400">
-                {w.logic.correct}/{w.logic.n} trafnych, {w.logic.abstain} × „nie wiem”, reszta błędna
+                {w.logic.correct}/{w.logic.n} trafnych, {w.logic.abstain} × „nie wiem”, reszta błędna{w.before ? ` · przed regułami liczbowymi: ${w.before.logic.correct}/${w.before.logic.n}` : ''}
               </div>
             </div>
+            {w.fresh_seed7 && (
+              <div>
+                <div className="eyebrow">sprawdzian: nowe losowanie 320 zadań (ziarno 7)</div>
+                <div className="font-display text-2xl text-spore">{pct(w.fresh_seed7.acc)}</div>
+                <div className="text-xs text-slate-400">
+                  {w.fresh_seed7.correct}/{w.fresh_seed7.n} trafnych, {w.fresh_seed7.abstain} × „nie wiem”{w.before ? ` · przed: ${w.before.fresh_seed7.correct}/${w.before.fresh_seed7.n}` : ''}
+                </div>
+              </div>
+            )}
+            {w.reworded && (
+              <div>
+                <div className="eyebrow">sprawdzian: {w.reworded.n} pytań przeformułowanych (zamrożone przed kodem)</div>
+                <div className="font-display text-2xl text-amber">
+                  {w.reworded.correct}/{w.reworded.n}
+                </div>
+                <div className="text-xs text-slate-400">
+                  {Object.entries(w.reworded.per_category)
+                    .map(([k, v]) => `${k} ${v.correct}/${v.n}`)
+                    .join(' · ')}
+                  {w.before ? ` · przed: ${w.before.reworded.correct}/${w.before.reworded.n}` : ''}
+                </div>
+              </div>
+            )}
             <div>
               <div className="eyebrow">40 pytań o fakty (chat_facts_v1)</div>
               <div className="font-display text-2xl text-amber">
@@ -483,6 +509,7 @@ function Scores({ w }: { w: Wyniki | null | undefined }) {
                 <tr>
                   <th className="py-1 pr-2">typ zadania</th>
                   <th className="pr-2">trafne</th>
+                  {w.before && <th className="pr-2">przed</th>}
                   <th className="pr-2">„nie wiem”</th>
                   <th className="w-1/3">trafność</th>
                 </tr>
@@ -496,6 +523,11 @@ function Scores({ w }: { w: Wyniki | null | undefined }) {
                       <td className="pr-2 tabular-nums">
                         {v.correct}/{v.n}
                       </td>
+                      {w.before && (
+                        <td className="pr-2 tabular-nums text-slate-500">
+                          {w.before.logic.per_category[k] ?? 0}/{v.n}
+                        </td>
+                      )}
                       <td className="pr-2 tabular-nums text-slate-400">{v.abstain}</td>
                       <td>
                         <div className="flex items-center gap-2">

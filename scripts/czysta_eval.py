@@ -91,6 +91,7 @@ def main():
     ap.add_argument("--model", required=True, help="plik wag rozbioru (ten sam co opublikowany na stronie)")
     ap.add_argument("--url", help="adres zbudowanej strony do pomiaru w przeglądarce")
     ap.add_argument("--python", action="store_true", help="porównaj z logika.Reasoner w Pythonie")
+    ap.add_argument("--before", help="plik wyników sprzed zmiany (results/czysta/…json) – do kolumny „przed”")
     a = ap.parse_args()
     tasks = selfplay.generate(320, 2)
     fresh = selfplay.generate(320, 7)  # świeże ziarno, nieużywane przy pisaniu reguł
@@ -143,7 +144,9 @@ def main():
             "url": a.url,
             "model": web["model"],
             "logic": score_logic(tasks, web["results"][:320]),
-            "chat_facts": score_facts(web["results"][320:]),
+            "chat_facts": score_facts(web["results"][320:360]),
+            "fresh_seed7": score_logic(fresh, web["results"][360:680]),
+            "reworded": score_para(web["results"][680:]),
         }
         rep["browser_vs_node_logic_diff"] = sum(
             1 for x, y in zip(web["results"][:320], node[:320], strict=True) if x["answer"] != y["answer"]
@@ -157,10 +160,24 @@ def main():
         "model": src.get("model", rep["model"]).split("(")[0].replace("rozbiór: ", "").strip() or rep["model"],
         "logic": src["logic"],
         "chat_facts": {k: v for k, v in src["chat_facts"].items() if k != "rows"},
-        "fresh_seed7": {k: v for k, v in src["fresh_seed7"].items() if k != "per_category"},
+        "fresh_seed7": src["fresh_seed7"],
         "reworded": {k: v for k, v in src["reworded"].items() if k != "rows"},
         "python_same": rep["python_same"],
     }
+    if a.before:
+        b = json.loads(Path(a.before).read_text())
+        b = b.get("browser") or b["node_no_kb"]
+        pub["before"] = {
+            "file": str(Path(a.before).relative_to(ROOT)) if Path(a.before).is_absolute() else a.before,
+            **{
+                k: {
+                    "correct": b[k]["correct"],
+                    "n": b[k]["n"],
+                    "per_category": {c: v["correct"] for c, v in b[k]["per_category"].items()},
+                }
+                for k in ("logic", "fresh_seed7", "reworded")
+            },
+        }
     (ROOT / "web/public/data/czysta").mkdir(parents=True, exist_ok=True)
     (ROOT / "web/public/data/czysta/wyniki.json").write_text(json.dumps(pub, ensure_ascii=False, indent=1))
     for k in ("node_no_kb", "browser"):

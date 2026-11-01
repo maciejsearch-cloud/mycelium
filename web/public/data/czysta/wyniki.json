@@ -1,6 +1,6 @@
 {
- "when": "2026-11-01T01:02:45+01:00",
- "model": "v3-dc3648e4.bin",
+ "when": "2026-11-01T01:05:36+01:00",
+ "model": "model grzybni v3",
  "logic": {
   "n": 320,
   "correct": 267,
@@ -107,15 +107,113 @@
  },
  "chat_facts": {
   "n": 40,
-  "correct": 0,
-  "abstain": 40,
+  "correct": 4,
+  "abstain": 36,
   "wrong": 0
  },
  "fresh_seed7": {
   "n": 320,
   "correct": 273,
   "abstain": 41,
-  "acc": 0.8531
+  "acc": 0.8531,
+  "per_category": {
+   "analogia": {
+    "n": 31,
+    "correct": 0,
+    "abstain": 31,
+    "acc": 0.0
+   },
+   "aspekt": {
+    "n": 27,
+    "correct": 27,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "ciąg": {
+    "n": 22,
+    "correct": 22,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "kolejność w czasie": {
+    "n": 32,
+    "correct": 24,
+    "abstain": 8,
+    "acc": 0.75
+   },
+   "kwantyfikatory": {
+    "n": 16,
+    "correct": 16,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "liczebniki": {
+    "n": 24,
+    "correct": 24,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "negacja": {
+    "n": 8,
+    "correct": 8,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "nie wszystkie": {
+    "n": 16,
+    "correct": 16,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "odmiana": {
+    "n": 16,
+    "correct": 12,
+    "abstain": 1,
+    "acc": 0.75
+   },
+   "porządek": {
+    "n": 21,
+    "correct": 21,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "przyczyna": {
+    "n": 13,
+    "correct": 10,
+    "abstain": 0,
+    "acc": 0.7692
+   },
+   "sprzeczność": {
+    "n": 9,
+    "correct": 9,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "sylogizm": {
+    "n": 24,
+    "correct": 24,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "warunki": {
+    "n": 12,
+    "correct": 12,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "zadanie tekstowe": {
+    "n": 21,
+    "correct": 20,
+    "abstain": 1,
+    "acc": 0.9524
+   },
+   "łańcuch": {
+    "n": 28,
+    "correct": 28,
+    "abstain": 0,
+    "acc": 1.0
+   }
+  }
  },
  "reworded": {
   "n": 38,
@@ -154,5 +252,63 @@
    }
   }
  },
- "python_same": null
+ "python_same": null,
+ "before": {
+  "file": "results/czysta/przed-liczby-2026-11-01.json",
+  "logic": {
+   "correct": 204,
+   "n": 320,
+   "per_category": {
+    "analogia": 0,
+    "aspekt": 24,
+    "ciąg": 0,
+    "kolejność w czasie": 11,
+    "kwantyfikatory": 19,
+    "liczebniki": 0,
+    "negacja": 8,
+    "nie wszystkie": 14,
+    "odmiana": 17,
+    "porządek": 25,
+    "przyczyna": 12,
+    "sprzeczność": 9,
+    "sylogizm": 30,
+    "warunki": 10,
+    "zadanie tekstowe": 0,
+    "łańcuch": 25
+   }
+  },
+  "fresh_seed7": {
+   "correct": 207,
+   "n": 320,
+   "per_category": {
+    "analogia": 0,
+    "aspekt": 27,
+    "ciąg": 0,
+    "kolejność w czasie": 24,
+    "kwantyfikatory": 16,
+    "liczebniki": 0,
+    "negacja": 8,
+    "nie wszystkie": 16,
+    "odmiana": 12,
+    "porządek": 21,
+    "przyczyna": 10,
+    "sprzeczność": 9,
+    "sylogizm": 24,
+    "warunki": 12,
+    "zadanie tekstowe": 0,
+    "łańcuch": 28
+   }
+  },
+  "reworded": {
+   "correct": 0,
+   "n": 38,
+   "per_category": {
+    "analogia": 0,
+    "arytmetyka": 0,
+    "ciąg": 0,
+    "liczebniki": 0,
+    "zadanie tekstowe": 0
+   }
+  }
+ }
 }

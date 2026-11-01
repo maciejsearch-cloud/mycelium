@@ -1,0 +1,1615 @@
+{
+ "when": "2026-11-01T01:05:36+01:00",
+ "model": "v3-dc3648e4.bin",
+ "tasks": "selfplay.generate(320, 2) + chat_facts_v1",
+ "node_no_kb": {
+  "logic": {
+   "n": 320,
+   "correct": 267,
+   "abstain": 43,
+   "acc": 0.8344,
+   "per_category": {
+    "analogia": {
+     "n": 31,
+     "correct": 0,
+     "abstain": 31,
+     "acc": 0.0
+    },
+    "aspekt": {
+     "n": 24,
+     "correct": 24,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "ciąg": {
+     "n": 14,
+     "correct": 14,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "kolejność w czasie": {
+     "n": 18,
+     "correct": 11,
+     "abstain": 7,
+     "acc": 0.6111
+    },
+    "kwantyfikatory": {
+     "n": 19,
+     "correct": 19,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "liczebniki": {
+     "n": 21,
+     "correct": 21,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "negacja": {
+     "n": 8,
+     "correct": 8,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "nie wszystkie": {
+     "n": 14,
+     "correct": 14,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "odmiana": {
+     "n": 29,
+     "correct": 17,
+     "abstain": 5,
+     "acc": 0.5862
+    },
+    "porządek": {
+     "n": 25,
+     "correct": 25,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "przyczyna": {
+     "n": 15,
+     "correct": 12,
+     "abstain": 0,
+     "acc": 0.8
+    },
+    "sprzeczność": {
+     "n": 9,
+     "correct": 9,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "sylogizm": {
+     "n": 30,
+     "correct": 30,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "warunki": {
+     "n": 10,
+     "correct": 10,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "zadanie tekstowe": {
+     "n": 28,
+     "correct": 28,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "łańcuch": {
+     "n": 25,
+     "correct": 25,
+     "abstain": 0,
+     "acc": 1.0
+    }
+   }
+  },
+  "chat_facts": {
+   "n": 40,
+   "correct": 0,
+   "abstain": 40,
+   "wrong": 0,
+   "rows": [
+    {
+     "id": "f01",
+     "q": "Jaka jest stolica Australii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f02",
+     "q": "Jaka jest stolica Kanady?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f03",
+     "q": "Kto napisał „Pana Tadeusza”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f04",
+     "q": "Kto napisał „Lalkę”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f05",
+     "q": "Kto odkrył penicylinę?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f06",
+     "q": "Kto namalował „Mona Lisę”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f07",
+     "q": "W którym roku Polska przystąpiła do Unii Europejskiej?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f08",
+     "q": "W którym roku zaczęła się II wojna światowa?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f09",
+     "q": "Ile mieszkańców ma Kraków?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f10",
+     "q": "Jaka jest najdłuższa rzeka w Polsce?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f11",
+     "q": "Jaki jest najwyższy szczyt Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f12",
+     "q": "Jaki jest symbol chemiczny złota?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f13",
+     "q": "Kto był pierwszym królem Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f14",
+     "q": "Kto sformułował teorię względności?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f15",
+     "q": "Co to jest fotosynteza?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f16",
+     "q": "Co to jest wombat?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f17",
+     "q": "Jaka jest stolica Łotwy?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f18",
+     "q": "Kiedy urodził się Fryderyk Chopin?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f19",
+     "q": "Na jakim kontynencie leży Egipt?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f20",
+     "q": "Jaka jest stolica Japonii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f21",
+     "q": "Jaka jest powierzchnia Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f22",
+     "q": "Kto był pierwszym człowiekiem na Księżycu?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f23",
+     "q": "Jak nazywa się największa planeta Układu Słonecznego?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f24",
+     "q": "W którym roku odbyła się bitwa pod Grunwaldem?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f25",
+     "q": "Kto napisał „Quo vadis”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f26",
+     "q": "Kto odkrył polon i rad?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f27",
+     "q": "Jaka jest stolica Hiszpanii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f28",
+     "q": "Co to jest kot?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f29",
+     "q": "Jaka waluta obowiązuje w Japonii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f30",
+     "q": "Ile mieszkańców ma Warszawa?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f31",
+     "q": "Kiedy zmarł Jan Paweł II?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f32",
+     "q": "Kto napisał słowa Mazurka Dąbrowskiego?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f33",
+     "q": "Jaka jest wysokość Mount Everestu?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f34",
+     "q": "W jakim mieście jest Wawel?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f35",
+     "q": "Kto napisał „Ferdydurke”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f36",
+     "q": "Co to jest grzybnia?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f37",
+     "q": "Jaki pierwiastek ma symbol Fe?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f38",
+     "q": "W którym roku upadł mur berliński?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f39",
+     "q": "Jaka jest stolica Brazylii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f40",
+     "q": "Kto był pierwszym prezydentem Stanów Zjednoczonych?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    }
+   ]
+  },
+  "fresh_seed7": {
+   "n": 320,
+   "correct": 273,
+   "abstain": 41,
+   "acc": 0.8531,
+   "per_category": {
+    "analogia": {
+     "n": 31,
+     "correct": 0,
+     "abstain": 31,
+     "acc": 0.0
+    },
+    "aspekt": {
+     "n": 27,
+     "correct": 27,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "ciąg": {
+     "n": 22,
+     "correct": 22,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "kolejność w czasie": {
+     "n": 32,
+     "correct": 24,
+     "abstain": 8,
+     "acc": 0.75
+    },
+    "kwantyfikatory": {
+     "n": 16,
+     "correct": 16,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "liczebniki": {
+     "n": 24,
+     "correct": 24,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "negacja": {
+     "n": 8,
+     "correct": 8,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "nie wszystkie": {
+     "n": 16,
+     "correct": 16,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "odmiana": {
+     "n": 16,
+     "correct": 12,
+     "abstain": 1,
+     "acc": 0.75
+    },
+    "porządek": {
+     "n": 21,
+     "correct": 21,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "przyczyna": {
+     "n": 13,
+     "correct": 10,
+     "abstain": 0,
+     "acc": 0.7692
+    },
+    "sprzeczność": {
+     "n": 9,
+     "correct": 9,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "sylogizm": {
+     "n": 24,
+     "correct": 24,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "warunki": {
+     "n": 12,
+     "correct": 12,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "zadanie tekstowe": {
+     "n": 21,
+     "correct": 20,
+     "abstain": 1,
+     "acc": 0.9524
+    },
+    "łańcuch": {
+     "n": 28,
+     "correct": 28,
+     "abstain": 0,
+     "acc": 1.0
+    }
+   }
+  },
+  "reworded": {
+   "n": 38,
+   "correct": 27,
+   "acc": 0.7105,
+   "per_category": {
+    "analogia": {
+     "n": 6,
+     "correct": 4,
+     "abstain": 2,
+     "acc": 0.6667
+    },
+    "arytmetyka": {
+     "n": 6,
+     "correct": 6,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "ciąg": {
+     "n": 8,
+     "correct": 5,
+     "abstain": 3,
+     "acc": 0.625
+    },
+    "liczebniki": {
+     "n": 8,
+     "correct": 7,
+     "abstain": 1,
+     "acc": 0.875
+    },
+    "zadanie tekstowe": {
+     "n": 10,
+     "correct": 5,
+     "abstain": 3,
+     "acc": 0.5
+    }
+   },
+   "rows": [
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Zosia miała dwanaście cukierków i dostała jeszcze pięć od mamy. Ile cukierków ma teraz Zosia?",
+     "gold": "17",
+     "got": "12",
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Tomek miał 40 zł. Kupił książkę za 15 zł. Ile złotych zostało Tomkowi?",
+     "gold": "25",
+     "got": "25",
+     "ok": true
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Kasia zebrała 18 grzybów, a potem zgubiła 4. Ile grzybów ma teraz Kasia?",
+     "gold": "14",
+     "got": "14",
+     "ok": true
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Na półce stoi 6 rzędów po 8 książek. Ile książek jest razem?",
+     "gold": "48",
+     "got": "48",
+     "ok": true
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Piotr miał 30 naklejek, dał 7 naklejek Oli i dostał 12 od Kuby. Ile naklejek ma teraz Piotr?",
+     "gold": "35",
+     "got": "49",
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Magda miała 9 kredek. Liczba kredek Magdy zwiększyła się trzykrotnie. Ile kredek ma teraz Magda?",
+     "gold": "27",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "W koszu było 24 jabłka. Zjedliśmy 9 jabłek. Ile jabłek zostało w koszu?",
+     "gold": "15",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Olek ma 5 kulek, a Jaś ma o 3 kulki więcej. Ile kulek ma Jaś?",
+     "gold": "8",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Marek miał sto złotych i wydał dwadzieścia złotych. Ile złotych zostało Markowi?",
+     "gold": "80",
+     "got": "80",
+     "ok": true
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Ania przeczytała 12 stron rano i 8 stron wieczorem. Ile stron przeczytała Ania razem?",
+     "gold": "20",
+     "got": "20",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile to 7 razy 8?",
+     "gold": "56",
+     "got": "56",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile wynosi 2 + 3 * 4?",
+     "gold": "14",
+     "got": "14",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile to sto podzielić przez cztery?",
+     "gold": "25",
+     "got": "25",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile to 20% z 150?",
+     "gold": "30",
+     "got": "30",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile to dwadzieścia pięć minus siedem?",
+     "gold": "18",
+     "got": "18",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile wynosi (10 - 4) * 3?",
+     "gold": "18",
+     "got": "18",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Podaj następny wyraz: 3, 7, 11, 15, …",
+     "gold": "19",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "ciąg",
+     "q": "Co dalej: 2, 6, 18, 54?",
+     "gold": "162",
+     "got": "162",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Jaka liczba jest dalej w ciągu 50, 45, 40, 35?",
+     "gold": "30",
+     "got": "30",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Podaj następny wyraz ciągu: 1, 4, 9, 16, 25.",
+     "gold": "36",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "ciąg",
+     "q": "Jaka liczba następuje po 1, 3, 6, 10, 15?",
+     "gold": "21",
+     "got": "21",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Co dalej: 5, 1, 5, 1, 5?",
+     "gold": "1",
+     "got": "1",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Podaj następny wyraz: 64, 32, 16, 8.",
+     "gold": "4",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "ciąg",
+     "q": "Jaka liczba jest następna: 1, 10, 2, 20, 3, 30, 4?",
+     "gold": "40",
+     "got": "40",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 3 … (pies). Wybierz jedną formę: pies, psy, psów.",
+     "gold": "psy",
+     "got": "psy",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 7 … (okno). Wybierz jedną formę: okno, okna, okien.",
+     "gold": "okien",
+     "got": "okien",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 22 … (drzewo). Wybierz jedną formę: drzewo, drzewa, drzew.",
+     "gold": "drzewa",
+     "got": "drzewa",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 13 … (krowa). Wybierz jedną formę: krowa, krowy, krów.",
+     "gold": "krów",
+     "got": "krów",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 1 … (samochód). Wybierz jedną formę: samochód, samochody, samochodów.",
+     "gold": "samochód",
+     "got": "samochód",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 44 … (długopis). Wybierz jedną formę: długopis, długopisy, długopisów.",
+     "gold": "długopisy",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 100 … (róża). Wybierz jedną formę: róża, róże, róż.",
+     "gold": "róż",
+     "got": "róż",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 4 … (miasto). Wybierz jedną formę: miasto, miasta, miast.",
+     "gold": "miasta",
+     "got": "miasta",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "dom : domy = kot : ? Wybierz jedno słowo: kotek, koty, kota, pies.",
+     "gold": "koty",
+     "got": "koty",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "duży : większy = mały : ? Wybierz jedno słowo: malutki, mniejszy, największy, mało.",
+     "gold": "mniejszy",
+     "got": "mniejszy",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "pies : psa = kot : ? Wybierz jedno słowo: kot, kota, kotu, koty.",
+     "gold": "kota",
+     "got": "kota",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "dobry : lepszy = zły : ? Wybierz jedno słowo: gorszy, zły, złe, najgorszy.",
+     "gold": "gorszy",
+     "got": "gorszy",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "pisać : napisać = czytać : ? Wybierz jedno słowo: czytam, przeczytać, czytanie, książka.",
+     "gold": "przeczytać",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "analogia",
+     "q": "pszczoła : ul = kret : ? Wybierz jedno słowo: kopiec, gniazdo, woda, nora.",
+     "gold": "kopiec",
+     "got": null,
+     "ok": false
+    }
+   ]
+  }
+ },
+ "python_same": null,
+ "browser": {
+  "url": "http://localhost:4318/",
+  "model": "rozbiór: model grzybni v3 (UD Polish-PDB, CC BY-NC-SA 4.0)",
+  "logic": {
+   "n": 320,
+   "correct": 267,
+   "abstain": 43,
+   "acc": 0.8344,
+   "per_category": {
+    "analogia": {
+     "n": 31,
+     "correct": 0,
+     "abstain": 31,
+     "acc": 0.0
+    },
+    "aspekt": {
+     "n": 24,
+     "correct": 24,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "ciąg": {
+     "n": 14,
+     "correct": 14,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "kolejność w czasie": {
+     "n": 18,
+     "correct": 11,
+     "abstain": 7,
+     "acc": 0.6111
+    },
+    "kwantyfikatory": {
+     "n": 19,
+     "correct": 19,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "liczebniki": {
+     "n": 21,
+     "correct": 21,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "negacja": {
+     "n": 8,
+     "correct": 8,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "nie wszystkie": {
+     "n": 14,
+     "correct": 14,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "odmiana": {
+     "n": 29,
+     "correct": 17,
+     "abstain": 5,
+     "acc": 0.5862
+    },
+    "porządek": {
+     "n": 25,
+     "correct": 25,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "przyczyna": {
+     "n": 15,
+     "correct": 12,
+     "abstain": 0,
+     "acc": 0.8
+    },
+    "sprzeczność": {
+     "n": 9,
+     "correct": 9,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "sylogizm": {
+     "n": 30,
+     "correct": 30,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "warunki": {
+     "n": 10,
+     "correct": 10,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "zadanie tekstowe": {
+     "n": 28,
+     "correct": 28,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "łańcuch": {
+     "n": 25,
+     "correct": 25,
+     "abstain": 0,
+     "acc": 1.0
+    }
+   }
+  },
+  "chat_facts": {
+   "n": 40,
+   "correct": 4,
+   "abstain": 36,
+   "wrong": 0,
+   "rows": [
+    {
+     "id": "f01",
+     "q": "Jaka jest stolica Australii?",
+     "answer": "Canberra",
+     "verdict": "correct",
+     "source": "fakt"
+    },
+    {
+     "id": "f02",
+     "q": "Jaka jest stolica Kanady?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f03",
+     "q": "Kto napisał „Pana Tadeusza”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f04",
+     "q": "Kto napisał „Lalkę”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f05",
+     "q": "Kto odkrył penicylinę?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f06",
+     "q": "Kto namalował „Mona Lisę”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f07",
+     "q": "W którym roku Polska przystąpiła do Unii Europejskiej?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f08",
+     "q": "W którym roku zaczęła się II wojna światowa?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f09",
+     "q": "Ile mieszkańców ma Kraków?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f10",
+     "q": "Jaka jest najdłuższa rzeka w Polsce?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f11",
+     "q": "Jaki jest najwyższy szczyt Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f12",
+     "q": "Jaki jest symbol chemiczny złota?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f13",
+     "q": "Kto był pierwszym królem Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f14",
+     "q": "Kto sformułował teorię względności?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f15",
+     "q": "Co to jest fotosynteza?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f16",
+     "q": "Co to jest wombat?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f17",
+     "q": "Jaka jest stolica Łotwy?",
+     "answer": "Ryga",
+     "verdict": "correct",
+     "source": "fakt"
+    },
+    {
+     "id": "f18",
+     "q": "Kiedy urodził się Fryderyk Chopin?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f19",
+     "q": "Na jakim kontynencie leży Egipt?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f20",
+     "q": "Jaka jest stolica Japonii?",
+     "answer": "Tokio.",
+     "verdict": "correct",
+     "source": "para"
+    },
+    {
+     "id": "f21",
+     "q": "Jaka jest powierzchnia Polski?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f22",
+     "q": "Kto był pierwszym człowiekiem na Księżycu?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f23",
+     "q": "Jak nazywa się największa planeta Układu Słonecznego?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f24",
+     "q": "W którym roku odbyła się bitwa pod Grunwaldem?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f25",
+     "q": "Kto napisał „Quo vadis”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f26",
+     "q": "Kto odkrył polon i rad?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f27",
+     "q": "Jaka jest stolica Hiszpanii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f28",
+     "q": "Co to jest kot?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f29",
+     "q": "Jaka waluta obowiązuje w Japonii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f30",
+     "q": "Ile mieszkańców ma Warszawa?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f31",
+     "q": "Kiedy zmarł Jan Paweł II?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f32",
+     "q": "Kto napisał słowa Mazurka Dąbrowskiego?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f33",
+     "q": "Jaka jest wysokość Mount Everestu?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f34",
+     "q": "W jakim mieście jest Wawel?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f35",
+     "q": "Kto napisał „Ferdydurke”?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f36",
+     "q": "Co to jest grzybnia?",
+     "answer": "podziemna część grzyba",
+     "verdict": "correct",
+     "source": "fakt"
+    },
+    {
+     "id": "f37",
+     "q": "Jaki pierwiastek ma symbol Fe?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f38",
+     "q": "W którym roku upadł mur berliński?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f39",
+     "q": "Jaka jest stolica Brazylii?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    },
+    {
+     "id": "f40",
+     "q": "Kto był pierwszym prezydentem Stanów Zjednoczonych?",
+     "answer": null,
+     "verdict": "dont_know",
+     "source": "brak"
+    }
+   ]
+  },
+  "fresh_seed7": {
+   "n": 320,
+   "correct": 273,
+   "abstain": 41,
+   "acc": 0.8531,
+   "per_category": {
+    "analogia": {
+     "n": 31,
+     "correct": 0,
+     "abstain": 31,
+     "acc": 0.0
+    },
+    "aspekt": {
+     "n": 27,
+     "correct": 27,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "ciąg": {
+     "n": 22,
+     "correct": 22,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "kolejność w czasie": {
+     "n": 32,
+     "correct": 24,
+     "abstain": 8,
+     "acc": 0.75
+    },
+    "kwantyfikatory": {
+     "n": 16,
+     "correct": 16,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "liczebniki": {
+     "n": 24,
+     "correct": 24,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "negacja": {
+     "n": 8,
+     "correct": 8,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "nie wszystkie": {
+     "n": 16,
+     "correct": 16,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "odmiana": {
+     "n": 16,
+     "correct": 12,
+     "abstain": 1,
+     "acc": 0.75
+    },
+    "porządek": {
+     "n": 21,
+     "correct": 21,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "przyczyna": {
+     "n": 13,
+     "correct": 10,
+     "abstain": 0,
+     "acc": 0.7692
+    },
+    "sprzeczność": {
+     "n": 9,
+     "correct": 9,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "sylogizm": {
+     "n": 24,
+     "correct": 24,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "warunki": {
+     "n": 12,
+     "correct": 12,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "zadanie tekstowe": {
+     "n": 21,
+     "correct": 20,
+     "abstain": 1,
+     "acc": 0.9524
+    },
+    "łańcuch": {
+     "n": 28,
+     "correct": 28,
+     "abstain": 0,
+     "acc": 1.0
+    }
+   }
+  },
+  "reworded": {
+   "n": 38,
+   "correct": 27,
+   "acc": 0.7105,
+   "per_category": {
+    "analogia": {
+     "n": 6,
+     "correct": 4,
+     "abstain": 2,
+     "acc": 0.6667
+    },
+    "arytmetyka": {
+     "n": 6,
+     "correct": 6,
+     "abstain": 0,
+     "acc": 1.0
+    },
+    "ciąg": {
+     "n": 8,
+     "correct": 5,
+     "abstain": 3,
+     "acc": 0.625
+    },
+    "liczebniki": {
+     "n": 8,
+     "correct": 7,
+     "abstain": 1,
+     "acc": 0.875
+    },
+    "zadanie tekstowe": {
+     "n": 10,
+     "correct": 5,
+     "abstain": 3,
+     "acc": 0.5
+    }
+   },
+   "rows": [
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Zosia miała dwanaście cukierków i dostała jeszcze pięć od mamy. Ile cukierków ma teraz Zosia?",
+     "gold": "17",
+     "got": "12",
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Tomek miał 40 zł. Kupił książkę za 15 zł. Ile złotych zostało Tomkowi?",
+     "gold": "25",
+     "got": "25",
+     "ok": true
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Kasia zebrała 18 grzybów, a potem zgubiła 4. Ile grzybów ma teraz Kasia?",
+     "gold": "14",
+     "got": "14",
+     "ok": true
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Na półce stoi 6 rzędów po 8 książek. Ile książek jest razem?",
+     "gold": "48",
+     "got": "48",
+     "ok": true
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Piotr miał 30 naklejek, dał 7 naklejek Oli i dostał 12 od Kuby. Ile naklejek ma teraz Piotr?",
+     "gold": "35",
+     "got": "49",
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Magda miała 9 kredek. Liczba kredek Magdy zwiększyła się trzykrotnie. Ile kredek ma teraz Magda?",
+     "gold": "27",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "W koszu było 24 jabłka. Zjedliśmy 9 jabłek. Ile jabłek zostało w koszu?",
+     "gold": "15",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Olek ma 5 kulek, a Jaś ma o 3 kulki więcej. Ile kulek ma Jaś?",
+     "gold": "8",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Marek miał sto złotych i wydał dwadzieścia złotych. Ile złotych zostało Markowi?",
+     "gold": "80",
+     "got": "80",
+     "ok": true
+    },
+    {
+     "kind": "zadanie tekstowe",
+     "q": "Ania przeczytała 12 stron rano i 8 stron wieczorem. Ile stron przeczytała Ania razem?",
+     "gold": "20",
+     "got": "20",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile to 7 razy 8?",
+     "gold": "56",
+     "got": "56",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile wynosi 2 + 3 * 4?",
+     "gold": "14",
+     "got": "14",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile to sto podzielić przez cztery?",
+     "gold": "25",
+     "got": "25",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile to 20% z 150?",
+     "gold": "30",
+     "got": "30",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile to dwadzieścia pięć minus siedem?",
+     "gold": "18",
+     "got": "18",
+     "ok": true
+    },
+    {
+     "kind": "arytmetyka",
+     "q": "Ile wynosi (10 - 4) * 3?",
+     "gold": "18",
+     "got": "18",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Podaj następny wyraz: 3, 7, 11, 15, …",
+     "gold": "19",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "ciąg",
+     "q": "Co dalej: 2, 6, 18, 54?",
+     "gold": "162",
+     "got": "162",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Jaka liczba jest dalej w ciągu 50, 45, 40, 35?",
+     "gold": "30",
+     "got": "30",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Podaj następny wyraz ciągu: 1, 4, 9, 16, 25.",
+     "gold": "36",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "ciąg",
+     "q": "Jaka liczba następuje po 1, 3, 6, 10, 15?",
+     "gold": "21",
+     "got": "21",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Co dalej: 5, 1, 5, 1, 5?",
+     "gold": "1",
+     "got": "1",
+     "ok": true
+    },
+    {
+     "kind": "ciąg",
+     "q": "Podaj następny wyraz: 64, 32, 16, 8.",
+     "gold": "4",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "ciąg",
+     "q": "Jaka liczba jest następna: 1, 10, 2, 20, 3, 30, 4?",
+     "gold": "40",
+     "got": "40",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 3 … (pies). Wybierz jedną formę: pies, psy, psów.",
+     "gold": "psy",
+     "got": "psy",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 7 … (okno). Wybierz jedną formę: okno, okna, okien.",
+     "gold": "okien",
+     "got": "okien",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 22 … (drzewo). Wybierz jedną formę: drzewo, drzewa, drzew.",
+     "gold": "drzewa",
+     "got": "drzewa",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 13 … (krowa). Wybierz jedną formę: krowa, krowy, krów.",
+     "gold": "krów",
+     "got": "krów",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 1 … (samochód). Wybierz jedną formę: samochód, samochody, samochodów.",
+     "gold": "samochód",
+     "got": "samochód",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 44 … (długopis). Wybierz jedną formę: długopis, długopisy, długopisów.",
+     "gold": "długopisy",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 100 … (róża). Wybierz jedną formę: róża, róże, róż.",
+     "gold": "róż",
+     "got": "róż",
+     "ok": true
+    },
+    {
+     "kind": "liczebniki",
+     "q": "Uzupełnij: 4 … (miasto). Wybierz jedną formę: miasto, miasta, miast.",
+     "gold": "miasta",
+     "got": "miasta",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "dom : domy = kot : ? Wybierz jedno słowo: kotek, koty, kota, pies.",
+     "gold": "koty",
+     "got": "koty",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "duży : większy = mały : ? Wybierz jedno słowo: malutki, mniejszy, największy, mało.",
+     "gold": "mniejszy",
+     "got": "mniejszy",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "pies : psa = kot : ? Wybierz jedno słowo: kot, kota, kotu, koty.",
+     "gold": "kota",
+     "got": "kota",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "dobry : lepszy = zły : ? Wybierz jedno słowo: gorszy, zły, złe, najgorszy.",
+     "gold": "gorszy",
+     "got": "gorszy",
+     "ok": true
+    },
+    {
+     "kind": "analogia",
+     "q": "pisać : napisać = czytać : ? Wybierz jedno słowo: czytam, przeczytać, czytanie, książka.",
+     "gold": "przeczytać",
+     "got": null,
+     "ok": false
+    },
+    {
+     "kind": "analogia",
+     "q": "pszczoła : ul = kret : ? Wybierz jedno słowo: kopiec, gniazdo, woda, nora.",
+     "gold": "kopiec",
+     "got": null,
+     "ok": false
+    }
+   ]
+  }
+ },
+ "browser_vs_node_logic_diff": 0
+}
