@@ -68,8 +68,20 @@ def _sha_ok(p: Path, log=print) -> bool:
     return True
 
 
-def ensure_weights(log=print) -> Path:
-    """Pobiera plik wag (ok. 988 MB) raz: wznawianie, blokada między procesami, kontrola kompletności i SHA-256."""
+def ensure_weights(log=print, variant: str = "bf16") -> Path:
+    """Pobiera plik wag (ok. 988 MB) raz: wznawianie, blokada między procesami, kontrola kompletności i SHA-256.
+
+    ``variant="int8"`` (opt-in węzła, ``--weights int8``): najpierw mniejszy plik int8 z wydania GitHub
+    (``qwen_int8``, SHA-256), a przy jakimkolwiek problemie oryginał bf16 z Hugging Face. Weryfikator i bramka
+    wersji zawsze wołają z domyślnym ``bf16``."""
+    if variant == "int8":
+        from .qwen_int8 import ensure_int8
+
+        q = ensure_int8(cache_dir(), log)
+        if q is not None:
+            return q
+    elif variant != "bf16":
+        raise ValueError(f"nieznany wariant wag: {variant}")
     p = cache_dir() / "qwen2.5-0.5b-instruct.safetensors"
     if p.exists() and _weights_ok(p) and _sha_ok(p, log):
         return p
@@ -109,10 +121,22 @@ def ensure_weights(log=print) -> Path:
     return p
 
 
+def weights_variant(path: Path) -> str:
+    """„int8” dla pliku z qwen_int8 (metadane format), inaczej „bf16”."""
+    with open(path, "rb") as f:
+        n = struct.unpack("<Q", f.read(8))[0]
+        meta = json.loads(f.read(n)).get("__metadata__") or {}
+    return "int8" if str(meta.get("format", "")).startswith("mycelium-int8") else "bf16"
+
+
 def load_safetensors(path: Path, dtype=torch.float32) -> dict[str, torch.Tensor]:
     with open(path, "rb") as f:
         n = struct.unpack("<Q", f.read(8))[0]
         header = json.loads(f.read(n))
+    if (header.get("__metadata__") or {}).get("format", "").startswith("mycelium-int8"):
+        from .qwen_int8 import load_dequant
+
+        return load_dequant(path, dtype)
     header.pop("__metadata__", None)
     raw = torch.from_file(str(path), shared=False, size=os.path.getsize(path), dtype=torch.uint8)
     out = {}
@@ -137,6 +161,7 @@ class Qwen:
     def __init__(self, path: Path, dtype=torch.float32):
         w = load_safetensors(path, dtype)
         self.dtype = dtype
+        self.weights = weights_variant(path)  # "bf16" (oryginał HF) albo "int8" (qwen_int8, opt-in)
         self.emb = w["model.embed_tokens.weight"]
         self.norm = w["model.norm.weight"]
         self.L = []
