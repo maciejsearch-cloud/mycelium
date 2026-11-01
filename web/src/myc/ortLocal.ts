@@ -1,7 +1,7 @@
 // onnxruntime-web z własnej strony (BASE/ort/), nie z jsDelivr – CSP nie dopuszcza żadnego CDN ze skryptami.
 // transformers.js ustawia przy imporcie adresy CDN; podmieniamy sam prefiks, wariant (.asyncify / zwykły) zostaje.
 type Paths = { mjs?: string; wasm?: string };
-export function useLocalOrt(env: {
+export function pointOrtToSelf(env: {
   backends: { onnx: { wasm?: { wasmPaths?: unknown } } };
 }): void {
   const w = env.backends.onnx.wasm;
