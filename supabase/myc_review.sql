@@ -8,15 +8,29 @@
 create table if not exists public.myc_review_keys (key_hash text primary key, room text not null check (room in ('e2e')));
 alter table public.myc_review_keys enable row level security;
 revoke all on public.myc_review_keys from anon, authenticated;
+-- Nowe klucze recenzentów: min. 20 znaków (audyt 01.11.2026, A5). Klucze sprzed zmiany mają created_at = null
+-- i działają dalej z dawnym minimum 8 znaków (kolumna dodana bez wartości domyślnej, domyślna ustawiona potem).
+alter table public.myc_review_keys add column if not exists created_at timestamptz;
+alter table public.myc_review_keys alter column created_at set default now();
 
 create or replace function public.myc_key_room(p_key text) returns text
 language sql stable security definer set search_path = public, extensions, pg_temp as $$
   select case
     when p_key is null or char_length(p_key) < 8 then null
     when exists (select 1 from myc_owner where key_hash = encode(extensions.digest(p_key, 'sha256'), 'hex')) then 'main'
-    else (select room from myc_review_keys where key_hash = encode(extensions.digest(p_key, 'sha256'), 'hex')) end
+    else (select room from myc_review_keys where key_hash = encode(extensions.digest(p_key, 'sha256'), 'hex')
+            and (created_at is null or char_length(p_key) >= 20)) end
 $$;
 revoke all on function public.myc_key_room(text) from public, anon, authenticated;
+
+-- Dodanie klucza recenzenta (tylko właścicielka przez SQL/Management API; w bazie zostaje sam skrót).
+create or replace function public.myc_review_key_add(p_key text, p_room text default 'e2e') returns void
+language plpgsql security definer set search_path = public, extensions, pg_temp as $$
+begin
+  if p_key is null or char_length(p_key) < 20 then raise exception 'myc: klucz recenzenta musi mieć co najmniej 20 znaków'; end if;
+  insert into myc_review_keys (key_hash, room) values (encode(extensions.digest(p_key, 'sha256'), 'hex'), p_room);
+end $$;
+revoke all on function public.myc_review_key_add(text, text) from public, anon, authenticated;
 
 create table if not exists public.myc_reviews (
   id bigint generated always as identity primary key,
