@@ -14,6 +14,7 @@ import { LEARN_RULES } from '../myc/czystaZasady'
 import { useI18n } from '../i18n'
 import CzystaRelacje from '../components/CzystaRelacje'
 import TestySzkolne from '../components/TestySzkolne'
+import { SelfModel } from '../components/SelfModel'
 
 interface Wyniki {
   when: string
@@ -268,6 +269,7 @@ export default function Czysta() {
 
       <Scores w={wyniki} />
       <TestySzkolne ready={rb.status === 'ready'} solve={(t) => (rb.status === 'ready' ? answerPure(t, parseSentence, kb, rb.morf) : undefined)} />
+      <SelfModel scope="czysta" />
       <Explain kb={kb} />
     </>
   )
