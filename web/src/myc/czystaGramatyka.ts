@@ -34,6 +34,14 @@ function item(t: string): string | null {
   return m ? m[1] : null
 }
 
+/** typowe końcówki części mowy – potwierdzenie odczytu modelu dla słów spoza słownika („pułapka” -ka, „namaluje” -uje) */
+const SHAPE: Partial<Record<Pos, RegExp>> = {
+  rzeczownik: /(ka|ko|anie|enie|cie|ość|cja|sja|zja|stwo|ctwo|nik|arz|acz|ec|ek|ik|isko|ina|ica|ów|ia)$/u,
+  czasownik: /(ć|uje|ują|uję|esz|isz|ysz|ał|ała|ało|ali|ały|ił|iła|iło|ili|yły|ył|yła|ło|łem|łam)$/u,
+  przymiotnik: /(ny|na|ne|ni|ty|ta|te|wy|wa|we|ski|ska|skie|cki|cka|ckie|owy|owa|owe|isty|asty|aty|ały|ły|ła|łe)$/u,
+  przysłówek: /(nie|wie|cie|ście|wo|ko|rze|le|nio|sko)$/u,
+}
+
 function partOfSpeech(t: string, ctx: NumCtx): NumResult | null {
   if (!/części mowy|część mowy/iu.test(t)) return null
   const w = item(t)
@@ -53,6 +61,13 @@ function partOfSpeech(t: string, ctx: NumCtx): NumResult | null {
       upos = tok?.upos
       const p = upos ? UPOS_POS[upos] : undefined
       const pp = p === 'przymiotnik' && ORDINAL.test(low(tok?.lemma ?? w)) ? 'liczebnik' : p
+      // bezpiecznik: słowa spoza słownika model zna tylko z kształtu – ufam mu jedynie, gdy sama forma słowa to potwierdza
+      // (liczebnik porządkowy „siedemnasty”); „mży” → NOUN „mża” albo „humorzasty” → NOUN to zgadywanie, więc „nie wiem”
+      const oov = an.length === 0
+      if (oov && pp && !(pp === 'liczebnik' ? ORDINAL.test(low(w)) : SHAPE[pp]?.test(low(w)))) {
+        ctx.trace.push({ kind: 'brak', text: `bezpiecznik: „${w}” nie ma w słowniku, a model rozbioru (${upos} → ${pp}) nie ma potwierdzenia w końcówce słowa – nie zgaduję` })
+        return null
+      }
       if (pp && allowed.includes(pp) && (cand.length === 0 || cand.includes(pp))) {
         ctx.trace.push({ kind: 'rozbiór', text: `model rozbioru: „${w}” → ${upos}${tok?.lemma ? ` (lemat ${tok.lemma})` : ''} → ${pp}` })
         cand = [pp]
@@ -85,7 +100,12 @@ function nounGender(w: string, ctx: NumCtx): string | null {
   if (tok) ctx.trace.push({ kind: 'rozbiór', text: `model rozbioru: „${w}” ${tok.upos} ${f.Gender ?? '?'}${f.Animacy ? ' ' + f.Animacy : ''}` })
   let g: string | null = null
   if (gs.length === 1) g = gs[0]
-  else if (!gs.length && ud && tok?.upos === 'NOUN') g = ud
+  // bezpiecznik: słowa spoza słownika – rodzaj z samego modelu rozbioru bywa zgadywany („organista” → żeński,
+  // „słowik” → męski osobowy), więc bez potwierdzenia w słowniku mówię „nie wiem”
+  if (!g && !gs.length && ud && tok?.upos === 'NOUN') {
+    ctx.trace.push({ kind: 'brak', text: `bezpiecznik: „${w}” nie ma w słowniku; model rozbioru podaje ${ud}, ale bez słownika to zgadywanie` })
+    return null
+  }
   if (!g) {
     ctx.trace.push({ kind: 'brak', text: gs.length > 1 ? `słownik podaje kilka rodzajów (${gs.join(', ')}), model rozbioru nie rozstrzyga` : 'nie znam rodzaju tego słowa' })
     return null

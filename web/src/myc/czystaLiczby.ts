@@ -460,6 +460,9 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
   let given = 0
   let used = 0
   let unsafe = ''
+  // działania naprawdę wykonane (+, −, ×, krotność, „o N więcej”) i jednostka liczonej rzeczy na koncie każdej osoby
+  let nOps = 0
+  const unitOfOwner = new Map<string, string>()
   for (const s0 of body) {
     const s = wordsToDigits(s0, ctx.lex, ctx.trace)
     const T = ctx.parse(s).tokens
@@ -514,11 +517,14 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
       const per = ns.find((t) => t.i > po + 1) ?? ns[1]
       const k = ns.find((t) => t !== per)!
       const v = Number(k.form.replace(',', '.')) * Number(per.form.replace(',', '.'))
+      // bezpiecznik: „2 batony po 1,65 zł”, gdy ktoś już ma pieniądze – to wydatek, nie przybytek; nie wiem, czy dodać, czy odjąć
+      if (/^(zł|gr|złot|grosz)/iu.test(tk(per.i + 1)?.form ?? '') && ledger.size) unsafe ||= `„po ${per.form} ${tk(per.i + 1)?.form}” to cena, a w treści jest już stan ${fmtN([...ledger.values()][0])} – nie wiem, czy to wydatek`
       ctx.trace.push({ kind: 'reguła', text: `„po ${per.form}” przy ${k.form} grupach → mnożenie: ${k.form} × ${per.form} = ${v}` })
       ledger.set(SCENE, (ledger.get(SCENE) ?? 0) + v)
       sumAll += v
       nAll++
       used += 2
+      nOps++
       continue
     }
     // krotność: „zwiększyła się 3-krotnie / trzykrotnie”
@@ -533,6 +539,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
         ctx.trace.push({ kind: 'reguła', text: `${down ? 'zmniejszenie' : 'zwiększenie'} ${k}-krotne: ${fmtN(ledger.get(o)!)} ${down ? '÷' : '×'} ${k} = ${fmtN(v)}` })
         ledger.set(o, v)
         used += 1
+        nOps++
         continue
       }
       unsafe ||= `„${kr[0]}” – nie wiem, czyją liczbę zmienić (brak stanu dla ${o === SCENE ? 'tej osoby' : o})`
@@ -581,6 +588,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
           ledger.set(o === lastOwner ? SCENE : o, r)
           if (o !== lastOwner) lastOwner = o
           used++
+          nOps++
           continue
         }
       }
@@ -604,6 +612,14 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
       if (v) verbUse.set(vk, (verbUse.get(vk) ?? 0) + 1)
       if (v && nVerbs > 1 && verbUse.get(vk)! > 1) unsafe ||= `dwie liczby przy jednym czasowniku „${v.form}”, choć w zdaniu są dwa czasowniki – rozbiór niepewny`
       if (op === '-' && !ledger.has(o)) unsafe ||= `${o === SCENE ? 'ktoś' : o} oddaje ${val}, choć nie wiem, ile miał – rozbiór niepewny`
+      // bezpiecznik: drugi „stan” tej samej osoby nadpisałby pierwszy („ma 40 zł … i 10 zł”) – nie wiem, czy dodać, czy zastąpić
+      if (op === '=' && ledger.has(o)) unsafe ||= `drugi stan „${v?.form ?? '?'}” (${val}) dla ${o === SCENE ? 'tej samej sceny' : o} – nie wiem, czy dodać, czy zastąpić ${fmtN(ledger.get(o)!)}`
+      // bezpiecznik: nie dodaję ani nie odejmuję liczb różnych rzeczy („36 zł” + „6 babeczek”)
+      const unit = nounOk && nn ? lemmaOf(nn) : ''
+      const had = unitOfOwner.get(o)
+      if (op !== '=' && unit && had && had !== unit) unsafe ||= `„${val} ${nn?.form ?? ''}” i wcześniejsze „${had}” to różne rzeczy – nie dodaję ich do siebie`
+      if (unit && !had) unitOfOwner.set(o, unit)
+      if (op !== '=') nOps++
       used++
       const before = ledger.get(o) ?? 0
       const after = op === '=' ? val : op === '+' ? before + val : before - val
@@ -615,6 +631,8 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
   if (unknown && !together) return null
   if (!unknown && used < given) unsafe ||= `w treści jest ${given} liczb, użyłem ${used} – któraś liczba nie pasuje do żadnej reguły`
   if (!unsafe && [...ledger.values()].some((x) => x < 0)) unsafe = 'wyszła ujemna liczba rzeczy – rozbiór niepewny'
+  // bezpiecznik: bez żadnego działania odpowiedź byłaby przepisaniem liczby z treści – zadanie wymaga czegoś, czego nie rozpoznałem
+  if (!unsafe && nOps === 0 && !(unknown && together)) unsafe = 'nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści'
   if (unsafe) {
     ctx.trace.push({ kind: 'brak', text: `bezpiecznik: ${unsafe}` })
     return null

@@ -52,3 +52,28 @@ def test_verdict():
     assert se.verdict(g, "rodzaj męski zwierzęcy") == "ok"
     assert se.verdict(g, "rodzaj męski") == "zle"
     assert se.verdict({"category": "przypadki", "gold": [["sroce"]]}, "sroce") == "ok"
+
+
+def test_saved_results_match_verdicts():
+    """Zapisane pomiary (results/szkolne) i opublikowany widok liczą się z odpowiedzi tą samą oceną – bez ręcznych liczb."""
+    items = {
+        it["id"]: it
+        for s in ("szkolne_v1.json", "szkolne_dev_v1.json")
+        for it in json.loads((B / s).read_text())["items"]
+    }
+    files = sorted((ROOT / "results/szkolne").glob("*.json"))
+    assert files
+    for p in files:
+        rep = json.loads(p.read_text())
+        cnt = {"ok": 0, "zle": 0, "nie_wiem": 0}
+        for r in rep["rows"]:
+            v = se.verdict(items[r["id"]], r.get("answer"))
+            assert v == r["verdict"], (p.name, r["id"])
+            cnt[v] += 1
+        assert (rep["ok"], rep["zle"], rep["nie_wiem"]) == (cnt["ok"], cnt["zle"], cnt["nie_wiem"]), p.name
+        assert rep["n"] == len(rep["rows"])
+    pub = json.loads((ROOT / "web/public/data/szkolne/wyniki.json").read_text())
+    for run in pub["runs"]:
+        rep = json.loads((ROOT / run["file"]).read_text())
+        assert (run["ok"], run["zle"], run["nie_wiem"]) == (rep["ok"], rep["zle"], rep["nie_wiem"])
+    assert [r["when"] for r in pub["runs"]] == sorted(r["when"] for r in pub["runs"])

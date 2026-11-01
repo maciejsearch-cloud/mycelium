@@ -53,7 +53,8 @@ export function geometry(text: string, ctx: NumCtx): NumResult | null {
   // dane: zdania przed pytaniem + część pytania po „o / którego / w którym” (np. „pole kwadratu o boku 5 cm”)
   const qData = q.replace(/^.*?(?=(?:o|którego|której|w którym|w której|jeżeli|jeśli)\s)/iu, '')
   const data = [...sents.slice(0, qi), ...sents.slice(qi + 1), qData === q && !/o\s+\d/.test(q) ? '' : qData].join(' ')
-  const clauses = data.split(/,\s*(?:a\s+)?|\.\s*|;\s*|\s+a\s+(?=\p{L})/u).filter((c) => /\d/.test(c))
+  // przecinek / kropka między cyframi to część ułamka dziesiętnego („12,5 cm”), nie granica zdania
+  const clauses = data.split(/(?<!\d),\s*(?:a\s+)?|,(?!\d)\s*(?:a\s+)?|\.(?!\d)\s*|;\s*|\s+a\s+(?=\p{L})/u).filter((c) => /\d/.test(c))
   const vals: Val[] = []
   const lengthUnit = quantities(data).find((x) => x.dim === 'długość')?.units[0]
   const areaQ: Qty[] = []

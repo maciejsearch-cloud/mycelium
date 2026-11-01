@@ -16,6 +16,12 @@ test('testy szkolne: wyniki według klas i zadania ze źródłem', async ({ page
   const grades = new Set(W.tasks.map((t: { grade: string }) => t.grade))
   await expect(page.getByTestId('szk-grade')).toHaveCount(grades.size)
   if (!W.lm) await expect(page.getByTestId('szk-lm')).toContainText('brak pomiaru')
+  // postęp w czasie: każdy opublikowany pomiar to jeden wiersz z jego liczbami
+  if (W.runs.length > 1) {
+    await expect(page.getByTestId('szk-run')).toHaveCount(W.runs.length)
+    const last = W.runs[W.runs.length - 1]
+    await expect(page.getByTestId('szk-run').last()).toContainText(`${last.ok} dobrze · ${last.zle} źle · ${last.nie_wiem} nie wiem`)
+  }
   const first = W.tasks.find((t: { grade: string }) => t.grade === '1')
   await expect(page.getByTestId('szk-task').first()).toContainText(first.q)
   await expect(page.getByTestId('szk-task').first().getByRole('link')).toHaveAttribute('href', first.src.url)
