@@ -1,6 +1,6 @@
 {
- "when": "2026-11-01T02:02:02+01:00",
- "model": "v3-dc3648e4.bin",
+ "when": "2026-11-01T02:12:16+01:00",
+ "model": "model grzybni v3",
  "logic": {
   "n": 320,
   "correct": 267,
@@ -107,8 +107,8 @@
  },
  "chat_facts": {
   "n": 40,
-  "correct": 0,
-  "abstain": 40,
+  "correct": 4,
+  "abstain": 36,
   "wrong": 0
  },
  "fresh_seed7": {
@@ -247,7 +247,7 @@
    "zadanie tekstowe": {
     "n": 10,
     "correct": 8,
-    "abstain": 1,
+    "abstain": 2,
     "acc": 0.8
    }
   }
@@ -260,7 +260,7 @@
    "zadanie tekstowe": {
     "n": 16,
     "correct": 14,
-    "abstain": 0,
+    "abstain": 2,
     "acc": 0.875
    }
   }
