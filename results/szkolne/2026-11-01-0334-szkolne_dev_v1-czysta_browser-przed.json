@@ -1,0 +1,2381 @@
+{
+ "when": "2026-11-01T03:34:55+01:00",
+ "set": "szkolne_dev_v1",
+ "mode": "czysta_browser",
+ "label": "przed",
+ "url": "https://maciejsearch-cloud.github.io/demo/mycelium/",
+ "model": "rozbiór: model grzybni v3 (UD Polish-PDB, CC BY-NC-SA 4.0)",
+ "meta": null,
+ "n": 101,
+ "ok": 0,
+ "zle": 8,
+ "nie_wiem": 93,
+ "per_grade": {
+  "1": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "1-3": {
+   "n": 8,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 8
+  },
+  "2": {
+   "n": 7,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 6
+  },
+  "3": {
+   "n": 10,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 10
+  },
+  "4": {
+   "n": 24,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 23
+  },
+  "4-8": {
+   "n": 11,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 11
+  },
+  "5": {
+   "n": 17,
+   "ok": 0,
+   "zle": 2,
+   "nie_wiem": 15
+  },
+  "6": {
+   "n": 11,
+   "ok": 0,
+   "zle": 3,
+   "nie_wiem": 8
+  },
+  "7": {
+   "n": 10,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 9
+  }
+ },
+ "per_grade_category": {
+  "1-3|czesci_mowy": {
+   "n": 8,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 8
+  },
+  "1|jednostki": {
+   "n": 1,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "1|zadania_tekstowe": {
+   "n": 2,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 2
+  },
+  "2|arytmetyka": {
+   "n": 5,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 5
+  },
+  "2|zadania_tekstowe": {
+   "n": 2,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 1
+  },
+  "3|arytmetyka": {
+   "n": 8,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 8
+  },
+  "3|geometria": {
+   "n": 1,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "3|jednostki": {
+   "n": 1,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "4-8|rodzaj": {
+   "n": 11,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 11
+  },
+  "4|arytmetyka": {
+   "n": 10,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 10
+  },
+  "4|geometria": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "4|jednostki": {
+   "n": 6,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 5
+  },
+  "4|logika_ciagi": {
+   "n": 1,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "4|zadania_tekstowe": {
+   "n": 4,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 4
+  },
+  "5|geometria": {
+   "n": 5,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 5
+  },
+  "5|jednostki": {
+   "n": 2,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 2
+  },
+  "5|ulamki": {
+   "n": 8,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 7
+  },
+  "5|zadania_tekstowe": {
+   "n": 2,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 1
+  },
+  "6|geometria": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "6|ulamki": {
+   "n": 2,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 1
+  },
+  "6|zadania_tekstowe": {
+   "n": 6,
+   "ok": 0,
+   "zle": 2,
+   "nie_wiem": 4
+  },
+  "7|arytmetyka": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "7|jednostki": {
+   "n": 1,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "7|ulamki": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "7|zadania_tekstowe": {
+   "n": 3,
+   "ok": 0,
+   "zle": 1,
+   "nie_wiem": 2
+  }
+ },
+ "rows": [
+  {
+   "id": "szk-1-015",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "W klasie jest 15 chłopców i 10 dziewczynek. O ilu więcej jest chłopców niż dziewczynek?",
+   "gold": [
+    [
+     "5"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W klasie jest 15 chłopców i 10 dziewczynek. O ilu więcej jest chłopców niż dziewczynek?”",
+    "rozbiór2 zdania, pewność rozbioru 85%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {więce, chłop, dziew}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {więce, chłop, dziew} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-016",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "Marcel wybrał się na jesienny spacer w poszukiwaniu darów lasu. Podczas swojej wędrówki znalazł 6 kasztanów, 7 żołędzi, 2 szyszki świerku i 5 kolorowych liści dębu i klonu. Ile łącznie darów lasu znalazł Marcel?",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Marcel wybrał się na jesienny spacer w poszukiwaniu darów lasu. Podczas swojej wędrówki znalazł 6 kasztanów, 7 żołędzi, 2 szyszki świerku i 5 kolorowych liści dębu i klonu. Ile łącznie darów lasu znalazł Marcel?”",
+    "rozbiór3 zdania, pewność rozbioru 87%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „dar”, czyje: Marcel",
+    "fakt6 kasztanów – inna rzecz niż „dar”, pomijam",
+    "fakt7 żołędzi – inna rzecz niż „dar”, pomijam",
+    "fakt2 szyszki – inna rzecz niż „dar”, pomijam",
+    "fakt5 liści – inna rzecz niż „dar”, pomijam",
+    "braknie ma w treści liczby „dar” dla marcela",
+    "wiedzasłowa treści pytania: {łączn, dar, las, znale, marce}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {łączn, dar, las, znale, marce} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-017",
+   "grade": "1",
+   "category": "jednostki",
+   "q": "Babcia kupiła składniki do upieczenia ciasta: 1 kilogram cukru, 1 kilogram mąki i 2 kilogramy jabłek. Ile ważyły razem kupione przez babcię składniki?",
+   "gold": [
+    [
+     "4"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Babcia kupiła składniki do upieczenia ciasta: 1 kilogram cukru, 1 kilogram mąki i 2 kilogramy jabłek. Ile ważyły razem kupione przez babcię składniki?”",
+    "rozbiór2 zdania, pewność rozbioru 76%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „babcia”, razem",
+    "fakt1 kilogram – inna rzecz niż „babcia”, pomijam",
+    "fakt1 kilogram – inna rzecz niż „babcia”, pomijam",
+    "fakt2 kilogramy – inna rzecz niż „babcia”, pomijam",
+    "brakkilka osób w treści – nie wiem, o kogo chodzi",
+    "wiedzasłowa treści pytania: {ważyć, kupić, babc, skład}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {ważyć, kupić, babc, skład} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-014",
+   "grade": "2",
+   "category": "zadania_tekstowe",
+   "q": "Do Krainy Działań przybyło 5 Stworków. Następnego dnia przybyło 2 razy więcej Stworków. Kolejnego dnia doszło 3 razy więcej niż pierwszego dnia. Ile razem stworków przybyło do Krainy Działań?",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "answer": "5",
+   "verdict": "zle",
+   "source": "liczby",
+   "trace": [
+    "wejście„Do Krainy Działań przybyło 5 Stworków. Następnego dnia przybyło 2 razy więcej Stworków. Kolejnego dnia doszło 3 razy więcej niż pierwszego dnia. Ile razem stworków przybyło do Krainy Działań?”",
+    "rozbiór4 zdania, pewność rozbioru 88%",
+    "rozbiórwyrazy ciągu: 5, 2, 3",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "rozbiórpytanie o liczbę: „raz”, czyje: kraina, razem",
+    "fakt5 Stworków – inna rzecz niż „raz”, pomijam",
+    "reguła„przybyło” – pierwsza wzmianka o liczbie, stan początkowy: 2",
+    "reguła„doszło” – czasownik ruchu z przedrostkiem „przy-/do-”: przychodzi, przybywa: 2 + 3 = 5",
+    "wniosekodpowiedź: 5"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-015",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 5 · 6",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz działania. 5 · 6”",
+    "rozbiór2 zdania, pewność rozbioru 80%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-016",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 7 · 3",
+   "gold": [
+    [
+     "21"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz działania. 7 · 3”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-017",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 3 · 8",
+   "gold": [
+    [
+     "24"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz działania. 3 · 8”",
+    "rozbiór2 zdania, pewność rozbioru 80%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-018",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 7 · 6",
+   "gold": [
+    [
+     "42"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz działania. 7 · 6”",
+    "rozbiór2 zdania, pewność rozbioru 79%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-019",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Oblicz działania. 8 · 6",
+   "gold": [
+    [
+     "48"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz działania. 8 · 6”",
+    "rozbiór2 zdania, pewność rozbioru 79%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-020",
+   "grade": "2",
+   "category": "zadania_tekstowe",
+   "q": "Rozwiąż zadanie. Tona piasku kosztuje 320 zł, natomiast tona soli drogowej 920 zł. Oblicz, o ile więcej kosztuje sól.",
+   "gold": [
+    [
+     "600"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Rozwiąż zadanie. Tona piasku kosztuje 320 zł, natomiast tona soli drogowej 920 zł. Oblicz, o ile więcej kosztuje sól.”",
+    "rozbiór3 zdania, pewność rozbioru 85%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-037",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wstaw prawidłowy wynik dzielenia. 36 : 4 =",
+   "gold": [
+    [
+     "9"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wstaw prawidłowy wynik dzielenia. 36 : 4 =”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-038",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wstaw prawidłowy wynik dzielenia. 42 : 7 =",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wstaw prawidłowy wynik dzielenia. 42 : 7 =”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-039",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wstaw prawidłowy wynik dzielenia. 56 : 8 =",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wstaw prawidłowy wynik dzielenia. 56 : 8 =”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-040",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wstaw prawidłowy wynik dzielenia. 24 : 3 =",
+   "gold": [
+    [
+     "8"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wstaw prawidłowy wynik dzielenia. 24 : 3 =”",
+    "rozbiór2 zdania, pewność rozbioru 72%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-041",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsca wyniki działań. 37 - 13 - 8 =",
+   "gold": [
+    [
+     "16"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wpisz w puste miejsca wyniki działań. 37 - 13 - 8 =”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-042",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsca wyniki działań. 25 + 5 · 5 =",
+   "gold": [
+    [
+     "50"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wpisz w puste miejsca wyniki działań. 25 + 5 · 5 =”",
+    "rozbiór2 zdania, pewność rozbioru 65%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-043",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsca wyniki działań. 100 - 4 · 4 =",
+   "gold": [
+    [
+     "84"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wpisz w puste miejsca wyniki działań. 100 - 4 · 4 =”",
+    "rozbiór2 zdania, pewność rozbioru 76%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-044",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsca wyniki działań. 48 : 6 + 22 =",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wpisz w puste miejsca wyniki działań. 48 : 6 + 22 =”",
+    "rozbiór2 zdania, pewność rozbioru 79%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-045",
+   "grade": "3",
+   "category": "geometria",
+   "q": "Jeden z boków trójkąta mierzy 5 cm. Drugi bok jest 2 razy dłuższy od pierwszego, a trzeci o 4 cm dłuższy od drugiego. Oblicz obwód tego trójkąta.",
+   "gold": [
+    [
+     "29"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Jeden z boków trójkąta mierzy 5 cm. Drugi bok jest 2 razy dłuższy od pierwszego, a trzeci o 4 cm dłuższy od drugiego. Oblicz obwód tego trójkąta.”",
+    "rozbiór3 zdania, pewność rozbioru 83%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-046",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Kredka Janka ma 5 cm długości, a nowa kredka Jurka ma 13 cm długości. O ile cm kredka Jurka jest dłuższa?",
+   "gold": [
+    [
+     "8"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Kredka Janka ma 5 cm długości, a nowa kredka Jurka ma 13 cm długości. O ile cm kredka Jurka jest dłuższa?”",
+    "rozbiór2 zdania, pewność rozbioru 84%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {centy, kredk, jurk, dług}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {centy, kredk, jurk, dług} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-3-001",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. stół",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. stół”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-3-002",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. mówią",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. mówią”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-3-003",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. zielona",
+   "gold": [
+    [
+     "przymiotnik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. zielona”",
+    "rozbiór2 zdania, pewność rozbioru 79%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-3-004",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. siedemnasty",
+   "gold": [
+    [
+     "liczebnik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. siedemnasty”",
+    "rozbiór2 zdania, pewność rozbioru 69%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-3-005",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. wołali",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. wołali”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-3-006",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. podłoga",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. podłoga”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-3-007",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. sprytne",
+   "gold": [
+    [
+     "przymiotnik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. sprytne”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-3-008",
+   "grade": "1-3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. dwa",
+   "gold": [
+    [
+     "liczebnik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zaznacz właściwymi kolorami podane części mowy: czasownik, rzeczownik, przymiotnik, liczebnik. dwa”",
+    "rozbiór2 zdania, pewność rozbioru 56%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-003",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Która liczba jest o 8 mniejsza od 35?",
+   "gold": [
+    [
+     "27"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Która liczba jest o 8 mniejsza od 35?”",
+    "rozbiór1 zdanie, pewność rozbioru 87%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {liczb, 8, mał, 35}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {liczb, 8, mał, 35} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-005",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "O ile liczba 24 jest mniejsza od liczby 40?",
+   "gold": [
+    [
+     "16"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„O ile liczba 24 jest mniejsza od liczby 40?”",
+    "rozbiór1 zdanie, pewność rozbioru 85%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {liczb, 24, mał, 40}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {liczb, 24, mał, 40} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-007",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Do sklepu przywieziono zestawy klocków. Pierwszego dnia sprzedano 24 zestawy, a drugiego dnia o 18 więcej. Ile zestawów klocków sprzedano drugiego dnia?",
+   "gold": [
+    [
+     "42"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Do sklepu przywieziono zestawy klocków. Pierwszego dnia sprzedano 24 zestawy, a drugiego dnia o 18 więcej. Ile zestawów klocków sprzedano drugiego dnia?”",
+    "rozbiór3 zdania, pewność rozbioru 91%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „zestaw”",
+    "reguła„sprzedano” – ubywa: 0 − 24 = -24",
+    "reguła„sprzedano” – ubywa: -24 − 18 = -42",
+    "brakbezpiecznik: ktoś oddaje 24, choć nie wiem, ile miał – rozbiór niepewny",
+    "wiedzasłowa treści pytania: {zesta, kloce, sprze, drug, dzień}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {zesta, kloce, sprze, drug, dzień} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-009",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Tomek ma 9 lat, a jego tata jest od niego o 23 lata starszy. Ile lat ma tata Tomka?",
+   "gold": [
+    [
+     "32"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Tomek ma 9 lat, a jego tata jest od niego o 23 lata starszy. Ile lat ma tata Tomka?”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „rok”, czyje: tomka",
+    "reguła„ma” – stan początkowy: 9",
+    "reguła„ma … od niego” – przybywa: 9 + 23 = 32",
+    "brakbezpiecznik: porównanie „starszy” – znam tylko „o N więcej/mniej”",
+    "wiedzasłowa treści pytania: {rok, mieć, tat, tomk}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {rok, mieć, tat, tomk} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-012",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 35 : 7",
+   "gold": [
+    [
+     "5"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 35 : 7”",
+    "rozbiór2 zdania, pewność rozbioru 94%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-013",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 63 : 9",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 63 : 9”",
+    "rozbiór2 zdania, pewność rozbioru 94%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-014",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 72 : 8",
+   "gold": [
+    [
+     "9"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 72 : 8”",
+    "rozbiór2 zdania, pewność rozbioru 95%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-017",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Oblicz, ile to lat: 48 miesięcy",
+   "gold": [
+    [
+     "4"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz, ile to lat: 48 miesięcy”",
+    "rozbiór1 zdanie, pewność rozbioru 55%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "braknie umiem odczytać działania „lat: 48 miesięcy”"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-018",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Oblicz, ile to lat: 72 miesiące",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz, ile to lat: 72 miesiące”",
+    "rozbiór1 zdanie, pewność rozbioru 56%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "braknie umiem odczytać działania „lat: 72 miesiące”"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-024",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Pani Kasia wydaje miesięcznie 15 złotych na swoje ulubione tygodniki. Ile pieniędzy wyda na tygodniki przez pół roku?",
+   "gold": [
+    [
+     "90"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Pani Kasia wydaje miesięcznie 15 złotych na swoje ulubione tygodniki. Ile pieniędzy wyda na tygodniki przez pół roku?”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „pieniądz”",
+    "fakt15 złotych – inna rzecz niż „pieniądz”, pomijam",
+    "brakkilka osób w treści – nie wiem, o kogo chodzi",
+    "wiedzasłowa treści pytania: {pieni, wydać, tygod, pół, rok}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {pieni, wydać, tygod, pół, rok} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-027",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Kacper ma trzy rodzaje samochodzików. Plastikowych ma 12, metalowych dwa razy mniej, a drewnianych ma dwa razy mniej niż metalowych. Ile wszystkich samochodzików ma Kacper?",
+   "gold": [
+    [
+     "21"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Kacper ma trzy rodzaje samochodzików. Plastikowych ma 12, metalowych dwa razy mniej, a drewnianych ma dwa razy mniej niż metalowych. Ile wszystkich samochodzików ma Kacper?”",
+    "rozbiór3 zdania, pewność rozbioru 86%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „samochodzik”, czyje: Kacper, razem",
+    "rozbiórliczebniki słowami: „trzy” = 3",
+    "fakt3 rodzaje – inna rzecz niż „samochodzik”, pomijam",
+    "rozbiórliczebniki słowami: „dwa” = 2, „dwa” = 2",
+    "fakt12 razy – inna rzecz niż „samochodzik”, pomijam",
+    "fakt2 razy – inna rzecz niż „samochodzik”, pomijam",
+    "fakt2 razy – inna rzecz niż „samochodzik”, pomijam",
+    "braknie ma w treści liczby „samochodzik” dla kacper",
+    "wiedzasłowa treści pytania: {wszys, samoc, mieć, kacpe}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {wszys, samoc, mieć, kacpe} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-028",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Znajdź liczbę o 17 większą od 38",
+   "gold": [
+    [
+     "55"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Znajdź liczbę o 17 większą od 38”",
+    "rozbiór1 zdanie, pewność rozbioru 84%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-029",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Znajdź liczbę 5 razy mniejszą od 90",
+   "gold": [
+    [
+     "18"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Znajdź liczbę 5 razy mniejszą od 90”",
+    "rozbiór1 zdanie, pewność rozbioru 74%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-036",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 3 zł 15 gr = … gr",
+   "gold": [
+    [
+     "315"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Uzupełnij, wpisując odpowiednią liczbę całkowitą. 3 zł 15 gr = … gr”",
+    "rozbiór2 zdania, pewność rozbioru 82%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-037",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 27 zł 45 gr = … gr",
+   "gold": [
+    [
+     "2745"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Uzupełnij, wpisując odpowiednią liczbę całkowitą. 27 zł 45 gr = … gr”",
+    "rozbiór2 zdania, pewność rozbioru 83%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-038",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 4 zł 3 gr = … gr",
+   "gold": [
+    [
+     "403"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Uzupełnij, wpisując odpowiednią liczbę całkowitą. 4 zł 3 gr = … gr”",
+    "rozbiór2 zdania, pewność rozbioru 83%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-042",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Konrad kupił na swoje urodziny 30 lizaków w cenie 35 gr za sztukę. Ile Konrad zapłacił za lizaki?",
+   "gold": [
+    [
+     "10,50"
+    ],
+    [
+     "10 zł 50 gr"
+    ]
+   ],
+   "answer": "65",
+   "verdict": "zle",
+   "source": "liczby",
+   "trace": [
+    "wejście„Konrad kupił na swoje urodziny 30 lizaków w cenie 35 gr za sztukę. Ile Konrad zapłacił za lizaki?”",
+    "rozbiór2 zdania, pewność rozbioru 89%",
+    "rozbiórpytanie o liczbę: „lizaka”, czyje: Konrad",
+    "regułakonrada: „kupił” – przybywa: 0 + 30 = 30",
+    "regułakonrada: „kupił” – przybywa: 30 + 35 = 65",
+    "wniosekodpowiedź: 65"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-046",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Oblicz obwód kwadratu o boku podanej długości. 5 cm",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz obwód kwadratu o boku podanej długości. 5 cm”",
+    "rozbiór2 zdania, pewność rozbioru 74%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-047",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Oblicz obwód kwadratu o boku podanej długości. 16 cm",
+   "gold": [
+    [
+     "64"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz obwód kwadratu o boku podanej długości. 16 cm”",
+    "rozbiór2 zdania, pewność rozbioru 75%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-049",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Obwód prostokąta wynosi 40 cm, a jeden z jego boków ma długość 8 cm. Długość drugiego boku tego prostokąta wynosi … cm.",
+   "gold": [
+    [
+     "12"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Obwód prostokąta wynosi 40 cm, a jeden z jego boków ma długość 8 cm. Długość drugiego boku tego prostokąta wynosi … cm.”",
+    "rozbiór2 zdania, pewność rozbioru 94%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-051",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. Wykorzystaj to, że dodawanie jest łączne i przemienne. 13 + 9 + 7",
+   "gold": [
+    [
+     "29"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. Wykorzystaj to, że dodawanie jest łączne i przemienne. 13 + 9 + 7”",
+    "rozbiór3 zdania, pewność rozbioru 74%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-052",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. Wykorzystaj to, że dodawanie jest łączne i przemienne. 28 + 15 + 2 + 25",
+   "gold": [
+    [
+     "70"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. Wykorzystaj to, że dodawanie jest łączne i przemienne. 28 + 15 + 2 + 25”",
+    "rozbiór3 zdania, pewność rozbioru 73%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-055",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Wykonaj odejmowanie. 68 − 15",
+   "gold": [
+    [
+     "53"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Wykonaj odejmowanie. 68 − 15”",
+    "rozbiór2 zdania, pewność rozbioru 83%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-058",
+   "grade": "4",
+   "category": "logika_ciagi",
+   "q": "Przepisz podane liczby w kolejności rosnącej, to znaczy od najmniejszej do największej. 897, 629, 2683, 2698, 13456, 13564",
+   "gold": [
+    [
+     "629",
+     "897",
+     "2683",
+     "2698",
+     "13456",
+     "13564"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przepisz podane liczby w kolejności rosnącej, to znaczy od najmniejszej do największej. 897, 629, 2683, 2698, 13456, 13564”",
+    "rozbiór2 zdania, pewność rozbioru 63%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-002",
+   "grade": "5",
+   "category": "zadania_tekstowe",
+   "q": "Każdy uczeń zjada w szkole 42 kg owoców w ciągu roku. Ilu uczniów jest w tej szkole, jeśli w ciągu roku wydano dzieciom 18 270 kg owoców?",
+   "gold": [
+    [
+     "435"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Każdy uczeń zjada w szkole 42 kg owoców w ciągu roku. Ilu uczniów jest w tej szkole, jeśli w ciągu roku wydano dzieciom 18 270 kg owoców?”",
+    "rozbiór2 zdania, pewność rozbioru 85%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórwyrazy ciągu: 42, 18, 270",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "wiedzasłowa treści pytania: {uczeń, szkoł, ciąg, rok, wydać, dziec, 18, 270, kilog, owoc}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {uczeń, szkoł, ciąg, rok, wydać, dziec, 18, 270, kilog, owoc} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-010",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Zapisz podane kwoty, używając liczb dwumianowanych. 30,01 zł = … zł … gr",
+   "gold": [
+    [
+     "30",
+     "1"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zapisz podane kwoty, używając liczb dwumianowanych. 30,01 zł = … zł … gr”",
+    "rozbiór2 zdania, pewność rozbioru 75%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-011",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Zapisz podane kwoty, używając liczb dwumianowanych. 3,2 zł = … zł … gr",
+   "gold": [
+    [
+     "3",
+     "20"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zapisz podane kwoty, używając liczb dwumianowanych. 3,2 zł = … zł … gr”",
+    "rozbiór2 zdania, pewność rozbioru 75%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-015",
+   "grade": "5",
+   "category": "jednostki",
+   "q": "Zapisz podane masy, używając liczb dziesiętnych. 1 cm 2 mm = … cm",
+   "gold": [
+    [
+     "1,2"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zapisz podane masy, używając liczb dziesiętnych. 1 cm 2 mm = … cm”",
+    "rozbiór2 zdania, pewność rozbioru 72%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-016",
+   "grade": "5",
+   "category": "jednostki",
+   "q": "Zapisz podane masy, używając liczb dziesiętnych. 3 km 20 m = … km",
+   "gold": [
+    [
+     "3,02"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zapisz podane masy, używając liczb dziesiętnych. 3 km 20 m = … km”",
+    "rozbiór2 zdania, pewność rozbioru 72%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-018",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Kasia kupiła sześć jednakowych jogurtów, każdy o masie 0,15 kg. Ile kilogramów ważyły wszystkie jogurty?",
+   "gold": [
+    [
+     "0,9"
+    ]
+   ],
+   "answer": "0,15",
+   "verdict": "zle",
+   "source": "liczby",
+   "trace": [
+    "wejście„Kasia kupiła sześć jednakowych jogurtów, każdy o masie 0,15 kg. Ile kilogramów ważyły wszystkie jogurty?”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "rozbiórpytanie o liczbę: „kilogram”",
+    "rozbiórliczebniki słowami: „sześć” = 6",
+    "fakt6 jogurtów – inna rzecz niż „kilogram”, pomijam",
+    "reguła„kupiła” – przybywa: 0 + 0.15 = 0.15",
+    "wniosekodpowiedź: 0,15"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-021",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz w pamięci. 6 ∙ 0,5",
+   "gold": [
+    [
+     "3"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz w pamięci. 6 ∙ 0,5”",
+    "rozbiór2 zdania, pewność rozbioru 84%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-022",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz w pamięci. 4 ∙ 1,5",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz w pamięci. 4 ∙ 1,5”",
+    "rozbiór2 zdania, pewność rozbioru 82%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-023",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz w pamięci. 2 ∙ 2,3",
+   "gold": [
+    [
+     "4,6"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz w pamięci. 2 ∙ 2,3”",
+    "rozbiór2 zdania, pewność rozbioru 84%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-025",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz. 2,19 : 3",
+   "gold": [
+    [
+     "0,73"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 2,19 : 3”",
+    "rozbiór2 zdania, pewność rozbioru 92%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-026",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz. 20,5 : 5",
+   "gold": [
+    [
+     "4,1"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 20,5 : 5”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-030",
+   "grade": "5",
+   "category": "zadania_tekstowe",
+   "q": "Ala kupiła 2 długopisy po 2,85 zł oraz 3 zeszyty po 1,45 zł. Ile zapłaciła za zakupy?",
+   "gold": [
+    [
+     "10,05"
+    ]
+   ],
+   "answer": "4,3",
+   "verdict": "zle",
+   "source": "liczby",
+   "trace": [
+    "wejście„Ala kupiła 2 długopisy po 2,85 zł oraz 3 zeszyty po 1,45 zł. Ile zapłaciła za zakupy?”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "rozbiórwyrazy ciągu: 2, 2.85, 3, 1.45",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "rozbiórpytanie o liczbę: „zakup”",
+    "fakt2 długopisy – inna rzecz niż „zakup”, pomijam",
+    "regułaala: „kupiła” – przybywa: 0 + 2.85 = 2.85",
+    "fakt3 zeszyty – inna rzecz niż „zakup”, pomijam",
+    "regułaala: „kupiła” – przybywa: 2.85 + 1.45 = 4.3",
+    "wniosekodpowiedź: 4,3"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-035",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole kwadratu, którego bok ma długość 6 cm",
+   "gold": [
+    [
+     "36"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz pole kwadratu, którego bok ma długość 6 cm”",
+    "rozbiór1 zdanie, pewność rozbioru 79%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-036",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole kwadratu, którego bok ma długość 7 dm",
+   "gold": [
+    [
+     "49"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz pole kwadratu, którego bok ma długość 7 dm”",
+    "rozbiór1 zdanie, pewność rozbioru 80%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-039",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Pan Andrzej ma dwie działki w kształcie prostokąta. Pole jednej działki jest równe 60 a, a druga ma wymiary 50 m i 150 m. Oblicz, jaką powierzchnię w hektarach zajmują razem obie działki pana Andrzeja.",
+   "gold": [
+    [
+     "1,35"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Pan Andrzej ma dwie działki w kształcie prostokąta. Pole jednej działki jest równe 60 a, a druga ma wymiary 50 m i 150 m. Oblicz, jaką powierzchnię w hektarach zajmują razem obie działki pana Andrzeja.”",
+    "rozbiór3 zdania, pewność rozbioru 86%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-040",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta, w którym jeden z boków ma długość 5 cm, a drugi jest od niego o 4 cm dłuższy.",
+   "gold": [
+    [
+     "45"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz pole prostokąta, w którym jeden z boków ma długość 5 cm, a drugi jest od niego o 4 cm dłuższy.”",
+    "rozbiór1 zdanie, pewność rozbioru 75%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-041",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta, w którym obwód jest równy 30 cm, a jeden z boków ma długość 12 cm.",
+   "gold": [
+    [
+     "36"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz pole prostokąta, w którym obwód jest równy 30 cm, a jeden z boków ma długość 12 cm.”",
+    "rozbiór1 zdanie, pewność rozbioru 76%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-002",
+   "grade": "6",
+   "category": "ulamki",
+   "q": "Pani Kasia zapłaciła 113,42 zł za 26,5 litra benzyny. Oblicz, ile złotych kosztuje litr tej benzyny.",
+   "gold": [
+    [
+     "4,28"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Pani Kasia zapłaciła 113,42 zł za 26,5 litra benzyny. Oblicz, ile złotych kosztuje litr tej benzyny.”",
+    "rozbiór2 zdania, pewność rozbioru 92%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-004",
+   "grade": "6",
+   "category": "ulamki",
+   "q": "Adrian kupił 0,3 kg mandarynek po 4,89 zł za kilogram. Ile złotych zapłacił Adrian za mandarynki? Podaj wynik zaokrąglony do części setnych.",
+   "gold": [
+    [
+     "1,47"
+    ]
+   ],
+   "answer": "NaN",
+   "verdict": "zle",
+   "source": "liczby",
+   "trace": [
+    "wejście„Adrian kupił 0,3 kg mandarynek po 4,89 zł za kilogram. Ile złotych zapłacił Adrian za mandarynki? Podaj wynik zaokrąglony do części setnych.”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "rozbiórpytanie o liczbę: „złoty”, czyje: Adrian",
+    "reguła„po 4,89” przy 0,3 grupach → mnożenie: 0,3 × 4,89 = NaN",
+    "wniosekodpowiedź: NaN"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-008",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Oblicz pole kwadratu, którego przekątna ma długość 12 cm.",
+   "gold": [
+    [
+     "72"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz pole kwadratu, którego przekątna ma długość 12 cm.”",
+    "rozbiór1 zdanie, pewność rozbioru 80%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-009",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Jedna przekątna rombu ma długość 12 cm, a druga jest od niej o 4 cm krótsza. Oblicz pole tego rombu.",
+   "gold": [
+    [
+     "48"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Jedna przekątna rombu ma długość 12 cm, a druga jest od niej o 4 cm krótsza. Oblicz pole tego rombu.”",
+    "rozbiór2 zdania, pewność rozbioru 81%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-013",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Odległość między Adamowem i Piotrkowem jest równa 195 km. Oblicz, z jaką średnią prędkością jedzie pociąg, jeżeli z Adamowa wyjeżdża o godzinie 19 : 17, a w Piotrkowie jest o godzinie 21 : 47.",
+   "gold": [
+    [
+     "78"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Odległość między Adamowem i Piotrkowem jest równa 195 km. Oblicz, z jaką średnią prędkością jedzie pociąg, jeżeli z Adamowa wyjeżdża o godzinie 19 : 17, a w Piotrkowie jest o godzinie 21 : 47.”",
+    "rozbiór2 zdania, pewność rozbioru 87%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiórwyrazy ciągu: 195, 19, 17, 21, 47",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-015",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Zimą buty kosztowały 240 zł. Na wiosnę obniżono ich cenę o 20 %. Latem była kolejna obniżka – tym razem o 10 %. O ile złotych były tańsze te buty latem niż zimą?",
+   "gold": [
+    [
+     "67,20"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zimą buty kosztowały 240 zł. Na wiosnę obniżono ich cenę o 20 %. Latem była kolejna obniżka – tym razem o 10 %. O ile złotych były tańsze te buty latem niż zimą?”",
+    "rozbiór4 zdania, pewność rozbioru 78%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {złot, tan, but, lat, zim}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {złot, tan, but, lat, zim} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-019",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Lodówka kosztowała 1400 zł. Jej cenę obniżono o 20 %. Ile kosztuje lodówka po obniżce ceny?",
+   "gold": [
+    [
+     "1120"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Lodówka kosztowała 1400 zł. Jej cenę obniżono o 20 %. Ile kosztuje lodówka po obniżce ceny?”",
+    "rozbiór3 zdania, pewność rozbioru 97%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „lodówka”",
+    "reguła„kosztowała” – pierwsza wzmianka o liczbie, stan początkowy: 1400",
+    "braknie wiem, czy „obniżono” dodaje, czy odejmuje",
+    "wiedzasłowa treści pytania: {koszt, lodów, obniż, cen}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {koszt, lodów, obniż, cen} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-021",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Po piętnastoprocentowej obniżce gra kosztowała o 12 złotych mniej niż poprzednio. Jaka była cena gry przed obniżką?",
+   "gold": [
+    [
+     "80"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Po piętnastoprocentowej obniżce gra kosztowała o 12 złotych mniej niż poprzednio. Jaka była cena gry przed obniżką?”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {cen, gr, obniż}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {cen, gr, obniż} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-023",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Gdy pewną liczbę zwiększymy 5 razy i od iloczynu odejmiemy 35, otrzymamy 30. Jaka to liczba?",
+   "gold": [
+    [
+     "13"
+    ]
+   ],
+   "answer": "pierwsza ma dokładnie dwa dodatnie dzielniki",
+   "verdict": "zle",
+   "source": "fakt",
+   "trace": [
+    "wejście„Gdy pewną liczbę zwiększymy 5 razy i od iloczynu odejmiemy 35, otrzymamy 30. Jaka to liczba?”",
+    "rozbiór2 zdania, pewność rozbioru 84%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {liczb}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "fakt„Liczba pierwsza ma dokładnie dwa dodatnie dzielniki.” zawiera wszystkie słowa pytania {liczb}",
+    "wniosekbrakujący element = pozostałe słowa faktu: „pierwsza ma dokładnie dwa dodatnie dzielniki”"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-026",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Franek kupił lizaki po 50 gr za sztukę oraz bombonierkę za 27 zł. Za zakupy zapłacił 39 zł. Ile lizaków kupił?",
+   "gold": [
+    [
+     "24"
+    ]
+   ],
+   "answer": "1311",
+   "verdict": "zle",
+   "source": "liczby",
+   "trace": [
+    "wejście„Franek kupił lizaki po 50 gr za sztukę oraz bombonierkę za 27 zł. Za zakupy zapłacił 39 zł. Ile lizaków kupił?”",
+    "rozbiór3 zdania, pewność rozbioru 95%",
+    "rozbiórwyrazy ciągu: 50, 27, 39",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "rozbiórpytanie o liczbę: „lizak”",
+    "reguła„po 50” przy 27 grupach → mnożenie: 27 × 50 = 1350",
+    "reguła„zapłacił” – ubywa: 1350 − 39 = 1311",
+    "wniosekodpowiedź: 1311"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-028",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Krawędź sześcianu ma długość 5 cm. Oblicz sumę długości wszystkich krawędzi tego sześcianu.",
+   "gold": [
+    [
+     "60"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Krawędź sześcianu ma długość 5 cm. Oblicz sumę długości wszystkich krawędzi tego sześcianu.”",
+    "rozbiór2 zdania, pewność rozbioru 85%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-003",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "W wyniku dzielenia pewnej liczby naturalnej przez 7 otrzymujemy 4 i reszta 2. Ta liczba to",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W wyniku dzielenia pewnej liczby naturalnej przez 7 otrzymujemy 4 i reszta 2. Ta liczba to”",
+    "rozbiór2 zdania, pewność rozbioru 84%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-005",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "Skorzystaj z algorytmu Euklidesa i oblicz NWD liczb: 4290, 1210.",
+   "gold": [
+    [
+     "110"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Skorzystaj z algorytmu Euklidesa i oblicz NWD liczb: 4290, 1210.”",
+    "rozbiór1 zdanie, pewność rozbioru 82%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-008",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Woda stanowi około 0,65 masy ciała Zuzi. Ile waży dziewczynka, jeżeli woda w jej organizmie waży 18,2 kg?",
+   "gold": [
+    [
+     "28"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Woda stanowi około 0,65 masy ciała Zuzi. Ile waży dziewczynka, jeżeli woda w jej organizmie waży 18,2 kg?”",
+    "rozbiór2 zdania, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „dziewczynka”",
+    "fakt0,65 masy – inna rzecz niż „dziewczynka”, pomijam",
+    "brakkilka osób w treści – nie wiem, o kogo chodzi",
+    "wiedzasłowa treści pytania: {ważyć, dziew, wod, on, organ, 18,2, kilog}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {ważyć, dziew, wod, on, organ, 18,2, kilog} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-011",
+   "grade": "7",
+   "category": "jednostki",
+   "q": "2 kilogramy 54 dekagramy to",
+   "gold": [
+    [
+     "2540 g"
+    ],
+    [
+     "2,54 kg"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„2 kilogramy 54 dekagramy to”",
+    "rozbiór1 zdanie, pewność rozbioru 85%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-013",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Samochód, który spala 5,5 litra benzyny na każde 100 km, jechał 2 h i 40 min z prędkością 60 km/h. Ile kosztowała benzyna, którą spalił samochód podczas podróży, jeżeli litr benzyny kosztuje 5,80 zł?",
+   "gold": [
+    [
+     "51,04"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Samochód, który spala 5,5 litra benzyny na każde 100 km, jechał 2 h i 40 min z prędkością 60 km/h. Ile kosztowała benzyna, którą spalił samochód podczas podróży, jeżeli litr benzyny kosztuje 5,80 zł?”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „benzyna”",
+    "fakt5,5 litra – inna rzecz niż „benzyna”, pomijam",
+    "reguła„spala” – pierwsza wzmianka o liczbie, stan początkowy: 100",
+    "fakt2 h – inna rzecz niż „benzyna”, pomijam",
+    "fakt40 min – inna rzecz niż „benzyna”, pomijam",
+    "braknie wiem, czy „jechał” dodaje, czy odejmuje",
+    "wiedzasłowa treści pytania: {koszt, benzy, spali, samoc, podró, litr, 5,80, złot}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {koszt, benzy, spali, samoc, podró, litr, 5,80, złot} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-015",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "Podczas Finału Wielkiej Orkiestry Świątecznej Pomocy została zebrana kwota 50 657 747,68 zł. Zapisz tę liczbę z dokładnością do tysięcy złotych",
+   "gold": [
+    [
+     "50658000"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Podczas Finału Wielkiej Orkiestry Świątecznej Pomocy została zebrana kwota 50 657 747,68 zł. Zapisz tę liczbę z dokładnością do tysięcy złotych”",
+    "rozbiór2 zdania, pewność rozbioru 82%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-021",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Znajdź wielkość, której 10% jest równe 0,3 g",
+   "gold": [
+    [
+     "3"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Znajdź wielkość, której 10% jest równe 0,3 g”",
+    "rozbiór1 zdanie, pewność rozbioru 83%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-022",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Znajdź wielkość, której 20 % jest równe 56 kg",
+   "gold": [
+    [
+     "280"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Znajdź wielkość, której 20 % jest równe 56 kg”",
+    "rozbiór1 zdanie, pewność rozbioru 82%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-024",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Cenę rakiety do gry w tenisa, która kosztowała 600 zł, podwyższono dwukrotnie o 5 %. Oblicz cenę rakiety po obu podwyżkach.",
+   "gold": [
+    [
+     "661,50"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Cenę rakiety do gry w tenisa, która kosztowała 600 zł, podwyższono dwukrotnie o 5 %. Oblicz cenę rakiety po obu podwyżkach.”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-026",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "W 150 g serka granulowanego białko stanowi 16,5 %. Ile gramów białka znajduje się w tym produkcie?",
+   "gold": [
+    [
+     "24,75"
+    ]
+   ],
+   "answer": "150",
+   "verdict": "zle",
+   "source": "liczby",
+   "trace": [
+    "wejście„W 150 g serka granulowanego białko stanowi 16,5 %. Ile gramów białka znajduje się w tym produkcie?”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "rozbiórpytanie o liczbę: „gram”",
+    "reguła„stanowi” – pierwsza wzmianka o liczbie, stan początkowy: 150",
+    "fakt16,5 % – inna rzecz niż „gram”, pomijam",
+    "wniosekodpowiedź: 150"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-036",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. kogut",
+   "gold": [
+    [
+     "męski zwierzęcy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. kogut”",
+    "rozbiór2 zdania, pewność rozbioru 60%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-037",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. akwarium",
+   "gold": [
+    [
+     "nijaki"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. akwarium”",
+    "rozbiór2 zdania, pewność rozbioru 65%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-038",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. ratusz",
+   "gold": [
+    [
+     "męski rzeczowy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. ratusz”",
+    "rozbiór2 zdania, pewność rozbioru 64%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-039",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. fabryka",
+   "gold": [
+    [
+     "żeński"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. fabryka”",
+    "rozbiór2 zdania, pewność rozbioru 56%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-040",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. łobuz",
+   "gold": [
+    [
+     "męski osobowy"
+    ],
+    [
+     "męskoosobowy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. łobuz”",
+    "rozbiór2 zdania, pewność rozbioru 62%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-041",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. ciasto",
+   "gold": [
+    [
+     "nijaki"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. ciasto”",
+    "rozbiór2 zdania, pewność rozbioru 64%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-042",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. kaczka",
+   "gold": [
+    [
+     "żeński"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. kaczka”",
+    "rozbiór2 zdania, pewność rozbioru 61%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-043",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. cudzoziemiec",
+   "gold": [
+    [
+     "męski osobowy"
+    ],
+    [
+     "męskoosobowy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. cudzoziemiec”",
+    "rozbiór2 zdania, pewność rozbioru 63%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-044",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Bogowie olimpijscy często decydowali o losach ludzi.",
+   "gold": [
+    [
+     "męskoosobowy"
+    ],
+    [
+     "męski osobowy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Bogowie olimpijscy często decydowali o losach ludzi.”",
+    "rozbiór3 zdania, pewność rozbioru 82%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-045",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Żony herosów bywały zazdrosne o swych mężów.",
+   "gold": [
+    [
+     "niemęskoosobowy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Żony herosów bywały zazdrosne o swych mężów.”",
+    "rozbiór3 zdania, pewność rozbioru 80%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-046",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Herosi bywali niezwykle uparci.",
+   "gold": [
+    [
+     "męskoosobowy"
+    ],
+    [
+     "męski osobowy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W podanych zdaniach oznacz miętowym kolorem wszystkie przymiotniki w liczbie mnogiej. Ustnie określ ich rodzaj. Herosi bywali niezwykle uparci.”",
+    "rozbiór3 zdania, pewność rozbioru 84%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  }
+ ]
+}
