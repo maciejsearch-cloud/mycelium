@@ -172,7 +172,7 @@ nie jest liczoną rzeczą; czasowniki ruchu z przedrostkiem (od-/u-/wy- ubywa, p
 liczonej („piłki pękły”); pierwsza wzmianka = stan początkowy; tożsamość rzeczy i osób wg słownika (rozbiór bywa
 niespójny: „kredek”/„kredka”).
 
-| zestaw | przed (`przed-relacje-2026-11-01.json`) | pierwszy pomiar po | po bezpiecznikach (`2026-11-01-0212.json`, przeglądarka) |
+| zestaw | przed (`przed-relacje-2026-11-01.json`) | pierwszy pomiar po | po bezpiecznikach (`2026-11-01-0217.json`, przeglądarka) |
 |---|---|---|---|
 | v2 – 16 zadań tekstowych | 8/16 (5 błędnych) | 14/16 (2 błędne) | **14/16** (0 błędnych, 2 × „nie wiem”) |
 | v1 – 38 pytań | 27/38 (2 błędne) | 30/38 (1 błędne) | **30/38** (0 błędnych) |

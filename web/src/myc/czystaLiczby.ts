@@ -564,7 +564,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
       const za = T.find((t) => t.head === (nn?.i ?? -1) && low(t.form) === 'za')
       const rec = T.find((t) => t.head === v?.i && t.feats?.Case === 'Dat' && (t.upos === 'PROPN' || t.upos === 'NOUN') && sameSeg(t, nt) && !sameThing(t))
       // źródło „od kogoś” – w tym samym odcinku co liczba (albo w odcinku-elipsie)
-      const od = T.find((t) => low(t.form) === 'od' && (seg.get(t.i) === seg.get(nt.i) || (sameSeg(t, nt) && !T.some((x) => x.i > t.i && x.i < nt.i && x.upos === 'VERB'))))
+      const od = T.find((t) => low(t.form) === 'od' && seg.get(t.i) === seg.get(nt.i)) ?? T.find((t) => low(t.form) === 'od' && sameSeg(t, nt) && !T.some((x) => x.i > t.i && x.i < nt.i && x.upos === 'VERB'))
       nAll++
       sumAll += val
       let op: '=' | '+' | '-' | null = null

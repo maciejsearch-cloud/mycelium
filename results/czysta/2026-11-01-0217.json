@@ -1,5 +1,5 @@
 {
- "when": "2026-11-01T02:12:16+01:00",
+ "when": "2026-11-01T02:17:28+01:00",
  "model": "v3-dc3648e4.bin",
  "tasks": "selfplay.generate(320, 2) + chat_facts_v1",
  "node_no_kb": {
