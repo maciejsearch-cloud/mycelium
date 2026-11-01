@@ -44,7 +44,16 @@ async function handle(m, ctx) {
   if (u.acts.includes('przypomnienie')) {
     const h = handles.find((x) => x.toLowerCase() === (u.subj ?? '').toLowerCase() || u.toks.some((k) => k.f.toLowerCase() === x.toLowerCase()))
     const lem = u.content.filter((c) => !SAY.has(c) && !handles.some((x) => x.toLowerCase() === c.toLowerCase()))
-    recall = (h || lem.length) ? await rpc('myc_rozmowa_recall', { p_key: KEY, p_handle: h ?? null, p_lemmas: h ? null : lem, p_before: m.id, p_limit: 3 }) : []
+    // „wczoraj” / „dziś” / „przedwczoraj” zawęża do dnia (strefa Europe/Amsterdam); słowa czasu nie są treścią
+    const DAYS = { dzisiaj: 0, dziś: 0, wczoraj: 1, przedwczoraj: 2 }
+    const dayW = u.toks.map((k) => k.f.toLowerCase()).find((f) => f in DAYS)
+    const lemQ = lem.filter((c) => !(c in DAYS))
+    recall = (h || lemQ.length) ? await rpc('myc_rozmowa_recall', { p_key: KEY, p_handle: h ?? null, p_lemmas: h ? null : lemQ, p_before: m.id, p_limit: dayW ? 10 : 3 }) : []
+    if (dayW) {
+      const day = (d) => new Date(d).toLocaleDateString('sv-SE', { timeZone: 'Europe/Amsterdam' })
+      const want = day(Date.now() - DAYS[dayW] * 86400e3)
+      recall = recall.filter((r) => day(r.at) === want).slice(0, 3)
+    }
   }
   // pytanie o wiedzę → strzępki z bazy (publiczny odczyt myc_frags; bez strzępka = uczciwe „nie mam w bazie”)
   let facts
