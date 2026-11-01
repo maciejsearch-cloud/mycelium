@@ -11,7 +11,18 @@ from __future__ import annotations
 import time
 
 EVERY = 60.0
-WORK_KEYS = ("lm_train", "lm_distill", "lm_eval", "lm_aggregate", "rozbior", "taxo", "verify", "images", "wallet")
+WORK_KEYS = (
+    "lm_train",
+    "lm_distill",
+    "lm_eval",
+    "lm_aggregate",
+    "rozbior",
+    "taxo",
+    "verify",
+    "images",
+    "wallet",
+    "p71",
+)
 
 
 class Reporter:

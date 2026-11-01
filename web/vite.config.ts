@@ -46,7 +46,7 @@ export const CSP = [
   "default-src 'self'",
   "script-src 'self' 'wasm-unsafe-eval'",
   "worker-src 'self' blob:",
-  `connect-src 'self' https://${SB} wss://${SB} https://huggingface.co https://*.huggingface.co https://*.hf.co ` +
+  `connect-src 'self' https://${SB} wss://${SB} https://huggingface.co https://*.huggingface.co https://*.hf.co https://mempool.space https://blockstream.info ` +
     "https://*.wiktionary.org https://*.wikipedia.org https://www.wikidata.org https://query.wikidata.org https://commons.wikimedia.org " +
     "https://upload.wikimedia.org https://api.github.com https://github.com https://objects.githubusercontent.com https://raw.githubusercontent.com",
   "img-src * data: blob:",

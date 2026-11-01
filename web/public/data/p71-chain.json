@@ -1,0 +1,13 @@
+{
+ "address": "1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU",
+ "funded_sat": 710195986,
+ "spent_sat": 0,
+ "balance_sat": 710195986,
+ "tx_count": 72,
+ "mempool_spent_sat": 0,
+ "sources": [
+  "blockstream.info",
+  "mempool.space"
+ ],
+ "fetched_at": "2026-11-01T12:59:36Z"
+}

@@ -125,6 +125,12 @@ pre.con{background:#000;color:#c0c0c0;font:12px Consolas,"DejaVu Sans Mono",mono
       <div class="row"><label>Limit pobierania na dobę</label><input type="range" id="pa_daily" min="0.1" max="20" step="0.1"><output id="o-pa_daily"></output></div>
       <div class="row"><button class="btn pri" id="pa_save">Zastosuj</button><span id="pa_msg" class="muted"></span></div>
      </div></div>
+     <div class="grp"><h3>Bitcoin Puzzle #71 – opcjonalnie, tylko za Twoją zgodą</h3><div class="in">
+      <p class="muted">Publiczna zagadka z 2015 r.: klucz do adresu 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU (ok. 7,1 BTC) leży gdzieś wśród 2^70 ≈ 1,18·10^21 kluczy. Węzeł sprawdza losowe, nienakładające się paczki po 2^32 kluczy jednym wątkiem o najniższym priorytecie, maks. 10 % wątków węzła. <b>Szanse są znikome:</b> przy ok. 1 mln kluczy/s przejrzenie całości zajęłoby ok. 37 mln lat, więc szansa w ciągu roku to ok. 1 do 37 mln; szukają też inni, z dużo większą mocą. To nie jest inwestycja ani obietnica wypłaty. Zasady podziału ewentualnej nagrody: docs/puzzle71.md i zakładka Moc na stronie. Znaleziony klucz jest od razu szyfrowany do klucza właściciela projektu i nie jest widoczny w logach ani w bazie. Zmiana działa po ponownym uruchomieniu węzła.</p>
+      <div class="row"><label><b>Szukaj klucza Puzzle #71</b></label><input type="checkbox" id="p71_on"><span class="muted">Domyślnie wyłączone.</span></div>
+      <div class="row"><label>Udział mocy (% wątków węzła)</label><input type="range" id="p71_pct" min="1" max="10" step="1"><output id="o-p71_pct"></output></div>
+      <div class="row"><button class="btn pri" id="p71_save">Zastosuj</button><span id="p71_msg" class="muted"></span></div>
+     </div></div>
      <div class="grp"><h3>Co dokładnie zużywa (prawdziwe liczniki)</h3><div class="in"><div class="cards" id="pacards"></div><p class="muted" id="paerr"></p>
       <p class="muted">Węzeł niczego nie udostępnia z Twojego komputera i nie otwiera portów – pobiera tylko z adresów projektu (strona demo, wydania GitHub, baza Supabase). Wysyła do bazy wyłącznie wynik sprawdzenia (zgodne / flaga + lista testów). Świadectwa są pomocnicze: nie zmieniają bramki ani punktów.</p></div></div>
     </section>
@@ -201,7 +207,7 @@ function render(){if(!S)return;const st=S.status,a=S.alloc,acc=S.account;
  if(tab==='st')renderStats();
  if(tab==='co'){const c=$('con'),bot=c.scrollTop+c.clientHeight>=c.scrollHeight-5;c.textContent=S.lines.join('\n');if(bot)c.scrollTop=c.scrollHeight}
  if(tab==='ac')renderAcc();
- if(tab==='pa')renderPassive();
+ if(tab==='pa'){renderPassive();renderP71()}
  $('upd').textContent='odświeżono '+new Date().toLocaleTimeString('pl-PL')}
 function fillPower(){const a=S.alloc,c=S.caps;
  $('threads').max=c.cpu_threads;const tot=(samples[samples.length-1]||{}).ram_total;$('ram_gb').max=tot?Math.floor(tot/2**30):64;
@@ -285,6 +291,11 @@ function paOut(){$('o-pa_disk').textContent=$('pa_disk').value+' GB';$('o-pa_dai
 $('pa_save').onclick=async()=>{if(!$('compute_on').checked&&!confirm('Wyłączyć oddawanie mocy? Węzeł przestanie trenować i odpowiadać w czacie.'))return;
  await api('/api/alloc',{compute_on:$('compute_on').checked,passive:{on:$('pa_on').checked,seed:$('pa_seed').checked,witness:$('pa_witness').checked,disk_gb:+$('pa_disk').value,daily_gb:+$('pa_daily').value}});
  paDirty=false;$('pa_msg').textContent='Zapisano.';await tick()};
+let p71Dirty=false;
+function renderP71(){const z=S.alloc.p71||{};if(!p71Dirty){$('p71_on').checked=!!z.on;$('p71_pct').value=z.pct||10;$('o-p71_pct').textContent=$('p71_pct').value+' %'}}
+['p71_on','p71_pct'].forEach(k=>$(k).addEventListener('input',()=>{p71Dirty=true;$('o-p71_pct').textContent=$('p71_pct').value+' %'}));
+$('p71_save').onclick=async()=>{if($('p71_on').checked&&!confirm('Włączyć szukanie klucza Puzzle #71? Szansa na znalezienie jest znikoma (ok. 1 do 37 mln na rok przy 1 mln kluczy/s). To nie jest inwestycja.'))return;
+ await api('/api/alloc',{p71:{on:$('p71_on').checked,pct:+$('p71_pct').value}});p71Dirty=false;$('p71_msg').textContent='Zapisano – działa po ponownym uruchomieniu węzła.';await tick()};
 async function tick(){try{const since=samples.length?samples[samples.length-1].t:0;S=await api('/api/state?since='+since);samples=samples.concat(S.samples).slice(-450);render()}
  catch(e){const p=$('pill');p.className='pill bad';p.textContent=e.message==='auth'?'● brak klucza – otwórz panel z programu węzła':'● węzeł nie odpowiada'}}
 tick();setInterval(tick,2000);setInterval(()=>{if(tab==='hi')loadHist();if(tab==='st')loadContrib()},30000);
