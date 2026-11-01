@@ -43,6 +43,9 @@ SELF_NAME = re.compile(r"^self-[a-z]+-[0-9]{8}-[0-9]{4}\.bin\.gz$")
 STEPS, BATCH, LR = 16, 8, 1e-3
 # 31.10: krok 0,25 dodany – kandydaci v5 (krok 1/0,5) przegrywali bramkę o 4–13 pytań na 2000
 SERVER_LRS = (1.0, 0.5, 0.25)
+# Łączenie rundy (ocena 3 kroków serwera) liczy jeden węzeł; na komputerze z kilkoma węzłami pozostałe w tym czasie
+# stoją. MYC_LM_AGG_THREADS > liczby wątków węzła = tymczasowo więcej wątków na czas łączenia (domyślnie bez zmian).
+AGG_THREADS = int(os.environ.get("MYC_LM_AGG_THREADS", "0"))
 SAFE_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$")  # nazwy plików z meta.json: bez ścieżek (../)
 ADAPTER_PATH = re.compile(r"^lm/v[0-9]{1,6}-[0-9a-f]{8}\.bin$")
 UA = "MyceliumNode/2 (+https://maciejsearch-cloud.github.io/demo/mycelium/)"
@@ -563,9 +566,13 @@ class LMWorker:
             # ocena kandydatów (do 3 × 2000 pytań) – liczona w planiście jako lm_eval, w telemetrii osobno (lm_aggregate)
             sched = getattr(self.node, "sched", None)
             tok = sched.start("lm_eval") if sched is not None else None
+            prev = lm.torch.get_num_threads()
+            if prev < AGG_THREADS:
+                lm.torch.set_num_threads(AGG_THREADS)
             try:
                 await self._aggregate(cur)
             finally:
+                lm.torch.set_num_threads(prev)
                 if sched is not None:
                     sched.end(tok, label="lm_aggregate")
 
