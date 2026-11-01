@@ -43,12 +43,39 @@ odpowiada **wyłącznie** to, czego grzybnia nauczyła się sama albo co zatwier
 8. **Odpowiedź** – krótka (tak / nie / nie wiadomo / imię / słowa faktu), źródło, metoda, pewność (średnia pewność
    łuków rozbioru × zgoda ludzi), pełny ślad i rozbiór. Brak dopasowania → „nie wiem, bo …” z listą braków.
 
+7a. **Liczby, ciągi, liczebniki, analogie** (`web/src/myc/czystaLiczby.ts`, każda reguła trafia do śladu):
+   - liczebniki słowami → cyfry (tabela słów albo lemat `num` ze słownika Morfeusza; „dwadzieścia trzy” = 23);
+   - arytmetyka: + − × ÷, „plus/minus/razy/podzielić przez”, nawiasy, „P% z N” – bezpieczny parser (shunting-yard, bez eval);
+   - zadania tekstowe z ról zdania: stan na osobę (podmiot z rozbioru), „miał/ma/było” = stan, „dostał/kupił”, „od X” =
+     przybywa, „dał/oddał/zjadł”, odbiorca w celowniku, „za N zł” = ubywa, „po N” = mnożenie, „k-krotnie”,
+     „o N więcej/mniej”. Bezpieczniki: każda liczba z treści musi zostać użyta, nie można oddać czegoś, czego się nie
+     miało, wynik nie może być ujemny, dwie liczby na jednym czasowniku przy dwóch czasownikach w zdaniu – inaczej „nie wiem”;
+   - ciągi (≥ 4 wyrazy): stała różnica, stały iloraz, stała druga różnica, przeplot miejsc parzystych/nieparzystych;
+   - liczebnik + rzeczownik: 1 → l. poj. mianownik; końcówka 2–4 (bez 12–14) → l. mn. mianownik; reszta → l. mn.
+     dopełniacz; formę wybiera słownik (tylko formy lematu z nawiasu);
+   - analogie A : B = C : ?: (1) odmiana – A i B to ten sam lemat, słownik mówi, która cecha się zmienia (liczba,
+     przypadek, stopień), ta sama zmiana dla C; (2) relacja z zatwierdzonego faktu – słowa między A i B w fakcie od ludzi
+     („Pszczoła mieszka w ulu.”) i opcja, która z C daje fakt tej samej relacji. Tabela relacji generatora ćwiczeń
+     (`selfplay.REL`) **nie** jest wczytywana – to byłoby uczenie pod test.
+
+## Model rozbioru – pochodzenie i licencja
+
+Sieć BiLSTM MYCRB2 (~4 MB), wytrenowana od zera przez węzły grzybni na korpusie UD Polish-PDB (IPI PAN), licencja danych
+CC BY-NC-SA 4.0 – wagi traktujemy tak samo (niekomercyjnie, z podaniem źródła, na tych samych warunkach). Wersja trafia na
+stronę po sprawdzeniu przez niezależnego weryfikatora. Model zawiera tylko rozbiór, żadnej wiedzy o świecie. Taksonomia
+MiniLM pozostaje poza czystą grzybnią. Etykiety „X to y.” z trójek `jest` są w wiedzy, ale przełącznik „Tylko fakty-zdania”
+je pomija.
+
 ## Czego nie ma
 
-Arytmetyki (zadania tekstowe, liczebniki: 0%), analogii i ciągów (0%), wiedzy o świecie poza zatwierdzoną przez ludzi,
-synonimów (poza mały/duży), logiki „lub” między zdaniami i przyczyny jako osobnego operatora, swobodnej rozmowy.
-Reguły pisano ze znajomością szablonów ćwiczeń – na przeformułowanych pytaniach wynik spada (pomiar
-`scripts/logika_eval.py`: 58,9% na parafrazach przy modelu v0).
+Analogii znaczeniowych (dom, młode, narzędzie, przeciwieństwo) bez zatwierdzonych faktów-zdań; zadań z ułamkami,
+przeliczaniem jednostek i wieloma krokami; ciągów krótszych niż 4 wyrazy i innych wzorów; wiedzy o świecie poza zatwierdzoną
+przez ludzi; synonimów (poza mały/duży); logiki „lub” między zdaniami; swobodnej rozmowy. Reguły (także liczbowe i listy
+czasowników zysku/straty) pisano ze znajomością szablonów ćwiczeń – stąd osobny sprawdzian na pytaniach przeformułowanych.
+
+### Jak nauczyć analogii
+Dodaj pary zdań o tej samej budowie: „Pies mieszka w budzie.” + „Lis mieszka w norze.”, „Krowa ma cielę.” + „Koń ma
+źrebię.”, „Malarz używa pędzla.” + „Krawiec używa igły.”. Po zatwierdzeniu w Weryfikuj analogie tej relacji działają.
 
 ## Jak się uczy (progi z kodu – `web/src/myc/czystaZasady.ts`, pilnuje `web/scripts/czysta-check.mjs`)
 
@@ -87,3 +114,24 @@ Model rozbioru v3 (`v3-dc3648e4.bin`, ten sam co na stronie), zbudowana strona w
 Potwierdzenie na żywo (1.11.2026 00:41, https://maciejsearch-cloud.github.io/demo/mycelium/, wylogowana przeglądarka,
 nauka wyłączona): te same liczby – logika 204/320, fakty 4/40 (0 błędnych); `results/czysta/2026-11-01-0041.json`.
 Tabela na stronie czyta `web/public/data/czysta/wyniki.json` z tego pomiaru.
+
+## Pomiar reguł liczbowych (1.11.2026)
+
+Uczciwość: zestaw 38 pytań przeformułowanych (`results/czysta/parafrazy-liczby-v1.json`) zamrożono i wypchnięto **przed**
+pierwszą linijką kodu reguł; reguły rozwijano tylko na losowaniu seed 11; seed 2 (pomiar) i seed 7 (sprawdzian) oraz
+parafrazy tylko mierzono. Wyjątek, opisany wprost: po pierwszym pomiarze dodano bezpieczniki zadań tekstowych – mogą tylko
+zamienić odpowiedź na „nie wiem”, nie podnoszą trafności (wynik bez nich: `results/czysta/po-liczby-bez-bezpiecznikow-2026-11-01.json`).
+
+| zestaw | przed (`przed-liczby-2026-11-01.json`) | po (`2026-11-01-0105.json`, przeglądarka) |
+|---|---|---|
+| 320 zadań (seed 2) | 204/320 = 63,7% | **267/320 = 83,4%** |
+| 320 zadań, nowe losowanie (seed 7) | 207/320 = 64,7% | **273/320 = 85,3%** |
+| 38 pytań przeformułowanych | 0/38 | **27/38** (2 błędne, 9 × „nie wiem”) |
+| chat_facts_v1 | 4/40 | 4/40 (0 błędnych) |
+
+Per typ (seed 2 → po): zadanie tekstowe 0/28 → 28/28, liczebniki 0/21 → 21/21, ciąg 0/14 → 14/14, analogia 0/31 → 0/31
+(w wiedzy nie ma jeszcze zatwierdzonych faktów-relacji; analogie ćwiczeń są znaczeniowe, nie odmiany). Seed 7: zadanie
+tekstowe 20/21 (1 × „nie wiem”), liczebniki 24/24, ciąg 22/22, analogia 0/31. Parafrazy: arytmetyka 6/6, liczebniki 7/8,
+ciąg 5/8, zadanie tekstowe 5/10, analogia 4/6 (tylko analogie odmiany: liczba, przypadek, stopień). Dwie błędne odpowiedzi
+na parafrazach to zadania tekstowe: „…dostała jeszcze pięć od mamy” (liczba bez rzeczownika przypisana do „mamy”) i zdanie
+z dwoma czasownikami i odbiorcą „Oli”.
