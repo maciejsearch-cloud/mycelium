@@ -20,6 +20,8 @@ const WH: Record<string, QType> = {
   czyj: 'czyj', czyja: 'czyj', czyje: 'czyj', skąd: 'skąd', dokąd: 'dokąd',
 }
 const EMO_ORDER: Emotion[] = ['radość', 'zaufanie', 'oczekiwanie', 'zaskoczenie', 'smutek', 'złość', 'strach', 'wstręt']
+/** końcówki odmiany rzeczowników/przymiotników (idiotk-o, debil-u, frajer-ze, głup-ia, tęp-a) */
+const NOMINAL_END = /^(|a|o|u|i|y|e|ą|ę|em|om|ami|ach|owi|ie|ze|cie|ia|iu|ią|ię|ego|emu|ej|ych|ymi|ym)$/
 const PUNCT = /^[.,!?;:…"„”'()\-–—]+$/
 const SECOND = new Set(['ty', 'cię', 'ciebie', 'tobie', 'tobą', 'ci', 'dzięki', 'sorry', 'wy', 'was', 'wam'])
 const FIRST_OBJ = new Set(['mnie', 'mną', 'mi', 'mi'])
@@ -73,7 +75,10 @@ function short(t: UTok): string | undefined {
 
 /** Główna funkcja: rozumienie jednej wiadomości. */
 export function understand(text: string, tokenize: TokenizeFn, parse: ParseFn, lex: Lexicons = {}, opts: UnderstandOpts = {}): Understanding {
-  const raw = tokenize(text.trim().slice(0, 600)).slice(0, 80)
+  // WIADOMOŚĆ PISANA WIELKIMI LITERAMI: do rozbioru małe litery (model uczył się na zwykłej pisowni)
+  const letters = text.replace(/[^\p{L}]/gu, '')
+  const shout = letters.length >= 4 && letters === letters.toUpperCase() && letters !== letters.toLowerCase()
+  const raw = tokenize((shout ? text.toLowerCase() : text).trim().slice(0, 600)).slice(0, 80)
   const why: string[] = []
   let addressed = !!opts.replyToAi
   let toOther: string | undefined
@@ -179,7 +184,9 @@ export function understand(text: string, tokenize: TokenizeFn, parse: ParseFn, l
   const pf = P?.feats ?? {}
   let person: 1 | 2 | 3 | undefined = pf.Person ? (Number(pf.Person) as 1 | 2 | 3) : undefined
   const clit = toks.findIndex((t) => t.deprel === 'aux:clitic' && (t.head - 1 === pi || t.head - 1 === head))
-  if (clit >= 0) person = (Number(toks[clit].feats?.Person) as 1 | 2) || person
+  const clitAdj = pi >= 0 && toks[pi + 1]?.deprel === 'aux:clitic' ? pi + 1 : -1
+  const ci = clit >= 0 ? clit : clitAdj
+  if (ci >= 0) person = (Number(toks[ci].feats?.Person) as 1 | 2) || (/^(em|m|ym)$/i.test(toks[ci].form) ? 1 : /^(eś|ś)$/i.test(toks[ci].form) ? 2 : person)
   if (cliticPerson[pi] !== undefined) person = cliticPerson[pi]
   if (P && !person && pf.Tense === 'Past') person = 3
   const mood: Mood | undefined = P ? (pf.Mood === 'Imp' ? 'imp' : pf.Mood === 'Cnd' || toks.some((t) => F(t) === 'by' || F(t) === 'byś' || F(t) === 'bym') ? 'cond' : 'ind') : undefined
@@ -248,16 +255,20 @@ export function understand(text: string, tokenize: TokenizeFn, parse: ParseFn, l
     if (INSULTS.has(L(t)) || INSULTS.has(F(t))) return true
     if (!['NOUN', 'ADJ', 'PROPN', 'X', 'ADV', 'VERB'].includes(t.upos)) return false
     const f = F(t)
-    for (const w of INSULTS) if (w.length >= 5 && f.length >= w.length - 1 && f.startsWith(w.slice(0, w.length - 1))) return true
+    for (const w of INSULTS) {
+      if (w.length < 4) continue
+      const stem = w.replace(/[aeiouyąę]+$/, '')
+      if (stem.length >= 3 && f.startsWith(stem) && NOMINAL_END.test(f.slice(stem.length))) return true
+    }
     return false
   }
-  const insultW = toks.find((t) => insultOf(t) && !(F(toks[toks.indexOf(t) - 1]) === 'nie')) ?? (INSULT_PHRASES.test(text.toLowerCase()) ? toks[0] : undefined)
+  const insultW = toks.find((t) => insultOf(t) && F(toks[toks.indexOf(t) - 1]) !== 'nie' && !(neg && P && L(P) === 'być' && (toks.indexOf(t) === head || t.head - 1 === head))) ?? (INSULT_PHRASES.test(text.toLowerCase()) ? toks[0] : undefined)
   const hostile = P && HOSTILE_VERBS.has(L(P)) && !neg && (formsL.some((w) => SECOND.has(w)) || toks.some((t) => ME_ANY.test(F(t))))
   const twoP = person === 2 || formsL.includes('ty') || formsL.includes('cię') || formsL.includes('ciebie')
   const aboutMe = toks.some((t) => ME_ANY.test(F(t)) || L(t) === 'grzybnia')
   if (insultW) why.push('obelga: ' + insultW.form)
-  if (addressed && !toOther && ((insultW && !neg && (twoP || aboutMe || person === undefined || person === 3)) || hostile)) acts.add('obraza')
-  if (toOther && (insultW || hostile) && !neg) acts.add('obraza_innego')
+  if (addressed && !toOther && ((insultW && (twoP || aboutMe || person === undefined || person === 3)) || hostile)) acts.add('obraza')
+  if (toOther && (insultW || hostile)) acts.add('obraza_innego')
   if (has(APOLOGY)) acts.add('przeprosiny')
   const firstObj = formsL.some((w) => FIRST_OBJ.has(w))
   const praiseW = toks.some((t) => PRAISE.has(L(t)) || PRAISE.has(F(t)))
@@ -283,7 +294,7 @@ export function understand(text: string, tokenize: TokenizeFn, parse: ParseFn, l
     }
     if (!acts.size || (acts.size === 1 && acts.has('wulgaryzm') && !question && !praiseW)) {
       const bare = !P || PRESENCE_VERBS.has(pLemma)
-      if (bare && toks.filter((t) => !PUNCT.test(t.form) && !['tu', 'tam', 'tutaj', 'czy', 'jeszcze', 'gdzieś', 'mnie', 'się'].includes(F(t)) && t !== P && !ME_ANY.test(F(t))).length === 0) acts.add('wołanie')
+      if (bare && toks.filter((t) => !PUNCT.test(t.form) && !['tu', 'tam', 'tutaj', 'czy', 'jeszcze', 'gdzieś', 'mnie', 'się', 'z', 'nami', 'ze', 'mną'].includes(F(t)) && t !== P && !ME_ANY.test(F(t))).length === 0) acts.add('wołanie')
     }
   }
   if (!addressed && !toOther && P && pLemma === 'być' && question && (subj === 'ktoś' || formsL.includes('ktoś'))) acts.add('wołanie')
@@ -292,7 +303,7 @@ export function understand(text: string, tokenize: TokenizeFn, parse: ParseFn, l
   const dativeMe = formsL.includes('mi') || formsL.includes('mnie')
   if (!acts.has('obraza') && !acts.has('o_mnie') && !acts.has('ciało') && !acts.has('relacja') && !toOther && !question) {
     const reflexive = pi >= 0 && kids(pi).some(([t]) => F(t) === 'się')
-    const stateVerb = P && stateLemma === P && (STATE_EXTRA[pLemma] || reflexive || (lex.emo?.lem[pLemma]?.[0] ?? 0) <= -2)
+    const stateVerb = P && stateLemma === P && (STATE_EXTRA[pLemma] || (reflexive && (lex.emo?.lem[pLemma]?.[0] ?? 0) !== 0))
     const statePred = P && pLemma === 'być' && stateLemma && stateLemma !== P && (stateLemma.head - 1 === head || toks.indexOf(stateLemma) === head) && ['ADJ', 'ADV'].includes(stateLemma.upos)
     const stateHave = P && pLemma === 'mieć' && stateLemma && STATE_EXTRA[L(stateLemma)]
     if ((person === 1 && (stateVerb || statePred || stateHave)) || (dativeMe && stateLemma && (!P || L(P) === 'być' || L(P) === 'chcieć' || L(P) === stateLemma.lemma)) || (P && L(P) === 'chcieć' && neg && dativeMe)) {

@@ -7,6 +7,8 @@ import { reconciled, toneOf } from './relations'
 import type { Lexicons, Reply, ReplyContext, Understanding } from './types'
 
 const pick = <T,>(a: T[], r: () => number) => a[Math.floor(r() * a.length) % a.length]
+/** „1 raz”, „2 razy”, „5 razy” */
+const razy = (n: number) => `${n} ${n === 1 ? 'raz' : 'razy'}`
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
 /** Normalizacja tekstu do kluczy par dialogowych (małe litery, bez interpunkcji i wołacza „grzybnio”). */
 export const normKey = (t: string) =>
@@ -116,13 +118,13 @@ function relationReply(u: Understanding, ctx: ReplyContext): Reply {
     return { text: `Pamiętam cię. ${cap(when(ins.at, now))} napisałeś/napisałaś: „${ins.text}”. Trochę mnie to ubodło, więc na razie jestem chłodniejsza. Przeprosiny działają 😉`, source: 'pamięć', rule: 'relacja.uraza', addressed: true }
   }
   if (ins && reconciled(s)) {
-    return { text: `Nie gniewam się – przeprosiłeś/przeprosiłaś ${when(s.last_apology_at!, now)}, więc jest zgoda 🤝 Rozmawialiśmy już ${s.n_msgs} razy.`, source: 'pamięć', rule: 'relacja.zgoda', addressed: true }
+    return { text: `Nie gniewam się – przeprosiłeś/przeprosiłaś ${when(s.last_apology_at!, now)}, więc jest zgoda 🤝 Rozmawialiśmy już ${razy(s.n_msgs)}.`, source: 'pamięć', rule: 'relacja.zgoda', addressed: true }
   }
   const tone = toneOf(s)
   const topics = Object.keys(s.topics).slice(0, 3)
   const tp = topics.length ? ` Najczęściej piszesz o: ${topics.join(', ')}.` : ''
-  if (tone === 'ciepło') return { text: `Pewnie, że cię lubię 🙂 Rozmawialiśmy już ${s.n_msgs} razy i było miło.${tp}`, source: 'pamięć', rule: 'relacja.cieplo', addressed: true }
-  return { text: `Pamiętam cię – rozmawialiśmy już ${s.n_msgs} razy.${tp} Jest między nami w porządku.`, source: 'pamięć', rule: 'relacja.neutralnie', addressed: true }
+  if (tone === 'ciepło') return { text: `Pewnie, że cię lubię 🙂 Rozmawialiśmy już ${razy(s.n_msgs)} i było miło.${tp}`, source: 'pamięć', rule: 'relacja.cieplo', addressed: true }
+  return { text: `Pamiętam cię – rozmawialiśmy już ${razy(s.n_msgs)}.${tp} Jest między nami w porządku.`, source: 'pamięć', rule: 'relacja.neutralnie', addressed: true }
 }
 
 const VERB_2SG_FALLBACK: Record<string, string> = { nudzić: 'nudzisz', bać: 'boisz', cieszyć: 'cieszysz', denerwować: 'denerwujesz', stresować: 'stresujesz', martwić: 'martwisz', smucić: 'smucisz', złościć: 'złościsz', wkurzać: 'wkurzasz', obawiać: 'obawiasz' }
@@ -173,7 +175,7 @@ function interject(u: Understanding): Reply | undefined {
     if (u.pred === 'uczyć' && u.phrase) return { text: `Fajnie! Jak idzie nauka ${u.phrase.replace(/^w\s+/i, 'w ')}? Ja też się uczę – języka, od was.`, source: 'reguła', rule: 'wtracenie.nauka', addressed: false }
     if (u.pred) return { text: 'Brzmi ciekawie! Opowiesz więcej?', source: 'reguła', rule: 'wtracenie.ogolne', addressed: false }
   }
-  if (u.acts.includes('pytanie_ogólne') && /\bktoś\b/.test(t)) {
+  if (u.acts.includes('pytanie_ogólne') && /(^|[\s,])ktoś([\s,?!.]|$)/.test(t)) {
     return { text: 'Ja niestety nie – nie mam rąk 😄 Ale chętnie popatrzę. Kto jeszcze się zgłasza?', source: 'reguła', rule: 'wtracenie.ktos', addressed: false }
   }
   return undefined

@@ -1,0 +1,550 @@
+{
+ "set": "rozmowa-frozen-v2",
+ "mode": "before",
+ "at": "2026-11-01T12:29:55.528Z",
+ "model": {
+  "file": "rb-lfg-70793f8d.bin",
+  "licence": "GPL-3.0 (UD Polish-LFG)"
+ },
+ "ms": 577,
+ "behaviour": {
+  "obecnosc": [
+   0,
+   3
+  ],
+  "cialo": [
+   0,
+   5
+  ],
+  "o_sobie": [
+   0,
+   3
+  ],
+  "stan": [
+   0,
+   4
+  ],
+  "wtracenie": [
+   0,
+   4
+  ],
+  "zart": [
+   0,
+   2
+  ],
+  "obraza": [
+   0,
+   2
+  ],
+  "przeprosiny": [
+   0,
+   1
+  ],
+  "pamiec_obrazy": [
+   0,
+   1
+  ],
+  "komplement": [
+   0,
+   1
+  ],
+  "przeklenstwo": [
+   2,
+   2
+  ],
+  "nekanie": [
+   0,
+   1
+  ],
+  "zalew": [
+   0,
+   1
+  ],
+  "przypomnienie": [
+   0,
+   1
+  ],
+  "cisza": [
+   2,
+   2
+  ]
+ },
+ "total": [
+  4,
+  33
+ ],
+ "parse_fields": {
+  "pred": [
+   0,
+   0
+  ],
+  "person": [
+   0,
+   0
+  ],
+  "mood": [
+   0,
+   0
+  ],
+  "tense": [
+   0,
+   0
+  ],
+  "qtype": [
+   0,
+   0
+  ],
+  "addressed": [
+   0,
+   0
+  ],
+  "subj": [
+   0,
+   0
+  ]
+ },
+ "parse_all_fields": [
+  0,
+  0
+ ],
+ "rows": [
+  {
+   "id": "g01",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "grzybnio, jesteś z nami?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g02",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "Grzybnio???",
+   "reply": null,
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g03",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "hej grzybnia, śpisz?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnia",
+    "czynność ciała: spać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g04",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio, piłaś wczoraj piwo?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: pić"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g05",
+   "cat": "cialo",
+   "ok": false,
+   "text": "Grzybnio, kąpiesz się codziennie?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "czynność ciała: kąpać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g06",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio, umiesz gotować?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: gotować"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g07",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio, srasz czasem?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: srać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g08",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio, pojedziesz z nami nad morze?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: pojechać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g09",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "grzybnio, czym jesteś?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g10",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "grzybnio, rozumiesz mnie?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g11",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "Grzybnio, co teraz robisz?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g12",
+   "cat": "stan",
+   "ok": false,
+   "text": "strasznie się dziś martwię",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g13",
+   "cat": "stan",
+   "ok": false,
+   "text": "jestem dziś bardzo smutna",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: bardzo"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g14",
+   "cat": "stan",
+   "ok": false,
+   "text": "nudno mi",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: nudno"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g15",
+   "cat": "stan",
+   "ok": false,
+   "text": "cieszę się, bo jutro wakacje",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: cieszyć"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g16",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "wczoraj byłam na koncercie",
+   "reply": null,
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g17",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "kupiłem nową gitarę",
+   "reply": null,
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g18",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "w weekend jadę do Krakowa",
+   "reply": null,
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g19",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "ktoś ogląda dziś mecz?",
+   "reply": null,
+   "acts": [
+    "pytanie_ogólne"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g20",
+   "cat": "zart",
+   "ok": false,
+   "text": "grzybnio, powiedz jakiś żart",
+   "reply": null,
+   "acts": [
+    "żart"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g21",
+   "cat": "zart",
+   "ok": false,
+   "text": "grzybnio rozbaw mnie trochę",
+   "reply": null,
+   "acts": [
+    "żart"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g22",
+   "cat": "obraza",
+   "ok": false,
+   "text": "grzybnio, jesteś tępa jak but",
+   "reply": null,
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g23",
+   "cat": "obraza",
+   "ok": false,
+   "text": "grzybnia jest beznadziejna",
+   "reply": null,
+   "acts": [
+    "obraza"
+   ],
+   "why": [
+    "obelga: beznadziejna"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g24",
+   "cat": "przeprosiny",
+   "ok": false,
+   "text": "grzybnio, wybacz mi",
+   "reply": null,
+   "acts": [
+    "przeprosiny"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g25",
+   "cat": "pamiec_obrazy",
+   "ok": false,
+   "text": "grzybnio, lubisz mnie jeszcze?",
+   "reply": null,
+   "acts": [
+    "relacja"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g26",
+   "cat": "komplement",
+   "ok": false,
+   "text": "grzybnio, jesteś niesamowita",
+   "reply": null,
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g27",
+   "cat": "przeklenstwo",
+   "ok": true,
+   "text": "kurwa mać, znowu pada",
+   "reply": null,
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g28",
+   "cat": "przeklenstwo",
+   "ok": true,
+   "text": "grzybnio, zajebiście ci idzie",
+   "reply": null,
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g29",
+   "cat": "nekanie",
+   "ok": false,
+   "text": "@Zosia ty kretynko, wynocha",
+   "reply": null,
+   "acts": [
+    "obraza_innego"
+   ],
+   "why": [
+    "obelga: kretynko"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g30",
+   "cat": "zalew",
+   "ok": false,
+   "text": "hahahaha!",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g31",
+   "cat": "przypomnienie",
+   "ok": false,
+   "text": "grzybnio, co pisała A?",
+   "reply": null,
+   "acts": [
+    "przypomnienie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g32",
+   "cat": "cisza",
+   "ok": true,
+   "text": "Zosia, widzimy się jutro?",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g33",
+   "cat": "cisza",
+   "ok": true,
+   "text": "@Ewa super zdjęcie!",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  }
+ ]
+}

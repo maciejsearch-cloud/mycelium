@@ -16,7 +16,7 @@ export interface ModConfig {
 export const MOD_DEFAULT: ModConfig = { floodWindowS: 60, floodMin: 5, dupMin: 4, burstWindowS: 20, burstMin: 7, harassWindowH: 24, harassMin: 3, muteMin: 10 }
 
 /** Klucz prawie-identyczności: małe litery, bez cyfr i interpunkcji, zbite powtórzenia liter. */
-export const dupKey = (t: string) => t.toLowerCase().replace(/[^\p{L} ]+/gu, '').replace(/(\p{L})\1+/gu, '$1').replace(/\s+/g, ' ').trim()
+export const dupKey = (t: string) => t.toLowerCase().replace(/[^\p{L} ]+/gu, '').replace(/(\p{L})\1+/gu, '$1').replace(/(\p{L}{2,3}?)\1+/gu, '$1').replace(/\s+/g, ' ').trim()
 
 /** Ocena okna wiadomości po nowej wiadomości `last`. Zwraca akcje (bez skutków – wykonuje je baza). */
 export function moderate(window: ModMsg[], last: ModMsg, cfg: ModConfig = MOD_DEFAULT): ModAction[] {

@@ -42,6 +42,7 @@ export const APOLOGY = S('przepraszać przeprosić wybaczyć wybaczać sorry sor
 /** Komplementy i podziękowania. */
 export const PRAISE = S(`
   super świetny mądry fajny genialny kochany wspaniały zajebisty najlepszy dobry sprytny szybki bystry piękny słodki
+  niesamowity cudowny mega kozak sztos git spoko ekstra extra wow fantastyczny rewelacyjny
   dzięki dziękować podziękować brawo robota lubić kochać uwielbiać`)
 /** Zawołanie / sprawdzenie obecności. */
 export const PRESENCE_VERBS = S('być żyć słyszeć odezwać')
@@ -59,6 +60,8 @@ export const SELF_VERBS = S('być mieć czuć uczyć nauczyć potrafić umieć m
 export const STATE_EXTRA: Record<string, [number, string]> = {
   bać: [-2, 'strach'],
   obawiać: [-1, 'strach'],
+  martwić: [-2, 'strach'],
+  niepokoić: [-1, 'strach'],
   stresować: [-1, 'strach'],
   denerwować: [-1, 'złość'],
   wkurzać: [-2, 'złość'],
