@@ -199,6 +199,8 @@ export function answerPure(input: string, parseFn: ParseFn, kb: PureKB | undefin
   const nt: Step[] = []
   const nr = numeric(text, { parse, lex, trace: nt, facts: kb?.facts.filter((f) => f.truth === 'tak').map((f) => ({ id: f.id, text: f.text })) })
   if (nr) {
+    // braki rozumującego logicznego nie dotyczą pytania liczbowego – zostaje ślad reguły, która odpowiedziała
+    for (let i = trace.length - 1; i >= 0; i--) if (trace[i].kind === 'brak') trace.splice(i, 1)
     trace.push(...nt)
     const used = kb ? kb.facts.filter((f) => nr.used?.includes(f.id)) : []
     return done(nr.answer, nr.method.startsWith('analogia (relacja') ? 'fakt' : 'liczby', { method: nr.method, used, conf: pconf })
