@@ -89,6 +89,7 @@ jobs:
           node scripts/rozmowa-eval.mjs dev --min 38
           node scripts/rozmowa-eval.mjs frozen --min 66
           node scripts/rozmowa-eval.mjs frozen-v2 --min 30
+          node scripts/rozmowa-learn-check.mjs
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run e2e

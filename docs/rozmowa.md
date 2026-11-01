@@ -51,6 +51,17 @@ i dlaczego jest pod kolejką. Publicznie widać tylko klucze ukrytych pozycji, p
 
 ## Nauka z rozmów
 
+Tylko z wiadomości osób z włączoną nauką. Baza sprawdza zgodę jeszcze raz w `myc_rozmowa_learn`.
+
+* Krótkie pytania osób (2–6 słów, bez imion, obelg i zwrotów do innych osób) trafiają do `myc_speaker_chatq`
+  (L0 = 2 słowa, L1 = 3–6). Mówca w 25% eksploracji L0/L1 zadaje takie pytanie (`how = czat`), a o tym, czy ma sens,
+  decydują oceny ludzi, jak przy innych wpisach mówcy. Limit to 500 najnowszych pytań na poziom. „Zapomnij mnie” usuwa także te pytania.
+* Zdania typu przynależności do klasy („Kot jest zwierzęciem”, „Wieloryb to ssak”) stają się strzępkiem
+  `subj – jest – obj` w Weryfikuj (`myc_frag_add`, źródło `chat`, zaufanie 0,4, odnośnik `czat globalny #id`).
+  Celowo pomijamy zdania o osobach (imiona, pseudonimy z czatu, „mój brat…”), oceny przymiotnikiem i przeczenia
+  (`web/src/myc/rozmowa/learn.ts`, test `web/scripts/rozmowa-learn-check.mjs`).
+* Pary dialogowe zatwierdzone przez ludzi zbiera odłamek SFT `scripts/export_rozmowa_shard.py` (powstaje dopiero od 50 par).
+
 👍/👎 i „popraw” pod odpowiedzią grzybni (`myc_rozmowa_rate`). Poprawka staje się parą dialogową (`myc_rozmowa_pairs`),
 gdy zgodzą się co najmniej 2 osoby z włączoną nauką (≥ 2/3 poprawek) albo gdy wpisze ją Developer. Para ma wtedy
 pierwszeństwo przed regułami.
