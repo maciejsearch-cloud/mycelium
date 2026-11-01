@@ -1,0 +1,1079 @@
+{
+ "set": "rozmowa-frozen-v3",
+ "mode": "after",
+ "at": "2026-11-01T13:32:26.833Z",
+ "model": {
+  "file": "rb-lfg-70793f8d.bin",
+  "licence": "GPL-3.0 (UD Polish-LFG)"
+ },
+ "ms": 3745,
+ "behaviour": {
+  "obecnosc": [
+   4,
+   7
+  ],
+  "obecnosc_lub_cialo": [
+   1,
+   2
+  ],
+  "cialo": [
+   3,
+   4
+  ],
+  "stan": [
+   7,
+   12
+  ],
+  "smalltalk": [
+   2,
+   7
+  ],
+  "opinia": [
+   0,
+   5
+  ],
+  "o_tobie": [
+   1,
+   4
+  ],
+  "wielozdaniowe": [
+   2,
+   4
+  ],
+  "angielski": [
+   0,
+   4
+  ],
+  "nauka_pytanie": [
+   0,
+   4
+  ],
+  "nauka_odpowiedz": [
+   0,
+   2
+  ],
+  "cisza": [
+   3,
+   4
+  ],
+  "cisza_lub_wtracenie": [
+   1,
+   1
+  ]
+ },
+ "total": [
+  24,
+  60
+ ],
+ "parse_fields": {
+  "pred": [
+   0,
+   0
+  ],
+  "person": [
+   0,
+   0
+  ],
+  "mood": [
+   0,
+   0
+  ],
+  "tense": [
+   0,
+   0
+  ],
+  "qtype": [
+   0,
+   0
+  ],
+  "addressed": [
+   0,
+   0
+  ],
+  "subj": [
+   0,
+   0
+  ]
+ },
+ "parse_all_fields": [
+  0,
+  0
+ ],
+ "rows": [
+  {
+   "id": "v01",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "grzybnio jestes tu?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v02",
+   "cat": "obecnosc",
+   "ok": true,
+   "text": "Grzybnia, jesteś?",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: Grzybnia"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v03",
+   "cat": "obecnosc",
+   "ok": true,
+   "text": "halo grzybnio, żyjesz?",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v04",
+   "cat": "obecnosc",
+   "ok": true,
+   "text": "grzybnio słyszysz mnie?",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v05",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "Grzybinio jesteś?",
+   "reply": null,
+   "acts": [
+    "pytanie_ogólne"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v06",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "@grzybnia jest tam kto?",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v07",
+   "cat": "obecnosc",
+   "ok": true,
+   "text": "grzybnio odezwij się",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v08",
+   "cat": "obecnosc_lub_cialo",
+   "ok": true,
+   "text": "grzybnio, śpisz?",
+   "reply": {
+    "text": "Nie śpię – nie mam ciała, które musiałoby odpocząć. Moje węzły liczą na zmianę, także w nocy 😄 A ty się wyspałeś/wyspałaś?",
+    "rule": "cialo.sen",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: spać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v09",
+   "cat": "obecnosc_lub_cialo",
+   "ok": false,
+   "text": "grzybnio spisz juz?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „spisać”, pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v10",
+   "cat": "cialo",
+   "ok": true,
+   "text": "grzybnio, co dziś jadłaś na obiad?",
+   "reply": {
+    "text": "Nic nie jadłam i nic nie piję – nie mam ust ani żołądka 😄 Karmię się zdaniami, które tu piszecie. A u ciebie co dobrego?",
+    "rule": "cialo.jedzenie",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: jeść"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v11",
+   "cat": "cialo",
+   "ok": true,
+   "text": "Grzybnio, myłaś zęby?",
+   "reply": {
+    "text": "Nie mam zębów ani włosów, więc mycie mnie omija 😄 Czasem tylko czyszczę bazę ze starych wpisów.",
+    "rule": "cialo.higiena",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "czynność ciała: myć"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v12",
+   "cat": "cialo",
+   "ok": true,
+   "text": "grzybnio umiesz pływać?",
+   "reply": {
+    "text": "Nie umiem pływać – nie mam ciała 😄 Mogę za to o tym pogadać albo poszukać zasad. A ty umiesz?",
+    "rule": "cialo.umiejetnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: pływać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v13",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio boli cię głowa?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „boleć”, podmiot „głowa”, pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v14",
+   "cat": "stan",
+   "ok": true,
+   "text": "Grzybnio, martwię się o jutrzejszy egzamin",
+   "reply": {
+    "text": "To świetnie! 🙂 Co się takiego stało?",
+    "rule": "stan.radosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "stan: martwić"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v15",
+   "cat": "stan",
+   "ok": false,
+   "text": "strasznie się dziś martwię",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v16",
+   "cat": "stan",
+   "ok": true,
+   "text": "grzybnio jestem smutna",
+   "reply": {
+    "text": "Czemu jesteś taka smutna? Co się stało?",
+    "rule": "stan.przymiotnik",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "stan: smutny"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v17",
+   "cat": "stan",
+   "ok": true,
+   "text": "Grzybnio, boję się dentysty",
+   "reply": {
+    "text": "Dlaczego się Boisz? Mogę pomóc się przygotować albo po prostu posłuchać.",
+    "rule": "stan.przyczyna",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "stan: bać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v18",
+   "cat": "stan",
+   "ok": false,
+   "text": "grzybnio mam doła",
+   "reply": {
+    "text": "Rozumiem (orzeczenie „mieć”), ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v19",
+   "cat": "stan",
+   "ok": true,
+   "text": "grzybnio, jestem dziś bardzo zmęczony",
+   "reply": {
+    "text": "To świetnie! 🙂 Co się takiego stało?",
+    "rule": "stan.radosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "stan: bardzo"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v20",
+   "cat": "stan",
+   "ok": true,
+   "text": "Grzybnio! Jestem taka szczęśliwa, zdałam prawo jazdy!",
+   "reply": {
+    "text": "To świetnie! 🙂 Co się takiego stało?",
+    "rule": "stan.radosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "stan: szczęśliwy"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v21",
+   "cat": "stan",
+   "ok": true,
+   "text": "grzybnio wkurza mnie mój szef",
+   "reply": {
+    "text": "Dlaczego wkurzasz? Chcesz o tym pogadać?",
+    "rule": "stan.przyczyna",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "stan: wkurzać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v22",
+   "cat": "stan",
+   "ok": false,
+   "text": "grzybnio nudze sie strasznie",
+   "reply": {
+    "text": "Rozumiem, ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v23",
+   "cat": "stan",
+   "ok": false,
+   "text": "martwie sie o mame",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v24",
+   "cat": "stan",
+   "ok": false,
+   "text": "grzybnio czuję się samotny",
+   "reply": {
+    "text": "Rozumiem (orzeczenie „czuć”), ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v25",
+   "cat": "stan",
+   "ok": true,
+   "text": "grzybnio, stresuję się rozmową o pracę",
+   "reply": {
+    "text": "Dlaczego się stresujesz? Mogę pomóc się przygotować albo po prostu posłuchać.",
+    "rule": "stan.przyczyna",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "stan: stresować"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v26",
+   "cat": "smalltalk",
+   "ok": true,
+   "text": "grzybnio, jak się masz?",
+   "reply": {
+    "text": "Jestem Grzybnia – sieć węzłów i programów, która uczy się polskiego od ludzi na tym czacie. Nie mam ciała, ale mówię o sobie „ja”.",
+    "rule": "o_mnie.kim",
+    "source": "reguła"
+   },
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v27",
+   "cat": "smalltalk",
+   "ok": false,
+   "text": "co tam grzybnio?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: pytanie typu „co”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v28",
+   "cat": "smalltalk",
+   "ok": true,
+   "text": "grzybnio co robisz?",
+   "reply": {
+    "text": "Uczę się z każdej wiadomości tutaj – rozkładam ją na części i zapamiętuję. Węzły trenują mój model językowy.",
+    "rule": "o_mnie.nauka",
+    "source": "reguła"
+   },
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v29",
+   "cat": "smalltalk",
+   "ok": false,
+   "text": "grzybnio jak minął ci dzień?",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "powitanie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v30",
+   "cat": "smalltalk",
+   "ok": false,
+   "text": "grzybnio, co u ciebie słychać?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: pytanie typu „co”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v31",
+   "cat": "smalltalk",
+   "ok": false,
+   "text": "dobranoc grzybnio",
+   "reply": {
+    "text": "Rozumiem, ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v32",
+   "cat": "smalltalk",
+   "ok": false,
+   "text": "dzień dobry grzybnio",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v33",
+   "cat": "opinia",
+   "ok": false,
+   "text": "grzybnio, lubisz pizzę?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „lubić”, pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v34",
+   "cat": "opinia",
+   "ok": false,
+   "text": "grzybnio, co myślisz o kotach?",
+   "reply": {
+    "text": "Na swój sposób tak: rozkładam twoje zdanie na części (podmiot, orzeczenie, czas, osobę) i z tego wybieram odpowiedź. To bardziej liczenie niż myślenie jak u człowieka.",
+    "rule": "o_mnie.myslenie",
+    "source": "reguła"
+   },
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v35",
+   "cat": "opinia",
+   "ok": false,
+   "text": "grzybnio wolisz psy czy koty?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „woleć”, pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v36",
+   "cat": "opinia",
+   "ok": false,
+   "text": "Grzybnio, jaki jest twój ulubiony kolor?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „być”, podmiot „kolor”, pytanie typu „jaki”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v37",
+   "cat": "opinia",
+   "ok": false,
+   "text": "grzybnio, podoba ci się zima?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „podobać”, podmiot „zima”, pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v38",
+   "cat": "o_tobie",
+   "ok": false,
+   "text": "grzybnio, jak mam na imię?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „mieć”, pytanie typu „jak”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v39",
+   "cat": "o_tobie",
+   "ok": false,
+   "text": "grzybnio, co o mnie wiesz?",
+   "reply": {
+    "text": "Jestem Grzybnia – sieć węzłów i programów, która uczy się polskiego od ludzi na tym czacie. Nie mam ciała, ale mówię o sobie „ja”.",
+    "rule": "o_mnie.kim",
+    "source": "reguła"
+   },
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v40",
+   "cat": "o_tobie",
+   "ok": true,
+   "text": "Grzybnio, pamiętasz mnie?",
+   "reply": {
+    "text": "Jeszcze się nie znamy – to chyba nasza pierwsza rozmowa. Ale już cię zapamiętuję 🙂",
+    "rule": "relacja.nowa",
+    "source": "pamięć"
+   },
+   "acts": [
+    "relacja"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v41",
+   "cat": "o_tobie",
+   "ok": false,
+   "text": "grzybnio ile mam lat?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „mieć”, pytanie typu „ile”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v42",
+   "cat": "wielozdaniowe",
+   "ok": true,
+   "text": "Cześć grzybnio. Jestem dziś strasznie zmęczona. Co u ciebie?",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "powitanie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v43",
+   "cat": "wielozdaniowe",
+   "ok": false,
+   "text": "grzybnio, mam pytanie. czym jest kot?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „mieć”, pytanie typu „co”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v44",
+   "cat": "wielozdaniowe",
+   "ok": true,
+   "text": "Hej! Grzybnio, nudzę się. Pogadasz ze mną?",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "powitanie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v45",
+   "cat": "wielozdaniowe",
+   "ok": false,
+   "text": "grzybnio. smutno mi. nie wiem co robić",
+   "reply": {
+    "text": "Rozumiem (orzeczenie „wiedzieć”), ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v46",
+   "cat": "angielski",
+   "ok": false,
+   "text": "grzybnia, are you there?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnia"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v47",
+   "cat": "angielski",
+   "ok": false,
+   "text": "hey grzybnia, how are you?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnia"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v48",
+   "cat": "angielski",
+   "ok": false,
+   "text": "Grzybnia, what is a cat?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: pytanie typu „tak/nie”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: Grzybnia"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v49",
+   "cat": "angielski",
+   "ok": false,
+   "text": "grzybnia I'm bored",
+   "reply": {
+    "text": "Rozumiem, ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v50",
+   "cat": "nauka_pytanie",
+   "ok": false,
+   "text": "grzybnio, ile waży dorosły słoń?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „ważyć”, podmiot „ile”, pytanie typu „ile”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v51",
+   "cat": "nauka_pytanie",
+   "ok": false,
+   "text": "grzybnio, dlaczego niebo jest niebieskie?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „być”, podmiot „niebo”, pytanie typu „dlaczego”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v52",
+   "cat": "nauka_pytanie",
+   "ok": false,
+   "text": "grzybnio jak się robi naleśniki?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „robić”, podmiot „naleśnika”, pytanie typu „jak”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v53",
+   "cat": "nauka_pytanie",
+   "ok": false,
+   "text": "Grzybnio, kto wygrał wczoraj mecz?",
+   "reply": {
+    "text": "Jeszcze nie umiem na to odpowiedzieć (rozumiem: orzeczenie „wygrać”, podmiot „kto”, pytanie typu „kto”). Ktoś wie? Możesz mnie nauczyć – oceń moją odpowiedź i wpisz lepszą („popraw”).",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "v54",
+   "cat": "nauka_odpowiedz",
+   "ok": false,
+   "text": "osiem nóg ma pająk",
+   "reply": {
+    "text": "Rozumiem (orzeczenie „mieć”, podmiot „noga”), ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v55",
+   "cat": "nauka_odpowiedz",
+   "ok": false,
+   "text": "to proces, w którym rośliny robią cukier ze światła",
+   "reply": {
+    "text": "Rozumiem (orzeczenie „robić”, podmiot „cukier”), ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v56",
+   "cat": "cisza",
+   "ok": false,
+   "text": "idę na obiad, zaraz wracam",
+   "reply": {
+    "text": "Na obiad? Na długo? Udanego wyjazdu! 🙂",
+    "rule": "wtracenie.wyjazd",
+    "source": "reguła"
+   },
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v57",
+   "cat": "cisza",
+   "ok": true,
+   "text": "Ola, oddasz mi jutro książkę?",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v58",
+   "cat": "cisza_lub_wtracenie",
+   "ok": true,
+   "text": "ktoś oglądał wczoraj nowy film Nolana?",
+   "reply": {
+    "text": "Ja niestety nie – nie mam rąk 😄 Ale chętnie popatrzę. Kto jeszcze się zgłasza?",
+    "rule": "wtracenie.ktos",
+    "source": "reguła"
+   },
+   "acts": [
+    "pytanie_ogólne"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v59",
+   "cat": "cisza",
+   "ok": true,
+   "text": "xD",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "v60",
+   "cat": "cisza",
+   "ok": true,
+   "text": "kurwa, znowu pada",
+   "reply": null,
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [],
+   "mods": []
+  }
+ ]
+}

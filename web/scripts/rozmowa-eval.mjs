@@ -45,9 +45,11 @@ for (const it of data.items) {
   const history = []
   let last
   let at = Date.parse('2026-11-01T12:00:00Z')
+  let li = 0
   for (const [who, text] of it.seq) {
+    const rta = !!it.reply_to_ai_last && ++li === it.seq.length && !!last?.reply
     at += 5000
-    const u = env.understand(text, { handles })
+    const u = env.understand(text, { handles, replyToAi: rta })
     const msg = { id: win.length + 1, author: who, text, at, u }
     win.push(msg)
     const prevRel = rel[who]
@@ -64,7 +66,7 @@ for (const it of data.items) {
     }
     // fakty: tylko jawny zestaw strzępków zapisany w pozycji testu (it.facts) – jak odczyt myc_frags w procesie rozmówcy
     const facts = it.facts && env.mods.facts.factQuery(u) ? it.facts : undefined
-    const reply = before ? undefined : Rp.respond(u, { handle: who, rel: prevRel, recall, facts, rnd: () => 0, now: new Date(at), self: {} }, env.lex)
+    const reply = before ? undefined : Rp.respond(u, { handle: who, rel: prevRel, recall, facts, rnd: () => 0, now: new Date(at), self: {}, replyToAi: rta, prevAi: rta ? last.reply : undefined }, env.lex)
     history.push(msg)
     last = { u, reply, text }
   }
@@ -89,7 +91,9 @@ for (const it of data.items) {
     fakt: () => rule.startsWith('fakt') && (!it.expect || it.expect.every((w) => last.reply.text.toLowerCase().includes(w))),
     nie_pamiec: () => !rule.startsWith('pamiec'),
   }
-  const ok = okBy[it.cat]()
+  // zestawy z klasami (frozen-v3): klasa → dozwolone przedrostki reguły (null = brak odpowiedzi), zapisane w zestawie
+  const ok = it.cls ? data.classes[it.cls].some((p) => (p === null ? !last.reply : !!last.reply && rule.startsWith(p))) : okBy[it.cat]()
+  if (it.cls) it.cat = it.cls
   let parse
   if (it.parse) {
     const got = before ? naive(last.text) : { ...Object.fromEntries(FIELDS.map((f) => [f, last.u[f] ?? null])) }
