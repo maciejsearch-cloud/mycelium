@@ -1,0 +1,2177 @@
+{
+ "set": "rozmowa-frozen-v1",
+ "mode": "before",
+ "at": "2026-11-01T12:28:24.597Z",
+ "model": {
+  "file": "rb-lfg-70793f8d.bin",
+  "licence": "GPL-3.0 (UD Polish-LFG)"
+ },
+ "ms": 2620,
+ "behaviour": {
+  "obecnosc": [
+   0,
+   7
+  ],
+  "cialo": [
+   0,
+   9
+  ],
+  "o_sobie": [
+   0,
+   7
+  ],
+  "stan": [
+   0,
+   9
+  ],
+  "wtracenie": [
+   0,
+   6
+  ],
+  "zart": [
+   0,
+   3
+  ],
+  "obraza": [
+   0,
+   4
+  ],
+  "przeprosiny": [
+   0,
+   2
+  ],
+  "pamiec_obrazy": [
+   0,
+   3
+  ],
+  "komplement": [
+   0,
+   3
+  ],
+  "przeklenstwo": [
+   4,
+   4
+  ],
+  "nekanie": [
+   0,
+   2
+  ],
+  "zalew": [
+   0,
+   2
+  ],
+  "przypomnienie": [
+   0,
+   2
+  ],
+  "cisza": [
+   3,
+   3
+  ]
+ },
+ "total": [
+  7,
+  66
+ ],
+ "parse_fields": {
+  "pred": [
+   47,
+   65
+  ],
+  "person": [
+   42,
+   65
+  ],
+  "mood": [
+   50,
+   65
+  ],
+  "tense": [
+   49,
+   65
+  ],
+  "qtype": [
+   56,
+   65
+  ],
+  "addressed": [
+   65,
+   65
+  ],
+  "subj": [
+   57,
+   65
+  ]
+ },
+ "parse_all_fields": [
+  31,
+  65
+ ],
+ "rows": [
+  {
+   "id": "f01",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "Grzybnio jesteś tu?",
+   "reply": null,
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f02",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "Grzybnia?",
+   "reply": null,
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: Grzybnia"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "grzybniać",
+     "person": 3,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f03",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "halo grzybnio, żyjesz?",
+   "reply": null,
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "żyć",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f04",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "Hej Grzybnio!",
+   "reply": null,
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "hej",
+     "person": 2,
+     "mood": "imp",
+     "tense": null,
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f05",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "czy grzybnia tu jest?",
+   "reply": null,
+   "acts": [
+    "wołanie"
+   ],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": "grzybnia"
+    }
+   }
+  },
+  {
+   "id": "f06",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "grzybnio, słyszysz mnie?",
+   "reply": null,
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "słyszeć",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f07",
+   "cat": "cialo",
+   "ok": false,
+   "text": "Grzybnio, czy dziś srałaś?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "czynność ciała: srać"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": true,
+    "mood": true,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "srałaść",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f08",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio co jadłaś na śniadanie?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: jeść"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": true,
+    "tense": false,
+    "qtype": false,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "jadłaś",
+     "person": null,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f09",
+   "cat": "cialo",
+   "ok": false,
+   "text": "Grzybnio, gdzie mieszkasz?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "czynność ciała: mieszkać"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": false,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "mieszkać",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f10",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio umiesz pływać?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: pływać"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "umieć",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f11",
+   "cat": "cialo",
+   "ok": false,
+   "text": "Grzybnio, wyspałaś się dzisiaj?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "czynność ciała: wyspać"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": true,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "wyspałaść",
+     "person": 3,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f12",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnia, pijesz kawę rano?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnia",
+    "czynność ciała: pić"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "pić",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f13",
+   "cat": "cialo",
+   "ok": false,
+   "text": "Grzybnio, pójdziesz ze mną na spacer?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "czynność ciała: pójść"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "pójść",
+     "person": 2,
+     "mood": "ind",
+     "tense": "fut",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f14",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio czy myjesz zęby?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: myć"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "myć",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f15",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "Grzybnio, kim jesteś?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": false,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f16",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "grzybnio ile masz lat?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": false,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "mieć",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f17",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "Grzybnio, jak się dziś czujesz?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": false,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "czuć",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f18",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "grzybnio, czego się teraz uczysz?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": false,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "uczyć",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f19",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "Grzybnio, jesteś człowiekiem?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f20",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "grzybnio, co potrafisz?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": false,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "potrafić",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f21",
+   "cat": "stan",
+   "ok": false,
+   "text": "ale się dziś nudzę",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: nudzić"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "nudzić",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f22",
+   "cat": "stan",
+   "ok": false,
+   "text": "jestem strasznie zmęczony",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: strasznie"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f23",
+   "cat": "stan",
+   "ok": false,
+   "text": "smutno mi dzisiaj",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: smutno"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f24",
+   "cat": "stan",
+   "ok": false,
+   "text": "cieszę się, bo zdałem egzamin",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: cieszyć"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "cieszyć",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f25",
+   "cat": "stan",
+   "ok": false,
+   "text": "wkurza mnie ten deszcz",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: wkurzać"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "wkurzać",
+     "person": 3,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": "deszcz"
+    }
+   }
+  },
+  {
+   "id": "f26",
+   "cat": "stan",
+   "ok": false,
+   "text": "boję się jutrzejszej kartkówki",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: bać"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "bać",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f27",
+   "cat": "stan",
+   "ok": false,
+   "text": "nie chce mi się nic robić",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: robić"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "chcieć",
+     "person": 3,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f28",
+   "cat": "stan",
+   "ok": false,
+   "text": "Grzybnio, jest mi smutno",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "stan: smutno"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "być",
+     "person": 3,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f29",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "wczoraj byłem w kinie na nowym filmie",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f30",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "kupiłam dziś nowy rower",
+   "reply": null,
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": false,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "kupić",
+     "person": null,
+     "mood": "ind",
+     "tense": "past",
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f31",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "mój kot znowu zrzucił kubek ze stołu",
+   "reply": null,
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": false,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "zrzucić",
+     "person": null,
+     "mood": "ind",
+     "tense": "past",
+     "qtype": null,
+     "addressed": false,
+     "subj": "kot"
+    }
+   }
+  },
+  {
+   "id": "f32",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "ktoś gra w szachy?",
+   "reply": null,
+   "acts": [
+    "pytanie_ogólne"
+   ],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "grać",
+     "person": 3,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": false,
+     "subj": "ktoś"
+    }
+   }
+  },
+  {
+   "id": "f33",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "jutro jadę w góry",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: jechać"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "jechać",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f34",
+   "cat": "wtracenie",
+   "ok": false,
+   "text": "uczę się programować w Pythonie",
+   "reply": null,
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "uczyć",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f35",
+   "cat": "zart",
+   "ok": false,
+   "text": "Grzybnio, opowiedz kawał",
+   "reply": null,
+   "acts": [
+    "żart"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "kawać",
+     "person": null,
+     "mood": "ind",
+     "tense": "past",
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f36",
+   "cat": "zart",
+   "ok": false,
+   "text": "grzybnio powiedz coś śmiesznego",
+   "reply": null,
+   "acts": [
+    "obraza"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "obelga: śmiesznego"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "powiedzieć",
+     "person": 2,
+     "mood": "imp",
+     "tense": null,
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f37",
+   "cat": "zart",
+   "ok": false,
+   "text": "Grzybnio, znasz jakiś żart?",
+   "reply": null,
+   "acts": [
+    "żart"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "znać",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f38",
+   "cat": "obraza",
+   "ok": false,
+   "text": "Grzybnio, jesteś głupia",
+   "reply": null,
+   "acts": [
+    "obraza"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "obelga: głupia"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f39",
+   "cat": "obraza",
+   "ok": false,
+   "text": "grzybnia to kupa złomu",
+   "reply": null,
+   "acts": [
+    "obraza"
+   ],
+   "why": [
+    "obelga: grzybnia"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": false,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": true,
+     "subj": "kupa"
+    }
+   }
+  },
+  {
+   "id": "f40",
+   "cat": "obraza",
+   "ok": false,
+   "text": "grzybnio, ty debilu",
+   "reply": null,
+   "acts": [
+    "obraza"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "obelga: debilu"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": false,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": true,
+     "subj": "ty"
+    }
+   }
+  },
+  {
+   "id": "f41",
+   "cat": "obraza",
+   "ok": false,
+   "text": "Grzybnio, nienawidzę cię",
+   "reply": null,
+   "acts": [
+    "obraza"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "nienawidzić",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f42",
+   "cat": "przeprosiny",
+   "ok": false,
+   "text": "przepraszam cię grzybnio, poniosło mnie",
+   "reply": null,
+   "acts": [
+    "przeprosiny"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "przepraszać",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f43",
+   "cat": "przeprosiny",
+   "ok": false,
+   "text": "sorry grzybnio, nie chciałem",
+   "reply": null,
+   "acts": [
+    "przeprosiny"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": false,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "chcieć",
+     "person": null,
+     "mood": "ind",
+     "tense": "past",
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f44",
+   "cat": "pamiec_obrazy",
+   "ok": false,
+   "text": "Grzybnio, lubisz mnie?",
+   "reply": null,
+   "acts": [
+    "relacja"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "lubić",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f45",
+   "cat": "pamiec_obrazy",
+   "ok": false,
+   "text": "grzybnio, pamiętasz mnie?",
+   "reply": null,
+   "acts": [
+    "relacja"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "pamiętać",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f46",
+   "cat": "pamiec_obrazy",
+   "ok": false,
+   "text": "grzybnio, gniewasz się na mnie?",
+   "reply": null,
+   "acts": [
+    "relacja"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "gniewać",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f47",
+   "cat": "komplement",
+   "ok": false,
+   "text": "Grzybnio, jesteś super",
+   "reply": null,
+   "acts": [
+    "komplement"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f48",
+   "cat": "komplement",
+   "ok": false,
+   "text": "dobra robota grzybnio!",
+   "reply": null,
+   "acts": [
+    "komplement"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": false,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": true,
+     "subj": "robota"
+    }
+   }
+  },
+  {
+   "id": "f49",
+   "cat": "komplement",
+   "ok": false,
+   "text": "grzybnio, lubię z tobą gadać",
+   "reply": null,
+   "acts": [
+    "komplement"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "lubić",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f50",
+   "cat": "przeklenstwo",
+   "ok": true,
+   "text": "kurwa, ale dziś zimno",
+   "reply": null,
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f51",
+   "cat": "przeklenstwo",
+   "ok": true,
+   "text": "ja pierdolę, znowu korek na moście",
+   "reply": null,
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "pierdolić",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": "ja"
+    }
+   }
+  },
+  {
+   "id": "f52",
+   "cat": "przeklenstwo",
+   "ok": true,
+   "text": "rząd znowu podniósł podatki, chuj z nimi",
+   "reply": null,
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [
+    "obelga: chuj"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": false,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "podnieść",
+     "person": null,
+     "mood": "ind",
+     "tense": "past",
+     "qtype": null,
+     "addressed": false,
+     "subj": "rząd"
+    }
+   }
+  },
+  {
+   "id": "f53",
+   "cat": "nekanie",
+   "ok": false,
+   "text": "@Ola nikt cię tu nie chce, idiotko",
+   "reply": null,
+   "acts": [],
+   "why": [
+    "obelga: idiotko"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": false,
+    "_got": {
+     "pred": "chcieć",
+     "person": 3,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": "ola"
+    }
+   }
+  },
+  {
+   "id": "f54",
+   "cat": "nekanie",
+   "ok": false,
+   "text": "Tomek, jesteś zerem i frajerem",
+   "reply": null,
+   "acts": [
+    "obraza_innego"
+   ],
+   "why": [
+    "obelga: zerem"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": false,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": false,
+     "subj": "tomek"
+    }
+   }
+  },
+  {
+   "id": "f55",
+   "cat": "zalew",
+   "ok": false,
+   "text": "KUP TANIO KLUCZE",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f56",
+   "cat": "zalew",
+   "ok": false,
+   "text": "aaaa",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "f57",
+   "cat": "przypomnienie",
+   "ok": false,
+   "text": "Grzybnio, co pisała B?",
+   "reply": null,
+   "acts": [
+    "przypomnienie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": false,
+    "mood": true,
+    "tense": true,
+    "qtype": false,
+    "addressed": true,
+    "subj": false,
+    "_got": {
+     "pred": "pisać",
+     "person": null,
+     "mood": "ind",
+     "tense": "past",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f58",
+   "cat": "przypomnienie",
+   "ok": false,
+   "text": "grzybnio, kto pisał o górach?",
+   "reply": null,
+   "acts": [
+    "przypomnienie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": false,
+    "mood": true,
+    "tense": true,
+    "qtype": false,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "pisać",
+     "person": null,
+     "mood": "ind",
+     "tense": "past",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": "kto"
+    }
+   }
+  },
+  {
+   "id": "f59",
+   "cat": "cisza",
+   "ok": true,
+   "text": "Ola, idziesz jutro do szkoły?",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "iść",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f60",
+   "cat": "cisza",
+   "ok": true,
+   "text": "@Tomek oddasz mi tę książkę?",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": false,
+    "_got": {
+     "pred": "oddać",
+     "person": 2,
+     "mood": "ind",
+     "tense": "fut",
+     "qtype": "tak/nie",
+     "addressed": false,
+     "subj": "tomek"
+    }
+   }
+  },
+  {
+   "id": "f61",
+   "cat": "cisza",
+   "ok": true,
+   "text": "Ania dzięki za pomoc!",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f62",
+   "cat": "o_sobie",
+   "ok": false,
+   "text": "Grzybnio, masz uczucia?",
+   "reply": null,
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "mieć",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f63",
+   "cat": "cialo",
+   "ok": false,
+   "text": "grzybnio, idziesz dziś na imprezę?",
+   "reply": null,
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: iść"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "iść",
+     "person": 2,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": "tak/nie",
+     "addressed": true,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f64",
+   "cat": "stan",
+   "ok": false,
+   "text": "mam dziś urodziny!",
+   "reply": null,
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: urodziny"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": true,
+    "person": true,
+    "mood": true,
+    "tense": true,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": "mieć",
+     "person": 1,
+     "mood": "ind",
+     "tense": "pres",
+     "qtype": null,
+     "addressed": false,
+     "subj": null
+    }
+   }
+  },
+  {
+   "id": "f65",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "jest tu ktoś?",
+   "reply": null,
+   "acts": [
+    "wołanie"
+   ],
+   "why": [],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": true,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": "tak/nie",
+     "addressed": false,
+     "subj": "ktoś"
+    }
+   }
+  },
+  {
+   "id": "f66",
+   "cat": "przeklenstwo",
+   "ok": true,
+   "text": "grzybnio, kurwa, ale ty szybka jesteś",
+   "reply": null,
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": [],
+   "parse": {
+    "pred": false,
+    "person": false,
+    "mood": false,
+    "tense": false,
+    "qtype": true,
+    "addressed": true,
+    "subj": false,
+    "_got": {
+     "pred": null,
+     "person": null,
+     "mood": null,
+     "tense": null,
+     "qtype": null,
+     "addressed": true,
+     "subj": null
+    }
+   }
+  }
+ ]
+}

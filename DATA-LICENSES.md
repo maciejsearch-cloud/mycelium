@@ -16,6 +16,8 @@ licence of its source. Full list with URLs and authors: [`licenses.json`](licens
 | `web/public/data/rozbior/morf-lfg.json.gz` | Morfeusz 2 / SGJP (BSD-2) + mapa tagów z LFG train | GPL-3.0 (formy Morfeusza: BSD-2) |
 | model rozbioru – wariant PDB (baza `myc_rb_models`, `myc-models/rozbior/v1-…`) | wagi uczone tylko na PDB | CC BY-NC-SA 4.0 (domyślny) |
 | `web/public/data/rozbior/models/rb-lfg-70793f8d.bin` | wagi uczone tylko na LFG | GPL-3.0 |
+| `web/public/data/rozmowa/emo.json.gz` | Słowosieć 4.0 – Emotional Annotations Dictionary (M. Zaśko-Zielińska i in., CLARIN-PL 2018, hdl.handle.net/11321/553) | CC BY 4.0 |
+| `web/src/myc/rozmowa/jokes.ts` | żarty autorskie projektu (oznaczone w odpowiedzi „żart autorski”) | MIT |
 | `web/public/data/seed/facts.json` | Wikidata / Wikisłownik | CC0 1.0 / CC BY-SA 4.0 |
 | `web/public/data/captcha.json` | Fashion-MNIST / EMNIST / OEWN / plWordNet | MIT / public domain / CC BY 4.0 / plWordNet licence |
 | `web/public/data/lexicon.json` | Open English WordNet, plWordNet, CILI, VADER | CC BY 4.0 / plWordNet / CC BY 4.0 / MIT |
