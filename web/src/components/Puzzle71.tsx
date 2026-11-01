@@ -46,10 +46,11 @@ async function chainLive(): Promise<Chain> {
 }
 
 const fmt = (n: number, en: boolean, d = 0) => n.toLocaleString(en ? 'en-GB' : 'pl-PL', { maximumFractionDigits: d })
-const sci = (x: number) => {
+const sci = (x: number, en = false) => {
   if (x === 0) return '0'
   const e = Math.floor(Math.log10(x))
-  return `${(x / 10 ** e).toFixed(2)}·10^${e}`
+  if (e >= -2 && e < 6) return fmt(x, en, 2)
+  return `${fmt(x / 10 ** e, en, 2)}·10^${e}`
 }
 const rateTxt = (r: number, en: boolean) => (r >= 1e6 ? `${fmt(r / 1e6, en, 2)} ${en ? 'M keys/s' : 'mln kluczy/s'}` : `${fmt(r / 1e3, en, 1)} ${en ? 'k keys/s' : 'tys. kluczy/s'}`)
 
@@ -88,17 +89,17 @@ export default function Puzzle71({ en }: { en: boolean }) {
             : `Publiczna zagadka z 2015 r.: klucz prywatny adresu ${P71_ADDR} leży gdzieś wśród 2^70 ≈ 1,18·10^21 kluczy. Węzły sprawdzają losowe, nienakładające się paczki po 2^32 kluczy i podpisują każdy raport. Szukamy sami – bez zewnętrznej usługi i bez prowizji dla nikogo.`}
         </p>
         <div className="mb-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
-          <Kpi label={en ? 'Speed now' : 'Szybkość teraz'} value={s === undefined ? '…' : s && rate > 0 ? rateTxt(rate, en) : '—'} hint={s ? `${s.nodes_live} ${en ? 'nodes reporting (15 min)' : 'węzłów raportujących (15 min)'}` : undefined} src="myc_p71_nodes.rate" verif="self" />
-          <Kpi label={en ? 'Keys checked' : 'Sprawdzone klucze'} value={s === undefined ? '…' : s ? sci(keys) : '—'} hint={s ? `${s.chunks_done} ${en ? 'chunks of 2^32' : 'paczek po 2^32'}${s.chunks_open ? ` · ${s.chunks_open} ${en ? 'in progress' : 'w toku'}` : ''}` : undefined} tone="sky" src="myc_p71_chunks" verif="self" />
-          <Kpi label={en ? 'Share of the space covered' : 'Przejrzana część przestrzeni'} value={s === undefined ? '…' : s ? `${sci((keys / SPACE) * 100)} %` : '—'} hint={en ? 'of 2^70 keys' : 'z 2^70 kluczy'} tone="violet" src="keys / 2^70" verif="self" />
-          <Kpi label={en ? 'Balance on the address' : 'Saldo na adresie'} value={c === undefined ? '…' : btc != null ? `${fmt(btc, en, 8)} BTC` : '—'} hint={c ? `${c.src}${c.at ? ' · ' + ago(c.at, en ? 'en' : 'pl') : ''}${c.mempool_spent_sat ? (en ? ' · SPEND IN MEMPOOL' : ' · WYDATEK W MEMPOOLU') : ''}` : en ? 'explorer unavailable' : 'eksplorator niedostępny'} tone="amber" src="mempool.space / blockstream.info" verif="verified" />
+          <Kpi label={en ? 'Speed now' : 'Szybkość teraz'} value={s === undefined ? '…' : s && rate > 0 ? rateTxt(rate, en) : '—'} hint={s ? `${en ? 'nodes reporting (15 min)' : 'węzły raportujące (15 min)'}: ${s.nodes_live}` : undefined} src="myc_p71_nodes.rate" verif="self" />
+          <Kpi label={en ? 'Keys checked' : 'Sprawdzone klucze'} value={s === undefined ? '…' : s ? sci(keys, en) : '—'} hint={s ? `${s.chunks_done} ${en ? 'chunks of 2^32' : 'paczek po 2^32'}${s.chunks_open ? ` · ${s.chunks_open} ${en ? 'in progress' : 'w toku'}` : ''}` : undefined} tone="sky" src="myc_p71_chunks" verif="self" />
+          <Kpi label={en ? 'Share of the space covered' : 'Przejrzana część przestrzeni'} value={s === undefined ? '…' : s ? `${sci((keys / SPACE) * 100, en)} %` : '—'} hint={en ? 'of 2^70 keys' : 'z 2^70 kluczy'} tone="violet" src="keys / 2^70" verif="self" />
+          <Kpi label={en ? 'Balance on the address' : 'Saldo na adresie'} value={c === undefined ? '…' : btc != null ? `${fmt(btc, en, 3)} BTC` : '—'} hint={c ? `${btc != null ? fmt(btc, en, 8) + ' BTC · ' : ''}${c.src}${c.at ? ' · ' + ago(c.at, en ? 'en' : 'pl') : ''}${c.mempool_spent_sat ? (en ? ' · SPEND IN MEMPOOL' : ' · WYDATEK W MEMPOOLU') : ''}` : en ? 'explorer unavailable' : 'eksplorator niedostępny'} tone="amber" src="mempool.space / blockstream.info" verif="verified" />
         </div>
         <div className="mb-3 rounded-xl border border-amber-300/20 bg-amber-300/5 p-3 text-sm text-amber-100" data-testid="p71-odds">
           <b>{en ? 'Honest odds: ' : 'Uczciwe szanse: '}</b>
           {fullYears != null && pYear != null
             ? en
-              ? `at the current ${rateTxt(rate, en)}, checking the whole space would take ≈${sci(fullYears)} years (on average half of that to find the key). Chance of finding it within a year: ≈1 in ${sci(1 / pYear)}. Others search with far more power (GPU farms), so even that is optimistic.`
-              : `przy obecnych ${rateTxt(rate, en)} przejrzenie całej przestrzeni zajęłoby ≈${sci(fullYears)} lat (średnio połowę tego do znalezienia klucza). Szansa na znalezienie w ciągu roku: ≈1 do ${sci(1 / pYear)}. Szukają też inni, z dużo większą mocą (farmy GPU), więc i to jest optymistyczne.`
+              ? `at the current ${rateTxt(rate, en)}, checking the whole space would take ≈${sci(fullYears, en)} years (on average half of that to find the key). Chance of finding it within a year: ≈1 in ${sci(1 / pYear, en)}. Others search with far more power (GPU farms), so even that is optimistic.`
+              : `przy obecnych ${rateTxt(rate, en)} przejrzenie całej przestrzeni zajęłoby ≈${sci(fullYears, en)} lat (średnio połowę tego do znalezienia klucza). Szansa na znalezienie w ciągu roku: ≈1 do ${sci(1 / pYear, en)}. Szukają też inni, z dużo większą mocą (farmy GPU), więc i to jest optymistyczne.`
             : en
               ? 'no node is reporting speed right now, so there is no estimate. For scale: at 1 million keys/s the whole space takes ≈37 million years.'
               : 'żaden węzeł nie raportuje teraz szybkości, więc nie ma szacunku. Dla skali: przy 1 mln kluczy/s cała przestrzeń to ≈37 mln lat.'}{' '}
@@ -136,7 +137,7 @@ export default function Puzzle71({ en }: { en: boolean }) {
                     <span className="font-mono text-slate-100">{n.node}</span>
                     <span className={n.live ? 'text-spore' : 'text-slate-500'}>{n.live && n.rate > 0 ? rateTxt(n.rate, en) : en ? 'idle' : 'nie liczy'}</span>
                     <span className="text-slate-400">
-                      {sci(Number(n.keys))} {en ? 'keys' : 'kluczy'} · {n.backend ?? '—'} · {n.pct ?? '—'}%
+                      {sci(Number(n.keys), en)} {en ? 'keys' : 'kluczy'} · {n.backend ?? '—'} · {n.pct ?? '—'}%
                     </span>
                   </li>
                 ))}

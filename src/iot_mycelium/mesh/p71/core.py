@@ -216,7 +216,9 @@ def build(dst: Path | None = None) -> Path | None:
     if cc is None or not SRC.exists():
         return None
     dst.parent.mkdir(parents=True, exist_ok=True)
-    tmp = dst.with_name(f"{dst.stem}.{os.getpid()}.tmp.so")  # osobny plik na proces: dwa węzły naraz się nie psują
+    tmp = dst.with_name(
+        f"{dst.stem}.{os.getpid()}.{os.urandom(4).hex()}.tmp.so"
+    )  # osobny plik na proces: dwa węzły naraz się nie psują
     r = subprocess.run([cc, "-O3", "-shared", "-fPIC", "-o", str(tmp), str(SRC)], capture_output=True, timeout=120)
     if r.returncode != 0:
         tmp.unlink(missing_ok=True)

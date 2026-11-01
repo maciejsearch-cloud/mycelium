@@ -21,7 +21,7 @@ Krackpot (krackpot.io) i podobne aplikacje pobierają część nagrody; my szuka
    to dodawanie P + j·G z jedną odwrotnością w ciele na paczkę 1024 kluczy (trik Montgomery'ego). Rdzeń w C
    (`p71core.c`, ctypes, kompilowany lokalnie); bez kompilatora – ten sam algorytm w czystym Pythonie (≈10× wolniej).
    Poprawność: testy na rozwiązanych zagadkach #20–#30 (klucz → adres), zgodność C ↔ Python ↔ naiwne *k·G* (tests/test_p71.py).
-2. **Moc** (`worker.py`): jeden wątek, `nice 19` (Linux: per wątek), cykl pracy z czasu CPU wątku: średnio `pct`% z
+2. **Moc** (`worker.py`): jeden wątek o najniższym priorytecie (Linux: `SCHED_IDLE` tylko dla tego wątku – proces węzła ma już nice 19, więc samo nice nie dawałoby treningowi pierwszeństwa), cykl pracy z czasu CPU wątku: średnio `pct`% z
    wątków węzła (10 % z 4 wątków = 0,4 rdzenia). Węzły właściciela (box1, box2): włączone, 10 %. Węzły ochotników:
    **domyślnie wyłączone**, włączenie w panelu węzła (zakładka Pasywny → Puzzle #71) z tekstem zgody i szansami;
    maksimum 10 %.
