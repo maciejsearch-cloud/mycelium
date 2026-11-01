@@ -1,5 +1,6 @@
 import { LmProgress } from '../components/LmProgress'
 import { Samouk } from '../components/Samouk'
+import { SelfModel } from '../components/SelfModel'
 import { NodeContrib } from '../components/NodeContrib'
 import { useEffect, useState } from 'react'
 import { Card, Kpi, PageHeader } from '../components/ui'
@@ -102,6 +103,7 @@ export default function Verification() {
 
       <LmProgress detail />
       <Samouk />
+      <SelfModel />
       <NodeContrib />
 
       <Card title={en ? 'Accuracy of each published version on the fixed test set' : 'Trafność każdej opublikowanej wersji na stałym teście'} className="mb-4">
