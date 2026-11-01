@@ -44,7 +44,7 @@ i podmieniły transakcję (RBF). #67 i #68 odebrano bezpiecznie, z pominięciem 
 
 - Klucz **nigdy** nie trafia do bazy jawnie, do czatu, do logów ani do mempoolu. Węzeł sprawdza trafienie drugą,
   niezależną ścieżką (Python), szyfruje klucz do **klucza publicznego właściciela** (X25519 + HKDF-SHA256 +
-  ChaCha20-Poly1305, `seal.py`, klucz publiczny `owner_x25519.pub`), zapisuje szyfrogram lokalnie (`<cache>/p71/hit-*.sealed`,
+  ChaCha20-Poly1305, `seal.py`, klucz publiczny `OWNER_PUB_HEX` w `seal.py`), zapisuje szyfrogram lokalnie (`<cache>/p71/hit-*.sealed`,
   chmod 600) i wysyła **tylko szyfrogram** (`myc_p71_hit`). Log mówi tylko „TRAFIENIE – zaszyfrowane”.
 - `myc_p71_hits` nie ma odczytu publicznego, a statystyki nie zawierają liczby trafień. Paczka z trafieniem jest
   raportowana jak każda inna, żeby z publicznych danych nie dało się wskazać, gdzie szukać.

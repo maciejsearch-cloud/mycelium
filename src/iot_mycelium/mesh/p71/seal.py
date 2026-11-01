@@ -2,7 +2,7 @@
 
 Format (wersja 1, szesnastkowo): 01 | efemeryczny klucz X25519 (32 B) | nonce (12 B) | szyfrogram ChaCha20-Poly1305.
 Klucz symetryczny = HKDF-SHA256(wspólny sekret X25519, sól = efemeryczny‖właściciel, info = "MYC-P71/v1/seal").
-Węzeł zna tylko klucz PUBLICZNY właściciela (owner_x25519.pub w repozytorium); prywatny leży poza repozytorium
+Węzeł zna tylko klucz PUBLICZNY właściciela (OWNER_PUB_HEX niżej); prywatny leży poza repozytorium
 (chmod 600) i nie jest nigdzie publikowany ani wypisywany. Bez niego szyfrogram w bazie jest bezużyteczny.
 """
 
@@ -10,14 +10,14 @@ from __future__ import annotations
 
 import json
 import os
-from pathlib import Path
 
 INFO = b"MYC-P71/v1/seal"
-OWNER_PUB_FILE = Path(__file__).with_name("owner_x25519.pub")
+# klucz PUBLICZNY właściciela (X25519), wygenerowany 1.11.2026 na boxie; prywatny poza repozytorium (docs/puzzle71.md)
+OWNER_PUB_HEX = "ae1466561db6ccd5944a2b82df04c9d14175ef7e20788616a94dc23f98ab9005"
 
 
 def owner_pub() -> bytes:
-    b = bytes.fromhex(OWNER_PUB_FILE.read_text().strip())
+    b = bytes.fromhex(OWNER_PUB_HEX)
     if len(b) != 32:
         raise ValueError("zły klucz publiczny właściciela")
     return b
