@@ -134,6 +134,13 @@
       "url": "https://www.nist.gov/itl/products-and-services/emnist-dataset",
       "license": "public domain (NIST) / CC0",
       "use": "zadania captcha – odręczne litery (captcha.json)"
+    },
+    {
+      "name": "Słowosieć 4.0 – Emotional Annotations Dictionary",
+      "url": "http://hdl.handle.net/11321/553",
+      "license": "CC BY 4.0",
+      "author": "M. Zaśko-Zielińska i in., CLARIN-PL (2018)",
+      "use": "rozmówca czatu: nacechowanie i emocje słów (web/public/data/rozmowa/emo.json.gz)"
     }
   ],
   "libraries": [
