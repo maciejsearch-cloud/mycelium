@@ -39,6 +39,10 @@ const parseFn = (text) => {
   cache.set(k, r)
   return r
 }
+if (process.env.CZYSTA_PARSE) {
+  for (const it of job.items) for (const t of parseFn(it.q)?.a.tokens ?? []) console.error(t.i, t.form, t.lemma, t.upos, t.head, t.part ?? '', JSON.stringify(t.feats ?? {}))
+  process.exit(0)
+}
 const kb = job.kb ?? { facts: [], qa: [], loadedAt: '', skipped: 0 }
 const t0 = Date.now()
 const res = job.items.map((it) => {

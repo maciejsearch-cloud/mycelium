@@ -1,0 +1,66 @@
+{
+ "version": "dev-zadania-v2",
+ "note": "zestaw do rozwijania reguł (nie do raportu jako sprawdzian)",
+ "items": [
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Wiktor miał 11 kasztanów i dostał jeszcze cztery od brata. Ile kasztanów ma teraz Wiktor?",
+   "a": "15"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Marta miała 7 lalek. Od cioci dostała 2 lalki. Ile lalek ma Marta?",
+   "a": "9"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Janek miał 18 zł, wydał 6 zł na lody i dostał 4 zł od dziadka. Ile złotych ma teraz Janek?",
+   "a": "16"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Iga miała 12 pisaków. Dała 3 pisaki Adzie, a od Hani dostała 5. Ile pisaków ma Iga?",
+   "a": "14"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Od mamy Bartek dostał 8 klocków, a od taty 6 klocków. Ile klocków dostał Bartek razem?",
+   "a": "14"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "W pudełku było 20 guzików. Rano zabrano 7 guzików, a wieczorem dołożono 5. Ile guzików jest teraz w pudełku?",
+   "a": "18"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Filip miał 16 karmelków. Zjadł 4 karmelki i dał 3 karmelki koledze. Ile karmelków zostało Filipowi?",
+   "a": "9"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Na łące pasło się 12 owiec. Odeszło 5 owiec, a przyszły 3. Ile owiec pasie się teraz na łące?",
+   "a": "10"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Natalia dostała od babci 6 śliwek, a od dziadka 4 śliwki, i zjadła 2. Ile śliwek ma Natalia?",
+   "a": "8"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Igor miał dwadzieścia znaczków, zgubił pięć znaczków i kupił osiem. Ile znaczków ma Igor?",
+   "a": "23"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Karol miał 9 piłek, dwie piłki pękły, a od wujka dostał trzy. Ile piłek ma Karol?",
+   "a": "10"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Hela miała 14 kredek i dostała 6 od siostry. Ile kredek ma Hela?",
+   "a": "20"
+  }
+ ]
+}

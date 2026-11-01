@@ -379,6 +379,12 @@ export function analogy(text: string, ctx: NumCtx): NumResult | null {
 // ------------------------------------------------------------------ zadania tekstowe (tabela ról)
 const GAIN = new Set(['dostać', 'otrzymać', 'kupić', 'znaleźć', 'zebrać', 'zarobić', 'wygrać', 'dokupić', 'dodać', 'przynieść', 'zerwać', 'złowić', 'upiec', 'narysować', 'zrobić', 'dołożyć', 'uzbierać'])
 const LOSS = new Set(['oddać', 'dać', 'zgubić', 'zjeść', 'sprzedać', 'wydać', 'stracić', 'zużyć', 'podarować', 'pożyczyć', 'zabrać', 'wypić', 'rozdać', 'ubyć', 'zniszczyć', 'wyrzucić', 'przegrać', 'zapłacić'])
+/** Czasowniki ruchu z przedrostkiem: od-/u-/wy- = rzecz odchodzi (ubywa), przy-/do- = przychodzi (przybywa). */
+const MOTION = '(jść|iść|lecieć|latywać|biec|biegnąć|płynąć|jechać|frunąć|fruwać|wieźć|nieść|ciec|pełznąć|skoczyć|wędrować)'
+const AWAY = new RegExp(`^(od|ode|u|wy|z|ze)${MOTION}$`)
+const TOWARD = new RegExp(`^(przy|przyj|do|nad)${MOTION}$`)
+/** Zniknięcie rzeczy liczonej (rzecz jest podmiotem): „dwie piłki pękły”. */
+const VANISH = new Set(['pęknąć', 'zniknąć', 'zginąć', 'uschnąć', 'zepsuć', 'rozbić', 'stłuc', 'zgnić', 'spaść', 'zwiędnąć'])
 const STATE = new Set(['mieć', 'być', 'stać', 'leżeć', 'znajdować', 'wisieć', 'rosnąć', 'siedzieć', 'mieszkać'])
 const ABBR: Record<string, string> = { zł: 'złoty', gr: 'grosz', kg: 'kilogram', g: 'gram', km: 'kilometr', m: 'metr', cm: 'centymetr', l: 'litr' }
 
@@ -394,8 +400,22 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
   const noun = Tq.find((t, i) => i > 0 && (t.upos === 'NOUN' || ABBR[low(t.form)]))
   if (!noun) return null
   const what = lemmaOf(noun)
+  // ta sama rzecz: lemat z rozbioru, lematy ze słownika albo wspólny temat (5 liter) – rozbiór bywa niespójny („kredek”/„kredka”)
+  const keys = (t: ATok): Set<string> => {
+    const k = new Set([lemmaOf(t), low(t.form)])
+    if (ctx.lex) for (const [l, tag] of lexAnalyses(ctx.lex, low(t.form))) if (/^(subst|depr)/.test(tag)) k.add(low(l.split(':')[0]))
+    for (const x of [...k]) if (x.length >= 5) k.add(x.slice(0, 5))
+    return k
+  }
+  const whatKeys = keys(noun)
+  const sameThing = (t: ATok | undefined) => !!t && [...keys(t)].some((x) => whatKeys.has(x))
+  // osoba: lemat imienia ze słownika (wielka litera), inaczej z rozbioru
+  const person = (t: ATok): string => {
+    if (ctx.lex) for (const [l] of lexAnalyses(ctx.lex, t.form)) if (/^\p{Lu}/u.test(l)) return low(l.split(':')[0])
+    return low(t.lemma || t.form)
+  }
   const ownerQ = Tq.find((t) => t.upos === 'PROPN' || (t.upos === 'NOUN' && /^\p{Lu}/u.test(t.form) && t.i > 1))
-  const owner = ownerQ ? low(ownerQ.lemma || ownerQ.form) : null
+  const owner = ownerQ ? person(ownerQ) : null
   const together = /\b(razem|łącznie|w sumie|wszystkich)\b/i.test(q)
   ctx.trace.push({ kind: 'rozbiór', text: `pytanie o liczbę: „${what}”${owner ? `, czyje: ${ownerQ!.lemma}` : ''}${together ? ', razem' : ''}` })
   const ledger = new Map<string, number>()
@@ -421,6 +441,34 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
       }
       return T.find((y) => y.head === 0)
     }
+    // odcinki zdania: przecinek albo spójnik „i/a/oraz/ale/potem” zaczyna nowy odcinek; liczba należy do czasownika swojego
+    // odcinka (dwa czasowniki i dwie liczby w jednym zdaniu); odcinek bez czasownika („a od taty 5”) dziedziczy poprzedni
+    const seg = new Map<number, number>()
+    {
+      let k = 0
+      for (const t of T) {
+        if (t.form === ',' || (t.upos === 'CCONJ' && ['i', 'a', 'oraz', 'ale', 'lecz'].includes(low(t.form)))) k++
+        seg.set(t.i, k)
+      }
+    }
+    const segVerb = (n: ATok): ATok | undefined => {
+      const k = seg.get(n.i)!
+      for (let j = k; j >= 0; j--) {
+        const vs = T.filter((t) => seg.get(t.i) === j && t.upos === 'VERB')
+        if (vs.length === 1) return vs[0]
+        if (vs.length > 1) return j === k ? verbOf(n) : vs[vs.length - 1]
+      }
+      return verbOf(n)
+    }
+    const sameSeg = (a: ATok | undefined, n: ATok) => {
+      if (!a) return false
+      const ka = seg.get(a.i)!
+      const kn = seg.get(n.i)!
+      if (ka === kn) return true
+      // odcinek bez czasownika należy do poprzedniego
+      for (let j = kn; j > ka; j--) if (T.some((t) => seg.get(t.i) === j && t.upos === 'VERB')) return false
+      return ka < kn && T.some((t) => seg.get(t.i) === ka && t.upos === 'VERB')
+    }
     // mnożenie: „W k pudełkach jest po y kredek”, „6 rzędów po 8 książek”
     const po = T.findIndex((t) => low(t.form) === 'po')
     const ns = T.filter((t) => /^\d+(?:[.,]\d+)?$/.test(t.form))
@@ -444,7 +492,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
       const k = kr[1] ? Number(kr[1]) : wordValue(kr[2], ctx.lex)
       const down = /zmniejsz|spad|zmal/i.test(s)
       const who = T.find((t) => t.upos === 'PROPN')
-      const o = who ? low(who.lemma) : (lastOwner ?? SCENE)
+      const o = who ? person(who) : (lastOwner ?? SCENE)
       if (k && ledger.has(o)) {
         const v = down ? ledger.get(o)! / k : ledger.get(o)! * k
         ctx.trace.push({ kind: 'reguła', text: `${down ? 'zmniejszenie' : 'zwiększenie'} ${k}-krotne: ${fmtN(ledger.get(o)!)} ${down ? '÷' : '×'} ${k} = ${fmtN(v)}` })
@@ -456,23 +504,30 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
     for (const nt of ns) {
       const val = Number(nt.form.replace(',', '.'))
       // rzeczownik liczony: najbliższy rzeczownik zależny od liczby lub nadrzędny dla niej; bez niego – pytany (elipsa)
-      const nn = T.find((t) => t.head === nt.i && (t.upos === 'NOUN' || ABBR[low(t.form)])) ?? (nt.head ? tk(nt.head) : undefined)
-      const counted = nn && (nn.upos === 'NOUN' || ABBR[low(nn.form)]) ? lemmaOf(nn) : what
-      const v = verbOf(nt)
+      // rzeczownik liczony: najbliższy rzeczownik zależny od liczby (nie odbiorca w celowniku) albo nadrzędny dla niej
+      const kids = T.filter((t) => t.head === nt.i && (t.upos === 'NOUN' || ABBR[low(t.form)]) && (t.feats?.Case !== 'Dat' || sameThing(t))).sort((a, b) => Math.abs(a.i - nt.i) - Math.abs(b.i - nt.i))
+      const next = tk(nt.i + 1)
+      const nn = kids[0] ?? (next && next.upos === 'NOUN' && next.feats?.Case !== 'Dat' ? next : undefined) ?? (nt.head ? tk(nt.head) : undefined)
+      // rzeczownik w wyrażeniu przyimkowym („od mamy”, „na lody”) nie jest liczoną rzeczą – wtedy elipsa
+      const inPP = !!nn && T.some((t) => t.upos === 'ADP' && t.head === nn.i)
+      const nounOk = nn && (nn.upos === 'NOUN' || ABBR[low(nn.form)]) && !inPP
+      const v = segVerb(nt)
       const vl = v ? low(v.lemma) : ''
       const subj = T.find((t) => t.part === 'podmiot' && t.head === v?.i && (t.upos === 'PROPN' || t.upos === 'NOUN' || t.upos === 'PRON'))
-      let o: string = subj && subj.upos === 'PROPN' ? low(subj.lemma) : subj && subj.upos === 'PRON' ? SCENE : (lastOwner ?? SCENE)
-      if (subj?.upos === 'NOUN' && lemmaOf(subj) === what) o = lastOwner ?? SCENE // „W koszu było 24 jabłka” – rzecz jako podmiot
+      let o: string = subj && subj.upos === 'PROPN' ? person(subj) : subj && subj.upos === 'PRON' ? SCENE : (lastOwner ?? SCENE)
+      const thingSubj = (subj?.upos === 'NOUN' && sameThing(subj)) || (!!nn && !!v && sameThing(nn) && nn.feats?.Case === 'Nom' && seg.get(nn.i) === seg.get(v.i)) || (!!nn && nn === v)
+      if (thingSubj) o = lastOwner ?? SCENE // „W koszu było 24 jabłka” – rzecz jako podmiot
       // o N więcej / mniej niż ktoś
       const cmp = T.some((t) => ['więcej', 'mniej'].includes(low(t.form))) && T.some((t) => low(t.form) === 'o' && t.i < nt.i)
-      if (counted !== what && !ABBR[low(nn?.form ?? '')]) {
+      if (nounOk && !sameThing(nn) && !ABBR[low(nn?.form ?? '')]) {
         ctx.trace.push({ kind: 'fakt', text: `${nt.form} ${nn?.form ?? ''} – inna rzecz niż „${what}”, pomijam` })
         used++
         continue
       }
       const za = T.find((t) => t.head === (nn?.i ?? -1) && low(t.form) === 'za')
-      const rec = T.find((t) => t.head === v?.i && t.feats?.Case === 'Dat' && (t.upos === 'PROPN' || t.upos === 'NOUN'))
-      const od = T.find((t) => low(t.form) === 'od' && t.i > (v?.i ?? 0))
+      const rec = T.find((t) => t.head === v?.i && t.feats?.Case === 'Dat' && (t.upos === 'PROPN' || t.upos === 'NOUN') && sameSeg(t, nt) && !sameThing(t))
+      // źródło „od kogoś” – w tym samym odcinku co liczba (albo w odcinku-elipsie)
+      const od = T.find((t) => low(t.form) === 'od' && (seg.get(t.i) === seg.get(nt.i) || (sameSeg(t, nt) && !T.some((x) => x.i > t.i && x.i < nt.i && x.upos === 'VERB'))))
       nAll++
       sumAll += val
       let op: '=' | '+' | '-' | null = null
@@ -491,18 +546,23 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
       }
       if (za) [op, why] = ['-', `„za ${val}” – zapłata`]
       else if (STATE.has(vl) && !ledger.has(o)) [op, why] = ['=', `„${v?.form}” – stan początkowy`]
-      else if (rec && low(rec.lemma) !== o) [op, why] = ['-', `„${v?.form}” z odbiorcą w celowniku (${rec.form}) – ubywa`]
+      else if (rec && person(rec) !== o) [op, why] = ['-', `„${v?.form}” z odbiorcą w celowniku (${rec.form}) – ubywa`]
       else if (od) [op, why] = ['+', `„${v?.form} … od ${tk(od.i + 1)?.form ?? ''}” – przybywa`]
       else if (GAIN.has(vl)) [op, why] = ['+', `„${v?.form}” – przybywa`]
       else if (LOSS.has(vl)) [op, why] = ['-', `„${v?.form}” – ubywa`]
       else if (STATE.has(vl)) [op, why] = ['=', `„${v?.form}” – stan`]
+      else if (AWAY.test(vl)) [op, why] = ['-', `„${v?.form}” – czasownik ruchu z przedrostkiem „od-/u-/wy-”: odchodzi, ubywa`]
+      else if (TOWARD.test(vl)) [op, why] = ['+', `„${v?.form}” – czasownik ruchu z przedrostkiem „przy-/do-”: przychodzi, przybywa`]
+      else if (thingSubj && VANISH.has(vl)) [op, why] = ['-', `„${v?.form}” – rzecz przestaje istnieć, ubywa`]
+      else if (!ledger.has(o) && ledger.size === 0) [op, why] = ['=', `„${v?.form ?? '?'}” – pierwsza wzmianka o liczbie, stan początkowy`]
       if (!op) {
         ctx.trace.push({ kind: 'brak', text: `nie wiem, czy „${v?.form ?? '?'}” dodaje, czy odejmuje` })
         unknown = true
         continue
       }
-      if (v) verbUse.set(v.i, (verbUse.get(v.i) ?? 0) + 1)
-      if (v && nVerbs > 1 && verbUse.get(v.i)! > 1) unsafe ||= `dwie liczby przy jednym czasowniku „${v.form}”, choć w zdaniu są dwa czasowniki – rozbiór niepewny`
+      const vk = v ? v.i * 100 + seg.get(nt.i)! : -1
+      if (v) verbUse.set(vk, (verbUse.get(vk) ?? 0) + 1)
+      if (v && nVerbs > 1 && verbUse.get(vk)! > 1) unsafe ||= `dwie liczby przy jednym czasowniku „${v.form}”, choć w zdaniu są dwa czasowniki – rozbiór niepewny`
       if (op === '-' && !ledger.has(o)) unsafe ||= `${o === SCENE ? 'ktoś' : o} oddaje ${val}, choć nie wiem, ile miał – rozbiór niepewny`
       used++
       const before = ledger.get(o) ?? 0
