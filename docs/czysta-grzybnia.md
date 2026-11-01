@@ -85,15 +85,21 @@ mają tę samą ramę. Przykłady w interfejsie są celowo spoza słownictwa ćw
 
 **Pytania od grzybni** (`supabase/myc_rel.sql`, tabela `myc_rel_questions`, odczyt publiczny, zapis tylko funkcjami):
 - **samouk** (`src/iot_mycelium/mesh/relacje.py`, `scripts/relacje_samouk.py`, wywoływane też na początku
-  `scripts/samouk_run.py`): z ćwiczeń analogii (nowe ziarno) bierze tylko rodzaj relacji i słowo pytane, np. „Gdzie
-  mieszka lis?” – nigdy drugiej strony ani odpowiedzi (test `tests/test_relacje.py`);
+  `scripts/samouk_run.py`): słowa z prawdziwych źródeł **spoza testu** – najpierw słownictwo zatwierdzone w czacie
+  i Weryfikuj (`myc_meanings`, jednowyrazowe tematy strzępków od ludzi), rodzaj relacji wg znacznika Morfeusza
+  (m2 → dom/młode, zawód m1 → narzędzie, przymiotnik → przeciwieństwo), potem listy ze słownika Morfeusza 2 / SGJP
+  (przymiotniki stopniowalne, zawody). Decyzja właścicielki 1.11: słownictwo testów analogii (`selfplay.REL` i pytania
+  analogii w `results/czysta/parafrazy-*.json`) wraz ze wszystkimi formami jest zakazane – `relacje.banned_forms`,
+  wygenerowane `supabase/myc_rel_banned.sql`, filtr w `myc_rel_propose` i w mówcy, testy `tests/test_relacje.py`
+  i `czysta-check`. Sześć pierwszych pytań (kot, owca, koń, lis, malarz, pisarz) wycofano (`retired_at`), a wpis mówcy
+  z pytaniem o „kot” oznaczono w czacie jako usunięty;
 - **mówca** (`myc_rel_speaker_tick`, pg_cron co 10 min): (1) z faktu-zdania „X mieszka w Y.” / „X używa Y.” / „X daje Y.”,
   który potwierdził ktoś poza autorem, proponuje „Kto jeszcze mieszka w Y?”; (2) zadaje najstarsze niezadane pytanie
   w czacie globalnym jako „Grzybnia AI”, najwyżej jedno na 30 minut i tylko gdy mówca jest włączony.
 - Limity: 30 propozycji na proponującego na dobę, 500 pytań w pokoju. Odpowiedzi nie są zapisywane w tej tabeli
   i nic nie jest zatwierdzane automatycznie – odpowiedź to zwykłe zdanie w Weryfikuj.
-- Uczciwie: samouk pyta o słowa z ćwiczeń analogii, więc gdy ludzie odpowiedzą i zatwierdzą, wynik analogii na selfplay
-  będzie mierzył wiedzę przekazaną przez ludzi, nie uogólnianie.
+- Dzięki zakazowi słów testu wynik analogii na selfplay i v1 pozostaje sprawdzianem uogólniania, a nie wiedzy podanej
+  wprost (człowiek nadal może sam dodać takie zdanie – wtedy to jego decyzja, widoczna w Weryfikuj).
 
 ## Jak się uczy (progi z kodu – `web/src/myc/czystaZasady.ts`, pilnuje `web/scripts/czysta-check.mjs`)
 
