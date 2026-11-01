@@ -12,6 +12,7 @@ import { ANT, DROP_LEM, Q_PL, Q_WORDS, SQUARE, WRAP } from '../myc/czysta'
 import { answerPure, buildKB, onlySentences, fromDocs, loadHumanRows, looksLikeRule, HUMAN_SOURCES, type PureAnswer, type PureKB } from '../myc/czystaWiedza'
 import { LEARN_RULES } from '../myc/czystaZasady'
 import { useI18n } from '../i18n'
+import CzystaRelacje from '../components/CzystaRelacje'
 
 interface Wyniki {
   when: string
@@ -20,8 +21,9 @@ interface Wyniki {
   chat_facts: { n: number; correct: number; abstain: number; wrong: number }
   fresh_seed7?: Wyniki['logic']
   reworded?: { n: number; correct: number; acc: number; per_category: Record<string, { n: number; correct: number; abstain: number; acc: number }> }
+  reworded_v2?: Wyniki['reworded']
   python_same: boolean | null
-  before?: Record<'logic' | 'fresh_seed7' | 'reworded', { correct: number; n: number; per_category: Record<string, number> }> & { file: string }
+  before?: Partial<Record<'logic' | 'fresh_seed7' | 'reworded' | 'reworded_v2', { correct: number; n: number; per_category: Record<string, number> }>> & { file: string }
 }
 const pct = (x: number) => `${(x * 100).toFixed(1).replace('.', ',')}%`
 const fmt = (iso?: string) => (iso ? new Date(iso).toLocaleString('pl-PL', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Amsterdam' }) : '–')
@@ -224,6 +226,8 @@ export default function Czysta() {
           </Card>
 
           {res && <AnswerCard n={askN} r={res} logged={logged} fb={fb} corr={corr} setCorr={setCorr} vote={vote} />}
+
+          <CzystaRelacje kb={kb} />
 
           <Card title="Naucz ją faktu albo reguły">
             <p className="mb-2 text-sm text-slate-400">
@@ -467,7 +471,7 @@ function Scores({ w }: { w: Wyniki | null | undefined }) {
               <div className="eyebrow">320 zadań logicznych</div>
               <div className="font-display text-2xl text-spore">{pct(w.logic.acc)}</div>
               <div className="text-xs text-slate-400">
-                {w.logic.correct}/{w.logic.n} trafnych, {w.logic.abstain} × „nie wiem”, reszta błędna{w.before ? ` · przed regułami liczbowymi: ${w.before.logic.correct}/${w.before.logic.n}` : ''}
+                {w.logic.correct}/{w.logic.n} trafnych, {w.logic.abstain} × „nie wiem”, reszta błędna{w.before ? ` · poprzednia wersja: ${w.before.logic?.correct}/${w.before.logic?.n}` : ''}
               </div>
             </div>
             {w.fresh_seed7 && (
@@ -475,13 +479,13 @@ function Scores({ w }: { w: Wyniki | null | undefined }) {
                 <div className="eyebrow">sprawdzian: nowe losowanie 320 zadań (ziarno 7)</div>
                 <div className="font-display text-2xl text-spore">{pct(w.fresh_seed7.acc)}</div>
                 <div className="text-xs text-slate-400">
-                  {w.fresh_seed7.correct}/{w.fresh_seed7.n} trafnych, {w.fresh_seed7.abstain} × „nie wiem”{w.before ? ` · przed: ${w.before.fresh_seed7.correct}/${w.before.fresh_seed7.n}` : ''}
+                  {w.fresh_seed7.correct}/{w.fresh_seed7.n} trafnych, {w.fresh_seed7.abstain} × „nie wiem”{w.before ? ` · przed: ${w.before.fresh_seed7?.correct}/${w.before.fresh_seed7?.n}` : ''}
                 </div>
               </div>
             )}
             {w.reworded && (
               <div>
-                <div className="eyebrow">sprawdzian: {w.reworded.n} pytań przeformułowanych (zamrożone przed kodem)</div>
+                <div className="eyebrow">sprawdzian v1: {w.reworded.n} pytań przeformułowanych (zamrożone przed kodem)</div>
                 <div className="font-display text-2xl text-amber">
                   {w.reworded.correct}/{w.reworded.n}
                 </div>
@@ -489,8 +493,17 @@ function Scores({ w }: { w: Wyniki | null | undefined }) {
                   {Object.entries(w.reworded.per_category)
                     .map(([k, v]) => `${k} ${v.correct}/${v.n}`)
                     .join(' · ')}
-                  {w.before ? ` · przed: ${w.before.reworded.correct}/${w.before.reworded.n}` : ''}
+                  {w.before?.reworded ? ` · przed: ${w.before.reworded.correct}/${w.before.reworded.n}` : ''}
                 </div>
+              </div>
+            )}
+            {w.reworded_v2 && (
+              <div>
+                <div className="eyebrow">sprawdzian v2: {w.reworded_v2.n} zadań tekstowych (zamrożone przed rozszerzeniem reguł)</div>
+                <div className="font-display text-2xl text-amber">
+                  {w.reworded_v2.correct}/{w.reworded_v2.n}
+                </div>
+                <div className="text-xs text-slate-400">{w.before?.reworded_v2 ? `przed rozszerzeniem: ${w.before.reworded_v2.correct}/${w.before.reworded_v2.n}` : ''}</div>
               </div>
             )}
             <div>
@@ -525,7 +538,7 @@ function Scores({ w }: { w: Wyniki | null | undefined }) {
                       </td>
                       {w.before && (
                         <td className="pr-2 tabular-nums text-slate-500">
-                          {w.before.logic.per_category[k] ?? 0}/{v.n}
+                          {w.before.logic?.per_category[k] ?? 0}/{v.n}
                         </td>
                       )}
                       <td className="pr-2 tabular-nums text-slate-400">{v.abstain}</td>
@@ -608,7 +621,7 @@ function Explain({ kb }: { kb?: PureKB }) {
               <li><b>Zadania tekstowe z ról zdania</b>: dla każdej liczby model rozbioru daje orzeczenie, podmiot (właściciel) i odbiorcę w celowniku. Stan na osobę: „miał/ma/było” = stan, „dostał/kupił/znalazł”, „od kogoś” = przybywa, „dał/oddał/zjadł/zgubił”, odbiorca w celowniku, „za N zł” = ubywa, „po N” przy k grupach = mnożenie, „k-krotnie” = mnożenie/dzielenie, „o N więcej/mniej niż” = porównanie. <b>Bezpieczniki</b>: każda liczba z treści musi zostać użyta, nie można oddać czegoś, czego się nie miało, wynik nie może być ujemny – inaczej „nie wiem”.</li>
               <li><b>Ciągi</b>: stała różnica, stały iloraz, stała druga różnica (np. kwadraty), dwa przeplecione ciągi na miejscach parzystych i nieparzystych. Wymaga ≥ 4 wyrazów, żeby wzór był widoczny.</li>
               <li><b>Liczebnik + rzeczownik</b>: reguła gramatyki – 1 → l. poj. mianownik; końcówka 2–4 (bez 12–14) → l. mn. mianownik; reszta → l. mn. dopełniacz. Formę wybiera słownik (tylko formy lematu z nawiasu).</li>
-              <li><b>Analogie A : B = C : ?</b> (1) <i>odmiana</i>: gdy A i B to ten sam lemat w dwóch formach, słownik mówi, co się zmieniło (np. l. poj. → l. mn., mianownik → dopełniacz, stopień równy → wyższy), i tę samą zmianę stosuje do C; (2) <i>relacja od ludzi</i>: gdy w zatwierdzonym fakcie A i B stoją razem („Pszczoła mieszka w ulu.”), słowa między nimi są relacją, a odpowiedzią jest opcja, która z C tworzy zatwierdzony fakt tej samej relacji. Bez takich faktów – „nie wiem”. Tabela relacji z generatora ćwiczeń <b>nie</b> jest wczytywana.</li>
+              <li><b>Analogie A : B = C : ?</b> (1) <i>odmiana</i>: gdy A i B to ten sam lemat w dwóch formach, słownik mówi, co się zmieniło (np. l. poj. → l. mn., mianownik → dopełniacz, stopień równy → wyższy), i tę samą zmianę stosuje do C; (2) <i>relacja od ludzi</i>: gdy w zatwierdzonym zdaniu występują A i B („Niedźwiedź mieszka w gawrze.”), reszta zdania (lematy bez kolejności) i przypadki A i B tworzą <i>ramę relacji</i>; odpowiedzią jest jedyna opcja, która z C tworzy zatwierdzone zdanie o tej samej ramie. Zdania-relacje dodają ludzie (karta „Naucz relacji”); mówca i samouk mogą tylko <i>proponować pytania</i>. Bez takich faktów – „nie wiem”. Tabela relacji z generatora ćwiczeń <b>nie</b> jest wczytywana.</li>
             </ul>
           </li>
           <li>
@@ -651,7 +664,7 @@ function Explain({ kb }: { kb?: PureKB }) {
         </Card>
         <Card title="Czego NIE ma (uczciwie)">
           <ul className="list-disc space-y-1 pl-5 text-sm text-slate-300">
-            <li>analogii znaczeniowych (dom zwierzęcia, młode, narzędzie, przeciwieństwo) bez zatwierdzonych faktów – zna tylko analogie odmiany; reszty uczą ją ludzie zdaniami typu „Lis mieszka w norze.”</li>
+            <li>analogii znaczeniowych (dom zwierzęcia, młode, narzędzie, przeciwieństwo) bez zatwierdzonych faktów – zna tylko analogie odmiany; reszty uczą ją ludzie zdaniami w karcie „Naucz relacji” (np. „Niedźwiedź mieszka w gawrze.”)</li>
             <li>zadań tekstowych z ułamkami, jednostkami do przeliczenia, wieloma krokami „ile razy więcej” – wtedy mówi „nie wiem”</li>
             <li>ciągów z mniej niż 4 wyrazami i wzorów innych niż różnica, iloraz, druga różnica, przeplot</li>
             <li>wiedzy o świecie poza tym, co zatwierdzili ludzie (stąd niski wynik na pytaniach o fakty)</li>
@@ -665,7 +678,7 @@ function Explain({ kb }: { kb?: PureKB }) {
 
       <Card title="Jak nauczyć ją analogii">
         <p className="text-sm text-slate-300">
-          Analogia „A : B = C : ?” działa, gdy w zatwierdzonej wiedzy jest zdanie łączące A z B <b>i</b> zdanie tej samej postaci łączące C z jedną z opcji. Dodaj w polu „Naucz ją faktu” pary zdań o tej samej budowie, np. „Pies mieszka w budzie.” i „Lis mieszka w norze.”, „Krowa ma cielę.” i „Koń ma źrebię.”, „Malarz używa pędzla.” i „Krawiec używa igły.”, „Dzień jest przeciwieństwem nocy.” i „Góra jest przeciwieństwem dołu.”. Po zatwierdzeniu w Weryfikuj (konsensus ≥ {Math.round(FACT_CONF * 100)}%) ślad pokaże: relacja „mieszka w” z faktu #… zastosowana do C.
+          Analogia „A : B = C : ?” działa, gdy w zatwierdzonej wiedzy jest zdanie łączące A z B <b>i</b> zdanie tej samej budowy łączące C z jedną z opcji. Rozumujący porównuje <b>ramę zdania</b>: pozostałe słowa (lematy, bez kolejności) i przypadki obu słów – „Niedźwiedź mieszka w gawrze.” i „W żeremiu mieszka bóbr.” mają tę samą ramę. Zdania dodajesz w karcie „Naucz relacji”; po zatwierdzeniu w Weryfikuj (konsensus ≥ {Math.round(FACT_CONF * 100)}%) ślad pokaże oba fakty i wspólną relację.
         </p>
       </Card>
 

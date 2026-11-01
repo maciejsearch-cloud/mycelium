@@ -73,9 +73,27 @@ przeliczaniem jednostek i wieloma krokami; ciągów krótszych niż 4 wyrazy i i
 przez ludzi; synonimów (poza mały/duży); logiki „lub” między zdaniami; swobodnej rozmowy. Reguły (także liczbowe i listy
 czasowników zysku/straty) pisano ze znajomością szablonów ćwiczeń – stąd osobny sprawdzian na pytaniach przeformułowanych.
 
-### Jak nauczyć analogii
-Dodaj pary zdań o tej samej budowie: „Pies mieszka w budzie.” + „Lis mieszka w norze.”, „Krowa ma cielę.” + „Koń ma
-źrebię.”, „Malarz używa pędzla.” + „Krawiec używa igły.”. Po zatwierdzeniu w Weryfikuj analogie tej relacji działają.
+### Jak nauczyć analogii – „Naucz relacji” (od 1.11.2026)
+
+Karta „Naucz relacji” w zakładce: rodzaj relacji (dom, młode, narzędzie, przeciwieństwo, część, produkt), budowa zdania
+(„X mieszka w Y.”, „Młode X to Y.”, „X używa Y.”, „Przeciwieństwem X jest Y.”, „X jest częścią Y.”, „X daje Y.”) i pole na
+jedno pełne zdanie. Zdanie jest sprawdzane wzorem i idzie przez `brain.teach('fact')` do Ucz AI → Weryfikuj (zgoda na naukę
+obowiązuje). Rozumujący używa go dopiero po konsensusie (≥ 80%). Analogia porównuje **ramę zdania**: pozostałe słowa
+(lematy ze słownika, bez kolejności) i możliwe przypadki A i B – „Niedźwiedź mieszka w gawrze.” i „W żeremiu mieszka bóbr.”
+mają tę samą ramę. Przykłady w interfejsie są celowo spoza słownictwa ćwiczeń (`selfplay.REL`); `czysta-check` pilnuje,
+żeby słowa z tej tabeli nie trafiły do kodu rozumującego.
+
+**Pytania od grzybni** (`supabase/myc_rel.sql`, tabela `myc_rel_questions`, odczyt publiczny, zapis tylko funkcjami):
+- **samouk** (`src/iot_mycelium/mesh/relacje.py`, `scripts/relacje_samouk.py`, wywoływane też na początku
+  `scripts/samouk_run.py`): z ćwiczeń analogii (nowe ziarno) bierze tylko rodzaj relacji i słowo pytane, np. „Gdzie
+  mieszka lis?” – nigdy drugiej strony ani odpowiedzi (test `tests/test_relacje.py`);
+- **mówca** (`myc_rel_speaker_tick`, pg_cron co 10 min): (1) z faktu-zdania „X mieszka w Y.” / „X używa Y.” / „X daje Y.”,
+  który potwierdził ktoś poza autorem, proponuje „Kto jeszcze mieszka w Y?”; (2) zadaje najstarsze niezadane pytanie
+  w czacie globalnym jako „Grzybnia AI”, najwyżej jedno na 30 minut i tylko gdy mówca jest włączony.
+- Limity: 30 propozycji na proponującego na dobę, 500 pytań w pokoju. Odpowiedzi nie są zapisywane w tej tabeli
+  i nic nie jest zatwierdzane automatycznie – odpowiedź to zwykłe zdanie w Weryfikuj.
+- Uczciwie: samouk pyta o słowa z ćwiczeń analogii, więc gdy ludzie odpowiedzą i zatwierdzą, wynik analogii na selfplay
+  będzie mierzył wiedzę przekazaną przez ludzi, nie uogólnianie.
 
 ## Jak się uczy (progi z kodu – `web/src/myc/czystaZasady.ts`, pilnuje `web/scripts/czysta-check.mjs`)
 
@@ -139,3 +157,26 @@ z dwoma czasownikami i odbiorcą „Oli”.
 Potwierdzenie na żywo (1.11.2026 01:23 CET, https://maciejsearch-cloud.github.io/demo/mycelium/, wylogowana przeglądarka,
 nauka wyłączona): identycznie – seed 2 267/320, seed 7 273/320, parafrazy 27/38, fakty 4/40 (0 błędnych);
 `results/czysta/2026-11-01-0123.json`. Tabela na stronie czyta `web/public/data/czysta/wyniki.json` z tego pomiaru.
+
+## Relacje i rozszerzone zadania tekstowe (1.11.2026)
+
+Uczciwość: zestaw v2 (16 przeformułowanych zadań tekstowych, `results/czysta/parafrazy-zadania-v2.json`) zamrożono
+i wypchnięto przed kodem; reguły rozwijano tylko na nowym zestawie `results/czysta/dev-zadania-v2.json` (12 zadań,
+12/12 po zmianach) i na losowaniu seed 11. v1 pozostał czystym sprawdzianem. Po pierwszym pomiarze dodano trzy
+bezpieczniki, które mogą tylko zamienić odpowiedź na „nie wiem” („po” bez liczby, krotność bez stanu, porównanie stopniem
+wyższym); pierwszy pomiar: `results/czysta/po-relacje-pierwszy-pomiar-2026-11-01.json`.
+
+Nowe reguły zadań: odcinki zdania (przecinek, „i/a/oraz/ale”) – liczba należy do czasownika swojego odcinka, odcinek bez
+czasownika („a od taty 5 jabłek”) dziedziczy poprzedni; „od X” tylko w odcinku liczby; rzeczownik w wyrażeniu przyimkowym
+nie jest liczoną rzeczą; czasowniki ruchu z przedrostkiem (od-/u-/wy- ubywa, przy-/do- przybywa); zniknięcie rzeczy
+liczonej („piłki pękły”); pierwsza wzmianka = stan początkowy; tożsamość rzeczy i osób wg słownika (rozbiór bywa
+niespójny: „kredek”/„kredka”).
+
+| zestaw | przed (`przed-relacje-2026-11-01.json`) | pierwszy pomiar po | po bezpiecznikach (`2026-11-01-0217.json`, przeglądarka) |
+|---|---|---|---|
+| v2 – 16 zadań tekstowych | 8/16 (5 błędnych) | 14/16 (2 błędne) | **14/16** (0 błędnych, 2 × „nie wiem”) |
+| v1 – 38 pytań | 27/38 (2 błędne) | 30/38 (1 błędne) | **30/38** (0 błędnych) |
+| 320 zadań seed 2 / seed 7 | 267 / 273 | 267 / 273 | 267 / 273 |
+
+Analogie na selfplay: nadal 0/31 – w wiedzy nie ma jeszcze zatwierdzonych zdań-relacji; zaczną działać po odpowiedziach
+ludzi na pytania i konsensusie w Weryfikuj.
