@@ -1,0 +1,158 @@
+{
+ "id": 3,
+ "at": "2026-11-01 01:04:22.003037+00",
+ "measured": {
+  "s": 441.4,
+  "base": {
+   "path": "lm/v4-3c7ab239.bin",
+   "version": 4
+  },
+  "cand": null,
+  "round": {
+   "cand": {
+    "role": {
+     "n": 40,
+     "acc": 0.3,
+     "p_right": 0.2631
+    },
+    "logika": {
+     "n": 40,
+     "acc": 0.325,
+     "p_right": 0.374
+    },
+    "przypadki": {
+     "n": 40,
+     "acc": 0.25,
+     "p_right": 0.2319
+    },
+    "matematyka": {
+     "n": 40,
+     "acc": 0.4,
+     "p_right": 0.28
+    }
+   },
+   "plan": 2,
+   "updates": 12
+  },
+  "probe_sha": "694af5aadf592fb257e01ef2c84d6e8d350882bebda031a2311d764ee2594637"
+ },
+ "stats": {
+  "role": {
+   "n": 40,
+   "acc": 0.325,
+   "p_right": 0.3113,
+   "cand_acc": 0.3,
+   "progress": 0.175,
+   "type_acc": 0.5,
+   "type_p_right": 0.3409
+  },
+  "logika": {
+   "n": 40,
+   "acc": 0.225,
+   "p_right": 0.2751,
+   "cand_acc": 0.325,
+   "progress": 0.15,
+   "type_acc": 0.375,
+   "type_p_right": 0.3813
+  },
+  "przypadki": {
+   "n": 40,
+   "acc": 0.225,
+   "p_right": 0.2299,
+   "cand_acc": 0.25,
+   "progress": -0.025,
+   "type_acc": 0.2,
+   "type_p_right": 0.253
+  },
+  "matematyka": {
+   "n": 40,
+   "acc": 0.225,
+   "p_right": 0.2315,
+   "cand_acc": 0.4,
+   "progress": 0.325,
+   "type_acc": 0.55,
+   "type_p_right": 0.3203
+  }
+ },
+ "alloc": {
+  "role": 2,
+  "logika": 1,
+  "przypadki": 1,
+  "matematyka": 5
+ },
+ "why": {
+  "role": {
+   "err": 0.675,
+   "jobs": 2,
+   "share": 0.0784,
+   "value": 1.1944,
+   "reason": "słabo opanowany: trafność 32% na 40 pytaniach próbnych, mała pewność (średnio 31% na poprawną odpowiedź), po ostatnim treningu +17.5 pkt proc.",
+   "explore": 0.3003,
+   "progress": 0.175,
+   "uncertainty": 0.6887
+  },
+  "logika": {
+   "err": 0.775,
+   "jobs": 1,
+   "share": 0.0659,
+   "value": 1.1736,
+   "reason": "słabo opanowany: trafność 22% na 40 pytaniach próbnych, mała pewność (średnio 28% na poprawną odpowiedź), po ostatnim treningu +15.0 pkt proc.",
+   "explore": 0.2686,
+   "progress": 0.15,
+   "uncertainty": 0.7249
+  },
+  "przypadki": {
+   "err": 0.775,
+   "jobs": 1,
+   "share": 0.0061,
+   "value": 0.8871,
+   "reason": "słabo opanowany: trafność 22% na 40 pytaniach próbnych, mała pewność (średnio 23% na poprawną odpowiedź), po ostatnim treningu -2.5 pkt proc.",
+   "explore": 0.2686,
+   "progress": -0.025,
+   "uncertainty": 0.7701
+  },
+  "matematyka": {
+   "err": 0.775,
+   "jobs": 5,
+   "share": 0.8497,
+   "value": 1.4804,
+   "reason": "słabo opanowany: trafność 22% na 40 pytaniach próbnych, mała pewność (średnio 23% na poprawną odpowiedź), po ostatnim treningu +32.5 pkt proc.",
+   "explore": 0.2123,
+   "progress": 0.325,
+   "uncertainty": 0.7685
+  }
+ },
+ "wiki_jobs": 3,
+ "probe": {
+  "n": 40,
+  "sha": "694af5aadf592fb257e01ef2c84d6e8d350882bebda031a2311d764ee2594637",
+  "seed": 7
+ },
+ "shards": [
+  {
+   "n": 256,
+   "name": "self-logika-20261101-0104.bin.gz",
+   "type": "logika",
+   "sha256": "8734a65f52a3d74b7be5bf9ab4bccd7d9383e9bc8700850f2fc222a5c73a7d54"
+  },
+  {
+   "n": 256,
+   "name": "self-matematyka-20261101-0104.bin.gz",
+   "type": "matematyka",
+   "sha256": "10353e022a3890705e07702e8910290165c55053665e737e9ff17e2b2606437e"
+  },
+  {
+   "n": 256,
+   "name": "self-przypadki-20261101-0104.bin.gz",
+   "type": "przypadki",
+   "sha256": "41f1fbeff5d2b7ac8ad724bf6a16d855ffbef0db6cc1001b73d4e78b8ff2ea12"
+  },
+  {
+   "n": 256,
+   "name": "self-role-20261101-0104.bin.gz",
+   "type": "role",
+   "sha256": "251c1539934c3e3eeb03cb53ef72bb8cc4382978d8786ac673a697d25e4a1742"
+  }
+ ],
+ "uwaga": "Pomiar rundy planu 2 (logika 2, matematyka 5, przypadki 1, role 1 + 3 Wikipedii; 01.11 01:35 CET), odrzuconej lokalnie przy łączeniu (najlepiej 0.357 = 714/2000 przy kroku 0.5, perpleksja 30.26 > 30.16). 40 pytań próbnych na typ (seed 7) – błąd standardowy ok. ±7 pkt proc."
+}
