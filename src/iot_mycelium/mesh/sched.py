@@ -36,6 +36,8 @@ PLANNED = {
 
 # tryb pasywny (passive.py): domyślnie wyłączony – tylko za wyraźną zgodą w panelu
 PASSIVE_DEFAULT = {"on": False, "seed": True, "witness": True, "disk_gb": 2.0, "daily_gb": 1.0}
+# Bitcoin Puzzle #71 (docs/puzzle71.md): domyślnie WYŁĄCZONE – tylko za wyraźną zgodą; pct = % wątków węzła (maks. 10)
+P71_DEFAULT = {"on": False, "pct": 10}
 
 
 def _clamp(v, lo, hi, d):
@@ -56,6 +58,7 @@ def defaults(threads: int, ram_gb: float) -> dict:
         "shares": dict.fromkeys(KINDS, 100),
         "compute_on": True,  # False = węzeł nie oddaje mocy obliczeniowej (np. tylko tryb pasywny)
         "passive": dict(PASSIVE_DEFAULT),
+        "p71": dict(P71_DEFAULT),
     }
 
 
@@ -63,6 +66,7 @@ def sanitize(a: dict, base: dict) -> dict:
     n = os.cpu_count() or 1
     sh = a.get("shares") if isinstance(a.get("shares"), dict) else {}
     pa = a.get("passive") if isinstance(a.get("passive"), dict) else {}
+    pz = a.get("p71") if isinstance(a.get("p71"), dict) else {}
     return {
         "threads": _clamp(a.get("threads", base["threads"]), 1, n, int(base["threads"])),
         "cpu_pct": _clamp(a.get("cpu_pct", base["cpu_pct"]), 5, 100, 100),
@@ -78,6 +82,7 @@ def sanitize(a: dict, base: dict) -> dict:
             "disk_gb": _clamp(pa.get("disk_gb", 2.0), 0.1, 500, 2.0),
             "daily_gb": _clamp(pa.get("daily_gb", 1.0), 0.05, 100, 1.0),
         },
+        "p71": {"on": bool(pz.get("on", False)), "pct": _clamp(pz.get("pct", 10), 1, 10, 10)},
     }
 
 

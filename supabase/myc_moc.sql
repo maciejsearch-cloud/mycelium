@@ -48,7 +48,7 @@ begin
     return jsonb_build_object('ok', false, 'reason', 'busy');
   end if;
   for k, v in select key, (value #>> '{}')::numeric from jsonb_each(coalesce(p->'work', '{}'))
-    where key in ('lm_train','lm_distill','lm_eval','lm_aggregate','rozbior','taxo','verify','images','wallet')
+    where key in ('lm_train','lm_distill','lm_eval','lm_aggregate','rozbior','taxo','verify','images','wallet','p71')
       and jsonb_typeof(value) = 'number' loop
     w := w || jsonb_build_object(k, least(greatest(v, 0), 1800));
   end loop;

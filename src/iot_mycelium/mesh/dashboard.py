@@ -202,6 +202,7 @@ class Panel:
             **body,
             "shares": {**self.alloc["shares"], **(body.get("shares") or {})},
             "passive": {**self.alloc.get("passive", {}), **(body.get("passive") or {})},
+            "p71": {**self.alloc.get("p71", {}), **(body.get("p71") or {})},
         }
         new = schedmod.sanitize(merged, self.base)
         msg = ""
