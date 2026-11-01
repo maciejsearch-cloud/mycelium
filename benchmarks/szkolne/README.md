@@ -84,3 +84,9 @@ stopki – zasoby tej książki są oznaczone CC BY 3.0; nie użyto żadnego zas
 | [PBKGKBo88](https://zpe.gov.pl/pdf/PBKGKBo88) | Jednostki długości | szkoła podstawowa, klasa 3 | Eduexpert Sp. z o.o. | CC BY-SA 3.0 | 0 | 1 |
 | [P1GyZczYZ](https://zpe.gov.pl/pdf/P1GyZczYZ) | Części mowy | szkoła podstawowa, klasa 1‐3 | Eduexpert Sp. z o.o. | CC BY-SA 3.0 | 0 | 8 |
 | [P6VZVKStu](https://zpe.gov.pl/pdf/P6VZVKStu) | Przymiotnik – blisko rzeczownika | Szkoła podstawowa IV–VIII (bez klasy) | Contentplus.pl sp. z o.o. | CC BY 3.0 | 0 | 3 |
+
+## Pomiary
+
+Wyniki pomiarów są w `results/szkolne/` (jeden plik na pomiar, z odpowiedzią i werdyktem dla każdego zadania).
+`python3 scripts/szkolne_publish.py` przenosi je do `web/public/data/szkolne/wyniki.json`, a widok „Testy szkolne”
+w zakładce Czysta grzybnia pokazuje wyniki według klas i kategorii oraz zadania z przyciskiem „Rozwiąż tutaj” (tok rozumowania).
