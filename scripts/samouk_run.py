@@ -2,7 +2,8 @@
 
 1. Mierzy opublikowaną wersję LM (i najnowszego kandydata, jeśli był trenowany według poprzedniego planu) na stałych
    zbiorach próbnych każdego typu (``samouk.probe`` – nigdy w treningu): trafność, średnie p poprawnej odpowiedzi.
-2. Postęp nauki typu = trafność kandydata − trafność bazy (po treningu z tym typem).
+2. Postęp nauki typu = trafność po treningu − trafność bazy. Gdy łączenie odrzuciło rundę lokalnie (brak kandydata),
+   samouk sam składa jej aktualizacje (FedAvg, krok 1.0) z myc_results i mierzy: całość + osobno zadania danego typu.
 3. ``samouk.choose`` (bandyta UCB) przydziela 9 z 12 zadań rundy; 3 zostają na Wikipedii.
 4. Dla każdego typu układa nowe zadania (nowe ziarna; bez zbiorów próbnych, rundy 1 Ucz AI, puli kontrolnej i bez
    przecieku z bramki 2000 pytań – hash + 8-gramy), koduje je jak ``export_math_shard`` i zapisuje w myc_lm_self.
@@ -68,6 +69,30 @@ def adapter(path: str) -> lm.Lora:
     return lm.Lora.from_bytes(b)
 
 
+def round_of(plan_id: int):
+    """Aktualizacje z pierwszej rundy planu (gdy żadna nie czeka już na łączenie): [(typ | None, Lora, próbki)]."""
+    rows = sql(
+        "select r.id, j.params->'sft'->>'type' t, r.samples, r.status from myc_jobs j join myc_results r on r.job_id = j.id"  # noqa: S608 – wartości przez lit() (cudzysłowy podwojone), dane z programu
+        " where j.model = 'lm' and j.kind = 'train'"
+        # pierwsza runda planu (zadania samouka + Wikipedia, wspólny created_at); kolejna z tym planem mogła już ruszyć
+        " and j.created_at = (select min(created_at) from myc_jobs where model = 'lm' and kind = 'train'"
+        f" and params->>'plan' = {lit(str(plan_id))}) order by r.id"
+    )
+    if len(rows) < 3 or any(r["status"] == "pending" for r in rows):
+        return None
+    out = []
+    for i in range(0, len(rows), 3):
+        part = rows[i : i + 3]
+        got = sql(f"select id, payload from myc_results where id in ({','.join(str(int(r['id'])) for r in part)})")  # noqa: S608 – liczby
+        pay = {g["id"]: g["payload"] for g in got}
+        for r in part:
+            if pay.get(r["id"]):
+                u = lm.Lora.from_bytes(base64.b64decode(pay[r["id"]]))
+                if u.finite():
+                    out.append((r["t"], u, float(r["samples"] or 1)))
+    return out or None
+
+
 def measure(m, tok, lora: lm.Lora, probes: dict[str, list[samouk.MC]]) -> dict[str, dict]:
     m.lora = lm.runtime(lora, m.dtype)
     out = {}
@@ -106,8 +131,16 @@ def main():
         + " order by id desc limit 1"
     )
     cand = cand[0] if cand else None
+    rnd = round_of(last["id"]) if last and not cand else None
     fresh = last and time.time() - time.mktime(time.strptime(last["at"][:19], "%Y-%m-%d %H:%M:%S")) < 6 * 3600
-    if last and not a.force and not cand and last["measured"]["base"]["version"] == base["version"] and fresh:
+    if (
+        last
+        and not a.force
+        and not cand
+        and not rnd
+        and last["measured"]["base"]["version"] == base["version"]
+        and fresh
+    ):
         print("samouk: bez zmian (ta sama wersja, brak nowego kandydata)")
         return
     t0 = time.time()
@@ -129,15 +162,26 @@ def main():
     else:
         bstats = measure(m, tok, adapter(base["path"]), probes)
     cstats = measure(m, tok, adapter(cand["path"]), probes) if cand else None
+    tstats = {}
+    if rnd:
+        # runda odrzucona lokalnie: całość (FedAvg) i osobno aktualizacje z zadań danego typu, na zbiorze próbnym tego typu
+        cstats = measure(m, tok, lm.Lora.average([(u, w) for _, u, w in rnd]), probes)
+        for t in samouk.TYPES:
+            us = [(u, w) for tt, u, w in rnd if tt == t]
+            if us:
+                tstats[t] = measure(m, tok, lm.Lora.average(us), {t: probes[t]})[t]
     rounds = {t: sum(int((p["alloc"] or {}).get(t, 0)) for p in plans) for t in samouk.TYPES}
     stats = {}
     for t in samouk.TYPES:
         prog = None
-        if cstats and last and int(last["alloc"].get(t, 0)) > 0:
+        if t in tstats:
+            prog = round(tstats[t]["acc"] - bstats[t]["acc"], 4)
+        elif cstats and last and int(last["alloc"].get(t, 0)) > 0:
             prog = round(cstats[t]["acc"] - bstats[t]["acc"], 4)
         elif last and t in last["stats"]:
             prog = last["stats"][t].get("progress")
-        stats[t] = {**bstats[t], "progress": prog, **({"cand_acc": cstats[t]["acc"]} if cstats else {})}
+        stats[t] = {**bstats[t], "progress": prog, **({"cand_acc": cstats[t]["acc"]} if cstats else {}),
+                    **({"type_acc": tstats[t]["acc"], "type_p_right": tstats[t]["p_right"]} if t in tstats else {})}  # fmt: skip
     pick = samouk.choose(stats, SELF_JOBS, rounds)
     # nowe zadania: ziarna zależne od numeru planu, poza próbami/rundą 1/pulą kontrolną/bramką
     excl = {x.sha for v in probes.values() for x in v} | held_out(24) | gh
@@ -159,7 +203,8 @@ def main():
         b = gzip.compress(lm.pack_data(info, torch.tensor(ids), torch.tensor(mask)), 6, mtime=0)
         shards.append({"type": t, "name": f"self-{t}-{stamp}.bin.gz", "sha256": lm.sha256(b), "n": len(ids), "_b": b})
     measured = {"base": base, "cand": cand and {"id": cand["id"], "path": cand["path"], "status": cand["status"]},
-                "probe_sha": probe_sha, "s": round(time.time() - t0, 1)}  # fmt: skip
+                "probe_sha": probe_sha, "s": round(time.time() - t0, 1),
+                "round": rnd and {"plan": last["id"], "updates": len(rnd), "cand": cstats}}  # fmt: skip
     print(json.dumps({"alloc": pick["alloc"], "stats": stats}, ensure_ascii=False))
     if a.dry:
         return
