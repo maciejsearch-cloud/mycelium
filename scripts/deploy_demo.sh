@@ -5,6 +5,7 @@ set -euo pipefail
 here=$(cd "$(dirname "$0")/.." && pwd)
 demo=${1:-/workspace/projects/demo}
 rev=$(git -C "$here" rev-parse --short HEAD)
+python3 "$here/scripts/p71_chain.py" || echo "p71: saldo zostaje z poprzedniego pliku (źródła niezgodne/niedostępne)"
 (cd "$here/web" && BASE=/demo/mycelium/ npm run build)
 "$here/scripts/check_demo_base.sh" "$here/web/dist/index.html"
 git -C "$demo" pull -q --rebase

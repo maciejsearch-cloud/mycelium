@@ -95,6 +95,7 @@ class Node:
         self.taxw = None  # TaxoWorker (samoorganizująca się taksonomia słów)
         self.rbw = None  # RozbiorWorker (rozbiór zdań – warstwa rozumienia)
         self.walw = None  # WalletWorker (walidacja księgi MYC-test)
+        self.p71w = None  # P71Worker (Bitcoin Puzzle #71, za zgodą, ≈10 % mocy)
 
     def _kv(self, key: str, start: int) -> Session:
         s = self.kv.get(key)
@@ -261,6 +262,7 @@ class Node:
             "rb_last": self.rbw.last_job if self.rbw else None,
             **(self.walw.stats if getattr(self, "walw", None) else {}),
             "wallet_last": self.walw.last_job if getattr(self, "walw", None) else None,
+            **(self.p71w.stats if getattr(self, "p71w", None) else {}),
             "label": self.net.state.get("label"),
             "backend": self.net.state.get("backend"),
             "id": self.id,
@@ -288,6 +290,8 @@ class Node:
             s["busy"] = panel.sched.view()["busy_pct"]
             rep.add(s)
             if rep.due():
+                if getattr(self, "p71w", None):  # czas CPU wątku p71 (osobny wątek, poza planistą)
+                    panel.sched.totals["p71"] = {"n": self.p71w.stats["p71_chunks"], "s": self.p71w.cpu_s}
                 dev = getattr(self.lmw, "backend", "cpu") if self.lmw else "cpu"
                 data = rep.build(panel.sched.totals, torch.get_num_threads(), dev)
                 await asyncio.to_thread(rep.post, data)
@@ -578,6 +582,15 @@ def main(argv=None):
             n.walw = WalletWorker(n, log=log)
         except Exception as e:  # noqa: BLE001 – walidacja portfela nie może zatrzymać węzła
             log(f"walidacja portfela wyłączona: {e}")
+    pz = al.get("p71") or {}
+    if pz.get("on") and al.get("compute_on", True):
+        try:
+            from .p71.worker import P71Worker
+
+            n.p71w = P71Worker(n, pct=pz.get("pct", 10), threads=int(al["threads"]), log=log)
+            n.p71w.start()
+        except Exception as e:  # noqa: BLE001 – zagadka nie może zatrzymać węzła
+            log(f"p71 wyłączone: {e}")
     from .passive import PassiveWorker
 
     n.pasw = panel.passive = PassiveWorker(n, panel, log=log)

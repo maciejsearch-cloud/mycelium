@@ -3,6 +3,7 @@ import { useI18n } from '../i18n'
 import { SB_KEY, SB_URL } from '../myc/store'
 import { ago, Empty, TimeChart, type Point } from '../components/TimeChart'
 import { Card, Kpi, PageHeader } from '../components/ui'
+import Puzzle71 from '../components/Puzzle71'
 
 // Moc – prawdziwa telemetria węzłów (myc_moc: co minutę, 48 h; myc_moc_hour: średnie godzinowe, 30 dni).
 // Liczby wysyła sam węzeł (src/iot_mycelium/mesh/moc.py); brak odczytu GPU = „brak danych GPU”, nic nie jest dorysowywane.
@@ -36,6 +37,7 @@ export const WORK: Record<string, [string, string, string]> = {
   verify: ['weryfikacja', 'verification', '#a3e635'],
   images: ['obrazy', 'images', '#fb923c'],
   wallet: ['zatwierdzanie transakcji portfela', 'wallet transaction validation', '#e879f9'],
+  p71: ['Puzzle 71 (szukanie klucza Bitcoin)', 'Puzzle 71 (Bitcoin key search)', '#f59e0b'],
 }
 const COLORS = ['#5eead4', '#38bdf8', '#f472b6', '#fbbf24', '#a3e635', '#818cf8']
 const short = (id: string) => id.slice(0, 8)
@@ -144,6 +146,8 @@ export default function Moc() {
       <Card title={en ? 'What the power went to – last hour' : 'Na co poszła moc – ostatnia godzina'} className="mb-4">
         {rows ? <Bar w={lastHour} total={sumH} /> : <p className="text-sm text-slate-500">…</p>}
       </Card>
+
+      <Puzzle71 en={en} />
 
       <Card title={en ? 'Nodes now' : 'Węzły teraz'} className="mb-4">
         {!rows ? (
