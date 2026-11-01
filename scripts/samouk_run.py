@@ -93,16 +93,23 @@ def round_of(plan_id: int):
     return out or None
 
 
-def measure(m, tok, lora: lm.Lora, probes: dict[str, list[samouk.MC]]) -> dict[str, dict]:
+def measure(
+    m, tok, lora: lm.Lora, probes: dict[str, list[samouk.MC]], items: dict[str, list] | None = None
+) -> dict[str, dict]:
+    """Trafność i średnie p poprawnej odpowiedzi na typ; ``items`` (opcjonalnie) dostaje rozkład na opcjach każdego
+    pytania ``[[p…], poprawna]`` – SelfModel kalibruje z niego pewność (scripts/selfmodel_run.py)."""
     m.lora = lm.runtime(lora, m.dtype)
     out = {}
-    for t, items in probes.items():
-        ok, pr = 0, []
-        for i, it in enumerate(items):
+    for t, its in probes.items():
+        ok, pr, rows = 0, [], []
+        for i, it in enumerate(its):
             p = option_probs(m, tok, f"s{t}{i}", it.prompt, list(it.options))
             ok += int(np.argmax(p)) == it.answer
             pr.append(float(p[it.answer]))
-        out[t] = {"acc": round(ok / len(items), 4), "p_right": round(sum(pr) / len(pr), 4), "n": len(items)}
+            rows.append([p, it.answer])
+        out[t] = {"acc": round(ok / len(its), 4), "p_right": round(sum(pr) / len(pr), 4), "n": len(its)}
+        if items is not None:
+            items[t] = rows
     return out
 
 
@@ -159,6 +166,7 @@ def main():
     torch.set_num_threads(a.threads)
     tok = AutoTokenizer.from_pretrained(TOK, revision=TOK_REV)
     m = Qwen(ensure_weights(print), torch.bfloat16)
+    base_items = (last or {}).get("measured", {}).get("items") if last else None
     if (
         last
         and last["measured"]["base"]["version"] == base["version"]
@@ -166,7 +174,8 @@ def main():
     ):
         bstats = {t: {k: s[k] for k in ("acc", "p_right", "n")} for t, s in last["stats"].items()}
     else:
-        bstats = measure(m, tok, adapter(base["path"]), probes)
+        base_items = {}
+        bstats = measure(m, tok, adapter(base["path"]), probes, base_items)
     cstats = measure(m, tok, adapter(cand["path"]), probes) if cand else None
     tstats = {}
     if rnd:
@@ -209,7 +218,7 @@ def main():
         b = gzip.compress(lm.pack_data(info, torch.tensor(ids), torch.tensor(mask)), 6, mtime=0)
         shards.append({"type": t, "name": f"self-{t}-{stamp}.bin.gz", "sha256": lm.sha256(b), "n": len(ids), "_b": b})
     measured = {"base": base, "cand": cand and {"id": cand["id"], "path": cand["path"], "status": cand["status"]},
-                "probe_sha": probe_sha, "s": round(time.time() - t0, 1),
+                "probe_sha": probe_sha, "s": round(time.time() - t0, 1), "items": base_items or None,
                 "round": rnd and {"plan": last["id"], "updates": len(rnd), "cand": cstats}}  # fmt: skip
     print(json.dumps({"alloc": pick["alloc"], "stats": stats}, ensure_ascii=False))
     if a.dry:

@@ -39,3 +39,10 @@ pozorna – tak to oznaczamy zamiast liczyć jako sukces.
 
 Migawki: tabela z odczytem publicznym (RLS: select dla anon), bez praw zapisu dla anon/authenticated –
 pisze tylko właściciel (Management API, jak samouk). Reszta sieci (węzły, strona) czyta.
+
+## Relacje (punkt rozszerzenia)
+
+Pamięć relacji z użytkownikami (ton, historia rozmów) buduje moduł czatu w osobnej tabeli `myc_self_relations`.
+SelfModel ma na nią `RelationsSource` i pole `Snapshot.relations`, ale do publicznej migawki trafia tylko stan
+źródła (czy istnieje, ile wierszy widzi klucz publiczny) – nigdy treść relacji z konkretną osobą. Panel na stronie
+pokazuje uczciwy pusty stan, dopóki tabeli nie ma.
