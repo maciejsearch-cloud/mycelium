@@ -12,6 +12,7 @@ import { ANT, DROP_LEM, Q_PL, Q_WORDS, SQUARE, WRAP } from '../myc/czysta'
 import { answerPure, buildKB, onlySentences, fromDocs, loadHumanRows, looksLikeRule, HUMAN_SOURCES, type PureAnswer, type PureKB } from '../myc/czystaWiedza'
 import { LEARN_RULES } from '../myc/czystaZasady'
 import { useI18n } from '../i18n'
+import CzystaRelacje from '../components/CzystaRelacje'
 
 interface Wyniki {
   when: string
@@ -224,6 +225,8 @@ export default function Czysta() {
           </Card>
 
           {res && <AnswerCard n={askN} r={res} logged={logged} fb={fb} corr={corr} setCorr={setCorr} vote={vote} />}
+
+          <CzystaRelacje kb={kb} />
 
           <Card title="Naucz ją faktu albo reguły">
             <p className="mb-2 text-sm text-slate-400">
@@ -608,7 +611,7 @@ function Explain({ kb }: { kb?: PureKB }) {
               <li><b>Zadania tekstowe z ról zdania</b>: dla każdej liczby model rozbioru daje orzeczenie, podmiot (właściciel) i odbiorcę w celowniku. Stan na osobę: „miał/ma/było” = stan, „dostał/kupił/znalazł”, „od kogoś” = przybywa, „dał/oddał/zjadł/zgubił”, odbiorca w celowniku, „za N zł” = ubywa, „po N” przy k grupach = mnożenie, „k-krotnie” = mnożenie/dzielenie, „o N więcej/mniej niż” = porównanie. <b>Bezpieczniki</b>: każda liczba z treści musi zostać użyta, nie można oddać czegoś, czego się nie miało, wynik nie może być ujemny – inaczej „nie wiem”.</li>
               <li><b>Ciągi</b>: stała różnica, stały iloraz, stała druga różnica (np. kwadraty), dwa przeplecione ciągi na miejscach parzystych i nieparzystych. Wymaga ≥ 4 wyrazów, żeby wzór był widoczny.</li>
               <li><b>Liczebnik + rzeczownik</b>: reguła gramatyki – 1 → l. poj. mianownik; końcówka 2–4 (bez 12–14) → l. mn. mianownik; reszta → l. mn. dopełniacz. Formę wybiera słownik (tylko formy lematu z nawiasu).</li>
-              <li><b>Analogie A : B = C : ?</b> (1) <i>odmiana</i>: gdy A i B to ten sam lemat w dwóch formach, słownik mówi, co się zmieniło (np. l. poj. → l. mn., mianownik → dopełniacz, stopień równy → wyższy), i tę samą zmianę stosuje do C; (2) <i>relacja od ludzi</i>: gdy w zatwierdzonym fakcie A i B stoją razem („Pszczoła mieszka w ulu.”), słowa między nimi są relacją, a odpowiedzią jest opcja, która z C tworzy zatwierdzony fakt tej samej relacji. Bez takich faktów – „nie wiem”. Tabela relacji z generatora ćwiczeń <b>nie</b> jest wczytywana.</li>
+              <li><b>Analogie A : B = C : ?</b> (1) <i>odmiana</i>: gdy A i B to ten sam lemat w dwóch formach, słownik mówi, co się zmieniło (np. l. poj. → l. mn., mianownik → dopełniacz, stopień równy → wyższy), i tę samą zmianę stosuje do C; (2) <i>relacja od ludzi</i>: gdy w zatwierdzonym zdaniu występują A i B („Niedźwiedź mieszka w gawrze.”), reszta zdania (lematy bez kolejności) i przypadki A i B tworzą <i>ramę relacji</i>; odpowiedzią jest jedyna opcja, która z C tworzy zatwierdzone zdanie o tej samej ramie. Zdania-relacje dodają ludzie (karta „Naucz relacji”); mówca i samouk mogą tylko <i>proponować pytania</i>. Bez takich faktów – „nie wiem”. Tabela relacji z generatora ćwiczeń <b>nie</b> jest wczytywana.</li>
             </ul>
           </li>
           <li>
@@ -651,7 +654,7 @@ function Explain({ kb }: { kb?: PureKB }) {
         </Card>
         <Card title="Czego NIE ma (uczciwie)">
           <ul className="list-disc space-y-1 pl-5 text-sm text-slate-300">
-            <li>analogii znaczeniowych (dom zwierzęcia, młode, narzędzie, przeciwieństwo) bez zatwierdzonych faktów – zna tylko analogie odmiany; reszty uczą ją ludzie zdaniami typu „Lis mieszka w norze.”</li>
+            <li>analogii znaczeniowych (dom zwierzęcia, młode, narzędzie, przeciwieństwo) bez zatwierdzonych faktów – zna tylko analogie odmiany; reszty uczą ją ludzie zdaniami w karcie „Naucz relacji” (np. „Niedźwiedź mieszka w gawrze.”)</li>
             <li>zadań tekstowych z ułamkami, jednostkami do przeliczenia, wieloma krokami „ile razy więcej” – wtedy mówi „nie wiem”</li>
             <li>ciągów z mniej niż 4 wyrazami i wzorów innych niż różnica, iloraz, druga różnica, przeplot</li>
             <li>wiedzy o świecie poza tym, co zatwierdzili ludzie (stąd niski wynik na pytaniach o fakty)</li>
@@ -665,7 +668,7 @@ function Explain({ kb }: { kb?: PureKB }) {
 
       <Card title="Jak nauczyć ją analogii">
         <p className="text-sm text-slate-300">
-          Analogia „A : B = C : ?” działa, gdy w zatwierdzonej wiedzy jest zdanie łączące A z B <b>i</b> zdanie tej samej postaci łączące C z jedną z opcji. Dodaj w polu „Naucz ją faktu” pary zdań o tej samej budowie, np. „Pies mieszka w budzie.” i „Lis mieszka w norze.”, „Krowa ma cielę.” i „Koń ma źrebię.”, „Malarz używa pędzla.” i „Krawiec używa igły.”, „Dzień jest przeciwieństwem nocy.” i „Góra jest przeciwieństwem dołu.”. Po zatwierdzeniu w Weryfikuj (konsensus ≥ {Math.round(FACT_CONF * 100)}%) ślad pokaże: relacja „mieszka w” z faktu #… zastosowana do C.
+          Analogia „A : B = C : ?” działa, gdy w zatwierdzonej wiedzy jest zdanie łączące A z B <b>i</b> zdanie tej samej budowy łączące C z jedną z opcji. Rozumujący porównuje <b>ramę zdania</b>: pozostałe słowa (lematy, bez kolejności) i przypadki obu słów – „Niedźwiedź mieszka w gawrze.” i „W żeremiu mieszka bóbr.” mają tę samą ramę. Zdania dodajesz w karcie „Naucz relacji”; po zatwierdzeniu w Weryfikuj (konsensus ≥ {Math.round(FACT_CONF * 100)}%) ślad pokaże oba fakty i wspólną relację.
         </p>
       </Card>
 

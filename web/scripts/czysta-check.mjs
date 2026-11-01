@@ -23,4 +23,29 @@ for (const w of ['nieprawda', 'okazać', 'przerwać', 'wcześnie', 'najwyższy',
     process.exitCode = 1
   }
 }
+// szablony pytań o relacje: TS = SQL = Python
+{
+  const ts = readFileSync(root + 'web/src/myc/czystaRelacje.ts', 'utf8')
+  const sql = readFileSync(root + 'supabase/myc_rel.sql', 'utf8')
+  const rp = readFileSync(root + 'src/iot_mycelium/mesh/relacje.py', 'utf8')
+  const kinds = [...ts.matchAll(/^ {2}(\p{L}+): \{\n {4}label: .*\n {4}question: '([^']+)'/gmu)]
+  if (kinds.length !== 6) {
+    console.error(`czysta-check: oczekiwano 6 rodzajów relacji w czystaRelacje.ts, jest ${kinds.length}`)
+    process.exitCode = 1
+  }
+  for (const [, k, q] of kinds) {
+    const [pre, post] = q.split('{w}')
+    if (!sql.includes(`when '${k}' then '${pre}' || p_word || '${post}'`) || !rp.includes(`"${k}": "${q}"`)) {
+      console.error(`czysta-check: szablon pytania „${k}” różni się między czystaRelacje.ts, myc_rel.sql i relacje.py`)
+      process.exitCode = 1
+    }
+  }
+}
+// rozumujący nie wczytuje tabeli relacji z generatora ćwiczeń (to byłoby uczenie pod test)
+for (const f of ['web/src/myc/czystaLiczby.ts', 'web/src/myc/czystaWiedza.ts', 'web/src/myc/czystaRelacje.ts']) {
+  if (/źrebię|kocię|szczenię|siekiera|nożyczki/.test(readFileSync(root + f, 'utf8'))) {
+    console.error(`czysta-check: ${f} zawiera słowa z tabeli relacji ćwiczeń (selfplay.REL)`)
+    process.exitCode = 1
+  }
+}
 if (!process.exitCode) console.log('czysta-check: progi i stałe zgodne z kodem')
