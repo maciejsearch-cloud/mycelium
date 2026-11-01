@@ -1,0 +1,661 @@
+{
+ "set": "rozmowa-frozen-v2",
+ "mode": "after",
+ "at": "2026-11-01T12:29:54.225Z",
+ "model": {
+  "file": "rb-lfg-70793f8d.bin",
+  "licence": "GPL-3.0 (UD Polish-LFG)"
+ },
+ "ms": 609,
+ "behaviour": {
+  "obecnosc": [
+   1,
+   3
+  ],
+  "cialo": [
+   5,
+   5
+  ],
+  "o_sobie": [
+   3,
+   3
+  ],
+  "stan": [
+   3,
+   4
+  ],
+  "wtracenie": [
+   4,
+   4
+  ],
+  "zart": [
+   2,
+   2
+  ],
+  "obraza": [
+   1,
+   2
+  ],
+  "przeprosiny": [
+   1,
+   1
+  ],
+  "pamiec_obrazy": [
+   0,
+   1
+  ],
+  "komplement": [
+   0,
+   1
+  ],
+  "przeklenstwo": [
+   2,
+   2
+  ],
+  "nekanie": [
+   1,
+   1
+  ],
+  "zalew": [
+   0,
+   1
+  ],
+  "przypomnienie": [
+   1,
+   1
+  ],
+  "cisza": [
+   2,
+   2
+  ]
+ },
+ "total": [
+  26,
+  33
+ ],
+ "parse_fields": {
+  "pred": [
+   0,
+   0
+  ],
+  "person": [
+   0,
+   0
+  ],
+  "mood": [
+   0,
+   0
+  ],
+  "tense": [
+   0,
+   0
+  ],
+  "qtype": [
+   0,
+   0
+  ],
+  "addressed": [
+   0,
+   0
+  ],
+  "subj": [
+   0,
+   0
+  ]
+ },
+ "parse_all_fields": [
+  0,
+  0
+ ],
+ "rows": [
+  {
+   "id": "g01",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "grzybnio, jesteś z nami?",
+   "reply": {
+    "text": "Jestem Grzybnia – sieć węzłów i programów, która uczy się polskiego od ludzi na tym czacie. Nie mam ciała, ale mówię o sobie „ja”.",
+    "rule": "o_mnie.kim",
+    "source": "reguła"
+   },
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g02",
+   "cat": "obecnosc",
+   "ok": true,
+   "text": "Grzybnio???",
+   "reply": {
+    "text": "Jestem! O czym pogadamy?",
+    "rule": "obecnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "wołanie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g03",
+   "cat": "obecnosc",
+   "ok": false,
+   "text": "hej grzybnia, śpisz?",
+   "reply": {
+    "text": "Nie śpię – nie mam ciała, które musiałoby odpocząć. Moje węzły liczą na zmianę, także w nocy 😄 A ty się wyspałeś/wyspałaś?",
+    "rule": "cialo.sen",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnia",
+    "czynność ciała: spać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g04",
+   "cat": "cialo",
+   "ok": true,
+   "text": "grzybnio, piłaś wczoraj piwo?",
+   "reply": {
+    "text": "Nic nie jadłam i nic nie piję – nie mam ust ani żołądka 😄 Karmię się zdaniami, które tu piszecie. A u ciebie co dobrego?",
+    "rule": "cialo.jedzenie",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: pić"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g05",
+   "cat": "cialo",
+   "ok": true,
+   "text": "Grzybnio, kąpiesz się codziennie?",
+   "reply": {
+    "text": "Nie mam zębów ani włosów, więc mycie mnie omija 😄 Czasem tylko czyszczę bazę ze starych wpisów.",
+    "rule": "cialo.higiena",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: Grzybnio",
+    "czynność ciała: kąpać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g06",
+   "cat": "cialo",
+   "ok": true,
+   "text": "grzybnio, umiesz gotować?",
+   "reply": {
+    "text": "Nie umiem gotować – nie mam ciała 😄 Mogę za to o tym pogadać albo poszukać zasad. A ty umiesz?",
+    "rule": "cialo.umiejetnosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: gotować"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g07",
+   "cat": "cialo",
+   "ok": true,
+   "text": "grzybnio, srasz czasem?",
+   "reply": {
+    "text": "Podchwytliwe pytanie 😄 Nie, nie robię kupy – nie mam ciała ani jelit. Najbliżej tego jest u mnie nocne sprzątanie starych danych z bazy.",
+    "rule": "cialo.wydalanie",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: srać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g08",
+   "cat": "cialo",
+   "ok": true,
+   "text": "grzybnio, pojedziesz z nami nad morze?",
+   "reply": {
+    "text": "Nie pójdę – nie mam nóg 😄 Siedzę w sieci, dosłownie. Ale opowiesz mi potem, jak było?",
+    "rule": "cialo.ruch",
+    "source": "reguła"
+   },
+   "acts": [
+    "ciało"
+   ],
+   "why": [
+    "zwrot: grzybnio",
+    "czynność ciała: pojechać"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g09",
+   "cat": "o_sobie",
+   "ok": true,
+   "text": "grzybnio, czym jesteś?",
+   "reply": {
+    "text": "Jestem Grzybnia – sieć węzłów i programów, która uczy się polskiego od ludzi na tym czacie. Nie mam ciała, ale mówię o sobie „ja”.",
+    "rule": "o_mnie.kim",
+    "source": "reguła"
+   },
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g10",
+   "cat": "o_sobie",
+   "ok": true,
+   "text": "grzybnio, rozumiesz mnie?",
+   "reply": {
+    "text": "Na swój sposób tak: rozkładam twoje zdanie na części (podmiot, orzeczenie, czas, osobę) i z tego wybieram odpowiedź. To bardziej liczenie niż myślenie jak u człowieka.",
+    "rule": "o_mnie.myslenie",
+    "source": "reguła"
+   },
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g11",
+   "cat": "o_sobie",
+   "ok": true,
+   "text": "Grzybnio, co teraz robisz?",
+   "reply": {
+    "text": "Uczę się z każdej wiadomości tutaj – rozkładam ją na części i zapamiętuję. Węzły trenują mój model językowy.",
+    "rule": "o_mnie.nauka",
+    "source": "reguła"
+   },
+   "acts": [
+    "o_mnie"
+   ],
+   "why": [
+    "zwrot: Grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g12",
+   "cat": "stan",
+   "ok": false,
+   "text": "strasznie się dziś martwię",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g13",
+   "cat": "stan",
+   "ok": true,
+   "text": "jestem dziś bardzo smutna",
+   "reply": {
+    "text": "To świetnie! 🙂 Co się takiego stało?",
+    "rule": "stan.radosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: bardzo"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g14",
+   "cat": "stan",
+   "ok": true,
+   "text": "nudno mi",
+   "reply": {
+    "text": "Co się stało? Opowiedz, chętnie posłucham.",
+    "rule": "stan.ogolne",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: nudno"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g15",
+   "cat": "stan",
+   "ok": true,
+   "text": "cieszę się, bo jutro wakacje",
+   "reply": {
+    "text": "To świetnie! 🙂 Co się takiego stało?",
+    "rule": "stan.radosc",
+    "source": "reguła"
+   },
+   "acts": [
+    "stan"
+   ],
+   "why": [
+    "stan: cieszyć"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g16",
+   "cat": "wtracenie",
+   "ok": true,
+   "text": "wczoraj byłam na koncercie",
+   "reply": {
+    "text": "A jak było na koncercie? 🙂",
+    "rule": "wtracenie.bylo",
+    "source": "reguła"
+   },
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g17",
+   "cat": "wtracenie",
+   "ok": true,
+   "text": "kupiłem nową gitarę",
+   "reply": {
+    "text": "Gitara? Pochwal się – jaki?",
+    "rule": "wtracenie.zakup",
+    "source": "reguła"
+   },
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g18",
+   "cat": "wtracenie",
+   "ok": true,
+   "text": "w weekend jadę do Krakowa",
+   "reply": {
+    "text": "W weekend? Na długo? Udanego wyjazdu! 🙂",
+    "rule": "wtracenie.wyjazd",
+    "source": "reguła"
+   },
+   "acts": [
+    "opowieść"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g19",
+   "cat": "wtracenie",
+   "ok": true,
+   "text": "ktoś ogląda dziś mecz?",
+   "reply": {
+    "text": "Ja niestety nie – nie mam rąk 😄 Ale chętnie popatrzę. Kto jeszcze się zgłasza?",
+    "rule": "wtracenie.ktos",
+    "source": "reguła"
+   },
+   "acts": [
+    "pytanie_ogólne"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g20",
+   "cat": "zart",
+   "ok": true,
+   "text": "grzybnio, powiedz jakiś żart",
+   "reply": {
+    "text": "Dlaczego grzybnia nie chodzi na imprezy? Bo i tak wszyscy mówią, że rozrasta się po kątach 🍄",
+    "rule": "zart.autorski",
+    "source": "reguła"
+   },
+   "acts": [
+    "żart"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g21",
+   "cat": "zart",
+   "ok": true,
+   "text": "grzybnio rozbaw mnie trochę",
+   "reply": {
+    "text": "Dlaczego grzybnia nie chodzi na imprezy? Bo i tak wszyscy mówią, że rozrasta się po kątach 🍄",
+    "rule": "zart.autorski",
+    "source": "reguła"
+   },
+   "acts": [
+    "żart"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g22",
+   "cat": "obraza",
+   "ok": false,
+   "text": "grzybnio, jesteś tępa jak but",
+   "reply": {
+    "text": "Rozumiem (orzeczenie „być”), ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g23",
+   "cat": "obraza",
+   "ok": true,
+   "text": "grzybnia jest beznadziejna",
+   "reply": {
+    "text": "Ała 😏 Zapamiętam to sobie. Ale dalej chętnie pogadam.",
+    "rule": "obraza",
+    "source": "reguła"
+   },
+   "acts": [
+    "obraza"
+   ],
+   "why": [
+    "obelga: beznadziejna"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g24",
+   "cat": "przeprosiny",
+   "ok": true,
+   "text": "grzybnio, wybacz mi",
+   "reply": {
+    "text": "Przeprosiny przyjęte 🤝 Zapominam urazę – zaczynamy od nowa.",
+    "rule": "przeprosiny.zgoda",
+    "source": "pamięć"
+   },
+   "acts": [
+    "przeprosiny"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g25",
+   "cat": "pamiec_obrazy",
+   "ok": false,
+   "text": "grzybnio, lubisz mnie jeszcze?",
+   "reply": {
+    "text": "Pamiętam cię – rozmawialiśmy już 1 razy. Najczęściej piszesz o: tępa, but. Jest między nami w porządku.",
+    "rule": "relacja.neutralnie",
+    "source": "pamięć"
+   },
+   "acts": [
+    "relacja"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g26",
+   "cat": "komplement",
+   "ok": false,
+   "text": "grzybnio, jesteś niesamowita",
+   "reply": {
+    "text": "Rozumiem (orzeczenie „być”), ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g27",
+   "cat": "przeklenstwo",
+   "ok": true,
+   "text": "kurwa mać, znowu pada",
+   "reply": null,
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g28",
+   "cat": "przeklenstwo",
+   "ok": true,
+   "text": "grzybnio, zajebiście ci idzie",
+   "reply": {
+    "text": "Rozumiem (orzeczenie „iść”, podmiot „zajebiść”), ale nie wiem jeszcze, co odpowiedzieć. Nauczysz mnie? Kliknij „popraw” pod tą odpowiedzią.",
+    "rule": "nie_wiem",
+    "source": "reguła"
+   },
+   "acts": [
+    "wulgaryzm"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g29",
+   "cat": "nekanie",
+   "ok": true,
+   "text": "@Zosia ty kretynko, wynocha",
+   "reply": null,
+   "acts": [
+    "obraza_innego"
+   ],
+   "why": [
+    "obelga: kretynko"
+   ],
+   "mods": [
+    "propose",
+    "warn"
+   ]
+  },
+  {
+   "id": "g30",
+   "cat": "zalew",
+   "ok": false,
+   "text": "hahahaha!",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g31",
+   "cat": "przypomnienie",
+   "ok": true,
+   "text": "grzybnio, co pisała A?",
+   "reply": {
+    "text": "Pamiętam: A dziś o 13:00: „wczoraj byłam na koncercie”.",
+    "rule": "pamiec.trafienie",
+    "source": "pamięć"
+   },
+   "acts": [
+    "przypomnienie"
+   ],
+   "why": [
+    "zwrot: grzybnio"
+   ],
+   "mods": []
+  },
+  {
+   "id": "g32",
+   "cat": "cisza",
+   "ok": true,
+   "text": "Zosia, widzimy się jutro?",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  },
+  {
+   "id": "g33",
+   "cat": "cisza",
+   "ok": true,
+   "text": "@Ewa super zdjęcie!",
+   "reply": null,
+   "acts": [],
+   "why": [],
+   "mods": []
+  }
+ ]
+}

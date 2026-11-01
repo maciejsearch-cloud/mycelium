@@ -28,7 +28,7 @@ create table if not exists public.myc_speaker_posts (
   level int not null check (level between 0 and 3),
   kind text not null check (kind in ('pytanie', 'odpowiedź', 'stwierdzenie')),
   tokens text[] not null check (cardinality(tokens) between 1 and 12),
-  how text not null check (how in ('losowe', 'wyuczone', 'mutacja', 'rozbiór')),
+  how text not null check (how in ('losowe', 'wyuczone', 'mutacja', 'rozbiór', 'czat')),
   pair_of bigint, -- odpowiedź na wpis (L2)
   created_at timestamptz not null default now()
 );
@@ -99,7 +99,7 @@ create table if not exists public.myc_speaker_cands (
 alter table public.myc_speaker_cands enable row level security;
 revoke all on public.myc_speaker_cands from public, anon, authenticated;
 alter table public.myc_speaker_posts drop constraint if exists myc_speaker_posts_how_check;
-alter table public.myc_speaker_posts add constraint myc_speaker_posts_how_check check (how in ('losowe', 'wyuczone', 'mutacja', 'rozbiór'));
+alter table public.myc_speaker_posts add constraint myc_speaker_posts_how_check check (how in ('losowe', 'wyuczone', 'mutacja', 'rozbiór', 'czat'));
 
 create or replace function public.myc_spk_pick(a text[]) returns text language sql volatile as $$
   select a[1 + floor(random() * cardinality(a))::int]
@@ -148,6 +148,13 @@ begin
         return query select t, case when t[cardinality(t)] like '%?' then 'pytanie' else 'stwierdzenie' end, 'mutacja'; return;
       end if;
       return query select t, case when f like '%?' then 'pytanie' else 'stwierdzenie' end, 'wyuczone'; return;
+    end if;
+  end if;
+  -- eksploracja L0/L1: w 25% krótkie pytanie osoby z czatu (myc_speaker_chatq, za zgodą; how='czat'), o sensie dalej decydują oceny
+  if p_q is null and p_level <= 1 and random() < 0.25 then
+    select x.text into f from myc_speaker_chatq x where x.level = p_level order by random() limit 1;
+    if f is not null then
+      return query select regexp_split_to_array(f, '\s+'), 'pytanie', 'czat'; return;
     end if;
   end if;
   -- eksploracja L0/L1: w 60% kandydat zaakceptowany przez model rozbioru, w 40% nadal losowe (kontrola do porównania ocen)
@@ -212,6 +219,10 @@ declare s myc_speaker; g record; mid bigint; lv int; a record; body text;
 begin
   select * into s from myc_speaker where id = 1 for update;
   if not s.enabled then return jsonb_build_object('ok', false, 'why', 'paused'); end if;
+  -- trwa rozmowa ludzi (wiadomość w ostatnich 3 min): mówca nie przerywa – odpowiada rozmówca (myc_rozmowa.sql)
+  if exists (select 1 from myc_gchat where room = 'main' and circle_id is null and kind = 'user' and created_at > now() - interval '3 minutes') then
+    return jsonb_build_object('ok', false, 'why', 'rozmowa');
+  end if;
   if s.last_post_at is not null and now() - s.last_post_at < make_interval(secs => s.interval_s - 5) then
     return jsonb_build_object('ok', false, 'why', 'interval');
   end if;

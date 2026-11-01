@@ -10,6 +10,8 @@ import { useI18n } from '../i18n'
 import { useBrain } from '../myc/brain'
 import { ownerKey } from '../myc/store'
 import { CategoryPicker } from '../components/CategoryPicker'
+import { HiddenList, HideItem, probeHidden } from '../components/ReviewHide'
+import { hiddenKeys, type HiddenRow } from '../myc/rozmowaApi'
 import { inConf, type IConf, type IState } from '../myc/inbox'
 import { buildQueue, reviewLog, reviewRoom, reviewStats, submit, taxoCtx, TYPE_LABEL, undo, whoami, type LogRow, type ReviewItem, type ReviewStat, type Verdict, type Who } from '../myc/review'
 
@@ -35,6 +37,8 @@ export default function Review() {
   const [last, setLast] = useState<{ id: number; item: ReviewItem; verdict: Verdict } | undefined>()
   const [err, setErr] = useState('')
   const [busy, setBusy] = useState(false)
+  const [hidden, setHidden] = useState<Set<string>>(new Set())
+  const [hiddenRows, setHiddenRows] = useState<HiddenRow[] | null>(null)
   const owner = who?.reviewer === 'owner'
   const canWrite = !!who?.reviewer
   const room = reviewRoom()
@@ -46,8 +50,10 @@ export default function Review() {
   const refreshWho = useCallback(() => whoami().then(setWho).catch(() => setWho({ room: null, reviewer: null, weight: null })), [])
   useEffect(() => void refreshWho(), [refreshWho])
   const reload = useCallback(async () => {
-    const q = await buildQueue(b, en, { owner, room })
+    const [q, hk] = await Promise.all([buildQueue(b, en, { owner, room }), hiddenKeys(room).catch(() => [] as string[])])
+    setHidden(new Set(hk))
     setQueue(q.items)
+    void probeHidden(room).then(setHiddenRows, () => setHiddenRows(null))
     void reviewStats().then(setStats).catch(() => undefined)
     if (owner) void reviewLog().then(setLog).catch(() => undefined)
   }, [b, en, owner, room])
@@ -66,7 +72,7 @@ export default function Review() {
   }, [queue, st, cf, totalWaiting])
   // jedna skrzynka: stan (czeka/sporne/zatwierdzone) i pewność AI zawężają wszystko, rodzaj wybiera sekcję
   const typeOf = (i: ReviewItem) => (i.kind === 'logic' ? 'logic' : i.type)
-  const base = useMemo(() => (st === 'zatwierdzone' ? [] : (queue ?? []).filter((i) => (st !== 'sporne' || i.disputed) && inConf(i.conf, cf))), [queue, st, cf])
+  const base = useMemo(() => (st === 'zatwierdzone' ? [] : (queue ?? []).filter((i) => !hidden.has(`${i.type}|${i.ref}`) && (st !== 'sporne' || i.disputed) && inConf(i.conf, cf))), [queue, st, cf, hidden])
   const counts = useMemo(() => {
     const c: Record<string, number> = { ...ext }
     for (const i of base) c[typeOf(i)] = (c[typeOf(i)] ?? 0) + 1
@@ -214,6 +220,7 @@ export default function Review() {
             </div>
           )}
           {cur && <ItemCard key={`${cur.type}|${cur.ref}`} item={cur} en={en} canWrite={canWrite && !busy} onDecide={decide} b={b} />}
+          {cur && hiddenRows && <HideItem item={cur} room={room} en={en} onHidden={() => void reload()} />}
           {shown.length > 1 && (
             <p className="text-center text-xs text-slate-500">
               {en ? `next: ${shown.length - 1} more` : `dalej: jeszcze ${shown.length - 1}`}
@@ -241,6 +248,7 @@ export default function Review() {
         </>
       )}
 
+      {hiddenRows && <HiddenList rows={hiddenRows} room={room} en={en} onChange={() => void reload()} />}
       <details className="card" data-testid="review-numbers">
         <summary className="cursor-pointer text-sm text-slate-300">{en ? 'Numbers' : 'Liczby'}</summary>
         <div className="mt-3">

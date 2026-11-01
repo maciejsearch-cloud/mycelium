@@ -77,7 +77,8 @@ class Node:
             "node": node_id,
             "role": "node",
             "cap": len(SHARDS),
-            "backend": f"cpu-torch-{torch.get_num_threads()}t",
+            "backend": f"cpu-torch-{torch.get_num_threads()}t"
+            + ("-int8w" if getattr(model, "weights", "bf16") == "int8" else ""),
             "shards": dict.fromkeys(SHARDS, "ready"),
             "full": True,
             "rtc": False,
@@ -489,6 +490,12 @@ def main(argv=None):
     ap.add_argument("--name", default="default", help="nazwa lokalna (osobne id dla kilku węzłów na jednej maszynie)")
     ap.add_argument("--threads", type=int, default=max(1, min(4, (os.cpu_count() or 2) - 1)))
     ap.add_argument("--dtype", choices=["bf16", "f32"], default="bf16")
+    ap.add_argument(
+        "--weights",
+        choices=["bf16", "int8"],
+        default=os.environ.get("MYC_WEIGHTS", "bf16"),
+        help="int8: pobierz mniejszy plik wag (ok. 0,55 GB, wydanie GitHub, SHA-256); przy problemie oryginał bf16",
+    )
     ap.add_argument("--no-train", action="store_true", help="bez treningu modelu językowego (tylko czat i ocena)")
     ap.add_argument("--no-lm", action="store_true", help="bez zadań modelu językowego (tylko czat)")
     ap.add_argument("--no-taxo", action="store_true", help="bez grupowania słów (taksonomia)")
@@ -542,8 +549,12 @@ def main(argv=None):
             log(f"stan węzła: http://127.0.0.1:{port}  (panel: {a.name}: MyceliumNode --ui)")
     hist.add("net", f"start węzła {nid[:8]} ({al['threads']} wątki, RAM {f'{ram} GB' if ram else 'bez limitu'})")
 
-    log("ładuję model (pierwszy raz pobiera ok. 988 MB z Hugging Face, ze wznawianiem i sumą SHA-256)…")
-    m = Qwen(ensure_weights(log), torch.bfloat16 if a.dtype == "bf16" else torch.float32)
+    log(
+        "ładuję model (pierwszy raz pobiera "
+        + ("ok. 0,55 GB wag int8 z wydania GitHub" if a.weights == "int8" else "ok. 988 MB z Hugging Face")
+        + ", ze wznawianiem i sumą SHA-256)…"
+    )
+    m = Qwen(ensure_weights(log, a.weights), torch.bfloat16 if a.dtype == "bf16" else torch.float32)
     n = Node(m, nid, a.name, log)  # bez nazwy komputera (hostname) w publicznej obecności
     train = not a.no_train and not (0 < ram < 2)
     # 1.11.2026 pomiar na boxie (3 wątki, bf16): micro 2 = 151 tok/s, micro 4 = 515 tok/s (3,3 GB), całość = 501 tok/s

@@ -60,3 +60,51 @@ test('Weryfikuj: kandydat wzorca języka z czatu i głos', async ({ page }) => {
   expect(votes[0]).toMatchObject({ p_id: 7, p_vote: true, p_key: null })
   expect(errors).toEqual([])
 })
+
+// Rozmówca: odpowiedź grzybni ze źródłem i czasem z bazy, rozbiór wiadomości osoby, panel stanu (bez konta – odczyt).
+test('czat globalny: rozmówca – źródło odpowiedzi, rozbiór, panel', async ({ page }) => {
+  const at = new Date().toISOString()
+  const base = { room: 'main', circle_id: null, role: null, reply_to: null, intent: null, tags: [], pinned: false, deleted: false, created_at: at }
+  const msgs = [
+    { ...base, id: 10, kind: 'user', handle: 'Ola', body: 'Grzybnio, ale się dziś nudzę' },
+    { ...base, id: 11, kind: 'ai', handle: 'Grzybnia AI', body: 'Dlaczego się nudzisz? Nie masz nic do roboty?', reply_to: 10 },
+  ]
+  const parse = {
+    v: 1, model: 'rb-lfg-70793f8d.bin', addressed: true, toOther: null, pred: 'nudzić', person: 1, mood: 'ind', tense: 'pres', neg: false, subj: null, obj: null, phrase: null,
+    qtype: null, question: false, content: ['nudzić'], polarity: -1, emotions: ['smutek'], acts: ['stan'], why: ['stan: nudzić'], conf: 0.9,
+    toks: [{ f: 'nudzę', l: 'nudzić', u: 'VERB', d: 'root', h: 0, x: 'Person=1' }],
+  }
+  await page.route(/supabase\.co\/rest\/v1\//, (r) => {
+    const u = r.request().url()
+    if (u.includes('/myc_gchat?')) return r.fulfill({ json: msgs })
+    if (u.includes('/rpc/myc_rozmowa_meta'))
+      return r.fulfill({ json: { replies: { 11: { source: 'reguła', rule: 'stan.dopytanie', cite: null, to: 10, addressed: true, latency_ms: 2400, up: 1, down: 0, mine: null } }, parsed: [10] } })
+    if (u.includes('/rpc/myc_rozmowa_parse')) return r.fulfill({ json: parse })
+    if (u.includes('/rpc/myc_rozmowa_state'))
+      return r.fulfill({ json: { enabled: true, heartbeat_at: at, online: true, worker_version: 'rozmowa-worker-1', interject_every_n: 3, interject_min_s: 90, invite_quiet_min: 45, replies: 1, median_latency_ms: 2400, mem: 1, pairs: 0, pending_decisions: 0 } })
+    return r.fulfill({ json: [] })
+  })
+  const errors = watch(page)
+  await page.goto('./#/czat')
+  await expect(page.getByTestId('rozmowa-source')).toContainText('reguła · stan.dopytanie · 2,4 s')
+  await expect(page.getByTestId('rozmowa-online')).toContainText('słucha czatu')
+  await page.getByTestId('rozbior-open').click()
+  await expect(page.getByTestId('rozbior-sheet')).toContainText('nudzić')
+  await expect(page.getByTestId('rozbior-sheet')).toContainText('teraźniejszy')
+  await expect(page.getByTestId('rozbior-sheet')).toContainText('CC BY 4.0')
+  expect(errors).toEqual([])
+})
+
+// Weryfikuj: bez uprawnień Developera nie ma przycisku ukrywania; ukryte klucze znikają z kolejki.
+test('Weryfikuj: ukrywanie tylko dla Developera', async ({ page }) => {
+  await page.route(/supabase\.co\/rest\/v1\//, (r) => {
+    const u = r.request().url()
+    if (u.includes('/rpc/myc_review_hidden_list')) return r.fulfill({ status: 403, json: { message: 'myc: tylko Developer' } })
+    if (u.includes('/rpc/myc_review_hidden_keys')) return r.fulfill({ json: [] })
+    return r.fulfill({ json: [] })
+  })
+  await page.goto('./#/weryfikuj')
+  await expect(page.getByTestId('review-numbers')).toBeVisible()
+  await expect(page.getByTestId('review-hide')).toHaveCount(0)
+  await expect(page.getByTestId('review-hidden')).toHaveCount(0)
+})
