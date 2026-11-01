@@ -337,17 +337,45 @@ export function analogy(text: string, ctx: NumCtx): NumResult | null {
   const facts = ctx.facts ?? []
   if (facts.length) {
     const lem = (s: string) => ctx.parse(s).tokens
-    const lemOf = (w: string) => (ctx.lex ? (lemmasTags(ctx.lex, w)[0]?.[0] ?? low(w)) : low(w))
-    const relOf = (toks: ATok[], x: string, y: string): string | null => {
-      const ix = toks.findIndex((t) => low(t.lemma) === x)
-      const iy = toks.findIndex((t) => low(t.lemma) === y)
-      if (ix < 0 || iy < 0 || ix === iy) return null
-      const [s, e] = ix < iy ? [ix, iy] : [iy, ix]
-      const mid = toks.slice(s + 1, e).filter((t) => t.upos !== 'PUNCT').map((t) => low(t.lemma || t.form))
-      return `${ix < iy ? '→' : '←'}${mid.join(' ')}`
+    // lematy słowa: ze słownika (wszystkie interpretacje) i z rozbioru – rozbiór bywa niespójny
+    const lemSet = (form: string, parsed?: string): Set<string> => {
+      const k = new Set<string>([low(form)]) // sama forma też – słownik nie zna każdego słowa („cielę”)
+      if (parsed) k.add(low(parsed))
+      if (ctx.lex) for (const [l] of lemmasTags(ctx.lex, low(form))) k.add(low(l.split(':')[0]))
+      return k
     }
+    const lemOf = (w: string) => lemSet(w)
+    const POS: Record<string, RegExp> = { VERB: /^(fin|praet|inf|impt|bedzie|imps|pcon|pant|ger|pact|ppas|winien)/, AUX: /^(fin|praet|inf|bedzie)/, NOUN: /^(subst|depr)/, PROPN: /^(subst|depr)/, ADJ: /^adj/, ADV: /^adv/ }
+    // lemat do ramy: interpretacja ze słownika zgodna z częścią mowy z rozbioru (stała dla tej samej formy)
+    const canon = (t: ATok) => {
+      const re = POS[t.upos]
+      const ls = ctx.lex ? lemmasTags(ctx.lex, low(t.form)).filter(([, tag]) => !re || re.test(tag)).map(([l]) => low(l.split(':')[0])).sort() : []
+      return ls[0] ?? low(t.lemma || t.form)
+    }
+    // przypadki możliwe dla formy (słownik + rozbiór) – „igły” to dopełniacz l. poj. albo mianownik/biernik l. mn.
+    const cases = (t: ATok, k: Set<string>) => {
+      const c = new Set<string>()
+      if (t.feats?.Case) c.add(t.feats.Case.toLowerCase())
+      if (ctx.lex) for (const [l, tag] of lemmasTags(ctx.lex, low(t.form))) if (k.has(low(l.split(':')[0]))) for (const x of (tag.split(':')[2] ?? '').split('.')) if (x) c.add(x)
+      return c
+    }
+    type Rel = { rest: string; xc: Set<string>; yc: Set<string> }
+    // rama relacji: pozostałe słowa zdania (lematy, bez kolejności) + możliwe przypadki X i Y – „Lis mieszka w norze.” i
+    // „W budzie mieszka pies.” mają tę samą ramę {mieszkać, w}, X w mianowniku, Y w miejscowniku
+    const relOf = (toks: ATok[], x: Set<string>, y: Set<string>): Rel | null => {
+      const hit = (t: ATok, k: Set<string>) => [...lemSet(t.form, t.lemma)].some((l) => k.has(l))
+      const ix = toks.findIndex((t) => t.upos !== 'PUNCT' && hit(t, x))
+      const iy = toks.findIndex((t, i) => i !== ix && t.upos !== 'PUNCT' && hit(t, y))
+      if (ix < 0 || iy < 0) return null
+      const rest = toks.filter((t, i) => i !== ix && i !== iy && t.upos !== 'PUNCT').map(canon).sort().join(' ')
+      return { rest, xc: cases(toks[ix], x), yc: cases(toks[iy], y) }
+    }
+    const meet = (a: Set<string>, b: Set<string>) => !a.size || !b.size || [...a].some((x) => b.has(x))
+    const sameRel = (a: Rel | null, b: Rel) => !!a && a.rest === b.rest && meet(a.xc, b.xc) && meet(a.yc, b.yc)
+    const relPl = (r: Rel) => r.rest || '(sąsiedztwo)'
+    const casePl = (c: Set<string>) => [...c].map((x) => GRAM_PL[x] ?? x).join('/')
     const [la, lb, lc] = [A, B, C].map(lemOf)
-    let rel: { r: string; id: string; text: string } | undefined
+    let rel: { r: Rel; id: string; text: string } | undefined
     for (const f of facts) {
       const r = relOf(lem(f.text), la, lb)
       if (r) {
@@ -356,11 +384,11 @@ export function analogy(text: string, ctx: NumCtx): NumResult | null {
       }
     }
     if (rel) {
-      ctx.trace.push({ kind: 'fakt', text: `„${rel.text}” łączy ${A} i ${B} relacją „${rel.r.slice(1) || '(sąsiedztwo)'}”` })
+      ctx.trace.push({ kind: 'fakt', text: `„${rel.text}” łączy ${A} i ${B} relacją „${relPl(rel.r)}” (${A}: ${casePl(rel.r.xc)}; ${B}: ${casePl(rel.r.yc)})` })
       const hits: { o: string; id: string; text: string }[] = []
       for (const o of opts.length ? opts : []) {
         const lo = lemOf(o)
-        for (const f of facts) if (relOf(lem(f.text), lc, lo) === rel.r) hits.push({ o, id: f.id, text: f.text })
+        for (const f of facts) if (sameRel(relOf(lem(f.text), lc, lo), rel.r)) hits.push({ o, id: f.id, text: f.text })
       }
       const uniq = [...new Set(hits.map((h) => h.o))]
       if (uniq.length === 1) {
@@ -368,7 +396,7 @@ export function analogy(text: string, ctx: NumCtx): NumResult | null {
         ctx.trace.push({ kind: 'fakt', text: `„${h.text}” łączy ${C} i ${h.o} tą samą relacją` }, { kind: 'wniosek', text: `${C} : ${h.o}` })
         return { answer: h.o, method: 'analogia (relacja z faktów)', used: [rel.id, h.id] }
       }
-      ctx.trace.push({ kind: 'brak', text: uniq.length ? `kilka opcji ma tę relację (${uniq.join(', ')})` : `brak zatwierdzonego faktu łączącego „${C}” z którąś opcją relacją „${rel.r.slice(1)}”` })
+      ctx.trace.push({ kind: 'brak', text: uniq.length ? `kilka opcji ma tę relację (${uniq.join(', ')})` : `brak zatwierdzonego faktu łączącego „${C}” z którąś opcją relacją „${relPl(rel.r)}”` })
       return null
     }
   }
