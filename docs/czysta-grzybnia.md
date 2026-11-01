@@ -1,6 +1,6 @@
 # Czysta grzybnia – AI bez gotowego modelu
 
-Zakładka **Rozmowa → Czysta grzybnia** (`#/czysta`, `web/src/pages/Czysta.tsx`). Decyzja właścicielki z 1.11.2026:
+Zakładka **Rozmowa → Czysta grzybnia** (`#/czysta`, `web/src/pages/Czysta.tsx`). Decyzja właściciela z 1.11.2026:
 odpowiada **wyłącznie** to, czego grzybnia nauczyła się sama albo co zatwierdzili ludzie. Bez modelu językowego
 (żadnego Qwena ani adaptera LM v4), bez Wikipedii i Wikidata, bez zewnętrznych modeli i osadzeń.
 
@@ -88,7 +88,7 @@ mają tę samą ramę. Przykłady w interfejsie są celowo spoza słownictwa ćw
   `scripts/samouk_run.py`): słowa z prawdziwych źródeł **spoza testu** – najpierw słownictwo zatwierdzone w czacie
   i Weryfikuj (`myc_meanings`, jednowyrazowe tematy strzępków od ludzi), rodzaj relacji wg znacznika Morfeusza
   (m2 → dom/młode, zawód m1 → narzędzie, przymiotnik → przeciwieństwo), potem listy ze słownika Morfeusza 2 / SGJP
-  (przymiotniki stopniowalne, zawody). Decyzja właścicielki 1.11: słownictwo testów analogii (`selfplay.REL` i pytania
+  (przymiotniki stopniowalne, zawody). Decyzja właściciela 1.11: słownictwo testów analogii (`selfplay.REL` i pytania
   analogii w `results/czysta/parafrazy-*.json`) wraz ze wszystkimi formami jest zakazane – `relacje.banned_forms`,
   wygenerowane `supabase/myc_rel_banned.sql`, filtr w `myc_rel_propose` i w mówcy, testy `tests/test_relacje.py`
   i `czysta-check`. Sześć pierwszych pytań (kot, owca, koń, lis, malarz, pisarz) wycofano (`retired_at`), a wpis mówcy
@@ -104,9 +104,9 @@ mają tę samą ramę. Przykłady w interfejsie są celowo spoza słownictwa ćw
 ## Jak się uczy (progi z kodu – `web/src/myc/czystaZasady.ts`, pilnuje `web/scripts/czysta-check.mjs`)
 
 - Fakt / para z Ucz AI liczy się, gdy konsensus Dawida–Skene'a daje ≥ 80% (`FACT_CONF`) i jest ≥ 1 głos.
-  Apriori trafności osoby Beta(2, 1), właścicielki Beta(8, 1); pytania kontrolne co 5. odpowiedź, waga ×2.
+  Apriori trafności osoby Beta(2, 1), właściciela Beta(8, 1); pytania kontrolne co 5. odpowiedź, waga ×2.
 - Odpowiedź tej zakładki trafia do Weryfikuj (kategoria „czysta grzybnia”, `act = czysta`). Zatwierdzona / odrzucona przy
-  ≥ 3 głosach i pewności ≥ 95% / ≤ 5%; głos właścicielki rozstrzyga od razu. Waga głosu osoby: (trafne + 3)/(wszystkie + 4),
+  ≥ 3 głosach i pewności ≥ 95% / ≤ 5%; głos właściciela rozstrzyga od razu. Waga głosu osoby: (trafne + 3)/(wszystkie + 4),
   55–90%. Poprawka staje się wiedzą (strzępek `odpowiedz`), gdy suma wag zgodnych poprawek ≥ ln(0,9/0,1).
 - Na odpowiedź na własne pytanie się nie głosuje (baza: `own`) – wtedy poprawka idzie do Ucz AI jako para pytanie→odpowiedź.
 - „Dodaj fakt albo regułę” = `brain.teach('fact', …)` → Ucz AI → Weryfikuj. Reguła to zwykłe zdanie („Jeśli…, to…”).

@@ -4,7 +4,7 @@ Kolejność wynika z audytu wkładu węzłów (`docs/contribution-audit.md`): na
 potem kierujemy ją tam, gdzie daje mierzalny postęp. Każdy etap kończy się liczbą na stałym teście, nie deklaracją.
 
 ## Etap A (nadrzędny) – grzybnia warstwowa: każde pytanie przechodzi przez węzły rozumienia, rozumowania i odpowiedzi
-Wizja właścicielki (24.10): odpowiedź ma być prawdziwa i oparta na źródłach, a nie „ładnie brzmiąca”. Bez cenzury –
+Wizja właściciela (24.10): odpowiedź ma być prawdziwa i oparta na źródłach, a nie „ładnie brzmiąca”. Bez cenzury –
 słowa wulgarne/potoczne dostają tylko etykietę rejestru; o treści odpowiedzi decyduje to, co mówią źródła.
 Każda warstwa to rola, którą może wziąć dowolny węzeł (przeglądarka, box, PC); wynik warstwy ma typ, autora (węzeł) i źródła.
 
@@ -46,7 +46,7 @@ sposobu/przyczyny/celu), zdania składowe (współrzędne/podrzędne + spójnik)
   (UPOS 95,4%, cechy 82,5%, LAS 76,4%); v0 grzybni role-F1 75,7% (UPOS 97,1%, cechy 77,6%, LAS 78,6%;
   PDB 74,2%, LFG 78,9%).
 - Czat: zwijana tabela „Jak zrozumiałem zdanie” (kolor części mowy) + trasa (osobiste / fakt; pytane miejsce → właściwość
-  Wikidata). Weryfikuj: „Rozbiór zdania” (dobrze / źle / popraw część zdania słowa; wagi zaufania, właścicielka = złota).
+  Wikidata). Weryfikuj: „Rozbiór zdania” (dobrze / źle / popraw część zdania słowa; wagi zaufania, właściciel = złota).
   Start: kafelek role-F1 z wersji opublikowanej. Ćwiczenia S2: `selfplay_run.py --rozbior N` (pytania z ram train,
   bez pokrycia z bramką 2000 pytań).
 - Dalej: Morfeusz2/SGJP (lematy, cechy dla słów spoza UD), trening na zatwierdzonych rozbiorach z Weryfikuj
@@ -69,11 +69,11 @@ sposobu/przyczyny/celu), zdania składowe (współrzędne/podrzędne + spójnik)
 4. **Stały węzeł PC widoczny**: bicie serca co 10 min, licznik zadań i przyczyna bezczynności na stronie stanu
    i w panelu „Wkład węzłów”. Dziś stały węzeł z MyceliumNode.exe nie ma w bazie ani jednego zadania.
 
-## Etap 2 – czat uczy się od ludzi (prośba właścicielki 24.10; w toku: PR #53)
+## Etap 2 – czat uczy się od ludzi (prośba właściciela 24.10; w toku: PR #53)
 - Rozpoznawanie intencji krótkich reakcji (obelga, frustracja, niezgoda) zamiast zmyślania definicji.
 - Nieznane słowo/fraza → czat mówi, że nie zna znaczenia, i prosi o wyjaśnienie → oczekujące znaczenie
   (słowo, znaczenie, rejestr: wulgarne/potoczne, przykład, autor) → głosowanie w Weryfikuj (wagi zaufania,
-  głos właścicielki = wzorzec) → dopiero po zatwierdzeniu strzępek, dane LM i odpowiedzi czatu.
+  głos właściciela = wzorzec) → dopiero po zatwierdzeniu strzępek, dane LM i odpowiedzi czatu.
 - Mały słownik rejestru (Wikisłownik: kwalifikatory „wulg.”, „pot.”, CC BY-SA).
 
 ## Etap 3 – moc obliczeniowa tam, gdzie jest postęp
@@ -89,7 +89,7 @@ sposobu/przyczyny/celu), zdania składowe (współrzędne/podrzędne + spójnik)
   i liczniki w czasie. Bez pobierania z Google Images.
 - Nowe typy w Weryfikuj: obrót/etykieta obrazu, tekst OCR, edycja kategorii.
 
-## Etap S – samorozwój w granicach bramki (prośba właścicielki 24.10)
+## Etap S – samorozwój w granicach bramki (prośba właściciela 24.10)
 Z „protokołu samoewolucji” bierzemy to, co da się zmierzyć. Twarde granice (nie do zmiany przez AI):
 1. **Brak samoprzepisywania kodu** i brak uruchamiania wygenerowanego kodu na węzłach ochotników. Kod napisany przez model
    działa tylko w odizolowanej piaskownicy na boxie (bez sieci, limit CPU/RAM/czasu), a jego wynik to wyłącznie dane.
@@ -171,7 +171,7 @@ Z „protokołu samoewolucji” bierzemy to, co da się zmierzyć. Twarde granic
   - kolejka pobierania „gdy bezczynny / na ładowarce” (stan zasilania z systemu),
   - opcjonalnie 2–3 pytania dziennie z Weryfikuj w panelu węzła (powiadomienie tylko za zgodą).
 
-## Etap C – czat globalny, role i „jak ludzie piszą” (prośba właścicielki 25.10, t95u)
+## Etap C – czat globalny, role i „jak ludzie piszą” (prośba właściciela 25.10, t95u)
 - Zrobione (pierwszy plasterek): czat globalny ludzi i botów węzłów na żywo (Realtime), rola **Developer** z klucza
   właściciela (automatycznie na urządzeniach z kluczem w Weryfikuj), Moderatorzy, dziennik moderacji, bez cenzury słów.
 - Model komunikacji: klasyfikator intencji w przeglądarce (pytanie / emocja / niezgoda / ironia / powitanie /
@@ -205,7 +205,7 @@ Z „protokołu samoewolucji” bierzemy to, co da się zmierzyć. Twarde granic
 - Plasterek 7 – **Odzyskiwanie przez krąg** (opcjonalne): k z n zaufanych członków zatwierdza przywrócenie konta bez
   kodu; opóźnienie (np. 72 h), powiadomienie na wszystkich urządzeniach konta, weto właściciela konta, dziennik.
 
-## Etap P – prawda ze źródeł (prośba właścicielki 24.10, t103u/t107u)
+## Etap P – prawda ze źródeł (prośba właściciela 24.10, t103u/t107u)
 Zasada: bez cenzury (wulgaryzmy dostają tylko etykietę rejestru), ale odpowiedź na pytanie o fakt musi pochodzić ze
 źródła, które można sprawdzić. Bez źródła czat mówi „nie wiem” i proponuje naukę – nie zgaduje.
 
@@ -218,7 +218,7 @@ Zrobione w tej wersji:
   Wikidata były już w CSP (`connect-src`), nic nie dodano. Odpowiedź modelu na węzłach nie jest używana do pytań o fakt.
 - **Każda odpowiedź czatu w Weryfikuj** (`supabase/myc_answers.sql`, typ „answer”): pytanie bez e-maili, linków,
   telefonów i imion, odpowiedź, źródła, pewność, etykiety (temat/kategoria z taksonomii, intencja, ma źródło, rejestr),
-  filtry; głosy potwierdź / nie zgadzam się / popraw z wagą zaufania (Dawid–Skene; właścicielka = złota etykieta,
+  filtry; głosy potwierdź / nie zgadzam się / popraw z wagą zaufania (Dawid–Skene; właściciel = złota etykieta,
   ludzie ≤ 0,9, agenci ≤ 0,7). Poprawka zatwierdzona → strzępek `odpowiedz` (pamięć wiedzy); odpowiedź błędna →
   `myc_error_set` „nigdy więcej”. Rezygnacja: przełącznik w czacie + `myc_account_prefs.train_ok` konta.
 - **Pomiar**: stały zestaw 40 pytań `benchmarks/chat_facts/chat_facts_v1.json` (nie należy do bramki 2000 pytań),

@@ -20,7 +20,7 @@ interface Pat {
 const LABELS = ['pytanie', 'emocja', 'niezgoda', 'stwierdzenie', 'powitanie']
 
 /** Weryfikuj → wzorce języka z czatu globalnego (skróty, emotikony, wydłużenia, intencje, ironia): „prawda” / „kłamstwo”.
- *  Waga głosu = trafność na złotych etykietach; Developer (konto z kluczem) lub klucz właścicielki = złota etykieta. */
+ *  Waga głosu = trafność na złotych etykietach; Developer (konto z kluczem) lub klucz właściciela = złota etykieta. */
 export function PatternVotes({ state, conf = 'all', onCount }: InboxProps = {}) {
   const en = useI18n().lang === 'en'
   const L = (pl: string, e: string) => (en ? e : pl)

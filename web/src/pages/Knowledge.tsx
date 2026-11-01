@@ -147,7 +147,7 @@ export default function Knowledge() {
                     <td className="py-2 pr-3">
                       <span className="text-slate-200">{agentName(n, kinds[n])}</span>
                       {n === ids.node && <span className="chip ml-1 text-spore">{en ? 'you' : 'Ty'}</span>}
-                      {owners.has(n) && <span className="chip ml-1 text-violet">{en ? 'owner' : 'właścicielka'}</span>}
+                      {owners.has(n) && <span className="chip ml-1 text-violet">{en ? 'owner' : 'właściciel'}</span>}
                       <div className="text-xs text-slate-500">{kinds[n] ?? 'browser'}</div>
                     </td>
                     <td className={`py-2 pr-3 tabular-nums ${tr >= 0.7 ? 'text-spore' : tr < 0.4 ? 'text-rose' : 'text-amber'}`}>{pct(tr)}</td>

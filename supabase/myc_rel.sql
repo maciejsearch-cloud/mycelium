@@ -40,7 +40,7 @@ language sql immutable as $$
   end
 $$;
 
--- Propozycja pytania (tylko mówca w bazie i właścicielka przez Management API – brak uprawnień dla anon/authenticated).
+-- Propozycja pytania (tylko mówca w bazie i właściciel przez Management API – brak uprawnień dla anon/authenticated).
 -- Limity: 30 nowych pytań na proponującego na dobę, najwyżej 500 pytań w pokoju.
 create or replace function public.myc_rel_propose(p_kind text, p_word text, p_proposer text, p_reason text default null,
   p_question text default null, p_room text default 'main') returns bigint

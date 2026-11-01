@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 // Nauka z czatu (bez backendu: RPC podstawione): reakcja „pierdolisz” → odpowiedź rozumiejąca intencję i znaczenie
 // (Wikisłownik, rejestr jako etykieta), nieznane słowo → prośba o wyjaśnienie → oczekujące znaczenie (RPC),
-// głos właścicielki w Weryfikuj → zatwierdzone → czat go używa.
+// głos właściciela w Weryfikuj → zatwierdzone → czat go używa.
 test('czat: reakcja, wyjaśnienie → głosowanie → zatwierdzone znaczenie w odpowiedzi', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop', 'raz wystarczy')
   const calls: { fn: string; body: Record<string, unknown> }[] = []
@@ -51,7 +51,7 @@ test('czat: reakcja, wyjaśnienie → głosowanie → zatwierdzone znaczenie w o
   await expect(page.getByTestId('meaning-pending')).toContainText('czeka na głosowanie')
   const add = calls.find((c) => c.fn === 'myc_meaning_add')!
   expect(add.body).toMatchObject({ p_word: 'ziomal', p_meaning: 'kumpel, przyjaciel', p_register: 'potoczne', p_room: 'main' })
-  // 4. Weryfikuj: głos właścicielki = złota etykieta → zatwierdzone
+  // 4. Weryfikuj: głos właściciela = złota etykieta → zatwierdzone
   await page.goto('./#/weryfikuj')
   await page.getByTestId('owner-key').fill('klucz-testowy')
   await page.getByTestId('owner-key-save').click()

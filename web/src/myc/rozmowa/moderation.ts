@@ -1,4 +1,4 @@
-// Moderacja przez grzybnię – WYŁĄCZNIE zalew/spam i powtarzane nękanie innych osób. Warunek właścicielki (brak cenzury):
+// Moderacja przez grzybnię – WYŁĄCZNIE zalew/spam i powtarzane nękanie innych osób. Warunek właściciela (brak cenzury):
 // nigdy nie usuwamy ani nie blokujemy wiadomości za poglądy, temat, przekleństwa czy wulgarność. Automatycznie (10 min)
 // tylko oczywisty zalew; wszystko inne to PROPOZYCJA dla Developera (panel moderacji, dziennik, odwracalne).
 import type { ModAction, ModMsg } from './types'

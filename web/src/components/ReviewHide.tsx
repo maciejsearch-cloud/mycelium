@@ -7,7 +7,7 @@ import type { ReviewItem } from '../myc/review'
 
 const key = () => ownerKey.get() || null
 
-/** Sprawdza w bazie, czy ta sesja może ukrywać (lista ukrytych zwraca się tylko Developerowi/właścicielce). */
+/** Sprawdza w bazie, czy ta sesja może ukrywać (lista ukrytych zwraca się tylko Developerowi/właścicielowi). */
 export const probeHidden = (room: 'main' | 'e2e') => hiddenList(key(), room)
 
 export function HideItem({ item, room, en, onHidden }: { item: ReviewItem; room: 'main' | 'e2e'; en: boolean; onHidden: () => void }) {

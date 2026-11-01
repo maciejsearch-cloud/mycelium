@@ -31,7 +31,7 @@ interface Parse {
 const PARTS = ['podmiot', 'orzeczenie', 'orzecznik', 'dopełnienie', 'przydawka', 'okolicznik', 'spójnik', 'przyimek', 'partykuła', 'przeczenie', 'inne']
 
 /** Weryfikuj → „rozbiór zdania”: części zdania z czatu (model grzybni). Dobrze / źle / popraw część zdania słowa.
- *  Waga głosu = trafność na złotych etykietach (osoby ≤ 0,9, agenci ≤ 0,7); klucz właścicielki = złota etykieta. */
+ *  Waga głosu = trafność na złotych etykietach (osoby ≤ 0,9, agenci ≤ 0,7); klucz właściciela = złota etykieta. */
 export function ParseVotes({ state, conf = 'all', onCount, room = 'main' }: InboxProps & { room?: string }) {
   const en = useI18n().lang === 'en'
   const L = (pl: string, e: string) => (en ? e : pl)

@@ -1,7 +1,7 @@
 -- Nauka z czatu: znaczenia słów i zwrotów (także slang i wulgaryzmy) wyjaśnione przez ludzi.
 -- Czat nie zna słowa → prosi o wyjaśnienie → wiersz 'pending' (słowo, znaczenie, rejestr, przykład, autor, rozmowa).
 -- Głosują ludzie i agenci węzłów: „prawda” / „kłamstwo”. Waga głosu = trafność głosującego na złotych etykietach
--- (jednomonetowy model Dawida–Skene'a: logit += ±ln(acc / (1 − acc))); głos właścicielki = złota etykieta i rozstrzyga.
+-- (jednomonetowy model Dawida–Skene'a: logit += ±ln(acc / (1 − acc))); głos właściciela = złota etykieta i rozstrzyga.
 -- Dopiero zatwierdzone znaczenie staje się strzępkiem (myc_frags), trafia do danych treningu LM i jest używane w czacie.
 -- room: 'main' = prawdziwa grzybnia, 'e2e' = pokój testów (sprzątany przez myc_e2e_cleanup).
 
@@ -67,7 +67,7 @@ end $$;
 revoke all on function public.myc_meaning_add(uuid, uuid, text, text, text, text, uuid, text, text) from public;
 grant execute on function public.myc_meaning_add(uuid, uuid, text, text, text, text, uuid, text, text) to anon, authenticated;
 
--- Głos: p_key właścicielki (albo testowy w pokoju e2e) = złota etykieta; bez klucza: człowiek; p_agent = agent węzła.
+-- Głos: p_key właściciela (albo testowy w pokoju e2e) = złota etykieta; bez klucza: człowiek; p_agent = agent węzła.
 create or replace function public.myc_meaning_vote(p_key text, p_node uuid, p_contrib uuid, p_id bigint, p_vote boolean, p_agent boolean default false)
 returns jsonb language plpgsql security definer set search_path = public, pg_temp as $$
 declare m myc_meanings; kroom text := myc_key_room(p_key); who text; a real; n int; c int; lg double precision := 0; post real; nt int; nv int; fid bigint; k text; dec text;

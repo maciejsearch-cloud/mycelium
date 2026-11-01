@@ -52,7 +52,7 @@ Przekleństwo bez obrazy osoby nie wywołuje żadnej reakcji moderacyjnej (zesta
 
 ## Weryfikuj: ukrywanie przez Developera
 
-Developer (rola na czacie) albo właścicielka (klucz) może ukryć pozycję kolejki z podanym powodem
+Developer (rola na czacie) albo właściciel (klucz) może ukryć pozycję kolejki z podanym powodem
 (`myc_review_hide`) i ją przywrócić (`myc_review_restore`). Nic nie jest kasowane. Lista z informacją kto, kiedy
 i dlaczego jest pod kolejką. Publicznie widać tylko klucze ukrytych pozycji, potrzebne, żeby kolejka ich nie pokazywała.
 

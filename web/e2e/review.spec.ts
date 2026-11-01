@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 // Zakładka Weryfikuj bez backendu: odpowiedzi RPC podstawione w teście (UI + kształt zapisu).
-test('Weryfikuj: tryb właścicielki, sprzeczny strzępek, poprawka trafia do RPC z kluczem', async ({ page }) => {
+test('Weryfikuj: tryb właściciela, sprzeczny strzępek, poprawka trafia do RPC z kluczem', async ({ page }) => {
   const calls: { fn: string; body: Record<string, unknown> }[] = []
   let resolved = false
   await page.route(/supabase\.co\/rest\/v1\//, async (route) => {
@@ -26,7 +26,7 @@ test('Weryfikuj: tryb właścicielki, sprzeczny strzępek, poprawka trafia do RP
   await expect(page.getByTestId('btn-approve')).toBeDisabled()
   await page.getByTestId('owner-key').fill('klucz-testowy')
   await page.getByTestId('owner-key-save').click()
-  await expect(page.getByTestId('review-mode')).toContainText('Właścicielka')
+  await expect(page.getByTestId('review-mode')).toContainText('Właściciel')
   const item = page.getByTestId('review-item')
   await expect(item).toHaveAttribute('data-type', 'fragment')
   await expect(item).toContainText('Warszawa – liczba ludności – ?')

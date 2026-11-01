@@ -548,7 +548,7 @@ function OwnerKey() {
       <summary className="cursor-pointer text-slate-300">{en ? 'Owner key (optional)' : 'Klucz właściciela (opcjonalnie)'}</summary>
       <p className="mt-2 text-xs text-slate-400">
         <L
-          pl={`Klucz zostaje tylko w tej przeglądarce. Baza porównuje jego skrót i oznacza Twoje odpowiedzi jako właścicielki – startują z wyższą wagą (ok. ${ownerPct} zamiast ${basePct}), ale nadal są sprawdzane pytaniami kontrolnymi.`}
+          pl={`Klucz zostaje tylko w tej przeglądarce. Baza porównuje jego skrót i oznacza Twoje odpowiedzi jako właściciela – startują z wyższą wagą (ok. ${ownerPct} zamiast ${basePct}), ale nadal są sprawdzane pytaniami kontrolnymi.`}
           en={`The key stays in this browser only. The database compares its hash and marks your answers as the owner's – they start with a higher weight (≈${ownerPct} instead of ${basePct}) but are still checked with gold questions.`}
         />
       </p>

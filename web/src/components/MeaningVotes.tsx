@@ -6,7 +6,7 @@ import { Card } from './ui'
 import { split, type InboxProps } from '../myc/inbox'
 
 /** Weryfikuj → znaczenia z czatu: każdy głosuje „prawda” / „kłamstwo” (waga = trafność na złotych etykietach);
- *  głos właścicielki (klucz) jest złotą etykietą i rozstrzyga. Rejestr (np. wulgarne) to tylko etykieta – bez cenzury. */
+ *  głos właściciela (klucz) jest złotą etykietą i rozstrzyga. Rejestr (np. wulgarne) to tylko etykieta – bez cenzury. */
 export function MeaningVotes({ state, conf = 'all', onCount }: InboxProps = {}) {
   const { lang } = useI18n()
   const en = lang === 'en'
@@ -34,7 +34,7 @@ export function MeaningVotes({ state, conf = 'all', onCount }: InboxProps = {}) 
         : r.status === 'approved'
           ? en
             ? `approved (${r.voter === 'owner' ? 'owner – gold label' : 'votes'}) → fragment, chat (LM data: next export)`
-            : `zatwierdzone (${r.voter === 'owner' ? 'właścicielka – złota etykieta' : 'głosy'}) → strzępek, czat (dane LM: następny eksport)`
+            : `zatwierdzone (${r.voter === 'owner' ? 'właściciel – złota etykieta' : 'głosy'}) → strzępek, czat (dane LM: następny eksport)`
           : r.status === 'rejected'
             ? en
               ? 'rejected'
@@ -58,7 +58,7 @@ export function MeaningVotes({ state, conf = 'all', onCount }: InboxProps = {}) 
         <p className="mb-2 text-xs text-slate-400">
           {en
             ? 'People explained words the chat did not know (slang and vulgar words included – the register is only a tag). Until approved they are not used. Every vote counts with its trust weight; the owner key decides.'
-            : 'Ludzie wyjaśnili słowa, których czat nie znał (także slang i wulgaryzmy – rejestr to tylko etykieta). Do zatwierdzenia nie są używane. Każdy głos liczy się z wagą zaufania; klucz właścicielki rozstrzyga.'}
+            : 'Ludzie wyjaśnili słowa, których czat nie znał (także slang i wulgaryzmy – rejestr to tylko etykieta). Do zatwierdzenia nie są używane. Każdy głos liczy się z wagą zaufania; klucz właściciela rozstrzyga.'}
           {ownerKey.get() ? (en ? ' Your vote = gold label.' : ' Twój głos = złota etykieta.') : ''}
         </p>
         {visible && !visible.length && <p className="text-sm text-slate-500">{en ? 'Nothing waiting.' : 'Nic nie czeka.'}</p>}
