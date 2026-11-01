@@ -219,7 +219,10 @@ begin
   return query select m.handle, m.at, g.body from myc_chat_mem m join myc_gchat g on g.id = m.msg_id
    where not g.deleted and (p_before is null or m.msg_id < p_before)
      and (p_handle is null or lower(m.handle) = lower(p_handle))
-     and (p_lemmas is null or cardinality(p_lemmas) = 0 or m.content && p_lemmas)
+     and (p_lemmas is null or cardinality(p_lemmas) = 0 or m.content && p_lemmas
+          -- wspólny początek lematu (≥ 3 litery, długość − 2): „nuda” znajduje „nudzić”
+          or exists (select 1 from unnest(m.content) c, unnest(p_lemmas) q
+                      where char_length(q) >= 4 and left(c, greatest(3, char_length(q) - 2)) = left(q, greatest(3, char_length(q) - 2))))
      and (p_handle is not null or (p_lemmas is not null and cardinality(p_lemmas) > 0))
    order by m.msg_id desc limit least(greatest(coalesce(p_limit, 3), 1), 10);
 end $$;

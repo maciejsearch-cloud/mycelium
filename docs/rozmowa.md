@@ -19,6 +19,13 @@ wiadomość osoby (myc_gchat) ──► proces rozmówcy na serwerze (web/script
 * `respond.ts` wybiera odpowiedź po kolei: pary zatwierdzone przez ludzi → obraza → przeprosiny → żart → ciało → relacja →
   przypomnienie („co pisał X wczoraj?”, wyszukiwanie w `myc_chat_mem`) → o sobie → komplement → wołanie → stan →
   uczciwe „nie wiem” z pokazanym rozbiorem. Grzybnia mówi o sobie w pierwszej osobie, w rodzaju żeńskim.
+* Pytania o wiedzę („czym jest kot?”, „napisz mi, czym jest kot”, „jaka jest stolica Francji?”, „ile mieszkańców ma
+  Warszawa?”) rozpoznaje `facts.ts`. Proces rozmówcy czyta strzępki z `myc_frags` (Wikisłownik, Słowosieć, Wikidata,
+  zweryfikowane przez ludzi) i odpowiada ze źródłem `fakt`, numerami strzępków i ich pochodzeniem. Gdy strzępka brak,
+  mówi wprost „nie mam w bazie” i prosi o zdanie „X jest …” (trafia ono do Weryfikuj).
+* „Kto co mówił”: `myc_rozmowa_recall` szuka po pseudonimie albo po lematach treści, także po wspólnym początku
+  lematu („nuda” znajduje „nudzić”). Pytanie musi być w czasie przeszłym („co pisała Ola?”), więc „napisz mi…”
+  nie jest już brane za przypomnienie.
 * Wtrącenia: najwyżej co `interject_every_n` wiadomości (domyślnie 3) i nie częściej niż co `interject_min_s` (90 s).
   Po `invite_quiet_min` (45 min) ciszy zaprasza do rozmowy, nie częściej niż co `invite_every_min` (180 min).
   Limity egzekwuje baza, a Developer zmienia je w panelu „Rozmówca grzybni”. Mówca (`myc_speaker_tick`) milknie,
@@ -87,6 +94,7 @@ Panel pokazuje medianę z ostatnich 50 odpowiedzi na wołanie.
 
 * Brak awaryjnego modelu językowego (LM v4). Na serwerze nie ma pamięci obok węzłów, więc to, czego reguły nie
   obejmują, dostaje uczciwe „nie wiem” z rozbiorem.
+* SelfModel (`scripts/selfmodel_run.py`) bierze stan relacji z `myc_self_relations_status`, a decyzje moderacji z `myc_self_rel_decisions`.
 * Reguły stroiliśmy na zbiorze dev i na podstawie błędów z frozen-v1/v2. Ślepe wyniki to tylko pierwsze przebiegi
   (frozen-v1 61/66, frozen-v2 26/33).
 * Proces rozmówcy działa na jednym serwerze. Gdy przestaje działać, panel pokazuje „offline”, a czat działa dalej bez grzybni.

@@ -138,6 +138,8 @@ export interface ReplyContext {
   pairs?: Record<string, string>
   /** czy to odpowiedź na wpis grzybni */
   replyToAi?: boolean
+  /** strzępki wiedzy z bazy dla pytania o wiedzę (factQuery); undefined = nie szukano */
+  facts?: import('./facts').FactRow[]
   /** losowość (dla testów: stała) */
   rnd?: () => number
   now?: Date

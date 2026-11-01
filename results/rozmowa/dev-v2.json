@@ -1,0 +1,191 @@
+{
+ "name": "rozmowa-dev-v2",
+ "note": "Zestaw DEWELOPERSKI z testu na żywo 01.11.2026 (po wdrożeniu); strzępki w polu facts to prawdziwe wiersze myc_frags (id) – kopia jako dane testu.",
+ "items": [
+  {
+   "id": "e01",
+   "cat": "fakt",
+   "seq": [
+    [
+     "Dev",
+     "Grzybnio czym jest kot?"
+    ]
+   ],
+   "facts": [
+    {
+     "id": 58539,
+     "subj": "kot",
+     "rel": "definicja",
+     "obj": "zwierzę domowe",
+     "source": "wiktionary",
+     "trust": 0.9,
+     "status": "verified",
+     "n_support": 18
+    },
+    {
+     "id": 18127,
+     "subj": "kot",
+     "rel": "jest",
+     "obj": "Zwierzę",
+     "source": "plwordnet",
+     "trust": 0.85,
+     "status": "active",
+     "n_support": 2
+    },
+    {
+     "id": 18125,
+     "subj": "kot",
+     "rel": "jest",
+     "obj": "Ssak",
+     "source": "plwordnet",
+     "trust": 0.85,
+     "status": "active",
+     "n_support": 1
+    },
+    {
+     "id": 18123,
+     "subj": "kot",
+     "rel": "jest",
+     "obj": "Kotowate",
+     "source": "plwordnet",
+     "trust": 0.85,
+     "status": "active",
+     "n_support": 1
+    }
+   ],
+   "expect": [
+    "zwierzę domowe"
+   ],
+   "src": "na żywo 01.11 14:01, msg 737"
+  },
+  {
+   "id": "e02",
+   "cat": "fakt",
+   "seq": [
+    [
+     "Dev",
+     "Grzybnio napisz mi czym jest kot?"
+    ]
+   ],
+   "facts": [
+    {
+     "id": 58539,
+     "subj": "kot",
+     "rel": "definicja",
+     "obj": "zwierzę domowe",
+     "source": "wiktionary",
+     "trust": 0.9,
+     "status": "verified",
+     "n_support": 18
+    },
+    {
+     "id": 18127,
+     "subj": "kot",
+     "rel": "jest",
+     "obj": "Zwierzę",
+     "source": "plwordnet",
+     "trust": 0.85,
+     "status": "active",
+     "n_support": 2
+    },
+    {
+     "id": 18125,
+     "subj": "kot",
+     "rel": "jest",
+     "obj": "Ssak",
+     "source": "plwordnet",
+     "trust": 0.85,
+     "status": "active",
+     "n_support": 1
+    },
+    {
+     "id": 18123,
+     "subj": "kot",
+     "rel": "jest",
+     "obj": "Kotowate",
+     "source": "plwordnet",
+     "trust": 0.85,
+     "status": "active",
+     "n_support": 1
+    }
+   ],
+   "expect": [
+    "zwierzę domowe"
+   ],
+   "src": "na żywo 01.11 14:02, msg 739"
+  },
+  {
+   "id": "e03",
+   "cat": "nie_pamiec",
+   "seq": [
+    [
+     "Dev",
+     "Grzybnio napisz mi czym jest kot?"
+    ]
+   ],
+   "src": "na żywo, msg 739 (błędnie pamiec.trafienie)"
+  },
+  {
+   "id": "e04",
+   "cat": "fakt",
+   "seq": [
+    [
+     "A",
+     "grzybnio, co to jest ssak?"
+    ]
+   ],
+   "facts": [],
+   "expect": [
+    "nie mam w bazie"
+   ]
+  },
+  {
+   "id": "e05",
+   "cat": "przypomnienie",
+   "seq": [
+    [
+     "T",
+     "ale się dziś nudzę"
+    ],
+    [
+     "U",
+     "grzybnio, kto pisał o nudzie?"
+    ]
+   ],
+   "src": "na żywo, msg 724/734 (pamiec.brak: nuda≠nudzić)"
+  },
+  {
+   "id": "e06",
+   "cat": "obecnosc",
+   "seq": [
+    [
+     "T",
+     "Grzybnio jesteś tu?"
+    ]
+   ],
+   "src": "na żywo, msg 720"
+  },
+  {
+   "id": "e07",
+   "cat": "cialo",
+   "seq": [
+    [
+     "T",
+     "Grzybnio, srałaś dziś?"
+    ]
+   ],
+   "src": "na żywo, msg 722"
+  },
+  {
+   "id": "e08",
+   "cat": "o_sobie",
+   "seq": [
+    [
+     "Dev",
+     "Grzybnio działasz?"
+    ]
+   ],
+   "src": "na żywo, msg 717"
+  }
+ ]
+}
