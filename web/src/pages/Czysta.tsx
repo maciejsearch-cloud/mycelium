@@ -9,7 +9,7 @@ import { FACT_CONF, useBrain } from '../myc/brain'
 import { logAnswer, scrub, trainConsent, voteAnswer } from '../myc/answers'
 import { speakerState, type SpkState } from '../myc/speaker'
 import { ANT, DROP_LEM, Q_PL, Q_WORDS, SQUARE, WRAP } from '../myc/czysta'
-import { answerPure, buildKB, fromDocs, loadHumanRows, looksLikeRule, HUMAN_SOURCES, type PureAnswer, type PureKB } from '../myc/czystaWiedza'
+import { answerPure, buildKB, onlySentences, fromDocs, loadHumanRows, looksLikeRule, HUMAN_SOURCES, type PureAnswer, type PureKB } from '../myc/czystaWiedza'
 import { LEARN_RULES } from '../myc/czystaZasady'
 import { useI18n } from '../i18n'
 
@@ -32,7 +32,14 @@ const EXAMPLES = [
   'Ala dała Adamowi książkę. Komu Ala dała książkę?',
   'Ewa napisała list. Czy Ewa skończyła tę czynność?',
   'Jaka jest stolica Polski?',
+  'Ola miała 12 jabłek i dała 5 jabłek Tomkowi. Ile jabłek ma teraz Ola?',
+  'Jaka liczba jest następna w ciągu: 2, 6, 18, 54, ? Podaj liczbę.',
+  'Uzupełnij: 5 … (kot). Wybierz jedną formę: kot, koty, kotów.',
+  'duży : większy = mały : ? Wybierz jedno słowo: mniejszy, mały, malutki.',
 ]
+const pl = (n: number, one: string, few: string, many: string) => (n === 1 ? one : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? few : many)
+
+const SENT_KEY = 'myc-czysta-tylko-zdania'
 
 export default function Czysta() {
   const b = useBrain()
@@ -64,7 +71,16 @@ export default function Czysta() {
     speakerState().then(setSpk, () => setSpk(null))
   }, [])
   const docs = useMemo(() => fromDocs(b.factDocs(false), FACT_CONF), [b, b.version]) // eslint-disable-line react-hooks/exhaustive-deps
-  const kb: PureKB | undefined = useMemo(() => (rows ? buildKB(rows, docs) : undefined), [rows, docs])
+  const kbAll: PureKB | undefined = useMemo(() => (rows ? buildKB(rows, docs) : undefined), [rows, docs])
+  const [onlySent, setOnlySent] = useState(() => {
+    try {
+      return localStorage.getItem(SENT_KEY) === '1'
+    } catch {
+      return false
+    }
+  })
+  const kb: PureKB | undefined = useMemo(() => (kbAll && onlySent ? onlySentences(kbAll) : kbAll), [kbAll, onlySent])
+  const nLabels = kbAll ? kbAll.facts.filter((f) => f.label).length : 0
   const nRules = kb ? kb.facts.filter((f) => looksLikeRule(f.text)).length : 0
   const lastAt = kb ? [...kb.facts, ...kb.qa].map((x) => x.at ?? '').sort().pop() : undefined
 
@@ -177,6 +193,24 @@ export default function Czysta() {
                 </span>
               </div>
             </form>
+            {kbAll && (
+              <label className="mt-2 flex items-center gap-2 text-xs text-slate-400" data-testid="czysta-only-sentences">
+                <input
+                  type="checkbox"
+                  checked={onlySent}
+                  onChange={(e) => {
+                    setOnlySent(e.target.checked)
+                    try {
+                      localStorage.setItem(SENT_KEY, e.target.checked ? '1' : '0')
+                    } catch {
+                      /* prywatny tryb – tylko na tę sesję */
+                    }
+                  }}
+                />
+                Tylko fakty-zdania po polsku (pomiń {nLabels} {pl(nLabels, 'etykietę', 'etykiety', 'etykiet')} „X to y.” zbudowanych z trójek „jest”)
+              </label>
+            )}
+            {rb.status === 'ready' && rb.row && <ModelLicence variant={rb.variant} version={rb.row.version} />}
             <div className="no-scrollbar -mx-1 mt-3 flex gap-1.5 overflow-x-auto px-1 pb-1">
               {EXAMPLES.map((x) => (
                 <button key={x} type="button" className="chip shrink-0 whitespace-nowrap text-slate-300 hover:border-spore/40" onClick={() => (setQ(x), ask(x))}>
@@ -483,6 +517,30 @@ function Scores({ w }: { w: Wyniki | null | undefined }) {
   )
 }
 
+function ModelLicence({ variant, version }: { variant: 'pdb' | 'lfg'; version: number }) {
+  const L = RB_LICENCE[variant]
+  return (
+    <details className="mt-2 rounded-lg border border-amber/20 bg-amber/[0.04] px-3 py-2 text-xs text-slate-300" data-testid="czysta-licence">
+      <summary className="cursor-pointer text-amber">
+        Skąd jest model rozbioru: {L.data}, licencja {L.licence}
+      </summary>
+      {variant === 'pdb' ? (
+        <p className="mt-1.5">
+          Wagi v{version} (sieć BiLSTM „MYCRB2”, ok. 4 MB) wytrenowały <b>od zera węzły grzybni</b> – bez gotowego modelu językowego i bez cudzych wag – na ręcznie oznaczonym korpusie{' '}
+          <a className="underline" href="https://github.com/UniversalDependencies/UD_Polish-PDB" target="_blank" rel="noreferrer">
+            UD Polish-PDB
+          </a>{' '}
+          (Polski Bank Drzew Zależnościowych, IPI PAN). Dane są na licencji <b>CC BY-NC-SA 4.0</b>, więc wagi traktujemy tak samo: tylko użytek niekomercyjny, z podaniem źródła, na tych samych warunkach. Wersja trafiła na stronę dopiero po sprawdzeniu wyniku na teście UD przez niezależnego weryfikatora. Z korpusu model nauczył się tylko rozbioru (części mowy, cechy, drzewo) – <b>nie zawiera żadnej wiedzy o świecie</b> ani odpowiedzi.
+        </p>
+      ) : (
+        <p className="mt-1.5">
+          Wariant uczony przez grzybnię na korpusie UD Polish-LFG (licencja GPL-3.0). Domyślny jest wariant PDB; przełącznik jest w kafelku rozbioru.
+        </p>
+      )}
+    </details>
+  )
+}
+
 function Explain({ kb }: { kb?: PureKB }) {
   const sq = Object.entries(SQUARE)
   return (
@@ -509,6 +567,17 @@ function Explain({ kb }: { kb?: PureKB }) {
           </li>
           <li>
             <b>Przeczenie, zgodność, sprzeczność.</b> „Kto?” → podmiot w mianowniku; przy przestawionym szyku rozstrzyga zgoda rodzaju orzeczenia z podmiotem (dał/dała). „Komu?” → rzeczownik w celowniku. Dwa zdania w cudzysłowie są sprzeczne, gdy to ten sam literał z przeciwną biegunowością albo kwantyfikatory się wykluczają. Aspekt dokonany orzeczenia = czynność skończona („przerwać” = nieskończona). „wcześniej niż” i liczby przy imionach dają porządek (pierwszy/ostatni, najwyższy/najniższy).
+          </li>
+          <li>
+            <b>Liczby, ciągi, liczebniki, analogie</b> (plik <code>czystaLiczby.ts</code>; każda reguła wpisuje się do śladu):
+            <ul className="mt-1 list-disc space-y-1 pl-5">
+              <li><b>Liczebniki słowami → cyfry</b>: tabela słów (jeden…dziewięćset, tysiąc) albo lemat liczebnika ze słownika (każda forma: „pięciu”, „dwoma”); „dwadzieścia trzy” = 20 + 3.</li>
+              <li><b>Arytmetyka</b>: + − × ÷ i słowa „plus, minus, razy, podzielić przez”, nawiasy, „P% z N”. Liczy bezpieczny parser (bez eval); dzielenie przez zero → „nie wiem”.</li>
+              <li><b>Zadania tekstowe z ról zdania</b>: dla każdej liczby model rozbioru daje orzeczenie, podmiot (właściciel) i odbiorcę w celowniku. Stan na osobę: „miał/ma/było” = stan, „dostał/kupił/znalazł”, „od kogoś” = przybywa, „dał/oddał/zjadł/zgubił”, odbiorca w celowniku, „za N zł” = ubywa, „po N” przy k grupach = mnożenie, „k-krotnie” = mnożenie/dzielenie, „o N więcej/mniej niż” = porównanie. <b>Bezpieczniki</b>: każda liczba z treści musi zostać użyta, nie można oddać czegoś, czego się nie miało, wynik nie może być ujemny – inaczej „nie wiem”.</li>
+              <li><b>Ciągi</b>: stała różnica, stały iloraz, stała druga różnica (np. kwadraty), dwa przeplecione ciągi na miejscach parzystych i nieparzystych. Wymaga ≥ 4 wyrazów, żeby wzór był widoczny.</li>
+              <li><b>Liczebnik + rzeczownik</b>: reguła gramatyki – 1 → l. poj. mianownik; końcówka 2–4 (bez 12–14) → l. mn. mianownik; reszta → l. mn. dopełniacz. Formę wybiera słownik (tylko formy lematu z nawiasu).</li>
+              <li><b>Analogie A : B = C : ?</b> (1) <i>odmiana</i>: gdy A i B to ten sam lemat w dwóch formach, słownik mówi, co się zmieniło (np. l. poj. → l. mn., mianownik → dopełniacz, stopień równy → wyższy), i tę samą zmianę stosuje do C; (2) <i>relacja od ludzi</i>: gdy w zatwierdzonym fakcie A i B stoją razem („Pszczoła mieszka w ulu.”), słowa między nimi są relacją, a odpowiedzią jest opcja, która z C tworzy zatwierdzony fakt tej samej relacji. Bez takich faktów – „nie wiem”. Tabela relacji z generatora ćwiczeń <b>nie</b> jest wczytywana.</li>
+            </ul>
           </li>
           <li>
             <b>Wiedza od ludzi.</b> Gdy przesłanek w pytaniu brak: (a) para pytanie → odpowiedź o tych samych słowach treści, (b) fakt o tych samych słowach (prawda/NIEPRAWDA wg ludzi) dla „Czy…?”, (c) reguły i fakty z wiedzy jako przesłanki rozumowania, (d) dla pytań otwartych fakt zawierający wszystkie słowa pytania – odpowiedzią są pozostałe słowa faktu.
@@ -550,8 +619,9 @@ function Explain({ kb }: { kb?: PureKB }) {
         </Card>
         <Card title="Czego NIE ma (uczciwie)">
           <ul className="list-disc space-y-1 pl-5 text-sm text-slate-300">
-            <li>arytmetyki – nie liczy („ile to 2 + 2?”), zadania tekstowe i liczebniki: 0%</li>
-            <li>analogii i ciągów – nie ma reguł na „A ma się do B jak…” ani na następny wyraz ciągu</li>
+            <li>analogii znaczeniowych (dom zwierzęcia, młode, narzędzie, przeciwieństwo) bez zatwierdzonych faktów – zna tylko analogie odmiany; reszty uczą ją ludzie zdaniami typu „Lis mieszka w norze.”</li>
+            <li>zadań tekstowych z ułamkami, jednostkami do przeliczenia, wieloma krokami „ile razy więcej” – wtedy mówi „nie wiem”</li>
+            <li>ciągów z mniej niż 4 wyrazami i wzorów innych niż różnica, iloraz, druga różnica, przeplot</li>
             <li>wiedzy o świecie poza tym, co zatwierdzili ludzie (stąd niski wynik na pytaniach o fakty)</li>
             <li>synonimów i przeciwieństw poza parą mały/duży – „mokra” i „wilgotna” to dla niej różne słowa</li>
             <li>„lub”, „i” między zdaniami, przyczyny („bo”) i czasu jako osobnej logiki</li>
@@ -560,6 +630,12 @@ function Explain({ kb }: { kb?: PureKB }) {
           </ul>
         </Card>
       </div>
+
+      <Card title="Jak nauczyć ją analogii">
+        <p className="text-sm text-slate-300">
+          Analogia „A : B = C : ?” działa, gdy w zatwierdzonej wiedzy jest zdanie łączące A z B <b>i</b> zdanie tej samej postaci łączące C z jedną z opcji. Dodaj w polu „Naucz ją faktu” pary zdań o tej samej budowie, np. „Pies mieszka w budzie.” i „Lis mieszka w norze.”, „Krowa ma cielę.” i „Koń ma źrebię.”, „Malarz używa pędzla.” i „Krawiec używa igły.”, „Dzień jest przeciwieństwem nocy.” i „Góra jest przeciwieństwem dołu.”. Po zatwierdzeniu w Weryfikuj (konsensus ≥ {Math.round(FACT_CONF * 100)}%) ślad pokaże: relacja „mieszka w” z faktu #… zastosowana do C.
+        </p>
+      </Card>
 
       <Card title="Jak się uczy (progi z kodu)">
         <ul className="space-y-2 text-sm">

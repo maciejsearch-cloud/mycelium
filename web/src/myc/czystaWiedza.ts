@@ -23,6 +23,8 @@ export interface PFact {
   votes: number
   source: string
   at?: string
+  /** etykieta „X to y.” zbudowana z trójki (rel „jest”), a nie zdanie napisane przez człowieka */
+  label?: boolean
 }
 export interface PQA {
   id: string
@@ -73,7 +75,7 @@ export function fromFrags(rows: FragRow[]): { facts: PFact[]; qa: PQA[] } {
     if (f.rel === 'odpowiedz') qa.push({ id: `frag:${f.id}`, q: f.subj, a: f.obj, ...base })
     else if (f.rel === 'znaczenie') qa.push({ id: `frag:${f.id}`, q: `Co to jest ${f.subj}?`, a: f.obj, ...base })
     else if (f.rel === 'prawdziwe' && (f.obj === 'tak' || f.obj === 'nie') && !/\?\s*$/.test(f.subj)) facts.push({ id: `frag:${f.id}`, text: f.subj.trim().replace(/([^.!])$/, '$1.'), truth: f.obj, ...base })
-    else if (f.rel === 'jest' && f.subj && f.obj) facts.push({ id: `frag:${f.id}`, text: `${f.subj} to ${f.obj.toLowerCase()}.`, truth: 'tak', ...base })
+    else if (f.rel === 'jest' && f.subj && f.obj) facts.push({ id: `frag:${f.id}`, text: `${f.subj} to ${f.obj.toLowerCase()}.`, truth: 'tak', label: true, ...base })
   }
   return { facts, qa }
 }
@@ -115,6 +117,9 @@ export function buildKB(rows: { frags: FragRow[]; meanings: MeaningRow[]; skippe
   const m: PQA[] = rows.meanings.map((x) => ({ id: `meaning:${x.id}`, q: `Co to jest ${x.word}?`, a: x.meaning, p: x.decided_by === 'owner' ? 1 : 0.95, votes: x.n_votes, source: x.decided_by === 'owner' ? 'znaczenie z czatu (właścicielka)' : 'znaczenie z czatu (głosowanie)', at: x.decided_at ?? undefined }))
   return { facts: [...a.facts, ...docs.facts], qa: [...a.qa, ...m, ...docs.qa], loadedAt: new Date().toISOString(), skipped: rows.skipped }
 }
+
+/** Widok wiedzy tylko ze zdań (bez etykiet „X to y.” z trójek „jest”). */
+export const onlySentences = (kb: PureKB): PureKB => ({ ...kb, facts: kb.facts.filter((f) => !f.label) })
 
 /** Czy zdanie jest regułą (warunek albo kwantyfikator ogólny) – tylko po słowach, do liczników. */
 export const looksLikeRule = (s: string) => /^\s*(jeśli|jeżeli|gdy|kiedy|o ile)\b|\b(wszystkie|wszyscy|każdy|każda|każde|żaden|żadna|żadne|niektóre|niektórzy)\b/i.test(s)

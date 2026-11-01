@@ -404,6 +404,11 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
   let sumAll = 0
   let nAll = 0
   let unknown = false
+  // bezpieczniki: każda liczba z treści musi zostać użyta, nie można oddać tego, czego się nie ma,
+  // a dwie liczby nie mogą wisieć na jednym czasowniku, gdy w zdaniu są dwa – wtedy „nie wiem” zamiast zgadywania
+  let given = 0
+  let used = 0
+  let unsafe = ''
   for (const s0 of body) {
     const s = wordsToDigits(s0, ctx.lex, ctx.trace)
     const T = ctx.parse(s).tokens
@@ -419,6 +424,9 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
     // mnożenie: „W k pudełkach jest po y kredek”, „6 rzędów po 8 książek”
     const po = T.findIndex((t) => low(t.form) === 'po')
     const ns = T.filter((t) => /^\d+(?:[.,]\d+)?$/.test(t.form))
+    given += (s.match(/\d+(?:[.,]\d+)?/g) ?? []).length
+    const nVerbs = T.filter((t) => t.upos === 'VERB').length
+    const verbUse = new Map<number, number>()
     if (po >= 0 && ns.length === 2) {
       const per = ns.find((t) => t.i > po + 1) ?? ns[1]
       const k = ns.find((t) => t !== per)!
@@ -427,6 +435,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
       ledger.set(SCENE, (ledger.get(SCENE) ?? 0) + v)
       sumAll += v
       nAll++
+      used += 2
       continue
     }
     // krotność: „zwiększyła się 3-krotnie / trzykrotnie”
@@ -440,6 +449,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
         const v = down ? ledger.get(o)! / k : ledger.get(o)! * k
         ctx.trace.push({ kind: 'reguła', text: `${down ? 'zmniejszenie' : 'zwiększenie'} ${k}-krotne: ${fmtN(ledger.get(o)!)} ${down ? '÷' : '×'} ${k} = ${fmtN(v)}` })
         ledger.set(o, v)
+        used += 1
         continue
       }
     }
@@ -457,6 +467,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
       const cmp = T.some((t) => ['więcej', 'mniej'].includes(low(t.form))) && T.some((t) => low(t.form) === 'o' && t.i < nt.i)
       if (counted !== what && !ABBR[low(nn?.form ?? '')]) {
         ctx.trace.push({ kind: 'fakt', text: `${nt.form} ${nn?.form ?? ''} – inna rzecz niż „${what}”, pomijam` })
+        used++
         continue
       }
       const za = T.find((t) => t.head === (nn?.i ?? -1) && low(t.form) === 'za')
@@ -474,6 +485,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
           ctx.trace.push({ kind: 'reguła', text: `„o ${val} ${more ? 'więcej' : 'mniej'}” niż ${lastOwner}: ${base} ${more ? '+' : '−'} ${val} = ${r}` })
           ledger.set(o === lastOwner ? SCENE : o, r)
           if (o !== lastOwner) lastOwner = o
+          used++
           continue
         }
       }
@@ -489,6 +501,10 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
         unknown = true
         continue
       }
+      if (v) verbUse.set(v.i, (verbUse.get(v.i) ?? 0) + 1)
+      if (v && nVerbs > 1 && verbUse.get(v.i)! > 1) unsafe ||= `dwie liczby przy jednym czasowniku „${v.form}”, choć w zdaniu są dwa czasowniki – rozbiór niepewny`
+      if (op === '-' && !ledger.has(o)) unsafe ||= `${o === SCENE ? 'ktoś' : o} oddaje ${val}, choć nie wiem, ile miał – rozbiór niepewny`
+      used++
       const before = ledger.get(o) ?? 0
       const after = op === '=' ? val : op === '+' ? before + val : before - val
       ledger.set(o, after)
@@ -497,6 +513,12 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
     }
   }
   if (unknown && !together) return null
+  if (!unknown && used < given) unsafe ||= `w treści jest ${given} liczb, użyłem ${used} – któraś liczba nie pasuje do żadnej reguły`
+  if (!unsafe && [...ledger.values()].some((x) => x < 0)) unsafe = 'wyszła ujemna liczba rzeczy – rozbiór niepewny'
+  if (unsafe) {
+    ctx.trace.push({ kind: 'brak', text: `bezpiecznik: ${unsafe}` })
+    return null
+  }
   let ans: number | undefined
   if (unknown && together) {
     ans = sumAll

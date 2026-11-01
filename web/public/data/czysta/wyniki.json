@@ -1,11 +1,11 @@
 {
- "when": "2026-11-01T00:41:52+01:00",
- "model": "model grzybni v3",
+ "when": "2026-11-01T01:02:45+01:00",
+ "model": "v3-dc3648e4.bin",
  "logic": {
   "n": 320,
-  "correct": 204,
-  "abstain": 106,
-  "acc": 0.6375,
+  "correct": 267,
+  "abstain": 43,
+  "acc": 0.8344,
   "per_category": {
    "analogia": {
     "n": 31,
@@ -21,9 +21,9 @@
    },
    "ciąg": {
     "n": 14,
-    "correct": 0,
-    "abstain": 14,
-    "acc": 0.0
+    "correct": 14,
+    "abstain": 0,
+    "acc": 1.0
    },
    "kolejność w czasie": {
     "n": 18,
@@ -39,9 +39,9 @@
    },
    "liczebniki": {
     "n": 21,
-    "correct": 0,
-    "abstain": 21,
-    "acc": 0.0
+    "correct": 21,
+    "abstain": 0,
+    "acc": 1.0
    },
    "negacja": {
     "n": 8,
@@ -93,9 +93,9 @@
    },
    "zadanie tekstowe": {
     "n": 28,
-    "correct": 0,
-    "abstain": 28,
-    "acc": 0.0
+    "correct": 28,
+    "abstain": 0,
+    "acc": 1.0
    },
    "łańcuch": {
     "n": 25,
@@ -107,9 +107,52 @@
  },
  "chat_facts": {
   "n": 40,
-  "correct": 4,
-  "abstain": 36,
+  "correct": 0,
+  "abstain": 40,
   "wrong": 0
+ },
+ "fresh_seed7": {
+  "n": 320,
+  "correct": 273,
+  "abstain": 41,
+  "acc": 0.8531
+ },
+ "reworded": {
+  "n": 38,
+  "correct": 27,
+  "acc": 0.7105,
+  "per_category": {
+   "analogia": {
+    "n": 6,
+    "correct": 4,
+    "abstain": 2,
+    "acc": 0.6667
+   },
+   "arytmetyka": {
+    "n": 6,
+    "correct": 6,
+    "abstain": 0,
+    "acc": 1.0
+   },
+   "ciąg": {
+    "n": 8,
+    "correct": 5,
+    "abstain": 3,
+    "acc": 0.625
+   },
+   "liczebniki": {
+    "n": 8,
+    "correct": 7,
+    "abstain": 1,
+    "acc": 0.875
+   },
+   "zadanie tekstowe": {
+    "n": 10,
+    "correct": 5,
+    "abstain": 3,
+    "acc": 0.5
+   }
+  }
  },
  "python_same": null
 }
