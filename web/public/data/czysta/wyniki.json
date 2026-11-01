@@ -1,6 +1,6 @@
 {
- "when": "2026-11-01T01:23:01+01:00",
- "model": "model grzybni v3",
+ "when": "2026-11-01T02:02:02+01:00",
+ "model": "v3-dc3648e4.bin",
  "logic": {
   "n": 320,
   "correct": 267,
@@ -107,8 +107,8 @@
  },
  "chat_facts": {
   "n": 40,
-  "correct": 4,
-  "abstain": 36,
+  "correct": 0,
+  "abstain": 40,
   "wrong": 0
  },
  "fresh_seed7": {
@@ -217,8 +217,8 @@
  },
  "reworded": {
   "n": 38,
-  "correct": 27,
-  "acc": 0.7105,
+  "correct": 30,
+  "acc": 0.7895,
   "per_category": {
    "analogia": {
     "n": 6,
@@ -246,25 +246,38 @@
    },
    "zadanie tekstowe": {
     "n": 10,
-    "correct": 5,
-    "abstain": 3,
-    "acc": 0.5
+    "correct": 8,
+    "abstain": 1,
+    "acc": 0.8
+   }
+  }
+ },
+ "reworded_v2": {
+  "n": 16,
+  "correct": 14,
+  "acc": 0.875,
+  "per_category": {
+   "zadanie tekstowe": {
+    "n": 16,
+    "correct": 14,
+    "abstain": 0,
+    "acc": 0.875
    }
   }
  },
  "python_same": null,
  "before": {
-  "file": "results/czysta/przed-liczby-2026-11-01.json",
+  "file": "results/czysta/przed-relacje-2026-11-01.json",
   "logic": {
-   "correct": 204,
+   "correct": 267,
    "n": 320,
    "per_category": {
     "analogia": 0,
     "aspekt": 24,
-    "ciąg": 0,
+    "ciąg": 14,
     "kolejność w czasie": 11,
     "kwantyfikatory": 19,
-    "liczebniki": 0,
+    "liczebniki": 21,
     "negacja": 8,
     "nie wszystkie": 14,
     "odmiana": 17,
@@ -273,20 +286,20 @@
     "sprzeczność": 9,
     "sylogizm": 30,
     "warunki": 10,
-    "zadanie tekstowe": 0,
+    "zadanie tekstowe": 28,
     "łańcuch": 25
    }
   },
   "fresh_seed7": {
-   "correct": 207,
+   "correct": 273,
    "n": 320,
    "per_category": {
     "analogia": 0,
     "aspekt": 27,
-    "ciąg": 0,
+    "ciąg": 22,
     "kolejność w czasie": 24,
     "kwantyfikatory": 16,
-    "liczebniki": 0,
+    "liczebniki": 24,
     "negacja": 8,
     "nie wszystkie": 16,
     "odmiana": 12,
@@ -295,19 +308,26 @@
     "sprzeczność": 9,
     "sylogizm": 24,
     "warunki": 12,
-    "zadanie tekstowe": 0,
+    "zadanie tekstowe": 20,
     "łańcuch": 28
    }
   },
   "reworded": {
-   "correct": 0,
+   "correct": 27,
    "n": 38,
    "per_category": {
-    "analogia": 0,
-    "arytmetyka": 0,
-    "ciąg": 0,
-    "liczebniki": 0,
-    "zadanie tekstowe": 0
+    "analogia": 4,
+    "arytmetyka": 6,
+    "ciąg": 5,
+    "liczebniki": 7,
+    "zadanie tekstowe": 5
+   }
+  },
+  "reworded_v2": {
+   "correct": 8,
+   "n": 16,
+   "per_category": {
+    "zadanie tekstowe": 8
    }
   }
  }

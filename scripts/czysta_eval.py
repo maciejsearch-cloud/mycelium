@@ -29,6 +29,8 @@ sys.path.insert(0, str(ROOT / "src"))
 from iot_mycelium.mesh import selfplay  # noqa: E402
 
 PARA = json.loads((ROOT / "results/czysta/parafrazy-liczby-v1.json").read_text())["items"]
+PARA2 = json.loads((ROOT / "results/czysta/parafrazy-zadania-v2.json").read_text())["items"]
+N1 = 680 + len(PARA)
 FACTS = json.loads((ROOT / "benchmarks/chat_facts/chat_facts_v1.json").read_text())["items"]
 
 
@@ -62,10 +64,11 @@ def score_facts(res):
     return out
 
 
-def score_para(res):
+def score_para(res, items=None):
+    items = PARA if items is None else items
     per = defaultdict(lambda: {"n": 0, "correct": 0, "abstain": 0})
     rows = []
-    for it, r in zip(PARA, res, strict=True):
+    for it, r in zip(items, res, strict=True):
         a, gold = r["answer"], it["a"]
         if a is None:
             ok = False
@@ -100,6 +103,7 @@ def main():
         + [{"id": f["id"], "q": f["q"]} for f in FACTS]
         + [{"id": f"s{i}", "q": t.question} for i, t in enumerate(fresh)]
         + [{"id": f"p{i}", "q": p["q"]} for i, p in enumerate(PARA)]
+        + [{"id": f"q{i}", "q": p["q"]} for i, p in enumerate(PARA2)]
     )
     tmp = Path(tempfile.mkdtemp(prefix="czysta-"))
     (tmp / "in.json").write_text(json.dumps({"model": a.model, "items": items}, ensure_ascii=False))
@@ -115,7 +119,8 @@ def main():
             "logic": score_logic(tasks, node[:320]),
             "chat_facts": score_facts(node[320:360]),
             "fresh_seed7": score_logic(fresh, node[360:680]),
-            "reworded": score_para(node[680:]),
+            "reworded": score_para(node[680:N1]),
+            "reworded_v2": score_para(node[N1:], PARA2),
         },
         "python_same": None,
     }
@@ -146,7 +151,8 @@ def main():
             "logic": score_logic(tasks, web["results"][:320]),
             "chat_facts": score_facts(web["results"][320:360]),
             "fresh_seed7": score_logic(fresh, web["results"][360:680]),
-            "reworded": score_para(web["results"][680:]),
+            "reworded": score_para(web["results"][680:N1]),
+            "reworded_v2": score_para(web["results"][N1:], PARA2),
         }
         rep["browser_vs_node_logic_diff"] = sum(
             1 for x, y in zip(web["results"][:320], node[:320], strict=True) if x["answer"] != y["answer"]
@@ -162,6 +168,7 @@ def main():
         "chat_facts": {k: v for k, v in src["chat_facts"].items() if k != "rows"},
         "fresh_seed7": src["fresh_seed7"],
         "reworded": {k: v for k, v in src["reworded"].items() if k != "rows"},
+        "reworded_v2": {k: v for k, v in src["reworded_v2"].items() if k != "rows"},
         "python_same": rep["python_same"],
     }
     if a.before:
@@ -175,7 +182,8 @@ def main():
                     "n": b[k]["n"],
                     "per_category": {c: v["correct"] for c, v in b[k]["per_category"].items()},
                 }
-                for k in ("logic", "fresh_seed7", "reworded")
+                for k in ("logic", "fresh_seed7", "reworded", "reworded_v2")
+                if k in b
             },
         }
     (ROOT / "web/public/data/czysta").mkdir(parents=True, exist_ok=True)
@@ -186,7 +194,7 @@ def main():
             print(
                 f"{k}: logika {L['correct']}/{L['n']} ({L['acc']:.1%}), „nie wiem” {L['abstain']}; fakty {F['correct']}/{F['n']}, „nie wiem” {F['abstain']}, błędne {F['wrong']}"
             )
-            for name in ("logic", "fresh_seed7", "reworded"):
+            for name in ("logic", "fresh_seed7", "reworded", "reworded_v2"):
                 v = rep[k][name]
                 per = {c: f"{x['correct']}/{x['n']}" for c, x in v["per_category"].items()}
                 print(f"  {name}: {v['correct']}/{v['n']} {per}")

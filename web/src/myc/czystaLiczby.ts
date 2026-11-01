@@ -475,7 +475,11 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
     given += (s.match(/\d+(?:[.,]\d+)?/g) ?? []).length
     const nVerbs = T.filter((t) => t.upos === 'VERB').length
     const verbUse = new Map<number, number>()
-    if (po >= 0 && ns.length === 2) {
+    // bezpiecznik: „po” bez liczby tuż za nim („po południu”) to nie podział – nie mnożę, a gdy są dwie liczby, nie zgaduję
+    if (po >= 0 && ns.length === 2 && !/^\d/.test(T[po + 1]?.form ?? '')) {
+      unsafe ||= `„po ${T[po + 1]?.form ?? ''}” nie jest podziałem „po N”, a w zdaniu są dwie liczby – nie wiem, co z czym mnożyć`
+    }
+    if (po >= 0 && ns.length === 2 && /^\d/.test(T[po + 1]?.form ?? '')) {
       const per = ns.find((t) => t.i > po + 1) ?? ns[1]
       const k = ns.find((t) => t !== per)!
       const v = Number(k.form) * Number(per.form)
@@ -500,6 +504,11 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
         used += 1
         continue
       }
+      unsafe ||= `„${kr[0]}” – nie wiem, czyją liczbę zmienić (brak stanu dla ${o === SCENE ? 'tej osoby' : o})`
+    }
+    // bezpiecznik: porównanie przymiotnikiem/przysłówkiem w stopniu wyższym („o 4 lata starszy”) – reguły znają tylko „o N więcej/mniej”
+    if (ns.length && T.some((t) => t.feats?.Degree === 'Cmp' && !['więcej', 'mniej'].includes(low(t.form)))) {
+      unsafe ||= `porównanie „${T.find((t) => t.feats?.Degree === 'Cmp')!.form}” – znam tylko „o N więcej/mniej”`
     }
     for (const nt of ns) {
       const val = Number(nt.form.replace(',', '.'))
