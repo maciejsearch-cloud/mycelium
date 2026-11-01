@@ -11,54 +11,55 @@ import math
 from collections.abc import Sequence
 from typing import Any
 
-from .base import Calibrator, EvidenceSource, Measurement
-from .calibration import argmax, evaluate, split_half
+from .base import EvidenceSource, Measurement
+from .calibration import TemperatureCalibrator, argmax, evaluate, split_half
 
 LM_SUBJECT = "LM v{v} (Qwen2.5-0.5B + LoRA grzybni)"
 CZYSTA_SUBJECT = "czysta grzybnia (reguły + rozbiór v3, bez modelu)"
 
 
-def lm_eval_measurement(
-    scores: Sequence[Sequence[float]], answers: Sequence[int], cal: Calibrator, version: int, eval_sha: str, at: str
-) -> tuple[Measurement, dict[str, Any]]:
-    """Domena ``lm/definicje``: liczności z całego testu; pewność i ECE z odłożonej połowy (nieparzyste pytania).
+def calibrate_domain(logits: Sequence[Sequence[float]], answers: Sequence[int], source: str) -> dict[str, Any]:
+    """Temperatura dopasowana na parzystych pytaniach domeny, ocena (ECE przed/po) na nieparzystych."""
+    fit, held = split_half(len(logits))
+    cal = TemperatureCalibrator()
+    cal.fit([logits[i] for i in fit], [answers[i] for i in fit], source=source)
+    rep = evaluate([logits[i] for i in held], [answers[i] for i in held], cal)
+    return {**rep, "params": cal.params(), "n_held_out": len(held), "held_out": "nieparzyste pytania (1, 3, 5 …)"}
 
-    Kalibrator musi być dopasowany na parzystych pytaniach (``split_half``) – inaczej ECE po kalibracji byłoby
-    liczone na danych dopasowania. Zwraca też pełny raport kalibracji (tabela niezawodności) do migawki.
-    """
+
+def _cal_fields(rep: dict[str, Any]) -> dict[str, Any]:
+    return dict(conf_raw=round(rep["conf_raw"], 4), conf_cal=round(rep["conf_cal"], 4), ece_raw=round(rep["ece_raw"], 4),
+                ece_cal=round(rep["ece_cal"], 4), conf_n=rep["n"], conf_correct=rep["correct"],
+                temperature=rep["params"]["T"])  # fmt: skip
+
+
+def lm_eval_measurement(
+    scores: Sequence[Sequence[float]], answers: Sequence[int], version: int, eval_sha: str, at: str
+) -> tuple[Measurement, dict[str, Any]]:
+    """Domena ``lm/definicje``: liczności z całego testu; temperatura z parzystych, pewność i ECE z nieparzystych."""
     if len(scores) != len(answers) or not scores:
         raise ValueError("wyniki i odpowiedzi muszą mieć tę samą, niezerową długość")
     correct = sum(argmax(s) == a for s, a in zip(scores, answers, strict=True))
-    _, held = split_half(len(scores))
-    rep = evaluate([scores[i] for i in held], [answers[i] for i in held], cal)
-    m = Measurement(
-        domain="lm/definicje",
-        source="lm-eval-2000",
-        subject=LM_SUBJECT.format(v=version),
-        n=len(scores),
-        correct=correct,
-        wrong=len(scores) - correct,
-        evidence=f"lm-v{version}|{eval_sha[:16]}",
-        measured_at=at,
-        chance=1 / len(scores[0]),
-        conf_raw=round(rep["conf_raw"], 4),
-        conf_cal=round(rep["conf_cal"], 4),
-        ece_raw=round(rep["ece_raw"], 4),
-        ece_cal=round(rep["ece_cal"], 4),
-    )
-    return m, {**rep, "held_out": "nieparzyste pytania (1, 3, 5 …)", "n_held_out": len(held)}
+    rep = calibrate_domain(scores, answers, "lm-eval-2000 (parzyste pytania)")
+    m = Measurement(domain="lm/definicje", source="lm-eval-2000", subject=LM_SUBJECT.format(v=version),
+                    n=len(scores), correct=correct, wrong=len(scores) - correct,
+                    evidence=f"lm-v{version}|{eval_sha[:16]}", measured_at=at, chance=1 / len(scores[0]),
+                    **_cal_fields(rep))  # fmt: skip
+    return m, rep
 
 
 def _log(p: float) -> float:
     return math.log(max(1e-6, p))
 
 
-def samouk_measurements(plan: dict[str, Any], items: dict[str, list] | None, cal: Calibrator) -> list[Measurement]:
+def samouk_measurements(plan: dict[str, Any], items: dict[str, list] | None) -> tuple[list[Measurement], dict]:
     """Domeny ``lm/<typ>`` z planu samouka. ``items[typ]`` = ``[[p_opcji…], poprawna]`` dla każdego pytania próbnego.
 
-    Bez ``items`` (starsze plany) – tylko liczności z ``stats`` (trafność × n), bez pewności i ECE.
+    Każdy typ ma własną temperaturę (parzyste pytania) i ECE na nieparzystych – przy 40 pytaniach to tylko 20 na
+    ocenę, więc przedziały są szerokie (i tak je pokazujemy). Bez ``items`` (starsze plany) – tylko liczności.
+    Zwraca też raporty kalibracji typów.
     """
-    out = []
+    out, reps = [], {}
     version = plan["measured"]["base"]["version"]
     probe = plan["measured"].get("probe_sha") or ""
     for t, s in sorted(plan["stats"].items()):
@@ -70,25 +71,16 @@ def samouk_measurements(plan: dict[str, Any], items: dict[str, list] | None, cal
         if its:
             lg = [[_log(p) for p in ps] for ps, _ in its]
             ans = [int(a) for _, a in its]
-            rep = evaluate(lg, ans, cal)
-            if rep["n"] != n:
-                raise ValueError(f"{t}: {rep['n']} pytań w items, a n = {n}")
-            out.append(
-                Measurement(
-                    **common,
-                    correct=rep["correct"],
-                    wrong=n - rep["correct"],
-                    chance=1 / len(lg[0]),
-                    conf_raw=round(rep["conf_raw"], 4),
-                    conf_cal=round(rep["conf_cal"], 4),
-                    ece_raw=round(rep["ece_raw"], 4),
-                    ece_cal=round(rep["ece_cal"], 4),
-                )  # fmt: skip
-            )
+            if len(lg) != n:
+                raise ValueError(f"{t}: {len(lg)} pytań w items, a n = {n}")
+            k = sum(argmax(x) == a for x, a in zip(lg, ans, strict=True))
+            rep = calibrate_domain(lg, ans, f"samouk {t} (parzyste pytania)")
+            reps[f"lm/{t}"] = rep
+            out.append(Measurement(**common, correct=k, wrong=n - k, chance=1 / len(lg[0]), **_cal_fields(rep)))
         else:
             k = round(float(s["acc"]) * n)
             out.append(Measurement(**common, correct=k, wrong=n - k, chance=0.25))
-    return out
+    return out, reps
 
 
 def school_measurements(wyniki: dict[str, Any]) -> list[Measurement]:

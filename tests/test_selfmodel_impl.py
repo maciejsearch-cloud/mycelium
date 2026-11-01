@@ -56,12 +56,12 @@ def test_split_half_is_deterministic_and_disjoint():
 def test_lm_eval_measurement_uses_held_out_half():
     scores = [[0.0, -1.0, -1.0, -1.0]] * 6 + [[-1.0, 0.0, -1.0, -1.0]] * 4
     answers = [0] * 10
-    cal = TemperatureCalibrator(2.0)
-    m, rep = lm_eval_measurement(scores, answers, cal, 4, "a" * 64, AT)
+    m, rep = lm_eval_measurement(scores, answers, 4, "a" * 64, AT)
     assert (m.n, m.correct, m.wrong, m.domain) == (10, 6, 4, "lm/definicje")
     assert rep["n_held_out"] == 5 and m.chance == 0.25
+    assert m.conf_n == 5 and m.held_out() == (m.conf_correct, 5) and m.temperature == rep["params"]["T"]
     with pytest.raises(ValueError):
-        lm_eval_measurement([], [], cal, 4, "a", AT)
+        lm_eval_measurement([], [], 4, "a", AT)
 
 
 def plan(pid, alloc, stats, items=None, cand=None, version=4):
@@ -75,13 +75,12 @@ def test_samouk_measurements_with_and_without_items():
     st = {"logika": {"acc": 0.5, "n": 4, "p_right": 0.4, "progress": None}}
     items = {"logika": [[[0.7, 0.1, 0.1, 0.1], 0], [[0.7, 0.1, 0.1, 0.1], 1], [[0.1, 0.6, 0.2, 0.1], 1],
                         [[0.4, 0.3, 0.2, 0.1], 3]]}  # fmt: skip
-    cal = TemperatureCalibrator(1.0)
-    (m,) = samouk_measurements(plan(1, {"logika": 2}, st, items), items, cal)
-    assert (m.correct, m.n) == (2, 4) and m.conf_raw is not None
-    (m2,) = samouk_measurements(plan(1, {"logika": 2}, st), None, cal)
-    assert (m2.correct, m2.conf_raw) == (2, None)
+    (m,), reps = samouk_measurements(plan(1, {"logika": 2}, st, items), items)
+    assert (m.correct, m.n) == (2, 4) and m.conf_raw is not None and m.conf_n == 2 and "lm/logika" in reps
+    (m2,), reps2 = samouk_measurements(plan(1, {"logika": 2}, st), None)
+    assert (m2.correct, m2.conf_raw, reps2) == (2, None, {})
     with pytest.raises(ValueError):
-        samouk_measurements(plan(1, {}, {"logika": {**st["logika"], "n": 5}}), items, cal)
+        samouk_measurements(plan(1, {}, {"logika": {**st["logika"], "n": 5}}), items)
 
 
 def test_school_measurements_latest_run_with_abstentions():
@@ -98,7 +97,8 @@ def test_school_measurements_latest_run_with_abstentions():
 # ---------------------------------------------------------------- twierdzenia i kontrola
 def test_level_claim_low_confidence_wording_and_interval():
     (c,) = claims_for(lm_m(9, 40), AT)
-    assert c.kind is ClaimKind.LEVEL and "niska" in c.text_pl and "9/40" in c.text_pl
+    assert c.kind is ClaimKind.LEVEL and "niska" in c.text_pl and "9/40" in c.text_pl and "22,5%" in c.text_pl
+    assert "22.5%" in c.text_en
     assert c.low < 0.225 < c.high
     (c2,) = claims_for(lm_m(30, 40), AT)
     assert "lepsza niż zgadywanie" in c2.text_pl and "nieco" not in c2.text_pl
@@ -121,6 +121,14 @@ def test_check_claims_verdicts():
     assert far.verdict is Verdict.INCONSISTENT
     gone = check_claims([c], [])[0]
     assert gone.verdict is Verdict.INSUFFICIENT
+
+
+def test_check_confidence_uses_held_out_counts():
+    m = Measurement("lm/x", "s", "LM", 40, 30, 10, "e", AT, chance=0.25, conf_raw=0.3, conf_cal=0.3, ece_raw=0.1,
+                    ece_cal=0.1, conf_n=20, conf_correct=6, temperature=2.0)  # fmt: skip
+    res = {c.claim_id: c for c in check_confidence([m])}
+    assert res["pewnosc-skalibrowana:lm/x"].verdict is Verdict.CONSISTENT  # 6/20 = 30%, nie 30/40
+    assert res["pewnosc-skalibrowana:lm/x"].n == 20 and "6/20" in res["pewnosc-skalibrowana:lm/x"].detail_pl
 
 
 def test_check_confidence_flags_overconfidence():

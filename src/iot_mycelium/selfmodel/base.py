@@ -71,6 +71,11 @@ class Measurement:
     ece_raw: float | None = None
     ece_cal: float | None = None
     url: str | None = None
+    # pewność i ECE liczone na odłożonej połowie (``conf_n`` pytań, z tego ``conf_correct`` trafnych) przy
+    # temperaturze ``temperature`` dopasowanej na drugiej połowie tej samej domeny (schemat 1, pola opcjonalne)
+    conf_n: int | None = None
+    conf_correct: int | None = None
+    temperature: float | None = None
 
     def __post_init__(self) -> None:
         if self.n < 0 or self.correct < 0 or self.wrong < 0 or self.abstained < 0:
@@ -97,6 +102,12 @@ class Measurement:
 
     def accuracy_ci(self) -> tuple[float, float]:
         return wilson(self.correct, self.n)
+
+    def held_out(self) -> tuple[int, int]:
+        """(trafne, n) zbioru, na którym liczono pewność; bez osobnego zbioru – cały pomiar."""
+        if self.conf_n:
+            return int(self.conf_correct or 0), int(self.conf_n)
+        return self.correct, self.n
 
     def precision_ci(self) -> tuple[float, float]:
         return wilson(self.correct, self.answered)

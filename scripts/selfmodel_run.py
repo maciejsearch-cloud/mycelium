@@ -29,7 +29,6 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from iot_mycelium.mesh.net import SB_KEY, SB_URL  # noqa: E402
 from iot_mycelium.mesh.qwen import cache_dir  # noqa: E402
-from iot_mycelium.selfmodel.calibration import TemperatureCalibrator, split_half  # noqa: E402
 from iot_mycelium.selfmodel.model import MeasuredSelfModel, decisions_from_plans  # noqa: E402
 from iot_mycelium.selfmodel.sources import lm_eval_measurement, samouk_measurements, school_measurements  # noqa: E402
 from iot_mycelium.selfmodel.store import SupabaseSelfStore  # noqa: E402
@@ -166,23 +165,24 @@ def main() -> int:
     plans = rest("myc_lm_curriculum?select=id,at,stats,alloc,why,wiki_jobs,measured&order=id.asc")
     lazy = Lazy(a.threads)
     scores, answers = lm_scores(lazy, ver, eval_sha)
-    fit, _ = split_half(len(scores))
-    cal = TemperatureCalibrator()
-    cal.fit([scores[i] for i in fit], [answers[i] for i in fit], source="lm-eval-2000 (parzyste pytania)")
     now = time.strftime("%Y-%m-%dT%H:%M:%S+00:00", time.gmtime())
-    lm_m, rep = lm_eval_measurement(scores, answers, cal, ver["version"], eval_sha, now)
-    ms = [lm_m]
+    lm_m, rep = lm_eval_measurement(scores, answers, ver["version"], eval_sha, now)
+    ms, reps = [lm_m], {"lm/definicje": rep}
     plan = plans[-1] if plans else None
     if plan:
-        ms += samouk_measurements(plan, probe_items(lazy, plan, ver), cal)
+        sm_ms, sm_reps = samouk_measurements(plan, probe_items(lazy, plan, ver))
+        ms += sm_ms
+        reps.update(sm_reps)
     ms += school_measurements(wyniki())
     meta = ver.get("meta") or {}
     state = {"lm": {"version": ver["version"], "base": meta.get("base", "Qwen2.5-0.5B-Instruct"),
                     "rank": meta.get("rank"), "params": meta.get("params"), "acc": ver.get("acc"),
                     "ppl": meta.get("ppl"), "decided_by": meta.get("decided_by")},
              "czysta": {"model": (wyniki().get("runs") or [{}])[-1].get("model")}}  # fmt: skip
-    calib = {"params": cal.params(), "lm_definicje": {k: rep[k] for k in ("n", "correct", "conf_raw", "conf_cal",
-             "ece_raw", "ece_cal", "reliability_raw", "reliability_cal", "held_out", "n_held_out")}}  # fmt: skip
+    keep = ("n", "correct", "conf_raw", "conf_cal", "ece_raw", "ece_cal", "reliability_raw", "reliability_cal",
+            "held_out", "n_held_out", "params")  # fmt: skip
+    calib = {"params": rep["params"], "lm_definicje": {k: rep[k] for k in keep},
+             "domains": {d: {k: r[k] for k in keep} for d, r in reps.items()}}  # fmt: skip
     sm = MeasuredSelfModel(state=state, calibration=calib, plan=plan, at=now, relations=relations_status())
     sm.observe(ms)
     sm.record(decisions_from_plans(plans))
@@ -199,7 +199,7 @@ def main() -> int:
     verdicts: dict[str, int] = {}
     for c in snap.checks:
         verdicts[c.verdict.value] = verdicts.get(c.verdict.value, 0) + 1
-    print(f"selfmodel: T={cal.t}, ECE {rep['ece_raw']:.3f} → {rep['ece_cal']:.3f}, {len(snap.claims)} twierdzeń, "
+    print(f"selfmodel: T={rep['params']['T']}, ECE {rep['ece_raw']:.3f} → {rep['ece_cal']:.3f}, {len(snap.claims)} twierdzeń, "
           f"kontrole {verdicts}")  # fmt: skip
     if not a.dry and (not prev or prev.fingerprint != snap.fingerprint):
         print("selfmodel: zapisano" if store.save(snap) else "selfmodel: migawka już była")

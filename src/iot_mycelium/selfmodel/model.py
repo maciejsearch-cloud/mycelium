@@ -56,8 +56,13 @@ def _name(domain: str, en: bool) -> str:
     return (DOMAIN_EN if en else DOMAIN_PL).get(key, key)
 
 
-def _pct(x: float) -> str:
-    return f"{x * 100:.1f}".replace(".0", "") + "%"
+def _pct(x: float, en: bool = False) -> str:
+    v = f"{x * 100:.1f}".removesuffix(".0")
+    return (v if en else v.replace(".", ",")) + "%"
+
+
+def _int_pl(n: int) -> str:
+    return f"{n:,}".replace(",", " ")
 
 
 def _ci(lo: float, hi: float) -> str:
@@ -83,7 +88,7 @@ def claims_for(m: Measurement, at: str) -> list[Claim]:
         lo, hi = m.accuracy_ci()
         c = m.chance
         num_pl = f"trafiam {_pct(m.accuracy)} ({m.correct}/{m.n}, 95%: {_ci(lo, hi)}), zgadywanie daje {_pct(c)}"
-        num_en = f"I get {_pct(m.accuracy)} right ({m.correct}/{m.n}, 95%: {_ci(lo, hi)}); guessing gives {_pct(c)}"
+        num_en = f"I get {_pct(m.accuracy, True)} right ({m.correct}/{m.n}, 95%: {_ci(lo, hi)}); guessing gives {_pct(c, True)}"
         if lo <= c:
             t_pl = f"Moja pewność w domenie „{pl}” jest niska: {num_pl} – nie odróżniam się jeszcze od zgadywania."
             t_en = f"My confidence in “{en}” is low: {num_en} – I can't yet be told apart from guessing."
@@ -98,14 +103,15 @@ def claims_for(m: Measurement, at: str) -> list[Claim]:
         out.append(Claim(id=f"poziom:{m.domain}", kind=ClaimKind.LEVEL, text_pl=t_pl, text_en=t_en, value=m.accuracy,
                          low=lo, high=hi, **base))  # fmt: skip
         if m.conf_cal is not None:
-            se = math.sqrt(max(1e-9, m.conf_cal * (1 - m.conf_cal)) / m.n)
+            k_h, n_h = m.held_out()
+            se = math.sqrt(max(1e-9, m.conf_cal * (1 - m.conf_cal)) / n_h)
             lo2, hi2 = max(0.0, m.conf_cal - 1.96 * se), min(1.0, m.conf_cal + 1.96 * se)
             out.append(Claim(
                 id=f"kalibracja:{m.domain}", kind=ClaimKind.CALIBRATION, value=m.conf_cal, low=lo2, high=hi2,
                 text_pl=(f"W domenie „{pl}” moja skalibrowana pewność wynosi średnio {_pct(m.conf_cal)} "
                          f"(bez kalibracji {_pct(m.conf_raw or 0)}); przewiduję trafność {_ci(lo2, hi2)}."),
-                text_en=(f"In “{en}” my calibrated confidence averages {_pct(m.conf_cal)} "
-                         f"(uncalibrated {_pct(m.conf_raw or 0)}); I predict accuracy of {_ci(lo2, hi2)}."),
+                text_en=(f"In “{en}” my calibrated confidence averages {_pct(m.conf_cal, True)} "
+                         f"(uncalibrated {_pct(m.conf_raw or 0, True)}); I predict accuracy of {_ci(lo2, hi2)}."),
                 **base))  # fmt: skip
     else:
         if m.answered >= MIN_N and m.precision is not None:
@@ -114,14 +120,14 @@ def claims_for(m: Measurement, at: str) -> list[Claim]:
                 id=f"precyzja:{m.domain}", kind=ClaimKind.PRECISION, value=m.precision, low=lo, high=hi,
                 text_pl=(f"Gdy w zadaniach „{pl}” odpowiadam, mam rację w {_pct(m.precision)} "
                          f"({m.correct}/{m.answered}, 95%: {_ci(lo, hi)})."),
-                text_en=(f"When I answer in “{en}”, I am right {_pct(m.precision)} of the time "
+                text_en=(f"When I answer in “{en}”, I am right {_pct(m.precision, True)} of the time "
                          f"({m.correct}/{m.answered}, 95%: {_ci(lo, hi)})."),
                 **base))  # fmt: skip
         lo, hi = wilson(m.abstained, m.n)
         out.append(Claim(
             id=f"nie_wiem:{m.domain}", kind=ClaimKind.ABSTENTION, value=m.abstain_rate, low=lo, high=hi,
             text_pl=f"W zadaniach „{pl}” mówię „nie wiem” w {_pct(m.abstain_rate)} przypadków ({m.abstained}/{m.n}).",
-            text_en=f"In “{en}” I say “I don't know” in {_pct(m.abstain_rate)} of cases ({m.abstained}/{m.n}).",
+            text_en=f"In “{en}” I say “I don't know” in {_pct(m.abstain_rate, True)} of cases ({m.abstained}/{m.n}).",
             **base))  # fmt: skip
     return out
 
@@ -164,7 +170,7 @@ def check_claims(previous: Sequence[Claim], current: Sequence[Measurement]) -> l
         v = Verdict.CONSISTENT if ok else Verdict.INCONSISTENT
         out.append(Check(c.id, v, val, *exp, n, m.evidence,
                          f"przewidywane {_ci(*exp)}, zmierzone {_pct(val)} (95%: {_ci(*ci)})",
-                         f"predicted {_ci(*exp)}, measured {_pct(val)} (95%: {_ci(*ci)})"))  # fmt: skip
+                         f"predicted {_ci(*exp)}, measured {_pct(val, True)} (95%: {_ci(*ci)})"))  # fmt: skip
     return out
 
 
@@ -172,19 +178,23 @@ def check_confidence(current: Sequence[Measurement]) -> list[Check]:
     """Deklarowana pewność kontra trafność na danych odłożonych, w tej samej migawce (punkt 2 opisu modułu)."""
     out = []
     for m in current:
-        if m.conf_raw is None or m.conf_cal is None or m.n < MIN_N:
+        if m.conf_raw is None or m.conf_cal is None or m.held_out()[1] < MIN_N:
             continue
-        lo, hi = m.accuracy_ci()
+        k_h, n_h = m.held_out()
+        acc = k_h / n_h
+        lo, hi = wilson(k_h, n_h)
         for tag, conf, e, name_pl, name_en in (
             ("surowa", m.conf_raw, m.ece_raw, "surowa pewność", "raw confidence"),
             ("skalibrowana", m.conf_cal, m.ece_cal, "skalibrowana pewność", "calibrated confidence"),
         ):
             ok = lo <= conf <= hi
             out.append(Check(
-                f"pewnosc-{tag}:{m.domain}", Verdict.CONSISTENT if ok else Verdict.INCONSISTENT, m.accuracy, conf, conf,
-                m.n, m.evidence,
-                f"{name_pl} {_pct(conf)} vs trafność {_pct(m.accuracy)} (95%: {_ci(lo, hi)}), ECE {e:.3f}",
-                f"{name_en} {_pct(conf)} vs accuracy {_pct(m.accuracy)} (95%: {_ci(lo, hi)}), ECE {e:.3f}"))  # fmt: skip
+                f"pewnosc-{tag}:{m.domain}", Verdict.CONSISTENT if ok else Verdict.INCONSISTENT, acc, conf, conf,
+                n_h, m.evidence,
+                (f"{name_pl} {_pct(conf)} vs trafność {_pct(acc)} ({k_h}/{n_h} odłożonych, 95%: {_ci(lo, hi)}), "
+                 f"ECE {e:.3f}".replace(".", ",")),
+                (f"{name_en} {_pct(conf, True)} vs accuracy {_pct(acc, True)} ({k_h}/{n_h} held out, 95%: "
+                 f"{_ci(lo, hi)}), ECE {e:.3f}")))  # fmt: skip
     return out
 
 
@@ -221,8 +231,8 @@ def state_claims(state: dict[str, Any], plan: dict[str, Any] | None, at: str) ->
         out.append(Claim(
             id="stan:lm", kind=ClaimKind.STATE, domain="lm", value=None, low=None, high=None, n=0,
             source="myc_models", evidence=f"lm-v{lm['version']}", made_at=at,
-            text_pl=(f"Jestem modelem {lm['base']} z adapterem LoRA rank {lm['rank']} ({lm['params']:,} parametrów "
-                     f"uczonych przez grzybnię), wersja v{lm['version']}.").replace(",", " "),
+            text_pl=(f"Jestem modelem {lm['base']} z adapterem LoRA rank {lm['rank']} ({_int_pl(lm['params'])} "
+                     f"parametrów uczonych przez grzybnię), wersja v{lm['version']}."),
             text_en=(f"I am {lm['base']} with a rank-{lm['rank']} LoRA adapter ({lm['params']:,} parameters trained "
                      f"by the mycelium), version v{lm['version']}."),
         ))  # fmt: skip
