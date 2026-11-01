@@ -21,7 +21,7 @@ type Snap = {
     lm_definicje?: { ece_raw: number; ece_cal: number; conf_raw: number; conf_cal: number; n_held_out: number; correct: number; n: number; reliability_raw: Rel[] }
     domains?: Record<string, { ece_raw: number; ece_cal: number; n_held_out: number; correct: number; params: { T: number } }>
   }
-  relations?: { source: string; available: boolean; public_rows: number } | null
+  relations?: { source: string; available: boolean; public_rows?: number; rows?: number; decisions?: number; tone?: Record<string, number> } | null
 }
 const H = { apikey: SB_KEY, Authorization: `Bearer ${SB_KEY}` }
 const VERDICT: Record<string, [string, string, string]> = {
@@ -155,7 +155,10 @@ export function SelfModel({ scope = 'all' }: { scope?: 'all' | 'czysta' }) {
             <div className="mt-3 rounded-xl border border-dashed border-white/10 p-3 text-xs text-slate-400" data-testid="selfmodel-relations">
               {t('Relacje z ludźmi', 'Relations with people')}:{' '}
               {snap.relations?.available
-                ? t(`pamięć relacji jest prowadzona (${snap.relations.source}); treść widzi tylko osoba, której dotyczy.`, `relationship memory is kept (${snap.relations.source}); only the person concerned can see its content.`)
+                ? t(
+                    `pamięć relacji jest prowadzona (${snap.relations.source}${snap.relations.rows != null ? `: ${snap.relations.rows} os., ciepło ${snap.relations.tone?.['ciepło'] ?? 0}, chłodno ${snap.relations.tone?.['chłodno'] ?? 0}; decyzje moderacji: ${snap.relations.decisions ?? 0}` : ''}); treść widzi tylko osoba, której dotyczy.`,
+                    `relationship memory is kept (${snap.relations.source}${snap.relations.rows != null ? `: ${snap.relations.rows} people, warm ${snap.relations.tone?.['ciepło'] ?? 0}, cool ${snap.relations.tone?.['chłodno'] ?? 0}; moderation decisions: ${snap.relations.decisions ?? 0}` : ''}); only the person concerned can see its content.`,
+                  )
                 : t('pamięć relacji jeszcze nie istnieje.', 'relationship memory does not exist yet.')}
             </div>
             <Src v="db" en={en} className="mt-2">

@@ -29,6 +29,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from iot_mycelium.mesh.net import SB_KEY, SB_URL  # noqa: E402
 from iot_mycelium.mesh.qwen import cache_dir  # noqa: E402
+from iot_mycelium.selfmodel import rozmowa  # noqa: E402
 from iot_mycelium.selfmodel.model import MeasuredSelfModel, decisions_from_plans  # noqa: E402
 from iot_mycelium.selfmodel.sources import lm_eval_measurement, samouk_measurements, school_measurements  # noqa: E402
 from iot_mycelium.selfmodel.store import SupabaseSelfStore  # noqa: E402
@@ -59,20 +60,11 @@ def sql(q: str):
 
 
 def relations_status() -> dict:
-    """Punkt rozszerzenia „relacje”: pamięć relacji z użytkownikami (myc_self_relations, osobny moduł czatu).
+    """Punkt rozszerzenia „relacje”: stan pamięci relacji rozmówcy czatu (myc_self_relations, docs/rozmowa.md).
 
-    Do publicznej migawki trafia tylko informacja, czy tabela istnieje i ile wierszy widzi klucz publiczny –
-    nigdy treść relacji (to dane osobiste; czyta je tylko ich właściciel przez RLS)."""
-    try:
-        r = urllib.request.Request(  # noqa: S310 – stały adres https projektu
-            f"{SB_URL}/rest/v1/myc_self_relations?select=*&limit=0",
-            headers={"apikey": SB_KEY, "Prefer": "count=exact", "User-Agent": "myc-selfmodel"},
-        )
-        with urllib.request.urlopen(r, timeout=30) as f:  # noqa: S310
-            rng = f.headers.get("Content-Range", "*/0")
-        return {"source": "myc_self_relations", "available": True, "public_rows": int(rng.split("/")[-1] or 0)}
-    except (OSError, ValueError):
-        return {"source": "myc_self_relations", "available": False, "public_rows": 0}
+    Publiczne RPC myc_self_relations_status zwraca tylko liczby (ile relacji, rozkład tonu, ile decyzji moderacji) –
+    nigdy treść relacji z konkretną osobą (tę czyta tylko ona sama i właściciel)."""
+    return rozmowa.relations_status(rozmowa.supabase_rpc(SB_URL, SB_KEY))
 
 
 def wyniki() -> dict:
@@ -185,7 +177,8 @@ def main() -> int:
              "domains": {d: {k: r[k] for k in keep} for d, r in reps.items()}}  # fmt: skip
     sm = MeasuredSelfModel(state=state, calibration=calib, plan=plan, at=now, relations=relations_status())
     sm.observe(ms)
-    sm.record(decisions_from_plans(plans))
+    # decyzje samouka + decyzje moderacji rozmówcy czatu (wyciszenie zalewu, propozycje dla Developera) z ich skutkiem
+    sm.record(decisions_from_plans(plans) + rozmowa.moderation_decisions(rozmowa.supabase_rpc(SB_URL, SB_KEY)))
     store = SupabaseSelfStore(SB_URL, SB_KEY, None if a.dry else sql)
     prev = store.latest()
     if prev and prev.fingerprint == sm.fingerprint() and not a.json:
