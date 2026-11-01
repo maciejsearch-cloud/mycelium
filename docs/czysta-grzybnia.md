@@ -180,3 +180,7 @@ niespójny: „kredek”/„kredka”).
 
 Analogie na selfplay: nadal 0/31 – w wiedzy nie ma jeszcze zatwierdzonych zdań-relacji; zaczną działać po odpowiedziach
 ludzi na pytania i konsensusie w Weryfikuj.
+
+Potwierdzenie na żywo (1.11.2026 02:38 CET, wdrożona strona, wylogowana przeglądarka, nauka wyłączona): identycznie –
+v2 14/16, v1 30/38, seed 2 267/320, seed 7 273/320, fakty 4/40 (0 błędnych); `results/czysta/2026-11-01-0238.json`.
+Mówca zadał pierwsze pytanie o relację w czacie globalnym o 02:10 CET (pytanie samouka „Jak nazywa się młode zwierzęcia „kot”?”).
