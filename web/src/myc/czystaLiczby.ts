@@ -264,9 +264,13 @@ export function numerals(text: string, ctx: NumCtx): NumResult | null {
   const want = n === 1 ? ['sg', 'nom'] : n % 10 >= 2 && n % 10 <= 4 && !(n % 100 >= 12 && n % 100 <= 14) ? ['pl', 'nom'] : ['pl', 'gen']
   const why = n === 1 ? '1 → liczba pojedyncza, mianownik' : want[1] === 'nom' ? `${n} kończy się na 2–4 (nie 12–14) → liczba mnoga, mianownik` : `${n} → liczba mnoga, dopełniacz (5 i więcej, 12–14, końcówki 0, 1, 5–9)`
   ctx.trace.push({ kind: 'reguła', text: `zgoda liczebnika z rzeczownikiem: ${why}` })
-  const fit = opts.filter((o) => lexAnalyses(ctx.lex!, o).some(([, tag]) => {
+  // lemat rzeczownika z nawiasu „(kot)” – formy innych lematów (np. „kot” jako dopełniacz od „kota”) odpadają
+  const base = /\(([^)]+)\)/.exec(head)?.[1]?.trim().toLowerCase()
+  const baseLem = base ? new Set(lexAnalyses(ctx.lex, base).filter(([, tag]) => /^(subst|depr):sg:nom/.test(tag)).map(([l]) => l.split(':')[0])) : new Set<string>()
+  if (baseLem.size) ctx.trace.push({ kind: 'fakt', text: `rzeczownik w nawiasie: „${base}” (lemat ${[...baseLem].join(', ')})` })
+  const fit = opts.filter((o) => lexAnalyses(ctx.lex!, o).some(([lem, tag]) => {
     const x = tagOf(tag)
-    return (x.pos === 'subst' || x.pos === 'depr') && x.num === want[0] && x.cas === want[1]
+    return (x.pos === 'subst' || x.pos === 'depr') && x.num === want[0] && x.cas === want[1] && (!baseLem.size || baseLem.has(lem.split(':')[0]))
   }))
   for (const o of opts) {
     const an = lexAnalyses(ctx.lex, o).filter(([, tag]) => tag.startsWith('subst')).map(([, tag]) => tag.split(':').slice(1, 3).join(':'))

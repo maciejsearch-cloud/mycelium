@@ -28,6 +28,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from iot_mycelium.mesh import selfplay  # noqa: E402
 
+PARA = json.loads((ROOT / "results/czysta/parafrazy-liczby-v1.json").read_text())["items"]
 FACTS = json.loads((ROOT / "benchmarks/chat_facts/chat_facts_v1.json").read_text())["items"]
 
 
@@ -61,6 +62,30 @@ def score_facts(res):
     return out
 
 
+def score_para(res):
+    per = defaultdict(lambda: {"n": 0, "correct": 0, "abstain": 0})
+    rows = []
+    for it, r in zip(PARA, res, strict=True):
+        a, gold = r["answer"], it["a"]
+        if a is None:
+            ok = False
+        elif re.fullmatch(r"-?\d+", gold):
+            ns = re.findall(r"-?\d+(?:[.,]\d+)?", a)
+            ok = bool(ns) and ns[-1] == gold
+        else:
+            ok = selfplay.norm(a) == selfplay.norm(gold)
+        p = per[it["kind"]]
+        p["n"] += 1
+        p["correct"] += ok
+        p["abstain"] += a is None
+        rows.append({"kind": it["kind"], "q": it["q"], "gold": gold, "got": a, "ok": ok})
+    for p in per.values():
+        p["acc"] = round(p["correct"] / p["n"], 4)
+    n = sum(p["n"] for p in per.values())
+    c = sum(p["correct"] for p in per.values())
+    return {"n": n, "correct": c, "acc": round(c / n, 4), "per_category": dict(sorted(per.items())), "rows": rows}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True, help="plik wag rozbioru (ten sam co opublikowany na stronie)")
@@ -68,9 +93,13 @@ def main():
     ap.add_argument("--python", action="store_true", help="porównaj z logika.Reasoner w Pythonie")
     a = ap.parse_args()
     tasks = selfplay.generate(320, 2)
-    items = [{"id": f"l{i}", "q": t.question} for i, t in enumerate(tasks)] + [
-        {"id": f["id"], "q": f["q"]} for f in FACTS
-    ]
+    fresh = selfplay.generate(320, 7)  # świeże ziarno, nieużywane przy pisaniu reguł
+    items = (
+        [{"id": f"l{i}", "q": t.question} for i, t in enumerate(tasks)]
+        + [{"id": f["id"], "q": f["q"]} for f in FACTS]
+        + [{"id": f"s{i}", "q": t.question} for i, t in enumerate(fresh)]
+        + [{"id": f"p{i}", "q": p["q"]} for i, p in enumerate(PARA)]
+    )
     tmp = Path(tempfile.mkdtemp(prefix="czysta-"))
     (tmp / "in.json").write_text(json.dumps({"model": a.model, "items": items}, ensure_ascii=False))
     subprocess.run(
@@ -81,7 +110,12 @@ def main():
         "when": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
         "model": Path(a.model).name,
         "tasks": "selfplay.generate(320, 2) + chat_facts_v1",
-        "node_no_kb": {"logic": score_logic(tasks, node[:320]), "chat_facts": score_facts(node[320:])},
+        "node_no_kb": {
+            "logic": score_logic(tasks, node[:320]),
+            "chat_facts": score_facts(node[320:360]),
+            "fresh_seed7": score_logic(fresh, node[360:680]),
+            "reworded": score_para(node[680:]),
+        },
         "python_same": None,
     }
     if a.python:
@@ -123,6 +157,8 @@ def main():
         "model": src.get("model", rep["model"]).split("(")[0].replace("rozbiór: ", "").strip() or rep["model"],
         "logic": src["logic"],
         "chat_facts": {k: v for k, v in src["chat_facts"].items() if k != "rows"},
+        "fresh_seed7": {k: v for k, v in src["fresh_seed7"].items() if k != "per_category"},
+        "reworded": {k: v for k, v in src["reworded"].items() if k != "rows"},
         "python_same": rep["python_same"],
     }
     (ROOT / "web/public/data/czysta").mkdir(parents=True, exist_ok=True)
@@ -133,6 +169,10 @@ def main():
             print(
                 f"{k}: logika {L['correct']}/{L['n']} ({L['acc']:.1%}), „nie wiem” {L['abstain']}; fakty {F['correct']}/{F['n']}, „nie wiem” {F['abstain']}, błędne {F['wrong']}"
             )
+            for name in ("logic", "fresh_seed7", "reworded"):
+                v = rep[k][name]
+                per = {c: f"{x['correct']}/{x['n']}" for c, x in v["per_category"].items()}
+                print(f"  {name}: {v['correct']}/{v['n']} {per}")
     print("python_same:", rep["python_same"], "→", out)
 
 
