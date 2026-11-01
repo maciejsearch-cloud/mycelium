@@ -8,7 +8,7 @@
 --  • BEZ cenzury słów: wulgaryzmy dostają tylko etykietę rejestru (tags); moderacja robi człowiek (Developer/Moderator),
 --  • w tabelach czatu NIE zapisujemy adresu IP (limiter trzyma tylko skrót IP w myc_rate przez ≤ 1 h),
 --  • powiązanie wiadomość → konto jest w prywatnej tabeli myc_gchat_priv (niewidocznej przez REST).
--- Role: 'developer' (właścicielka – nadawana kluczem właściciela, sprawdzanym po skrócie w myc_owner; każde
+-- Role: 'developer' (właściciel – nadawana kluczem właściciela, sprawdzanym po skrócie w myc_owner; każde
 -- urządzenie, które poda klucz, przypina rolę do swojego konta) i 'moderator' (nadaje Developer). Dziennik moderacji.
 
 -- Role kont

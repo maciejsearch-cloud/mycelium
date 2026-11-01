@@ -1,6 +1,6 @@
 # Grzybnia AI – mówca w czacie globalnym
 
-Decyzja właścicielki z 31.10.2026: grzybnia sama pisze w czacie globalnym mniej więcej co minutę, a ludzie uczą ją
+Decyzja właściciela z 31.10.2026: grzybnia sama pisze w czacie globalnym mniej więcej co minutę, a ludzie uczą ją
 zadawać pytania i odpowiadać.
 
 ## Jak to działa (bez węzłów, w bazie)

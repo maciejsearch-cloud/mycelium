@@ -8,7 +8,7 @@
 --  • próbki intencji (pytanie / emocja / niezgoda / ironia) to pojedyncze, wyczyszczone zdania; po wyłączeniu
 --    przełącznika oczekujące próbki z moich wiadomości są usuwane,
 --  • nic nie staje się wiedzą bez głosowania „prawda / kłamstwo” (wagi zaufania jak przy znaczeniach; głos Developera
---    lub klucza właścicielki = złota etykieta). Zatwierdzone → strzępki (source 'chat') i dane treningowe (eksport).
+--    lub klucza właściciela = złota etykieta). Zatwierdzone → strzępki (source 'chat') i dane treningowe (eksport).
 
 create table if not exists public.myc_lang_patterns (
   id bigint generated always as identity primary key,

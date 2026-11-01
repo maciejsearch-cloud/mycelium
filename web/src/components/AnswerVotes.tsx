@@ -16,7 +16,7 @@ const STATUS: Record<string, [string, string]> = {
   all: ['wszystkie', 'all'],
 }
 
-/** Weryfikuj → odpowiedzi czatu: każdy potwierdza / nie zgadza się / poprawia (z wagą zaufania); klucz właścicielki rozstrzyga.
+/** Weryfikuj → odpowiedzi czatu: każdy potwierdza / nie zgadza się / poprawia (z wagą zaufania); klucz właściciela rozstrzyga.
  *  Poprawka zatwierdzona → pamięć wiedzy czatu; odpowiedź błędna → zestaw „nigdy więcej”. */
 export function AnswerVotes({ state, conf = 'all', onCount }: InboxProps = {}) {
   const { lang } = useI18n()
@@ -81,7 +81,7 @@ export function AnswerVotes({ state, conf = 'all', onCount }: InboxProps = {}) {
         <p className="mb-2 text-xs text-slate-400">
           {en
             ? 'Every chat answer lands here live (questions without e-mails, links, phone numbers or names). Confirm, disagree, or correct it (with a source if you have one). Votes count with trust weights; the owner key decides. Approved corrections go to the chat’s knowledge memory, wrong answers to the “never again” regression set (separate from the 2000-question gate).'
-            : 'Tu trafia na żywo każda odpowiedź czatu (pytania bez e-maili, linków, telefonów i imion). Potwierdź, nie zgódź się albo popraw (ze źródłem, jeśli masz). Głosy liczą się z wagą zaufania; klucz właścicielki rozstrzyga. Zatwierdzone poprawki trafiają do pamięci wiedzy czatu, błędne odpowiedzi do zestawu „nigdy więcej” (osobnego od bramki 2000 pytań).'}
+            : 'Tu trafia na żywo każda odpowiedź czatu (pytania bez e-maili, linków, telefonów i imion). Potwierdź, nie zgódź się albo popraw (ze źródłem, jeśli masz). Głosy liczą się z wagą zaufania; klucz właściciela rozstrzyga. Zatwierdzone poprawki trafiają do pamięci wiedzy czatu, błędne odpowiedzi do zestawu „nigdy więcej” (osobnego od bramki 2000 pytań).'}
           {ownerKey.get() ? (en ? ' Your vote = gold label.' : ' Twój głos = złota etykieta.') : ''}
         </p>
         {facets && (

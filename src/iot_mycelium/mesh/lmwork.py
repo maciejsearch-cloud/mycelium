@@ -36,7 +36,7 @@ ROUND_JOBS = int(os.environ.get("MYC_LM_ROUND_JOBS", "12"))
 KD_FRAC = float(os.environ.get("MYC_LM_KD_FRAC", "0.5"))
 # 31.10: 2 = w każdej rundzie oba odłamki sft (logika + matematyka), zamiast losowo jednego
 SFT_JOBS = int(os.environ.get("MYC_LM_SFT_JOBS", "2"))
-# Samouk (31.10, decyzja właścicielki: mniej Wikipedii): gdy jest plan w myc_lm_curriculum (nie starszy niż doba),
+# Samouk (31.10, decyzja właściciela: mniej Wikipedii): gdy jest plan w myc_lm_curriculum (nie starszy niż doba),
 # runda = WIKI_JOBS zadań na Wikipedii (z destylacją) + reszta na zadaniach, które grzybnia sama wybrała i ułożyła
 WIKI_JOBS = int(os.environ.get("MYC_LM_WIKI_JOBS", "3"))
 SELF_NAME = re.compile(r"^self-[a-z]+-[0-9]{8}-[0-9]{4}\.bin\.gz$")

@@ -128,7 +128,7 @@ export default function Czysta() {
     if (typeof logged !== 'number') return v === 'correct' ? asPair() : setFb('Ta odpowiedź nie jest zapisana w Weryfikuj (nauka wyłączona albo limit) – głos nie ma do czego trafić.')
     try {
       const r = await voteAnswer(logged, v, v === 'correct' ? scrub(corr.trim()).slice(0, 600) : undefined)
-      if (r.ok) setFb(r.voter === 'owner' ? 'Zapisane – głos właścicielki rozstrzyga od razu.' : `Zapisane w Weryfikuj (głosów: ${r.votes ?? 1}). Decyzja zapada przy ≥ 3 głosach i pewności ≥ 95%.`)
+      if (r.ok) setFb(r.voter === 'owner' ? 'Zapisane – głos właściciela rozstrzyga od razu.' : `Zapisane w Weryfikuj (głosów: ${r.votes ?? 1}). Decyzja zapada przy ≥ 3 głosach i pewności ≥ 95%.`)
       else if (r.reason === 'own') {
         if (v === 'correct') asPair()
         else setFb('Na odpowiedź na własne pytanie nie głosujesz – czeka w Weryfikuj na ocenę innych osób.')

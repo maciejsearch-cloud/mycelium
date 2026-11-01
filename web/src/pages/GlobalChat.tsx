@@ -481,7 +481,7 @@ export default function GlobalChat() {
 
       {account.me && me && me.role !== 'developer' && (
         <details className="text-xs text-slate-500">
-          <summary className="cursor-pointer">{L('Jestem właścicielką – mam klucz właściciela', 'I am the owner – I have the owner key')}</summary>
+          <summary className="cursor-pointer">{L('Jestem właścicielem – mam klucz właściciela', 'I am the owner – I have the owner key')}</summary>
           <div className="mt-2 flex gap-2">
             <input
               type="password"

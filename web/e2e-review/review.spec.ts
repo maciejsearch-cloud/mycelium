@@ -38,7 +38,7 @@ test('Weryfikuj na telefonie: zatwierdź → cofnij → popraw, dziennik i pomy�
     localStorage.setItem('myc.owner', JSON.stringify(k))
   }, KEY)
   await page.goto('./#/weryfikuj')
-  await expect(page.getByTestId('review-mode')).toContainText('Właścicielka', { timeout: 30_000 })
+  await expect(page.getByTestId('review-mode')).toContainText('Właściciel', { timeout: 30_000 })
   await expect(page.getByTestId('review-mode')).toContainText('e2e')
   const item = page.getByTestId('review-item')
   await expect(item).toHaveAttribute('data-type', 'fragment', { timeout: 30_000 })
@@ -56,7 +56,7 @@ test('Weryfikuj na telefonie: zatwierdź → cofnij → popraw, dziennik i pomy�
   await expect.poll(async () => (await frags()).map((f) => f.status)).toEqual(['conflict', 'conflict'])
   await expect(item).toHaveAttribute('data-type', 'fragment')
 
-  // popraw → nowy strzępek właścicielki (zweryfikowany), błędne odrzucone
+  // popraw → nowy strzępek właściciela (zweryfikowany), błędne odrzucone
   await page.getByTestId('btn-correct').click()
   await page.getByTestId('correct-input').fill('1234')
   await page.getByTestId('correct-save').click()

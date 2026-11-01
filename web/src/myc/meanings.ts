@@ -1,4 +1,4 @@
-// Znaczenia słów wyjaśnione w czacie (supabase/myc_meanings.sql): zapis → głosowanie (wagi zaufania, właścicielka = złoto)
+// Znaczenia słów wyjaśnione w czacie (supabase/myc_meanings.sql): zapis → głosowanie (wagi zaufania, właściciel = złoto)
 // → dopiero zatwierdzone są używane przez czat i trafiają do strzępków i treningu LM.
 import { ids, ownerKey, SB_KEY, SB_URL } from './store'
 

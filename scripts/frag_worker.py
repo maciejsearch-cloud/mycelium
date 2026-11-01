@@ -2,7 +2,7 @@
 i dosyła do wspólnej bazy (RPC ``myc_frag_add``, klucz publikowalny + limiter jak każdy węzeł).
 
 Źródła: słowniki (WordNet/plWordNet z ``web/public/data``), pary PL↔EN, odpowiedzi węzłów
-rozstrzygnięte konsensusem (Dawid-Skene) i decyzje właścicielki z zakładki Weryfikuj.
+rozstrzygnięte konsensusem (Dawid-Skene) i decyzje właściciela z zakładki Weryfikuj.
 Słownik dochodzi porcjami (``--words`` na cykl), więc wzrost warstw widać w czasie.
 
     python scripts/frag_worker.py --loop 600
@@ -82,7 +82,7 @@ def truths(lex: dict, cap: dict, qa: dict) -> tuple[dict[str, tuple[str, float]]
         [Answer(a["question_id"], a["node_id"], a["answer"], bool(a.get("owner"))) for a in answers], opts, gold
     )
     t = {q: cons.truth(q) for q in cons.posterior}
-    for lb in labels:  # decyzja właścicielki/zaufanego współtwórcy nadpisuje konsensus
+    for lb in labels:  # decyzja właściciela/zaufanego współtwórcy nadpisuje konsensus
         if lb["item_type"] in ("answer", "word", "captcha", "teach") and lb["truth"]:
             t[lb["item_ref"]] = (lb["truth"], float(lb["weight"]))
     return t, uqs

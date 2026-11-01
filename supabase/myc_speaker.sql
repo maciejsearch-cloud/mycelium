@@ -1,4 +1,4 @@
--- Grzybnia mówi sama (31.10.2026, decyzja właścicielki): mówca AI w czacie globalnym (docs/speaker.md).
+-- Grzybnia mówi sama (31.10.2026, decyzja właściciela): mówca AI w czacie globalnym (docs/speaker.md).
 -- Co ok. minutę pg_cron wywołuje myc_speaker_tick(): generator programu nauczania (bez węzłów, bez chmury, w bazie)
 -- składa zdanie/pytanie z jawnych list słów poziomu, a ludzie je oceniają, kategoryzują, etykietują, układają słowa
 -- i poprawiają. Nic tu nie jest „udawanym” tekstem AI: każdy wpis ma zapisane tokeny, poziom i sposób powstania

@@ -17,7 +17,7 @@ alter table public.myc_results add constraint myc_results_payload_check check (p
 alter table public.myc_candidate_evals add column if not exists ppl real check (ppl is null or ppl > 0);
 
 -- stały zbiór testowy modelu językowego (web/public/data/lm/eval.bin): n = liczba pytań wyboru, sha = SHA-256 pliku
---   wersja 1 (19.10.2026): 250 pytań, sha 4e7b2048…; wersja 2 (24.10.2026, decyzja właścicielki): 2000 pytań.
+--   wersja 1 (19.10.2026): 250 pytań, sha 4e7b2048…; wersja 2 (24.10.2026, decyzja właściciela): 2000 pytań.
 -- Zmiana zbioru: bieżąca wersja modelu dostaje nowy punkt odniesienia dopiero po przeliczeniu przez zaufanego
 -- weryfikatora (myc_rebase_lm); do tego czasu nowi kandydaci nie są przyjmowani ani publikowani.
 alter table public.myc_eval_sets add column if not exists version int not null default 1;

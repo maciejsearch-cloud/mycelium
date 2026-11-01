@@ -1,4 +1,4 @@
-"""Taksonomia słów: prawdziwe dane ze słowników, ocena odtwarzalna z samego przypisania, poprawki właścicielki."""
+"""Taksonomia słów: prawdziwe dane ze słowników, ocena odtwarzalna z samego przypisania, poprawki właściciela."""
 
 import json
 from pathlib import Path
@@ -100,7 +100,7 @@ def test_word_corrections_trust_own_category_and_notword(inp, built):
             "reviewer": "contrib",
             "weight": 0.6,
         },
-        # właścicielka: własna kategoria z rodzicem i drugie słowo w tej samej kategorii
+        # właściciel: własna kategoria z rodzicem i drugie słowo w tej samej kategorii
         {
             "item_type": "category",
             "item_ref": f"tw:{w3}",

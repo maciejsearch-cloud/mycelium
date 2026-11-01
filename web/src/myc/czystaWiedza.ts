@@ -62,7 +62,7 @@ interface MeaningRow {
   decided_by: string | null
   decided_at: string | null
 }
-const SRC_PL: Record<string, string> = { owner: 'właścicielka', consensus: 'konsensus Weryfikuj', teach: 'nauczyciel + głosowanie' }
+const SRC_PL: Record<string, string> = { owner: 'właściciel', consensus: 'konsensus Weryfikuj', teach: 'nauczyciel + głosowanie' }
 
 const isEnglish = (s: string) => /^[a-z0-9 ,.'’?!;:-]+$/i.test(s) && !/[ąćęłńóśźż]/i.test(s) && /\b(the|is|a|of|my|me|you|i|to|what|how)\b/i.test(s)
 
@@ -114,7 +114,7 @@ export async function loadHumanRows(room = 'main'): Promise<{ frags: FragRow[]; 
 
 export function buildKB(rows: { frags: FragRow[]; meanings: MeaningRow[]; skipped: number }, docs: ReturnType<typeof fromDocs>): PureKB {
   const a = fromFrags(rows.frags)
-  const m: PQA[] = rows.meanings.map((x) => ({ id: `meaning:${x.id}`, q: `Co to jest ${x.word}?`, a: x.meaning, p: x.decided_by === 'owner' ? 1 : 0.95, votes: x.n_votes, source: x.decided_by === 'owner' ? 'znaczenie z czatu (właścicielka)' : 'znaczenie z czatu (głosowanie)', at: x.decided_at ?? undefined }))
+  const m: PQA[] = rows.meanings.map((x) => ({ id: `meaning:${x.id}`, q: `Co to jest ${x.word}?`, a: x.meaning, p: x.decided_by === 'owner' ? 1 : 0.95, votes: x.n_votes, source: x.decided_by === 'owner' ? 'znaczenie z czatu (właściciel)' : 'znaczenie z czatu (głosowanie)', at: x.decided_at ?? undefined }))
   return { facts: [...a.facts, ...docs.facts], qa: [...a.qa, ...m, ...docs.qa], loadedAt: new Date().toISOString(), skipped: rows.skipped }
 }
 

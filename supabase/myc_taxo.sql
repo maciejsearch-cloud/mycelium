@@ -1,7 +1,7 @@
 -- Samoorganizująca się taksonomia słów (węzły grupują słowa same; src/iot_mycelium/mesh/taxo.py).
 -- Wersja = kandydat od węzła → niezależne przeliczenie metryk z opublikowanego przypisania (inny węzeł z innego IP
 -- albo zaufany weryfikator CI) → publikacja. Bramka: stały zbiór oceny (odcisk sha256) i trafność nie niższa niż
--- bieżąca (tolerancja 0); bez nowych poprawek właścicielki wersja musi być lepsza, nie tylko równa.
+-- bieżąca (tolerancja 0); bez nowych poprawek właściciela wersja musi być lepsza, nie tylko równa.
 
 alter table public.myc_eval_sets drop constraint if exists myc_eval_sets_model_check;
 alter table public.myc_eval_sets add constraint myc_eval_sets_model_check
