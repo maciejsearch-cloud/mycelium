@@ -167,6 +167,7 @@ $$;
 revoke all on function public.myc_rozmowa_dev(text) from public, anon, authenticated;
 
 -- fakty o grzybni z bazy (prawdziwe liczby do odpowiedzi „o sobie”)
+alter table public.myc_rozmowa_cfg add column if not exists self_cache jsonb, add column if not exists self_at timestamptz;
 create or replace function public.myc_rozmowa_self() returns jsonb
 language sql stable security definer set search_path = public, pg_temp as $$
   select jsonb_strip_nulls(jsonb_build_object(
@@ -187,6 +188,10 @@ declare c myc_rozmowa_cfg; r jsonb;
 begin
   if not myc_rozmowa_key_ok(p_key) then raise exception 'myc: brak uprawnień' using errcode = '42501'; end if;
   update myc_rozmowa_cfg set heartbeat_at = now(), worker_version = left(coalesce(p_version, worker_version), 40) where id = 1 returning * into c;
+  -- fakty o sobie liczone najwyżej co 5 min (skan myc_results nie przy każdym odpytaniu co 2 s)
+  if c.self_at is null or c.self_at < now() - interval '5 minutes' then
+    update myc_rozmowa_cfg set self_cache = myc_rozmowa_self(), self_at = now() where id = 1 returning * into c;
+  end if;
   select jsonb_build_object(
     'cfg', jsonb_build_object('enabled', c.enabled, 'interject_every_n', c.interject_every_n, 'interject_min_s', c.interject_min_s,
        'invite_quiet_min', c.invite_quiet_min, 'invite_every_min', c.invite_every_min, 'mute_flood_min', c.mute_flood_min, 'cursor', c.cursor,
@@ -204,7 +209,7 @@ begin
     'recent', coalesce((select jsonb_agg(jsonb_build_object('id', id, 'kind', kind, 'handle', handle, 'body', left(body, 200), 'at', created_at) order by id)
        from (select * from myc_gchat where room = 'main' and circle_id is null and not deleted order by id desc limit 40) t), '[]'::jsonb),
     'last_user_at', (select max(created_at) from myc_gchat where room = 'main' and circle_id is null and kind = 'user'),
-    'self', myc_rozmowa_self(),
+    'self', c.self_cache,
     'pairs', coalesce((select jsonb_object_agg(prompt_key, reply) from (select prompt_key, reply from myc_rozmowa_pairs order by id desc limit 2000) p), '{}'::jsonb))
   into r;
   return r;
@@ -218,6 +223,7 @@ begin
   if not myc_rozmowa_key_ok(p_key) then raise exception 'myc: brak uprawnień' using errcode = '42501'; end if;
   return query select m.handle, m.at, g.body from myc_chat_mem m join myc_gchat g on g.id = m.msg_id
    where not g.deleted and (p_before is null or m.msg_id < p_before)
+     and not ('przypomnienie' = any (m.acts)) -- pytania „kto co pisał” nie są odpowiedzią na nie same
      and (p_handle is null or lower(m.handle) = lower(p_handle))
      and (p_lemmas is null or cardinality(p_lemmas) = 0 or m.content && p_lemmas
           -- wspólny początek lematu (≥ 3 litery, długość − 2): „nuda” znajduje „nudzić”
