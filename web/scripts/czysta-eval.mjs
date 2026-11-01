@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os'
 const here = new URL('.', import.meta.url).pathname
 const dir = mkdtempSync(join(tmpdir(), 'czysta-'))
 // transpilacja plików TS (jak rozbior-parity.mjs); import.meta.env → wartości domyślne z kodu
-for (const f of ['czysta', 'czystaLiczby', 'czystaSzkolne', 'czystaWiedza', 'rozbior', 'morf', 'retrieval', 'store']) {
+for (const f of ['czysta', 'czystaLiczby', 'czystaQ', 'czystaSzkolne', 'czystaJednostki', 'czystaWiedza', 'rozbior', 'morf', 'retrieval', 'store']) {
   const src = readFileSync(join(here, `../src/myc/${f}.ts`), 'utf8')
     .replace(/import\.meta\.env\.[A-Z_]+/g, 'undefined')
     .replace(/from '\.\/([A-Za-z]+)'/g, "from './$1.mjs'")
