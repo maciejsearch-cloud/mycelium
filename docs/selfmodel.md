@@ -1,6 +1,26 @@
 # SelfModel – „rozumiemy, że jesteśmy”, ale tylko w liczbach, które da się sprawdzić
 
-Status: interfejsy (`src/iot_mycelium/selfmodel/base.py`). Implementacja w kolejnych PR.
+Status: interfejsy (`base.py`), implementacja (`calibration.py`, `sources.py`, `model.py`, `store.py`,
+`lmscores.py`), skrypt `scripts/selfmodel_run.py` (po każdym przebiegu samouka), tabela `myc_self_model`.
+
+## Uruchomienie i pierwsze liczby (1.11.2026, LM v4, plan samouka #11)
+
+`PYTHONPATH=src python scripts/selfmodel_run.py [--dry] [--json out.json]` – model ładuje się tylko, gdy trzeba
+policzyć wyniki opcji nowej wersji (2000 pytań: 281 s na boxie, bf16, 3 wątki) albo pytań próbnych starszego planu;
+potem wszystko z pamięci podręcznej (`$MYC_CACHE/selfmodel/`).
+
+Kalibracja osobno w każdej domenie: temperatura z parzystych pytań, ocena na nieparzystych.
+
+| domena | trafność | T | ECE przed → po (odłożone) |
+|---|---|---|---|
+| definicje (2000) | 714/2000 | 2,8 | 0,121 → 0,030 (n = 1000) |
+| logika | 9/40 | 10,0* | 0,387 → 0,191 (n = 20) |
+| matematyka | 9/40 | 7,0 | 0,288 → 0,074 (n = 20) |
+| przypadki | 9/40 | 10,0* | 0,159 → 0,016 (n = 20) |
+| role | 13/40 | 3,2 | 0,514 → 0,260 (n = 20) |
+
+\* granica siatki: rozkład modelu prawie nie niesie informacji o poprawności – kalibracja spłaszcza go do
+zgadywania. Przy 20 pytaniach odłożonych przedziały są szerokie (±20 pkt) – SelfModel je pokazuje.
 
 ## Po co (ocena kosztu i zysku, 1.11.2026)
 
@@ -39,3 +59,10 @@ pozorna – tak to oznaczamy zamiast liczyć jako sukces.
 
 Migawki: tabela z odczytem publicznym (RLS: select dla anon), bez praw zapisu dla anon/authenticated –
 pisze tylko właściciel (Management API, jak samouk). Reszta sieci (węzły, strona) czyta.
+
+## Relacje (punkt rozszerzenia)
+
+Pamięć relacji z użytkownikami (ton, historia rozmów) buduje moduł czatu w osobnej tabeli `myc_self_relations`.
+SelfModel ma na nią `RelationsSource` i pole `Snapshot.relations`, ale do publicznej migawki trafia tylko stan
+źródła (czy istnieje, ile wierszy widzi klucz publiczny) – nigdy treść relacji z konkretną osobą. Panel na stronie
+pokazuje uczciwy pusty stan, dopóki tabeli nie ma.

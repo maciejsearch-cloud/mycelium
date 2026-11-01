@@ -71,6 +71,11 @@ class Measurement:
     ece_raw: float | None = None
     ece_cal: float | None = None
     url: str | None = None
+    # pewność i ECE liczone na odłożonej połowie (``conf_n`` pytań, z tego ``conf_correct`` trafnych) przy
+    # temperaturze ``temperature`` dopasowanej na drugiej połowie tej samej domeny (schemat 1, pola opcjonalne)
+    conf_n: int | None = None
+    conf_correct: int | None = None
+    temperature: float | None = None
 
     def __post_init__(self) -> None:
         if self.n < 0 or self.correct < 0 or self.wrong < 0 or self.abstained < 0:
@@ -97,6 +102,12 @@ class Measurement:
 
     def accuracy_ci(self) -> tuple[float, float]:
         return wilson(self.correct, self.n)
+
+    def held_out(self) -> tuple[int, int]:
+        """(trafne, n) zbioru, na którym liczono pewność; bez osobnego zbioru – cały pomiar."""
+        if self.conf_n:
+            return int(self.conf_correct or 0), int(self.conf_n)
+        return self.correct, self.n
 
     def precision_ci(self) -> tuple[float, float]:
         return wilson(self.correct, self.answered)
@@ -161,6 +172,9 @@ class Snapshot:
     checks: list[Check] = field(default_factory=list)
     decisions: list[Decision] = field(default_factory=list)
     calibration: dict[str, Any] = field(default_factory=dict)
+    # punkt rozszerzenia „relacje” (pamięć relacji z użytkownikami, osobny moduł/tabela myc_self_relations):
+    # w migawce tylko stan źródła ({source, available, public_rows}) – nigdy treść relacji z osobami
+    relations: dict[str, Any] | None = None
     schema: int = SCHEMA_VERSION
 
     def to_json(self) -> dict[str, Any]:
@@ -188,6 +202,7 @@ class Snapshot:
             checks=[Check(**{**c, "verdict": Verdict(c["verdict"])}) for c in d.get("checks") or []],
             decisions=[Decision(**x) for x in d.get("decisions") or []],
             calibration=d.get("calibration") or {},
+            relations=d.get("relations"),
             schema=d.get("schema", SCHEMA_VERSION),
         )
 
@@ -236,6 +251,17 @@ class SelfModel(ABC):
 
     @abstractmethod
     def snapshot(self) -> Snapshot: ...
+
+
+class RelationsSource(ABC):
+    """Punkt rozszerzenia: pamięć relacji z użytkownikami (ton, historia) prowadzona przez moduł czatu.
+
+    SelfModel nie przechowuje treści relacji; implementacja zwraca tylko stan źródła do migawki, a szczegóły
+    konkretnej osoby czyta (z kontrolą dostępu) ten, komu wolno – np. właściciel relacji przez RLS."""
+
+    @abstractmethod
+    def status(self) -> dict[str, Any]:
+        """``{"source": nazwa, "available": bool, ...}`` – bez danych osobowych."""
 
 
 class SelfModelStore(ABC):
