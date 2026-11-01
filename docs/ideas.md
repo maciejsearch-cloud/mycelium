@@ -6,7 +6,7 @@ Punkt wyjścia: testy szkolne v1 (czysta grzybnia, żywa strona 01.11 04:13) = 1
 klasy 1–5 i 4-8: 50–79%, klasa 6: 1/18, klasa 7: 3/16 (7 błędnych). LM nadal v4 (ppl 30.16); kandydat v5 ppl 30.61 odrzucony.
 
 ## Do zrobienia (najpierw)
-1. **Testy szkolne: błędne → „nie wiem”** – przejrzeć 23 złe odpowiedzi (głównie kl. 7 i jednostki kl. 3), dodać
+1. ✅ *(zrobione 01.11, #44–#46: test 111/23/57 → 113/1/77, dev 99/0/2 bez zmian)* **Testy szkolne: błędne → „nie wiem”** – przejrzeć 23 złe odpowiedzi (głównie kl. 7 i jednostki kl. 3), dodać
    bezpieczniki, które przy niepewnym rozbiorze mówią „nie wiem” zamiast zgadywać. Cel: 0 błędnych na dev, bez spadku „ok”.
 2. **Testy szkolne kl. 6–7** – ułamki zwykłe i dziesiętne w zadaniach tekstowych, procent składany, proporcje,
    równania z jedną niewiadomą (ślad krok po kroku). Najpierw zamrożony zestaw dev, potem kod, pomiar przed/po.

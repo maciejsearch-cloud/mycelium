@@ -1,0 +1,4521 @@
+{
+ "when": "2026-11-01T12:22:54+01:00",
+ "set": "szkolne_v1",
+ "mode": "czysta_browser",
+ "label": "bezpieczniki",
+ "url": "https://maciejsearch-cloud.github.io/demo/mycelium/",
+ "model": "rozbiór: model grzybni v3 (UD Polish-PDB, CC BY-NC-SA 4.0)",
+ "meta": null,
+ "n": 191,
+ "ok": 113,
+ "zle": 1,
+ "nie_wiem": 77,
+ "per_grade": {
+  "1": {
+   "n": 14,
+   "ok": 9,
+   "zle": 0,
+   "nie_wiem": 5
+  },
+  "2": {
+   "n": 13,
+   "ok": 10,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "3": {
+   "n": 36,
+   "ok": 22,
+   "zle": 0,
+   "nie_wiem": 14
+  },
+  "4": {
+   "n": 34,
+   "ok": 24,
+   "zle": 0,
+   "nie_wiem": 10
+  },
+  "4-8": {
+   "n": 35,
+   "ok": 27,
+   "zle": 0,
+   "nie_wiem": 8
+  },
+  "5": {
+   "n": 25,
+   "ok": 15,
+   "zle": 0,
+   "nie_wiem": 10
+  },
+  "6": {
+   "n": 18,
+   "ok": 2,
+   "zle": 0,
+   "nie_wiem": 16
+  },
+  "7": {
+   "n": 16,
+   "ok": 4,
+   "zle": 1,
+   "nie_wiem": 11
+  }
+ },
+ "per_grade_category": {
+  "1|arytmetyka": {
+   "n": 8,
+   "ok": 8,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "1|zadania_tekstowe": {
+   "n": 6,
+   "ok": 1,
+   "zle": 0,
+   "nie_wiem": 5
+  },
+  "2|arytmetyka": {
+   "n": 9,
+   "ok": 9,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "2|geometria": {
+   "n": 1,
+   "ok": 1,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "2|zadania_tekstowe": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "3|arytmetyka": {
+   "n": 8,
+   "ok": 8,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "3|czesci_mowy": {
+   "n": 8,
+   "ok": 8,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "3|geometria": {
+   "n": 1,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "3|jednostki": {
+   "n": 8,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 8
+  },
+  "3|liczba": {
+   "n": 6,
+   "ok": 6,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "3|logika_ciagi": {
+   "n": 1,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "3|zadania_tekstowe": {
+   "n": 4,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 4
+  },
+  "4-8|czesci_mowy": {
+   "n": 10,
+   "ok": 8,
+   "zle": 0,
+   "nie_wiem": 2
+  },
+  "4-8|liczba": {
+   "n": 5,
+   "ok": 3,
+   "zle": 0,
+   "nie_wiem": 2
+  },
+  "4-8|przypadki": {
+   "n": 10,
+   "ok": 10,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "4-8|rodzaj": {
+   "n": 10,
+   "ok": 6,
+   "zle": 0,
+   "nie_wiem": 4
+  },
+  "4|arytmetyka": {
+   "n": 9,
+   "ok": 9,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "4|geometria": {
+   "n": 5,
+   "ok": 4,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "4|jednostki": {
+   "n": 11,
+   "ok": 6,
+   "zle": 0,
+   "nie_wiem": 5
+  },
+  "4|logika_ciagi": {
+   "n": 1,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "4|zadania_tekstowe": {
+   "n": 8,
+   "ok": 5,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "5|geometria": {
+   "n": 7,
+   "ok": 6,
+   "zle": 0,
+   "nie_wiem": 1
+  },
+  "5|jednostki": {
+   "n": 3,
+   "ok": 3,
+   "zle": 0,
+   "nie_wiem": 0
+  },
+  "5|ulamki": {
+   "n": 12,
+   "ok": 6,
+   "zle": 0,
+   "nie_wiem": 6
+  },
+  "5|zadania_tekstowe": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "6|geometria": {
+   "n": 4,
+   "ok": 2,
+   "zle": 0,
+   "nie_wiem": 2
+  },
+  "6|jednostki": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "6|ulamki": {
+   "n": 3,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 3
+  },
+  "6|zadania_tekstowe": {
+   "n": 8,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 8
+  },
+  "7|arytmetyka": {
+   "n": 3,
+   "ok": 1,
+   "zle": 0,
+   "nie_wiem": 2
+  },
+  "7|jednostki": {
+   "n": 2,
+   "ok": 1,
+   "zle": 1,
+   "nie_wiem": 0
+  },
+  "7|ulamki": {
+   "n": 5,
+   "ok": 0,
+   "zle": 0,
+   "nie_wiem": 5
+  },
+  "7|zadania_tekstowe": {
+   "n": 6,
+   "ok": 2,
+   "zle": 0,
+   "nie_wiem": 4
+  }
+ },
+ "rows": [
+  {
+   "id": "szk-1-001",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "Na lodowisku jeździło 12 łyżwiarzy. Doszło jeszcze 3. Ilu łyżwiarzy jest teraz na lodowisku?",
+   "gold": [
+    [
+     "15"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Na lodowisku jeździło 12 łyżwiarzy. Doszło jeszcze 3. Ilu łyżwiarzy jest teraz na lodowisku?”",
+    "rozbiór3 zdania, pewność rozbioru 89%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {łyżwi, teraz, lodow}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {łyżwi, teraz, lodow} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-002",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "W kuligu jechało 10 saneczek. 3 sanki się odczepiły. Ile sanek jedzie teraz w kuligu?",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W kuligu jechało 10 saneczek. 3 sanki się odczepiły. Ile sanek jedzie teraz w kuligu?”",
+    "rozbiór3 zdania, pewność rozbioru 99%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „sanki”",
+    "fakt10 saneczek – inna rzecz niż „sanki”, pomijam",
+    "reguła„odczepiły” – pierwsza wzmianka o liczbie, stan początkowy: 3",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {sank, jecha, teraz, kulig}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {sank, jecha, teraz, kulig} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-003",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "Pan Wojtek naprawia narty. Dzisiaj naprawił 8 nart, a wczoraj naprawił ich 9. Ile nart naprawił pan Wojtek w ciągu dwóch dni?",
+   "gold": [
+    [
+     "17"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Pan Wojtek naprawia narty. Dzisiaj naprawił 8 nart, a wczoraj naprawił ich 9. Ile nart naprawił pan Wojtek w ciągu dwóch dni?”",
+    "rozbiór3 zdania, pewność rozbioru 96%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórwyrazy ciągu: 8, 9, 2",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "rozbiórpytanie o liczbę: „narta”, czyje: Wojtek",
+    "reguła„naprawił” – pierwsza wzmianka o liczbie, stan początkowy: 8",
+    "braknie wiem, czy „naprawił” dodaje, czy odejmuje",
+    "wiedzasłowa treści pytania: {nart, napra, pan, wojte, ciąg, dw, dzień}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {nart, napra, pan, wojte, ciąg, dw, dzień} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-004",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "Do karmnika przyleciały 4 gile i 6 wróbli. Ile ptaków jest w karmniku?",
+   "gold": [
+    [
+     "10"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Do karmnika przyleciały 4 gile i 6 wróbli. Ile ptaków jest w karmniku?”",
+    "rozbiór2 zdania, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „ptak”",
+    "fakt4 gile – inna rzecz niż „ptak”, pomijam",
+    "fakt6 wróbli – inna rzecz niż „ptak”, pomijam",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {ptak, karmn}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {ptak, karmn} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-005",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "Na gałęzi rosło 8 kasztanów, 2 spadły na ziemię. Ile kasztanów zostało na gałęzi?",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": "6",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Na gałęzi rosło 8 kasztanów, 2 spadły na ziemię. Ile kasztanów zostało na gałęzi?”",
+    "rozbiór2 zdania, pewność rozbioru 95%",
+    "rozbiórpytanie o liczbę: „kasztan”",
+    "reguła„rosło” – stan początkowy: 8",
+    "reguła„spadły” – rzecz przestaje istnieć, ubywa: 8 − 2 = 6",
+    "wniosekodpowiedź: 6"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-006",
+   "grade": "1",
+   "category": "zadania_tekstowe",
+   "q": "Dzieci z pierwszej klasy zrobiły palmy wielkanocne. 9 palm miało bazie, a 8 gałązki bukszpanu. Oblicz, ile razem palm zrobiły dzieci.",
+   "gold": [
+    [
+     "17"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Dzieci z pierwszej klasy zrobiły palmy wielkanocne. 9 palm miało bazie, a 8 gałązki bukszpanu. Oblicz, ile razem palm zrobiły dzieci.”",
+    "rozbiór3 zdania, pewność rozbioru 93%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-007",
+   "grade": "1",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 13 + 7 =",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "answer": "20",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 13 + 7 =”",
+    "rozbiór2 zdania, pewność rozbioru 74%",
+    "rozbiórdziałanie: 13 + 7",
+    "wniosek13 + 7 = 20"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-008",
+   "grade": "1",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 18 + 1 =",
+   "gold": [
+    [
+     "19"
+    ]
+   ],
+   "answer": "19",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 18 + 1 =”",
+    "rozbiór2 zdania, pewność rozbioru 70%",
+    "rozbiórdziałanie: 18 + 1",
+    "wniosek18 + 1 = 19"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-009",
+   "grade": "1",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 9-2=",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": "7",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 9-2=”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "rozbiórdziałanie: 9-2",
+    "wniosek9 − 2 = 7"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-010",
+   "grade": "1",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 12 - 7 =",
+   "gold": [
+    [
+     "5"
+    ]
+   ],
+   "answer": "5",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 12 - 7 =”",
+    "rozbiór2 zdania, pewność rozbioru 89%",
+    "rozbiórdziałanie: 12 - 7",
+    "wniosek12 − 7 = 5"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-011",
+   "grade": "1",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 10 + 6 =",
+   "gold": [
+    [
+     "16"
+    ]
+   ],
+   "answer": "16",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 10 + 6 =”",
+    "rozbiór2 zdania, pewność rozbioru 71%",
+    "rozbiórdziałanie: 10 + 6",
+    "wniosek10 + 6 = 16"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-012",
+   "grade": "1",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 5+5=",
+   "gold": [
+    [
+     "10"
+    ]
+   ],
+   "answer": "10",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 5+5=”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "rozbiórdziałanie: 5+5",
+    "wniosek5 + 5 = 10"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-013",
+   "grade": "1",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 15 - 3 =",
+   "gold": [
+    [
+     "12"
+    ]
+   ],
+   "answer": "12",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 15 - 3 =”",
+    "rozbiór2 zdania, pewność rozbioru 88%",
+    "rozbiórdziałanie: 15 - 3",
+    "wniosek15 − 3 = 12"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-1-014",
+   "grade": "1",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 19 - 11 =",
+   "gold": [
+    [
+     "8"
+    ]
+   ],
+   "answer": "8",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 19 - 11 =”",
+    "rozbiór2 zdania, pewność rozbioru 88%",
+    "rozbiórdziałanie: 19 - 11",
+    "wniosek19 − 11 = 8"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-001",
+   "grade": "2",
+   "category": "zadania_tekstowe",
+   "q": "Rozwiąż zadanie. Dziadek kupił 2 kg ziemniaków i zapłacił za nie 6 zł. Babcia kupiła 5 kg tych samych ziemniaków. Dokupiła jeszcze sałatę za 4 zł. Ile babcia zapłaciła za zakupy?",
+   "gold": [
+    [
+     "19"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Rozwiąż zadanie. Dziadek kupił 2 kg ziemniaków i zapłacił za nie 6 zł. Babcia kupiła 5 kg tych samych ziemniaków. Dokupiła jeszcze sałatę za 4 zł. Ile babcia zapłaciła za zakupy?”",
+    "rozbiór5 zdań, pewność rozbioru 87%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „babcia”",
+    "reguła„kupił” – przybywa: 0 + 2 = 2",
+    "reguła„zapłacił” – ubywa: 2 − 6 = -4",
+    "reguła„kupiła” – przybywa: -4 + 5 = 1",
+    "reguła„za 4” – zapłata: 1 − 4 = -3",
+    "brakbezpiecznik: „6 zł” i wcześniejsze „kilogram” to różne rzeczy – nie dodaję ich do siebie",
+    "wiedzasłowa treści pytania: {babc, zapła, zakup}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {babc, zapła, zakup} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-002",
+   "grade": "2",
+   "category": "zadania_tekstowe",
+   "q": "Rozwiąż zadanie. Wojtek miał 36 zł. Chciał kupić 6 jednakowych babeczek. Ile najwięcej mogła kosztować jedna babeczka?",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Rozwiąż zadanie. Wojtek miał 36 zł. Chciał kupić 6 jednakowych babeczek. Ile najwięcej mogła kosztować jedna babeczka?”",
+    "rozbiór4 zdania, pewność rozbioru 95%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „babeczka”",
+    "reguławojtek: „miał” – stan początkowy: 36",
+    "reguławojtek: „kupić” – przybywa: 36 + 6 = 42",
+    "brakbezpiecznik: „6 babeczek” i wcześniejsze „złoty” to różne rzeczy – nie dodaję ich do siebie",
+    "wiedzasłowa treści pytania: {duż, móc, koszt, jeden, babec}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {duż, móc, koszt, jeden, babec} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-003",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 3·3=",
+   "gold": [
+    [
+     "9"
+    ]
+   ],
+   "answer": "9",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 3·3=”",
+    "rozbiór2 zdania, pewność rozbioru 83%",
+    "rozbiórdziałanie: 3·3",
+    "wniosek3 · 3 = 9"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-004",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 18 : 3 =",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": "6",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 18 : 3 =”",
+    "rozbiór2 zdania, pewność rozbioru 89%",
+    "rozbiórdziałanie: 18 : 3",
+    "wniosek18 : 3 = 6"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-005",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 24 : 6 =",
+   "gold": [
+    [
+     "4"
+    ]
+   ],
+   "answer": "4",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 24 : 6 =”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "rozbiórdziałanie: 24 : 6",
+    "wniosek24 : 6 = 4"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-006",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 22 : 2 =",
+   "gold": [
+    [
+     "11"
+    ]
+   ],
+   "answer": "11",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 22 : 2 =”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "rozbiórdziałanie: 22 : 2",
+    "wniosek22 : 2 = 11"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-007",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 30 : 6 =",
+   "gold": [
+    [
+     "5"
+    ]
+   ],
+   "answer": "5",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 30 : 6 =”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "rozbiórdziałanie: 30 : 6",
+    "wniosek30 : 6 = 5"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-008",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 49 : 7 =",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": "7",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 49 : 7 =”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "rozbiórdziałanie: 49 : 7",
+    "wniosek49 : 7 = 7"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-009",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 6·8=",
+   "gold": [
+    [
+     "48"
+    ]
+   ],
+   "answer": "48",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 6·8=”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "rozbiórdziałanie: 6·8",
+    "wniosek6 · 8 = 48"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-010",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 3·5=",
+   "gold": [
+    [
+     "15"
+    ]
+   ],
+   "answer": "15",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 3·5=”",
+    "rozbiór2 zdania, pewność rozbioru 87%",
+    "rozbiórdziałanie: 3·5",
+    "wniosek3 · 5 = 15"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-011",
+   "grade": "2",
+   "category": "arytmetyka",
+   "q": "Wykonaj działania. 4·9=",
+   "gold": [
+    [
+     "36"
+    ]
+   ],
+   "answer": "36",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wykonaj działania. 4·9=”",
+    "rozbiór2 zdania, pewność rozbioru 85%",
+    "rozbiórdziałanie: 4·9",
+    "wniosek4 · 9 = 36"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-012",
+   "grade": "2",
+   "category": "geometria",
+   "q": "Oblicz obwód trójkąta o bokach długości: 12 cm, 8 cm, 15 cm.",
+   "gold": [
+    [
+     "35"
+    ]
+   ],
+   "answer": "35 cm",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz obwód trójkąta o bokach długości: 12 cm, 8 cm, 15 cm.”",
+    "rozbiór1 zdanie, pewność rozbioru 59%",
+    "faktbok: 12 cm",
+    "faktbok: 8 cm",
+    "faktbok: 15 cm",
+    "wniosektrójkąt, obwód: 12 cm + 8 cm + 15 cm = 35 cm"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-2-013",
+   "grade": "2",
+   "category": "zadania_tekstowe",
+   "q": "Obrazek wykonany przez Zosię składa się z 10 figur geometrycznych, a obrazek zrobiony przez Adasia z 8 figur więcej. Kasia natomiast wykorzystała do swojej pracy dwa razy więcej figur niż Adaś. Ilu figur geometrycznych użyły dzieci razem?",
+   "gold": [
+    [
+     "64"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Obrazek wykonany przez Zosię składa się z 10 figur geometrycznych, a obrazek zrobiony przez Adasia z 8 figur więcej. Kasia natomiast wykorzystała do swojej pracy dwa razy więcej figur niż Adaś. Ilu figur geometrycznych użyły dzieci razem?”",
+    "rozbiór3 zdania, pewność rozbioru 90%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {figur, geome, użyć, dziec}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {figur, geome, użyć, dziec} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-001",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsce wynik działania. 9+3·2=",
+   "gold": [
+    [
+     "15"
+    ]
+   ],
+   "answer": "15",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wpisz w puste miejsce wynik działania. 9+3·2=”",
+    "rozbiór2 zdania, pewność rozbioru 71%",
+    "rozbiórdziałanie: 9+3·2",
+    "wniosek3 · 2 = 6",
+    "wniosek9 + 6 = 15"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-002",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsce wynik działania. 20 : 5 + 4 =",
+   "gold": [
+    [
+     "8"
+    ]
+   ],
+   "answer": "8",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wpisz w puste miejsce wynik działania. 20 : 5 + 4 =”",
+    "rozbiór2 zdania, pewność rozbioru 83%",
+    "rozbiórdziałanie: 20 : 5 + 4",
+    "wniosek20 : 5 = 4",
+    "wniosek4 + 4 = 8"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-003",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsce wynik działania. 7+3·8=",
+   "gold": [
+    [
+     "31"
+    ]
+   ],
+   "answer": "31",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wpisz w puste miejsce wynik działania. 7+3·8=”",
+    "rozbiór2 zdania, pewność rozbioru 72%",
+    "rozbiórdziałanie: 7+3·8",
+    "wniosek3 · 8 = 24",
+    "wniosek7 + 24 = 31"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-004",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsce wynik działania. 15 – 2 · 4 =",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": "7",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wpisz w puste miejsce wynik działania. 15 – 2 · 4 =”",
+    "rozbiór2 zdania, pewność rozbioru 80%",
+    "rozbiórdziałanie: 15 – 2 · 4",
+    "wniosek2 · 4 = 8",
+    "wniosek15 − 8 = 7"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-005",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsce wynik działania. 16 + 3 · 3 =",
+   "gold": [
+    [
+     "25"
+    ]
+   ],
+   "answer": "25",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wpisz w puste miejsce wynik działania. 16 + 3 · 3 =”",
+    "rozbiór2 zdania, pewność rozbioru 67%",
+    "rozbiórdziałanie: 16 + 3 · 3",
+    "wniosek3 · 3 = 9",
+    "wniosek16 + 9 = 25"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-006",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsce wynik działania. 24 : 4 + 7 =",
+   "gold": [
+    [
+     "13"
+    ]
+   ],
+   "answer": "13",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wpisz w puste miejsce wynik działania. 24 : 4 + 7 =”",
+    "rozbiór2 zdania, pewność rozbioru 79%",
+    "rozbiórdziałanie: 24 : 4 + 7",
+    "wniosek24 : 4 = 6",
+    "wniosek6 + 7 = 13"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-007",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsce wynik działania. 36 + 12 : 3 =",
+   "gold": [
+    [
+     "40"
+    ]
+   ],
+   "answer": "40",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wpisz w puste miejsce wynik działania. 36 + 12 : 3 =”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "rozbiórdziałanie: 36 + 12 : 3",
+    "wniosek12 : 3 = 4",
+    "wniosek36 + 4 = 40"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-008",
+   "grade": "3",
+   "category": "arytmetyka",
+   "q": "Wpisz w puste miejsce wynik działania. 40 – 5 · 5 =",
+   "gold": [
+    [
+     "15"
+    ]
+   ],
+   "answer": "15",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Wpisz w puste miejsce wynik działania. 40 – 5 · 5 =”",
+    "rozbiór2 zdania, pewność rozbioru 80%",
+    "rozbiórdziałanie: 40 – 5 · 5",
+    "wniosek5 · 5 = 25",
+    "wniosek40 − 25 = 15"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-009",
+   "grade": "3",
+   "category": "zadania_tekstowe",
+   "q": "W 2 zespołach było po 4 uczniów, a w 3 zespołach po 5 uczniów. Ilu uczniów było razem w tych zespołach?",
+   "gold": [
+    [
+     "23"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W 2 zespołach było po 4 uczniów, a w 3 zespołach po 5 uczniów. Ilu uczniów było razem w tych zespołach?”",
+    "rozbiór2 zdania, pewność rozbioru 87%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórwyrazy ciągu: 2, 4, 3, 5",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "wiedzasłowa treści pytania: {uczeń, zespó}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {uczeń, zespó} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-010",
+   "grade": "3",
+   "category": "zadania_tekstowe",
+   "q": "Na 5 stronach w albumie było po 6 zdjęć, a na jednej stronie były tylko 4. Ile zdjęć było w albumie?",
+   "gold": [
+    [
+     "34"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Na 5 stronach w albumie było po 6 zdjęć, a na jednej stronie były tylko 4. Ile zdjęć było w albumie?”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórwyrazy ciągu: 5, 6, 4",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "rozbiórpytanie o liczbę: „zdjęcie”",
+    "reguła„było” – stan początkowy: 5",
+    "reguła„było” – stan: 6",
+    "reguła„były” – stan: 4",
+    "brakbezpiecznik: dwie liczby przy jednym czasowniku „było”, choć w zdaniu są dwa czasowniki – rozbiór niepewny",
+    "wiedzasłowa treści pytania: {zdjęc, album}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {zdjęc, album} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-011",
+   "grade": "3",
+   "category": "zadania_tekstowe",
+   "q": "Krzyś ma 40 zł w monetach pięciozłotowych i 10 zł w monetach dwuzłotowych. Ile monet ma Krzyś?",
+   "gold": [
+    [
+     "13"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Krzyś ma 40 zł w monetach pięciozłotowych i 10 zł w monetach dwuzłotowych. Ile monet ma Krzyś?”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „moneta”, czyje: Krzyś",
+    "reguła„ma” – stan początkowy: 40",
+    "reguła„ma” – stan: 10",
+    "brakbezpiecznik: drugi stan „ma” (10) dla tej samej sceny – nie wiem, czy dodać, czy zastąpić 40",
+    "wiedzasłowa treści pytania: {monet, mieć, krzyś}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {monet, mieć, krzyś} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-012",
+   "grade": "3",
+   "category": "zadania_tekstowe",
+   "q": "Samochód pana Tomasza na jednym litrze paliwa może przejechać 24 km. Ile kilometrów przejedzie, mając 4 litry paliwa w baku?",
+   "gold": [
+    [
+     "96"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Samochód pana Tomasza na jednym litrze paliwa może przejechać 24 km. Ile kilometrów przejedzie, mając 4 litry paliwa w baku?”",
+    "rozbiór2 zdania, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „kilometr”",
+    "reguła„przejechać” – pierwsza wzmianka o liczbie, stan początkowy: 24",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {kilom, przej, mieć, 4, litr, paliw, bak}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {kilom, przej, mieć, 4, litr, paliw, bak} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-013",
+   "grade": "3",
+   "category": "geometria",
+   "q": "W trójkącie wszystkie boki są jednakowej długości. Jego obwód wynosi 21 cm. Jaka jest długość każdego z boków tego trójkąta?",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W trójkącie wszystkie boki są jednakowej długości. Jego obwód wynosi 21 cm. Jaka jest długość każdego z boków tego trójkąta?”",
+    "rozbiór3 zdania, pewność rozbioru 83%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {długo, każd, bok, trójk}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {długo, każd, bok, trójk} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-014",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. 2 i pół godziny to … minut",
+   "gold": [
+    [
+     "150"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. 2 i pół godziny to … minut”",
+    "rozbiór3 zdania, pewność rozbioru 67%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-015",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. 3 kwadranse to … minut",
+   "gold": [
+    [
+     "45"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. 3 kwadranse to … minut”",
+    "rozbiór3 zdania, pewność rozbioru 68%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-016",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. 1 godzina i 40 minut to … minut",
+   "gold": [
+    [
+     "100"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. 1 godzina i 40 minut to … minut”",
+    "rozbiór3 zdania, pewność rozbioru 73%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-017",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. 3 godziny i 20 minut to … minut",
+   "gold": [
+    [
+     "200"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. 3 godziny i 20 minut to … minut”",
+    "rozbiór3 zdania, pewność rozbioru 74%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-018",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. pół godziny to … minut",
+   "gold": [
+    [
+     "30"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zamień jednostki czasu według wzoru. W puste miejsca wstaw odpowiednie liczby. pół godziny to … minut”",
+    "rozbiór3 zdania, pewność rozbioru 66%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-019",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Kostka masła waży 25 dag, kostka serka topionego 10 dag, a kajzerka 5 dag. Marta kupiła 1 kostkę masła, 4 kostki topionego serka, 40 dag białego sera i 5 kajzerek. Ile ważyły zakupy?",
+   "gold": [
+    [
+     "130"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Kostka masła waży 25 dag, kostka serka topionego 10 dag, a kajzerka 5 dag. Marta kupiła 1 kostkę masła, 4 kostki topionego serka, 40 dag białego sera i 5 kajzerek. Ile ważyły zakupy?”",
+    "rozbiór3 zdania, pewność rozbioru 83%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „zakup”",
+    "fakt25 dag – inna rzecz niż „zakup”, pomijam",
+    "fakt10 dag – inna rzecz niż „zakup”, pomijam",
+    "fakt5 dag – inna rzecz niż „zakup”, pomijam",
+    "fakt1 kostkę – inna rzecz niż „zakup”, pomijam",
+    "fakt4 dag – inna rzecz niż „zakup”, pomijam",
+    "fakt40 dag – inna rzecz niż „zakup”, pomijam",
+    "fakt5 kajzerek – inna rzecz niż „zakup”, pomijam",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {ważyć, zakup}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {ważyć, zakup} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-020",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Ile litrów soku owocowego zmieści się w 20 butelkach półlitrowych? Pamiętaj, że 1 litr mieści 2 butelki półlitrowe.",
+   "gold": [
+    [
+     "10"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Ile litrów soku owocowego zmieści się w 20 butelkach półlitrowych? Pamiętaj, że 1 litr mieści 2 butelki półlitrowe.”",
+    "rozbiór2 zdania, pewność rozbioru 99%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „litr”",
+    "reguła„mieści” – pierwsza wzmianka o liczbie, stan początkowy: 1",
+    "fakt2 butelki – inna rzecz niż „litr”, pomijam",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {litr, sok, owoco, zmieś, 20, butel, półli}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {litr, sok, owoco, zmieś, 20, butel, półli} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-021",
+   "grade": "3",
+   "category": "jednostki",
+   "q": "Mama rozlała sok do 8 kubków ćwierćlitrowych. Ile soku rozlała?",
+   "gold": [
+    [
+     "2"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Mama rozlała sok do 8 kubków ćwierćlitrowych. Ile soku rozlała?”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „sok”",
+    "reguła„rozlała” – pierwsza wzmianka o liczbie, stan początkowy: 8",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {sok, rozla}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {sok, rozla} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-022",
+   "grade": "3",
+   "category": "logika_ciagi",
+   "q": "Z rozsypanki liczbowej: 3; 6; 15; 29; 35; 67; 5; 9; 18; 32; 46 ułóż ciąg liczb ułożonych w kolejności od najmniejszej do największej.",
+   "gold": [
+    [
+     "3",
+     "5",
+     "6",
+     "9",
+     "15",
+     "18",
+     "29",
+     "32",
+     "35",
+     "46",
+     "67"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Z rozsypanki liczbowej: 3; 6; 15; 29; 35; 67; 5; 9; 18; 32; 46 ułóż ciąg liczb ułożonych w kolejności od najmniejszej do największej.”",
+    "rozbiór1 zdanie, pewność rozbioru 41%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiórwyrazy ciągu: 3, 6, 15, 29, 35, 67, 5, 9, 18, 32, 46",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-023",
+   "grade": "3",
+   "category": "liczba",
+   "q": "Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. dziecko",
+   "gold": [
+    [
+     "pojedyncza"
+    ]
+   ],
+   "answer": "liczba pojedyncza",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. dziecko”",
+    "rozbiór2 zdania, pewność rozbioru 76%",
+    "fakt„dziecko” w słowniku (mianownik): subst:sg:nom:n:col",
+    "wniosek„dziecko” – liczba pojedyncza"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-024",
+   "grade": "3",
+   "category": "liczba",
+   "q": "Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. słonie",
+   "gold": [
+    [
+     "mnoga"
+    ]
+   ],
+   "answer": "liczba mnoga",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. słonie”",
+    "rozbiór2 zdania, pewność rozbioru 78%",
+    "fakt„słonie” w słowniku (mianownik): subst:pl:nom:m2",
+    "wniosek„słonie” – liczba mnoga"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-025",
+   "grade": "3",
+   "category": "liczba",
+   "q": "Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. ołówek",
+   "gold": [
+    [
+     "pojedyncza"
+    ]
+   ],
+   "answer": "liczba pojedyncza",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. ołówek”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "fakt„ołówek” w słowniku (mianownik): subst:sg:nom:m3",
+    "wniosek„ołówek” – liczba pojedyncza"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-026",
+   "grade": "3",
+   "category": "liczba",
+   "q": "Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. rysunki",
+   "gold": [
+    [
+     "mnoga"
+    ]
+   ],
+   "answer": "liczba mnoga",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. rysunki”",
+    "rozbiór2 zdania, pewność rozbioru 69%",
+    "fakt„rysunki” w słowniku (mianownik): subst:pl:nom:n:pt, subst:pl:nom:m3",
+    "wniosek„rysunki” – liczba mnoga"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-027",
+   "grade": "3",
+   "category": "liczba",
+   "q": "Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. książka",
+   "gold": [
+    [
+     "pojedyncza"
+    ]
+   ],
+   "answer": "liczba pojedyncza",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. książka”",
+    "rozbiór2 zdania, pewność rozbioru 70%",
+    "fakt„książka” w słowniku (mianownik): subst:sg:nom:f",
+    "wniosek„książka” – liczba pojedyncza"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-028",
+   "grade": "3",
+   "category": "liczba",
+   "q": "Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. drzewa",
+   "gold": [
+    [
+     "mnoga"
+    ]
+   ],
+   "answer": "liczba mnoga",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiednich grup: liczba pojedyncza, liczba mnoga. drzewa”",
+    "rozbiór2 zdania, pewność rozbioru 67%",
+    "fakt„drzewa” w słowniku (mianownik): subst:pl:nom:n:ncol",
+    "wniosek„drzewa” – liczba mnoga"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-029",
+   "grade": "3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. gazeta",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "answer": "rzeczownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. gazeta”",
+    "rozbiór2 zdania, pewność rozbioru 76%",
+    "fakt„gazeta” w słowniku Morfeusza: gazeta subst; do wyboru: rzeczownik, czasownik, przymiotnik, liczebnik",
+    "wniosek„gazeta” – rzeczownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-030",
+   "grade": "3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. rysuje",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "answer": "czasownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. rysuje”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "fakt„rysuje” w słowniku Morfeusza: rysować fin; do wyboru: rzeczownik, czasownik, przymiotnik, liczebnik",
+    "wniosek„rysuje” – czasownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-031",
+   "grade": "3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. stare",
+   "gold": [
+    [
+     "przymiotnik"
+    ]
+   ],
+   "answer": "przymiotnik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. stare”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "fakt„stare” w słowniku Morfeusza: stare subst, stara subst, stary adj, stary depr; do wyboru: rzeczownik, czasownik, przymiotnik, liczebnik",
+    "rozbiórmodel rozbioru: „stare” → ADJ (lemat stary) → przymiotnik",
+    "wniosek„stare” – przymiotnik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-032",
+   "grade": "3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. osiem",
+   "gold": [
+    [
+     "liczebnik"
+    ]
+   ],
+   "answer": "liczebnik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. osiem”",
+    "rozbiór2 zdania, pewność rozbioru 74%",
+    "fakt„osiem” w słowniku Morfeusza: osiem num; do wyboru: rzeczownik, czasownik, przymiotnik, liczebnik",
+    "wniosek„osiem” – liczebnik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-033",
+   "grade": "3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. namaluje",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "answer": "czasownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. namaluje”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "fakt„namaluje” w słowniku Morfeusza: brak; do wyboru: rzeczownik, czasownik, przymiotnik, liczebnik",
+    "rozbiórmodel rozbioru: „namaluje” → VERB (lemat namalować) → czasownik",
+    "wniosek„namaluje” – czasownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-034",
+   "grade": "3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. okrągłe",
+   "gold": [
+    [
+     "przymiotnik"
+    ]
+   ],
+   "answer": "przymiotnik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. okrągłe”",
+    "rozbiór2 zdania, pewność rozbioru 89%",
+    "fakt„okrągłe” w słowniku Morfeusza: okrągły adj; do wyboru: rzeczownik, czasownik, przymiotnik, liczebnik",
+    "wniosek„okrągłe” – przymiotnik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-035",
+   "grade": "3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. samochód",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "answer": "rzeczownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. samochód”",
+    "rozbiór2 zdania, pewność rozbioru 78%",
+    "fakt„samochód” w słowniku Morfeusza: samochód subst; do wyboru: rzeczownik, czasownik, przymiotnik, liczebnik",
+    "wniosek„samochód” – rzeczownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-3-036",
+   "grade": "3",
+   "category": "czesci_mowy",
+   "q": "Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. dziesięć",
+   "gold": [
+    [
+     "liczebnik"
+    ]
+   ],
+   "answer": "liczebnik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zaznacz odpowiednim kolorem części mowy: rzeczownik, czasownik, liczebnik, przymiotnik. dziesięć”",
+    "rozbiór2 zdania, pewność rozbioru 45%",
+    "fakt„dziesięć” w słowniku Morfeusza: dziesięć num; do wyboru: rzeczownik, czasownik, przymiotnik, liczebnik",
+    "wniosek„dziesięć” – liczebnik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-001",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Janek miał 10 zł. Za 3 zł kupił loda. Ile pieniędzy mu zostało?",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": "7",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Janek miał 10 zł. Za 3 zł kupił loda. Ile pieniędzy mu zostało?”",
+    "rozbiór3 zdania, pewność rozbioru 98%",
+    "rozbiórpytanie o liczbę: „pieniądz”",
+    "regułajanek: „miał” – stan początkowy: 10",
+    "regułajanek: „za 3” – zapłata: 10 − 3 = 7",
+    "wniosekodpowiedź: 7"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-002",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Która liczba jest o 12 większa od 23?",
+   "gold": [
+    [
+     "35"
+    ]
+   ],
+   "answer": "35",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Która liczba jest o 12 większa od 23?”",
+    "rozbiór1 zdanie, pewność rozbioru 85%",
+    "reguła„o 12 większa od 23” → 23 + 12 = 35"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-004",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "O ile liczba 40 jest większa od liczby 24?",
+   "gold": [
+    [
+     "16"
+    ]
+   ],
+   "answer": "16",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„O ile liczba 40 jest większa od liczby 24?”",
+    "rozbiór1 zdanie, pewność rozbioru 85%",
+    "reguła„o ile” = różnica: 40 − 24 = 16"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-006",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Ania ma 11 lat, a jej mama jest od niej o 23 lata starsza. Ile lat ma mama Ani?",
+   "gold": [
+    [
+     "34"
+    ]
+   ],
+   "answer": "34",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Ania ma 11 lat, a jej mama jest od niej o 23 lata starsza. Ile lat ma mama Ani?”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "fakt„Ania ma 11 lat” → 11",
+    "reguła„jej mama jest od niej o 23 lata starsza” → 11 + 23 = 34",
+    "wniosekpytanie dotyczy: „jej mama jest od niej o 23 lata starsza” → 34"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-008",
+   "grade": "4",
+   "category": "logika_ciagi",
+   "q": "Na kartce zapisano 5 liczb. Każda następna liczba jest o 14 większa od poprzedniej. Trzecia z tych liczb to 47. Znajdź pierwszą i ostatnią liczbę.",
+   "gold": [
+    [
+     "19",
+     "75"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Na kartce zapisano 5 liczb. Każda następna liczba jest o 14 większa od poprzedniej. Trzecia z tych liczb to 47. Znajdź pierwszą i ostatnią liczbę.”",
+    "rozbiór4 zdania, pewność rozbioru 89%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiórwyrazy ciągu: 5, 14, 47",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-010",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Kasia jest o 21 lat młodsza od mamy. Ile lat ma Kasia, jeżeli mama ma 33 lata?",
+   "gold": [
+    [
+     "12"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Kasia jest o 21 lat młodsza od mamy. Ile lat ma Kasia, jeżeli mama ma 33 lata?”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „rok”, czyje: Kasia",
+    "reguła„młodsza … od mamy” – przybywa: 0 + 21 = 21",
+    "brakbezpiecznik: porównanie „młodsza” – znam tylko „o N więcej/mniej”",
+    "wiedzasłowa treści pytania: {rok, mieć, kas, mam, 33}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {rok, mieć, kas, mam, 33} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-011",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Do sklepu z zabawkami przywieziono minizwierzaki. Pierwszego dnia sprzedano 30 sztuk minizwierzaków, drugiego dnia sprzedano o 4 więcej, a trzeciego o 7 mniej niż pierwszego. Ile minizwierzaków sprzedano w ciągu tych trzech dni?",
+   "gold": [
+    [
+     "87"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Do sklepu z zabawkami przywieziono minizwierzaki. Pierwszego dnia sprzedano 30 sztuk minizwierzaków, drugiego dnia sprzedano o 4 więcej, a trzeciego o 7 mniej niż pierwszego. Ile minizwierzaków sprzedano w ciągu tych trzech dni?”",
+    "rozbiór3 zdania, pewność rozbioru 86%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórwyrazy ciągu: 30, 4, 7, 3",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "rozbiórpytanie o liczbę: „minizwierzak”",
+    "fakt30 sztuk – inna rzecz niż „minizwierzak”, pomijam",
+    "fakt4 więcej – inna rzecz niż „minizwierzak”, pomijam",
+    "reguła„sprzedano” – ubywa: 0 − 7 = -7",
+    "brakbezpiecznik: ktoś oddaje 7, choć nie wiem, ile miał – rozbiór niepewny",
+    "wiedzasłowa treści pytania: {miniz, sprze, ciąg, trz, dzień}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {miniz, sprze, ciąg, trz, dzień} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-015",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Oblicz, ile kwadransów stanowi 60 minut.",
+   "gold": [
+    [
+     "4"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz, ile kwadransów stanowi 60 minut.”",
+    "rozbiór1 zdanie, pewność rozbioru 91%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-016",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Kolonie zostały zaplanowane na 21 dni. Ile tygodni będą trwały kolonie?",
+   "gold": [
+    [
+     "3"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Kolonie zostały zaplanowane na 21 dni. Ile tygodni będą trwały kolonie?”",
+    "rozbiór2 zdania, pewność rozbioru 99%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „tydzień”",
+    "reguła„zaplanowane” – pierwsza wzmianka o liczbie, stan początkowy: 21",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {tydzi, trwać, kolon}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {tydzi, trwać, kolon} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-019",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 54 : 3",
+   "gold": [
+    [
+     "18"
+    ]
+   ],
+   "answer": "18",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz. 54 : 3”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "rozbiórdziałanie: 54 : 3",
+    "wniosek54 : 3 = 18"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-020",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 84 : 4",
+   "gold": [
+    [
+     "21"
+    ]
+   ],
+   "answer": "21",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz. 84 : 4”",
+    "rozbiór2 zdania, pewność rozbioru 92%",
+    "rozbiórdziałanie: 84 : 4",
+    "wniosek84 : 4 = 21"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-021",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 70 : 5",
+   "gold": [
+    [
+     "14"
+    ]
+   ],
+   "answer": "14",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz. 70 : 5”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "rozbiórdziałanie: 70 : 5",
+    "wniosek70 : 5 = 14"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-022",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Długość trasy wycieczki rowerowej wynosi 56 km. Trasa jest podzielona na 8 równych etapów. Ile kilometrów wynosi długość jednego etapu?",
+   "gold": [
+    [
+     "7"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Długość trasy wycieczki rowerowej wynosi 56 km. Trasa jest podzielona na 8 równych etapów. Ile kilometrów wynosi długość jednego etapu?”",
+    "rozbiór3 zdania, pewność rozbioru 99%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „kilometr”",
+    "reguła„wynosi” – pierwsza wzmianka o liczbie, stan początkowy: 56",
+    "braknie wiem, czy „podzielona” dodaje, czy odejmuje",
+    "wiedzasłowa treści pytania: {kilom, wynos, długo, jeden, etap}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {kilom, wynos, długo, jeden, etap} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-023",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Malwina ma 24 tulipany, a jej siostra Paulina ma cztery razy mniej tulipanów. Ile tulipanów ma Paulina?",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": "6",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Malwina ma 24 tulipany, a jej siostra Paulina ma cztery razy mniej tulipanów. Ile tulipanów ma Paulina?”",
+    "rozbiór2 zdania, pewność rozbioru 95%",
+    "fakt„Malwina ma 24 tulipany” → 24",
+    "reguła„jej siostra Paulina ma 4 razy mniej tulipanów” → 24 : 4 = 6",
+    "wniosekpytanie dotyczy: „jej siostra Paulina ma 4 razy mniej tulipanów” → 6"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-025",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Bartek ma 21 znaczków pocztowych, a Kinga ma 3 razy mniej znaczków niż Bartek. Ile znaczków mają razem?",
+   "gold": [
+    [
+     "28"
+    ]
+   ],
+   "answer": "28",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Bartek ma 21 znaczków pocztowych, a Kinga ma 3 razy mniej znaczków niż Bartek. Ile znaczków mają razem?”",
+    "rozbiór2 zdania, pewność rozbioru 95%",
+    "fakt„Bartek ma 21 znaczków pocztowych” → 21",
+    "reguła„Kinga ma 3 razy mniej znaczków niż Bartek” → 21 : 3 = 7",
+    "wniosekrazem: 21 + 7 = 28"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-026",
+   "grade": "4",
+   "category": "zadania_tekstowe",
+   "q": "Pradziadek Zygmunta ma 80 lat. Zygmunt jest 16 razy młodszy od pradziadka. O ile lat pradziadek Zygmunta jest starszy od swego prawnuka?",
+   "gold": [
+    [
+     "75"
+    ]
+   ],
+   "answer": "75",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Pradziadek Zygmunta ma 80 lat. Zygmunt jest 16 razy młodszy od pradziadka. O ile lat pradziadek Zygmunta jest starszy od swego prawnuka?”",
+    "rozbiór3 zdania, pewność rozbioru 90%",
+    "fakt„Pradziadek Zygmunta ma 80 lat” → 80",
+    "reguła„Zygmunt jest 16 razy młodszy od pradziadka” → 80 : 16 = 5",
+    "wniosek„o ile” = różnica: 80 − 5 = 75"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-030",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Ile to pieniędzy? 20 banknotów po 100 zł",
+   "gold": [
+    [
+     "2000"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Ile to pieniędzy? 20 banknotów po 100 zł” → po normalizacji „Ile to pieniędzy? 20 banknotów po 100 zł?”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {20, bankn, 100, złot}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {20, bankn, 100, złot} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-031",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Ile to pieniędzy? 74 banknoty po 200 zł",
+   "gold": [
+    [
+     "14800"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Ile to pieniędzy? 74 banknoty po 200 zł” → po normalizacji „Ile to pieniędzy? 74 banknoty po 200 zł?”",
+    "rozbiór2 zdania, pewność rozbioru 88%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {74, bankn, 200, złot}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {74, bankn, 200, złot} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-032",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 7 zł = … gr",
+   "gold": [
+    [
+     "700"
+    ]
+   ],
+   "answer": "700 gr",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Uzupełnij, wpisując odpowiednią liczbę całkowitą. 7 zł = … gr”",
+    "rozbiór2 zdania, pewność rozbioru 84%",
+    "rozbiórzamiana: 7 zł → gr",
+    "reguła7 zł = 700 gr"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-033",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 15 zł = … gr",
+   "gold": [
+    [
+     "1500"
+    ]
+   ],
+   "answer": "1500 gr",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Uzupełnij, wpisując odpowiednią liczbę całkowitą. 15 zł = … gr”",
+    "rozbiór2 zdania, pewność rozbioru 84%",
+    "rozbiórzamiana: 15 zł → gr",
+    "reguła15 zł = 1500 gr"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-034",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 900 gr = … zł",
+   "gold": [
+    [
+     "9"
+    ]
+   ],
+   "answer": "9 zł",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Uzupełnij, wpisując odpowiednią liczbę całkowitą. 900 gr = … zł”",
+    "rozbiór2 zdania, pewność rozbioru 75%",
+    "rozbiórzamiana: 900 gr → zł",
+    "reguła900 gr = 900 gr; 1 zł = 100 gr → 900 : 100 = 9 zł"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-035",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Uzupełnij, wpisując odpowiednią liczbę całkowitą. 5 000 gr = … zł",
+   "gold": [
+    [
+     "50"
+    ]
+   ],
+   "answer": "50 zł",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Uzupełnij, wpisując odpowiednią liczbę całkowitą. 5 000 gr = … zł”",
+    "rozbiór2 zdania, pewność rozbioru 78%",
+    "rozbiórzamiana: 5 000 gr → zł",
+    "reguła5 000 gr = 5000 gr; 1 zł = 100 gr → 5000 : 100 = 50 zł"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-039",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Ile to gramów? 6 dag 5 g",
+   "gold": [
+    [
+     "65"
+    ]
+   ],
+   "answer": "65 g",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Ile to gramów? 6 dag 5 g” → po normalizacji „Ile to gramów? 6 dag 5 g?”",
+    "rozbiór2 zdania, pewność rozbioru 76%",
+    "rozbiórzamiana: 6 dag 5 g → g",
+    "reguła6 dag 5 g = 65 g"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-040",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "Ile to gramów? 1 kg 10 dag 3 g",
+   "gold": [
+    [
+     "1103"
+    ]
+   ],
+   "answer": "1103 g",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Ile to gramów? 1 kg 10 dag 3 g” → po normalizacji „Ile to gramów? 1 kg 10 dag 3 g?”",
+    "rozbiór2 zdania, pewność rozbioru 72%",
+    "rozbiórzamiana: 1 kg 10 dag 3 g → g",
+    "reguła1 kg 10 dag 3 g = 1103 g"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-041",
+   "grade": "4",
+   "category": "jednostki",
+   "q": "W pewnym Ogrodzie Zoologicznym słoń waży 5 t, a lama jest lżejsza od słonia o 4750 kg. Ile kilogramów waży lama?",
+   "gold": [
+    [
+     "250"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W pewnym Ogrodzie Zoologicznym słoń waży 5 t, a lama jest lżejsza od słonia o 4750 kg. Ile kilogramów waży lama?”",
+    "rozbiór2 zdania, pewność rozbioru 96%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „kilogram”",
+    "fakt5 t – inna rzecz niż „kilogram”, pomijam",
+    "reguła„waży … od słonia” – przybywa: 0 + 4750 = 4750",
+    "brakbezpiecznik: porównanie „lżejsza” – znam tylko „o N więcej/mniej”",
+    "wiedzasłowa treści pytania: {kilog, ważyć, lam}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {kilog, ważyć, lam} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-043",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Oblicz obwód prostokąta o bokach podanej długości. 5 cm i 7 cm",
+   "gold": [
+    [
+     "24"
+    ]
+   ],
+   "answer": "24 cm",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz obwód prostokąta o bokach podanej długości. 5 cm i 7 cm”",
+    "rozbiór2 zdania, pewność rozbioru 68%",
+    "faktbok: 5 cm",
+    "faktbok: 7 cm",
+    "wniosekprostokąt, obwód: 2 · (a + b) = 2 · (5 cm + 7 cm) = 24 cm"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-044",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Oblicz obwód prostokąta o bokach podanej długości. 6 cm i 4 cm",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "answer": "20 cm",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz obwód prostokąta o bokach podanej długości. 6 cm i 4 cm”",
+    "rozbiór2 zdania, pewność rozbioru 68%",
+    "faktbok: 6 cm",
+    "faktbok: 4 cm",
+    "wniosekprostokąt, obwód: 2 · (a + b) = 2 · (6 cm + 4 cm) = 20 cm"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-045",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Oblicz obwód prostokąta o bokach podanej długości. 3 cm i 8 cm",
+   "gold": [
+    [
+     "22"
+    ]
+   ],
+   "answer": "22 cm",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz obwód prostokąta o bokach podanej długości. 3 cm i 8 cm”",
+    "rozbiór2 zdania, pewność rozbioru 70%",
+    "faktbok: 3 cm",
+    "faktbok: 8 cm",
+    "wniosekprostokąt, obwód: 2 · (a + b) = 2 · (3 cm + 8 cm) = 22 cm"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-048",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Oblicz obwód prostokąta, którego jeden bok ma 5 dm, a drugi jest od niego o 2 dm dłuższy.",
+   "gold": [
+    [
+     "24"
+    ]
+   ],
+   "answer": "24 dm",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz obwód prostokąta, którego jeden bok ma 5 dm, a drugi jest od niego o 2 dm dłuższy.”",
+    "rozbiór1 zdanie, pewność rozbioru 78%",
+    "faktbok: 5 dm",
+    "reguła„drugi jest od niego o 2 dm dłuższy” → 7 dm",
+    "wniosekprostokąt, obwód: 2 · (a + b) = 2 · (5 dm + 7 dm) = 24 dm"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-050",
+   "grade": "4",
+   "category": "geometria",
+   "q": "Kwadrat i prostokąt mają taki sam obwód. Prostokąt ma wymiary 10 cm i 8 cm. Długość boku kwadratu wynosi … cm.",
+   "gold": [
+    [
+     "9"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Kwadrat i prostokąt mają taki sam obwód. Prostokąt ma wymiary 10 cm i 8 cm. Długość boku kwadratu wynosi … cm.”",
+    "rozbiór3 zdania, pewność rozbioru 95%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-053",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 25 + 37",
+   "gold": [
+    [
+     "62"
+    ]
+   ],
+   "answer": "62",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz. 25 + 37”",
+    "rozbiór2 zdania, pewność rozbioru 70%",
+    "rozbiórdziałanie: 25 + 37",
+    "wniosek25 + 37 = 62"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-054",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 33 + 64",
+   "gold": [
+    [
+     "97"
+    ]
+   ],
+   "answer": "97",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz. 33 + 64”",
+    "rozbiór2 zdania, pewność rozbioru 72%",
+    "rozbiórdziałanie: 33 + 64",
+    "wniosek33 + 64 = 97"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-056",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 63 − 28",
+   "gold": [
+    [
+     "35"
+    ]
+   ],
+   "answer": "35",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz. 63 − 28”",
+    "rozbiór2 zdania, pewność rozbioru 82%",
+    "rozbiórdziałanie: 63 − 28",
+    "wniosek63 − 28 = 35"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-057",
+   "grade": "4",
+   "category": "arytmetyka",
+   "q": "Oblicz. 45 − 39",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": "6",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz. 45 − 39”",
+    "rozbiór2 zdania, pewność rozbioru 85%",
+    "rozbiórdziałanie: 45 − 39",
+    "wniosek45 − 39 = 6"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-001",
+   "grade": "5",
+   "category": "zadania_tekstowe",
+   "q": "Agatka ma w skarbonce tylko monety pięciozłotowe. Okazało się, że jest tam 148 monet. Ile pieniędzy ma Agatka w skarbonce?",
+   "gold": [
+    [
+     "740"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Agatka ma w skarbonce tylko monety pięciozłotowe. Okazało się, że jest tam 148 monet. Ile pieniędzy ma Agatka w skarbonce?”",
+    "rozbiór3 zdania, pewność rozbioru 96%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „pieniądz”, czyje: Agatka",
+    "fakt148 monet – inna rzecz niż „pieniądz”, pomijam",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {pieni, mieć, agatk, skarb}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {pieni, mieć, agatk, skarb} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-003",
+   "grade": "5",
+   "category": "zadania_tekstowe",
+   "q": "Córka jest 2 razy młodsza od mamy i o 55 lat młodsza od babci. Ile lat ma babcia, jeżeli mama ma 44 lata?",
+   "gold": [
+    [
+     "77"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Córka jest 2 razy młodsza od mamy i o 55 lat młodsza od babci. Ile lat ma babcia, jeżeli mama ma 44 lata?”",
+    "rozbiór2 zdania, pewność rozbioru 87%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „rok”",
+    "fakt2 razy – inna rzecz niż „rok”, pomijam",
+    "reguła„jest” – stan początkowy: 55",
+    "brakbezpiecznik: porównanie „młodsza” – znam tylko „o N więcej/mniej”",
+    "wiedzasłowa treści pytania: {rok, mieć, babc, mam, 44}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {rok, mieć, babc, mam, 44} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-004",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Kasia dostała w tym miesiącu 60 zł kieszonkowego. Z tych pieniędzy kupiła grę za 12 zł i książkę za 21 zł. Jaką część swojego kieszonkowego wydała Kasia na grę?",
+   "gold": [
+    [
+     "1/5"
+    ],
+    [
+     "0,2"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Kasia dostała w tym miesiącu 60 zł kieszonkowego. Z tych pieniędzy kupiła grę za 12 zł i książkę za 21 zł. Jaką część swojego kieszonkowego wydała Kasia na grę?”",
+    "rozbiór3 zdania, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {część, swój, kiesz, wydać, kas, gr}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {część, swój, kiesz, wydać, kas, gr} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-005",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Kasia dostała w tym miesiącu 60 zł kieszonkowego. Z tych pieniędzy kupiła grę za 12 zł i książkę za 21 zł. Jaka część kieszonkowego jej została?",
+   "gold": [
+    [
+     "9/20"
+    ],
+    [
+     "0,45"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Kasia dostała w tym miesiącu 60 zł kieszonkowego. Z tych pieniędzy kupiła grę za 12 zł i książkę za 21 zł. Jaka część kieszonkowego jej została?”",
+    "rozbiór3 zdania, pewność rozbioru 93%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {część, kiesz, on, zosta}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {część, kiesz, on, zosta} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-006",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Na przedstawieniu dla dorosłych trzy piąte widowni zajęły kobiety, a jedną trzecią – mężczyźni. Jaka część widowni nie została zajęta przez widzów?",
+   "gold": [
+    [
+     "1/15"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Na przedstawieniu dla dorosłych trzy piąte widowni zajęły kobiety, a jedną trzecią – mężczyźni. Jaka część widowni nie została zajęta przez widzów?”",
+    "rozbiór2 zdania, pewność rozbioru 92%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {część, widow, zająć, widz}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {część, widow, zająć, widz} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-007",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Zapisz podane kwoty, używając liczb dziesiętnych. 1 zł 24 gr = … zł",
+   "gold": [
+    [
+     "1,24"
+    ]
+   ],
+   "answer": "1,24 zł",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zapisz podane kwoty, używając liczb dziesiętnych. 1 zł 24 gr = … zł”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "rozbiórzamiana: 1 zł 24 gr → zł",
+    "reguła1 zł 24 gr = 124 gr; 1 zł = 100 gr → 124 : 100 = 1,24 zł"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-008",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Zapisz podane kwoty, używając liczb dziesiętnych. 3 zł 15 gr = … zł",
+   "gold": [
+    [
+     "3,15"
+    ]
+   ],
+   "answer": "3,15 zł",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zapisz podane kwoty, używając liczb dziesiętnych. 3 zł 15 gr = … zł”",
+    "rozbiór2 zdania, pewność rozbioru 76%",
+    "rozbiórzamiana: 3 zł 15 gr → zł",
+    "reguła3 zł 15 gr = 315 gr; 1 zł = 100 gr → 315 : 100 = 3,15 zł"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-009",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Zapisz podane kwoty, używając liczb dziesiętnych. 10 zł 2 gr = … zł",
+   "gold": [
+    [
+     "10,02"
+    ]
+   ],
+   "answer": "10,02 zł",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zapisz podane kwoty, używając liczb dziesiętnych. 10 zł 2 gr = … zł”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "rozbiórzamiana: 10 zł 2 gr → zł",
+    "reguła10 zł 2 gr = 1002 gr; 1 zł = 100 gr → 1002 : 100 = 10,02 zł"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-012",
+   "grade": "5",
+   "category": "jednostki",
+   "q": "Zapisz podane masy, używając liczb dziesiętnych. 12 kg 20 dag = … kg",
+   "gold": [
+    [
+     "12,2"
+    ]
+   ],
+   "answer": "12,2 kg",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zapisz podane masy, używając liczb dziesiętnych. 12 kg 20 dag = … kg”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "rozbiórzamiana: 12 kg 20 dag → kg",
+    "reguła12 kg 20 dag = 1220 dag; 1 kg = 100 dag → 1220 : 100 = 12,2 kg"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-013",
+   "grade": "5",
+   "category": "jednostki",
+   "q": "Zapisz podane masy, używając liczb dziesiętnych. 3 kg 27 g = … kg",
+   "gold": [
+    [
+     "3,027"
+    ]
+   ],
+   "answer": "3,027 kg",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zapisz podane masy, używając liczb dziesiętnych. 3 kg 27 g = … kg”",
+    "rozbiór2 zdania, pewność rozbioru 79%",
+    "rozbiórzamiana: 3 kg 27 g → kg",
+    "reguła3 kg 27 g = 3027 g; 1 kg = 1000 g → 3027 : 1000 = 3,027 kg"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-014",
+   "grade": "5",
+   "category": "jednostki",
+   "q": "Zapisz podane masy, używając liczb dziesiętnych. 1 t 240 kg = … t",
+   "gold": [
+    [
+     "1,24"
+    ]
+   ],
+   "answer": "1,24 t",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Zapisz podane masy, używając liczb dziesiętnych. 1 t 240 kg = … t”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "rozbiórzamiana: 1 t 240 kg → t",
+    "reguła1 t 240 kg = 1240 kg; 1 t = 1000 kg → 1240 : 1000 = 1,24 t"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-017",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Mama kupiła cztery batoniki po 1,03 zł. Ile zapłaciła?",
+   "gold": [
+    [
+     "4,12"
+    ]
+   ],
+   "answer": "4,12 zł",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Mama kupiła cztery batoniki po 1,03 zł. Ile zapłaciła?”",
+    "rozbiór2 zdania, pewność rozbioru 98%",
+    "rozbiórzakupy: 4 batoniki po 1,03 zł",
+    "reguła4 · 1,03 zł = 4,12 zł",
+    "wniosekrazem: 4,12 zł"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-019",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz. 2,22 zł ∙ 3",
+   "gold": [
+    [
+     "6,66"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 2,22 zł ∙ 3”",
+    "rozbiór2 zdania, pewność rozbioru 94%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-020",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz. 1,023 t ∙ 4",
+   "gold": [
+    [
+     "4,092"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 1,023 t ∙ 4”",
+    "rozbiór2 zdania, pewność rozbioru 88%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-024",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Sześć butelek wody mineralnej kosztuje 12,96 zł. Ile złotych kosztuje jedna butelka tej wody?",
+   "gold": [
+    [
+     "2,16"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Sześć butelek wody mineralnej kosztuje 12,96 zł. Ile złotych kosztuje jedna butelka tej wody?”",
+    "rozbiór2 zdania, pewność rozbioru 97%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „złoty”",
+    "rozbiórliczebniki słowami: „Sześć” = 6",
+    "fakt6 butelek – inna rzecz niż „złoty”, pomijam",
+    "reguła„kosztuje” – pierwsza wzmianka o liczbie, stan początkowy: 12.96",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {złot, koszt, jeden, butel, wod}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {złot, koszt, jeden, butel, wod} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-027",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz w pamięci lub sposobem pisemnym. 1,26 : 7",
+   "gold": [
+    [
+     "0,18"
+    ]
+   ],
+   "answer": "0,18",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz w pamięci lub sposobem pisemnym. 1,26 : 7”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "rozbiórdziałanie: 1,26 : 7",
+    "wniosek1,26 : 7 = 0,18"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-028",
+   "grade": "5",
+   "category": "ulamki",
+   "q": "Oblicz w pamięci lub sposobem pisemnym. 25,2 : 6",
+   "gold": [
+    [
+     "4,2"
+    ]
+   ],
+   "answer": "4,2",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz w pamięci lub sposobem pisemnym. 25,2 : 6”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "rozbiórdziałanie: 25,2 : 6",
+    "wniosek25,2 : 6 = 4,2"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-029",
+   "grade": "5",
+   "category": "zadania_tekstowe",
+   "q": "Paweł poszedł do sklepu, mając przy sobie 7,50 zł. Kupił 2 jednakowe batony po 1,65 zł. Ile pieniędzy mu zostało?",
+   "gold": [
+    [
+     "4,20"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Paweł poszedł do sklepu, mając przy sobie 7,50 zł. Kupił 2 jednakowe batony po 1,65 zł. Ile pieniędzy mu zostało?”",
+    "rozbiór3 zdania, pewność rozbioru 96%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórwyrazy ciągu: 7.5, 2, 1.65",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "rozbiórpytanie o liczbę: „pieniądz”",
+    "reguła„mając” – stan początkowy: 7.5",
+    "reguła„po 1,65” przy 2 grupach → mnożenie: 2 × 1,65 = 3.3",
+    "brakbezpiecznik: „po 1,65 zł” to cena, a w treści jest już stan 7,5 – nie wiem, czy to wydatek",
+    "wiedzasłowa treści pytania: {pieni, on, zosta}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {pieni, on, zosta} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-031",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Prostokąt i kwadrat mają takie same obwody równe 32 cm. Jeden z boków prostokąta jest o 2 cm krótszy od boku kwadratu. Jakie wymiary ma prostokąt?",
+   "gold": [
+    [
+     "6",
+     "10"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Prostokąt i kwadrat mają takie same obwody równe 32 cm. Jeden z boków prostokąta jest o 2 cm krótszy od boku kwadratu. Jakie wymiary ma prostokąt?”",
+    "rozbiór3 zdania, pewność rozbioru 91%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {wymia, mieć, prost}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {wymia, mieć, prost} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-032",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta o wymiarach 8 cm i 10 cm",
+   "gold": [
+    [
+     "80"
+    ]
+   ],
+   "answer": "80 cm²",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz pole prostokąta o wymiarach 8 cm i 10 cm”",
+    "rozbiór1 zdanie, pewność rozbioru 65%",
+    "faktbok: 8 cm",
+    "faktbok: 10 cm",
+    "wniosekprostokąt, pole: a · b = 8 cm · 10 cm = 80 cm²"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-033",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta o wymiarach 3 cm i 16 cm",
+   "gold": [
+    [
+     "48"
+    ]
+   ],
+   "answer": "48 cm²",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz pole prostokąta o wymiarach 3 cm i 16 cm”",
+    "rozbiór1 zdanie, pewność rozbioru 64%",
+    "faktbok: 3 cm",
+    "faktbok: 16 cm",
+    "wniosekprostokąt, pole: a · b = 3 cm · 16 cm = 48 cm²"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-034",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta o wymiarach 2 m i 4 m",
+   "gold": [
+    [
+     "8"
+    ]
+   ],
+   "answer": "8 m²",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz pole prostokąta o wymiarach 2 m i 4 m”",
+    "rozbiór1 zdanie, pewność rozbioru 63%",
+    "faktbok: 2 m",
+    "faktbok: 4 m",
+    "wniosekprostokąt, pole: a · b = 2 m · 4 m = 8 m²"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-037",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta, jeżeli jeden z boków ma długość 7 cm, a drugi bok jest 2 razy dłuższy",
+   "gold": [
+    [
+     "98"
+    ]
+   ],
+   "answer": "98 cm²",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz pole prostokąta, jeżeli jeden z boków ma długość 7 cm, a drugi bok jest 2 razy dłuższy”",
+    "rozbiór1 zdanie, pewność rozbioru 72%",
+    "faktbok: 7 cm",
+    "reguła„drugi bok jest 2 razy dłuższy” → 14 cm",
+    "wniosekprostokąt, pole: a · b = 7 cm · 14 cm = 98 cm²"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-038",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Oblicz pole prostokąta, jeżeli jeden z boków ma długość 7 cm, a drugi bok jest o 3 cm krótszy",
+   "gold": [
+    [
+     "28"
+    ]
+   ],
+   "answer": "28 cm²",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz pole prostokąta, jeżeli jeden z boków ma długość 7 cm, a drugi bok jest o 3 cm krótszy”",
+    "rozbiór1 zdanie, pewność rozbioru 75%",
+    "faktbok: 7 cm",
+    "reguła„drugi bok jest o 3 cm krótszy” → 4 cm",
+    "wniosekprostokąt, pole: a · b = 7 cm · 4 cm = 28 cm²"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-5-042",
+   "grade": "5",
+   "category": "geometria",
+   "q": "Obwód kwadratu jest równy 20 cm. Oblicz pole tego kwadratu.",
+   "gold": [
+    [
+     "25"
+    ]
+   ],
+   "answer": "25 cm²",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Obwód kwadratu jest równy 20 cm. Oblicz pole tego kwadratu.”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "faktobwód: 20 cm",
+    "regułabok = obwód : 4 = 20 cm : 4 = 5 cm",
+    "wniosekkwadrat, pole: a · a = 5 cm · 5 cm = 25 cm²"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-001",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "W sklepie było 18 skrzynek z jabłkami. W każdej skrzynce było 25 kg jabłek. Pierwszego dnia sprzedano 148 kg jabłek, a drugiego dnia 2 razy więcej niż pierwszego dnia. Ile kilogramów jabłek zostało jeszcze w sklepie?",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„W sklepie było 18 skrzynek z jabłkami. W każdej skrzynce było 25 kg jabłek. Pierwszego dnia sprzedano 148 kg jabłek, a drugiego dnia 2 razy więcej niż pierwszego dnia. Ile kilogramów jabłek zostało jeszcze w sklepie?”",
+    "rozbiór4 zdania, pewność rozbioru 84%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „kilogram”",
+    "fakt18 skrzynek – inna rzecz niż „kilogram”, pomijam",
+    "reguła„było” – stan początkowy: 25",
+    "reguła„sprzedano” – ubywa: 25 − 148 = -123",
+    "fakt2 dnia – inna rzecz niż „kilogram”, pomijam",
+    "brakbezpiecznik: wyszła ujemna liczba rzeczy – rozbiór niepewny",
+    "wiedzasłowa treści pytania: {kilog, jabłk, zosta, sklep}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {kilog, jabłk, zosta, sklep} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-003",
+   "grade": "6",
+   "category": "ulamki",
+   "q": "Brukselka kosztuje 23,5 zł za kilogram, marchew 60 gr za kilogram, a ziemniaki są w cenie 1,20 zł za kilogram. Oblicz, ile trzeba zapłacić za 1,5 kg brukselki, 2,25 kg marchwi i 3,75 kg ziemniaków.",
+   "gold": [
+    [
+     "41,10"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Brukselka kosztuje 23,5 zł za kilogram, marchew 60 gr za kilogram, a ziemniaki są w cenie 1,20 zł za kilogram. Oblicz, ile trzeba zapłacić za 1,5 kg brukselki, 2,25 kg marchwi i 3,75 kg ziemniaków.”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-005",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Podaj długości boków trójkąta równobocznego o obwodzie 51 cm.",
+   "gold": [
+    [
+     "17"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Podaj długości boków trójkąta równobocznego o obwodzie 51 cm.”"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-006",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Podaj długości boków trójkąta równoramiennego o obwodzie 22 cm, w którym podstawa ma 10 cm długości.",
+   "gold": [
+    [
+     "6"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Podaj długości boków trójkąta równoramiennego o obwodzie 22 cm, w którym podstawa ma 10 cm długości.”"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-007",
+   "grade": "6",
+   "category": "geometria",
+   "q": "Oblicz pole kwadratu o obwodzie równym 36 cm.",
+   "gold": [
+    [
+     "81"
+    ]
+   ],
+   "answer": "81 cm²",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Oblicz pole kwadratu o obwodzie równym 36 cm.”",
+    "rozbiór1 zdanie, pewność rozbioru 82%",
+    "faktobwód: 36 cm",
+    "regułabok = obwód : 4 = 36 cm : 4 = 9 cm",
+    "wniosekkwadrat, pole: a · a = 9 cm · 9 cm = 81 cm²"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-010",
+   "grade": "6",
+   "category": "jednostki",
+   "q": "Uzupełnij. 1 m2 = … cm2",
+   "gold": [
+    [
+     "10000"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Uzupełnij. 1 m2 = … cm2”",
+    "rozbiór2 zdania, pewność rozbioru 79%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-011",
+   "grade": "6",
+   "category": "jednostki",
+   "q": "Uzupełnij. 1 dm2 = … mm2",
+   "gold": [
+    [
+     "10000"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Uzupełnij. 1 dm2 = … mm2”",
+    "rozbiór2 zdania, pewność rozbioru 76%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-012",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Samochód zużywa 24 l benzyny na trasie 320 km. Oblicz, ile km przejedzie samochód z tą samą prędkością zużywając 6 l.",
+   "gold": [
+    [
+     "80"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Samochód zużywa 24 l benzyny na trasie 320 km. Oblicz, ile km przejedzie samochód z tą samą prędkością zużywając 6 l.”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-014",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Pan Zbyszek zarabia miesięcznie 3200 zł. Postanowił, że 20 % każdej pensji przeznaczy na zakup samochodu. Ile miesięcy będzie musiał oszczędzać, aby kupić nowy samochód w cenie 42 000 zł?",
+   "gold": [
+    [
+     "66"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Pan Zbyszek zarabia miesięcznie 3200 zł. Postanowił, że 20 % każdej pensji przeznaczy na zakup samochodu. Ile miesięcy będzie musiał oszczędzać, aby kupić nowy samochód w cenie 42 000 zł?”",
+    "rozbiór3 zdania, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „miesiąc”",
+    "reguła„zarabia” – pierwsza wzmianka o liczbie, stan początkowy: 3200",
+    "fakt20 % – inna rzecz niż „miesiąc”, pomijam",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {miesi, musie, oszcz, kupić, now, samoc, cen, 42, 000, złot}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {miesi, musie, oszcz, kupić, now, samoc, cen, 42, 000, złot} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-016",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Piotrek przejechał na rowerze dystans 28 km w czasie 105 minut. Z jaką średnią prędkością jechał Piotrek?",
+   "gold": [
+    [
+     "16"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Piotrek przejechał na rowerze dystans 28 km w czasie 105 minut. Z jaką średnią prędkością jechał Piotrek?”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {średn, prędk, jecha, piotr}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {średn, prędk, jecha, piotr} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-017",
+   "grade": "6",
+   "category": "ulamki",
+   "q": "Oblicz. 10 % z 200 zł",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 10 % z 200 zł”",
+    "rozbiór2 zdania, pewność rozbioru 91%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-018",
+   "grade": "6",
+   "category": "ulamki",
+   "q": "Oblicz. 25 % z 90 cm",
+   "gold": [
+    [
+     "22,5"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Oblicz. 25 % z 90 cm”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "brakbrak zdania pytającego (ze znakiem „?”)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-020",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Z dwóch miejscowości odległych o 390 km, w tym samym momencie, wyjechało na spotkanie dwóch kierowców. Jeden z nich jechał z prędkością 60 km/h. Kierowcy spotkali się po trzech godzinach. Z jaką prędkością jechał drugi kierowca?",
+   "gold": [
+    [
+     "70"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Z dwóch miejscowości odległych o 390 km, w tym samym momencie, wyjechało na spotkanie dwóch kierowców. Jeden z nich jechał z prędkością 60 km/h. Kierowcy spotkali się po trzech godzinach. Z jaką prędkością jechał drugi kierowca?”",
+    "rozbiór4 zdania, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {prędk, jecha, drug, kiero}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {prędk, jecha, drug, kiero} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-022",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Jeśli pewną liczbę zwiększymy o 12, to otrzymany wynik będzie dwa razy mniejszy niż 80. Jaka to liczba?",
+   "gold": [
+    [
+     "28"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Jeśli pewną liczbę zwiększymy o 12, to otrzymany wynik będzie dwa razy mniejszy niż 80. Jaka to liczba?”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {liczb}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {liczb} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-024",
+   "grade": "6",
+   "category": "geometria",
+   "q": "W prostokącie o obwodzie 38 cm, jeden z boków ma 12,5 cm długości. Oblicz długość drugiego boku tego prostokąta.",
+   "gold": [
+    [
+     "6,5"
+    ]
+   ],
+   "answer": "6,5 cm",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„W prostokącie o obwodzie 38 cm, jeden z boków ma 12,5 cm długości. Oblicz długość drugiego boku tego prostokąta.”",
+    "rozbiór2 zdania, pewność rozbioru 86%",
+    "faktobwód: 38 cm",
+    "faktbok: 12,5 cm",
+    "reguładrugi bok = obwód : 2 − bok = 38 cm : 2 − 12,5 cm = 6,5 cm",
+    "wniosekprostokąt, bok: 38 cm : 2 − 12,5 cm = 6,5 cm"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-025",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Ewa miała 125 zł. Kupiła 70 róż i zostało jej 34 zł. Ile kosztowała jedna róża?",
+   "gold": [
+    [
+     "1,30"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Ewa miała 125 zł. Kupiła 70 róż i zostało jej 34 zł. Ile kosztowała jedna róża?”",
+    "rozbiór3 zdania, pewność rozbioru 98%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „róża”",
+    "regułaewa: „miała” – stan początkowy: 125",
+    "regułaewa: „Kupiła” – przybywa: 125 + 70 = 195",
+    "braknie wiem, czy „zostało” dodaje, czy odejmuje",
+    "wiedzasłowa treści pytania: {koszt, jeden, róż}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {koszt, jeden, róż} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-027",
+   "grade": "6",
+   "category": "zadania_tekstowe",
+   "q": "Julek miał 80 zł. Kupił 3 bilety do kina, każdy w tej samej cenie, oraz duży popcorn za 15,50 zł. Zostało mu 10,50 zł. Ile kosztował jeden bilet?",
+   "gold": [
+    [
+     "18"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Julek miał 80 zł. Kupił 3 bilety do kina, każdy w tej samej cenie, oraz duży popcorn za 15,50 zł. Zostało mu 10,50 zł. Ile kosztował jeden bilet?”",
+    "rozbiór4 zdania, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „bilet”",
+    "regułajulek: „miał” – stan początkowy: 80",
+    "regułajulek: „Kupił” – przybywa: 80 + 3 = 83",
+    "regułajulek: „za 15.5” – zapłata: 83 − 15.5 = 67.5",
+    "braknie wiem, czy „Zostało” dodaje, czy odejmuje",
+    "wiedzasłowa treści pytania: {koszt, jeden, bilet}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {koszt, jeden, bilet} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-6-029",
+   "grade": "6",
+   "category": "jednostki",
+   "q": "Pojemnik o wymiarach 60 cm (długość) x 80 cm (szerokość) x 50 cm (wysokość) napełniono wodą. Iloma litrami wody napełniono ten pojemnik?",
+   "gold": [
+    [
+     "240"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Pojemnik o wymiarach 60 cm (długość) x 80 cm (szerokość) x 50 cm (wysokość) napełniono wodą. Iloma litrami wody napełniono ten pojemnik?”",
+    "rozbiór2 zdania, pewność rozbioru 72%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {litr, wod, napeł, pojem}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {litr, wod, napeł, pojem} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-001",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "Jaka to liczba? Najmniejsza liczba czterocyfrowa podzielna przez 3.",
+   "gold": [
+    [
+     "1002"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Jaka to liczba? Najmniejsza liczba czterocyfrowa podzielna przez 3.”",
+    "rozbiór2 zdania, pewność rozbioru 76%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {liczb}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {liczb} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-002",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "Jaka to liczba? Największa liczba trzycyfrowa podzielna przez 8.",
+   "gold": [
+    [
+     "992"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Jaka to liczba? Największa liczba trzycyfrowa podzielna przez 8.”",
+    "rozbiór2 zdania, pewność rozbioru 78%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {liczb}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {liczb} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-004",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Zuzia planuje przyjęcie urodzinowe. Spodziewa się na urodzinach czterech lub pięciu koleżanek, a każdą koleżankę pragnie poczęstować taką samą liczbą ciastek. Ile co najmniej ciastek musi upiec Zuzia?",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zuzia planuje przyjęcie urodzinowe. Spodziewa się na urodzinach czterech lub pięciu koleżanek, a każdą koleżankę pragnie poczęstować taką samą liczbą ciastek. Ile co najmniej ciastek musi upiec Zuzia?”",
+    "rozbiór3 zdania, pewność rozbioru 92%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „ciastko”, czyje: Zuzi",
+    "rozbiórliczebniki słowami: „czterech” = 4, „pięciu” = 5",
+    "reguła„Spodziewa” – pierwsza wzmianka o liczbie, stan początkowy: 4",
+    "fakt5 koleżanek – inna rzecz niż „ciastko”, pomijam",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {mał, ciast, musie, upiec, zuz}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {mał, ciast, musie, upiec, zuz} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-006",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "O ile suma liczb 3,45 i 1,68 jest większa od ich różnicy?",
+   "gold": [
+    [
+     "3,36"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„O ile suma liczb 3,45 i 1,68 jest większa od ich różnicy?”",
+    "rozbiór1 zdanie, pewność rozbioru 73%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "brakbezpiecznik: „suma liczb 3,45 i 1,68” to tylko część polecenia – jest w nim jeszcze porównanie, którego nie umiem złożyć",
+    "wiedzasłowa treści pytania: {sum, liczb, 3,45, 1,68, duż, on, różni}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {sum, liczb, 3,45, 1,68, duż, on, różni} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-007",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Ania za jabłka zapłaciła 3,30 zł, a za gruszki 5,40 zł. Kupiła także banany za 7,60 zł i winogrona za 6,90 zł. Ile zostało jej pieniędzy, jeżeli miała na zakupy 30 zł?",
+   "gold": [
+    [
+     "6,80"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Ania za jabłka zapłaciła 3,30 zł, a za gruszki 5,40 zł. Kupiła także banany za 7,60 zł i winogrona za 6,90 zł. Ile zostało jej pieniędzy, jeżeli miała na zakupy 30 zł?”",
+    "rozbiór3 zdania, pewność rozbioru 84%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „pieniądz”",
+    "reguła„zapłaciła” – ubywa: 0 − 3.3 = -3.3",
+    "reguła„zapłaciła” – ubywa: -3.3 − 5.4 = -8.7",
+    "reguła„za 7.6” – zapłata: -8.7 − 7.6 = -16.299999999999997",
+    "reguła„za 6.9” – zapłata: -16.299999999999997 − 6.9 = -23.199999999999996",
+    "brakbezpiecznik: ktoś oddaje 3.3, choć nie wiem, ile miał – rozbiór niepewny",
+    "wiedzasłowa treści pytania: {zosta, on, pieni, mieć, zakup, 30, złot}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {zosta, on, pieni, mieć, zakup, 30, złot} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-009",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Za 0,4 kg sera żółtego zapłacono 9,60 zł. Ile kosztuje 2,5 kg tego sera?",
+   "gold": [
+    [
+     "60"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Za 0,4 kg sera żółtego zapłacono 9,60 zł. Ile kosztuje 2,5 kg tego sera?”",
+    "rozbiór2 zdania, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „kilogram”",
+    "reguła„za 0.4” – zapłata: 0 − 0.4 = -0.4",
+    "reguła„zapłacono” – ubywa: -0.4 − 9.6 = -10",
+    "brakbezpiecznik: ktoś oddaje 0.4, choć nie wiem, ile miał – rozbiór niepewny",
+    "wiedzasłowa treści pytania: {koszt, 2,5, kilog, ser}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {koszt, 2,5, kilog, ser} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-010",
+   "grade": "7",
+   "category": "jednostki",
+   "q": "5 godzin 45 minut to",
+   "gold": [
+    [
+     "5,75"
+    ]
+   ],
+   "answer": "5,75 h = 345 min",
+   "verdict": "zle",
+   "source": "liczby",
+   "trace": [
+    "wejście„5 godzin 45 minut to”",
+    "rozbiór1 zdanie, pewność rozbioru 40%",
+    "rozbiórwielkość złożona: 5 godzin 45 minut",
+    "reguła5 godzin 45 minut = 345 min; 1 h = 60 min → 345 : 60 = 5,75 h",
+    "reguła5 godzin 45 minut = 345 min"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-012",
+   "grade": "7",
+   "category": "jednostki",
+   "q": "7 kilometrów 25 metrów to",
+   "gold": [
+    [
+     "7,025 km"
+    ],
+    [
+     "7025 m"
+    ]
+   ],
+   "answer": "7,025 km = 7025 m",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„7 kilometrów 25 metrów to”",
+    "rozbiór1 zdanie, pewność rozbioru 51%",
+    "rozbiórwielkość złożona: 7 kilometrów 25 metrów",
+    "reguła7 kilometrów 25 metrów = 7025 m; 1 km = 1000 m → 7025 : 1000 = 7,025 km",
+    "reguła7 kilometrów 25 metrów = 7025 m"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-014",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Zmieszano 3 kg cukierków owocowych po 15,60 zł za kilogram i 7 kg cukierków orzechowych po 12,40 zł za kilogram. Ile złotych kosztował kilogram mieszanki?",
+   "gold": [
+    [
+     "13,36"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Zmieszano 3 kg cukierków owocowych po 15,60 zł za kilogram i 7 kg cukierków orzechowych po 12,40 zł za kilogram. Ile złotych kosztował kilogram mieszanki?”",
+    "rozbiór2 zdania, pewność rozbioru 82%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórwyrazy ciągu: 3, 15.6, 7, 12.4",
+    "brakciąg nie ma stałej różnicy, stałego ilorazu, stałych różnic drugiego rzędu ani wzoru na przemian",
+    "rozbiórpytanie o liczbę: „złoty”",
+    "reguła„Zmieszano” – pierwsza wzmianka o liczbie, stan początkowy: 3",
+    "braknie wiem, czy „Zmieszano” dodaje, czy odejmuje",
+    "braknie wiem, czy „Zmieszano” dodaje, czy odejmuje",
+    "braknie wiem, czy „Zmieszano” dodaje, czy odejmuje",
+    "wiedzasłowa treści pytania: {złot, koszt, kilog, miesz}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {złot, koszt, kilog, miesz} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-016",
+   "grade": "7",
+   "category": "arytmetyka",
+   "q": "Liczba 245,987 zaokrąglona do części setnych jest równa",
+   "gold": [
+    [
+     "245,99"
+    ]
+   ],
+   "answer": "245,99",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Liczba 245,987 zaokrąglona do części setnych jest równa”",
+    "rozbiór1 zdanie, pewność rozbioru 93%",
+    "regułazaokrąglenie do części setnych: patrzę na następną cyfrę (≥ 5 → w górę) → 245,99"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-017",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Odpowiedz na pytania. Ile procent godziny stanowi 12 minut?",
+   "gold": [
+    [
+     "20"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Odpowiedz na pytania. Ile procent godziny stanowi 12 minut?”",
+    "rozbiór1 zdanie, pewność rozbioru 94%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „procent”",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {proce, godzi, stano, 12, minut}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {proce, godzi, stano, 12, minut} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-018",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Odpowiedz na pytania. Ile procent metra stanowi 17,5 cm?",
+   "gold": [
+    [
+     "17,5"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Odpowiedz na pytania. Ile procent metra stanowi 17,5 cm?”",
+    "rozbiór1 zdanie, pewność rozbioru 93%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „procent”",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {proce, metr, stano, 17,5, centy}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {proce, metr, stano, 17,5, centy} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-019",
+   "grade": "7",
+   "category": "ulamki",
+   "q": "Odpowiedz na pytania. Ile procent kilograma stanowią 23 dekagramy?",
+   "gold": [
+    [
+     "23"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Odpowiedz na pytania. Ile procent kilograma stanowią 23 dekagramy?”",
+    "rozbiór1 zdanie, pewność rozbioru 92%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "rozbiórpytanie o liczbę: „procent”",
+    "brakbezpiecznik: nie rozpoznałem żadnego działania – odpowiedź byłaby tylko przepisaną liczbą z treści",
+    "wiedzasłowa treści pytania: {proce, kilog, stano, 23, dekag}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {proce, kilog, stano, 23, dekag} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-020",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Z testu z języka angielskiego można było uzyskać maksymalnie 50 punktów. Kinga uzyskała z tego testu 42 punkty, a Marek 86 % wszystkich punktów. Które z nich osiągnęło lepszy wynik?",
+   "gold": [
+    [
+     "Marek"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Z testu z języka angielskiego można było uzyskać maksymalnie 50 punktów. Kinga uzyskała z tego testu 42 punkty, a Marek 86 % wszystkich punktów. Które z nich osiągnęło lepszy wynik?”",
+    "rozbiór3 zdania, pewność rozbioru 88%",
+    "brakrozumujący zna tylko pytania „Czy …?”, „Kto …?”, „Komu …?” i „Czy zdania „…” i „…” mogą być prawdziwe?”",
+    "wiedzasłowa treści pytania: {on, osiąg, dobr, wynik}; szukam w 25 parach i 129 faktach zatwierdzonych przez ludzi",
+    "brakbrak zatwierdzonego faktu, który zawiera wszystkie słowa {on, osiąg, dobr, wynik} i odpowiedź – dodaj fakt zdaniem oznajmującym"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-023",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Cenę kanapy, która kosztowała 2200 zł, obniżono dwukrotnie o 15 %. Oblicz cenę mebla po obu obniżkach.",
+   "gold": [
+    [
+     "1589,50"
+    ]
+   ],
+   "answer": "1589,50 zł",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Cenę kanapy, która kosztowała 2200 zł, obniżono dwukrotnie o 15 %. Oblicz cenę mebla po obu obniżkach.”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "regułaobniżka o 15%: 2200 zł · 85% = 1870 zł",
+    "regułaobniżka o 15%: 1870 zł · 85% = 1589,50 zł",
+    "wniosekcena końcowa: 1589,50 zł"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-7-025",
+   "grade": "7",
+   "category": "zadania_tekstowe",
+   "q": "Cenę zestawu komputerowego równą 4500 zł podwyższono o 20 %. Następnie tę cenę obniżono o 20 %. Ile wynosi różnica pomiędzy ceną początkową i ceną po obniżce tego zestawu?",
+   "gold": [
+    [
+     "180"
+    ]
+   ],
+   "answer": "180 zł",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Cenę zestawu komputerowego równą 4500 zł podwyższono o 20 %. Następnie tę cenę obniżono o 20 %. Ile wynosi różnica pomiędzy ceną początkową i ceną po obniżce tego zestawu?”",
+    "rozbiór3 zdania, pewność rozbioru 93%",
+    "regułapodwyżka o 20%: 4500 zł · 120% = 5400 zł",
+    "regułaobniżka o 20%: 5400 zł · 80% = 4320 zł",
+    "wniosekróżnica: 4500 zł − 4320 zł = 180 zł"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-001",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. mży",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. mży”",
+    "rozbiór2 zdania, pewność rozbioru 82%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "fakt„mży” w słowniku Morfeusza: brak",
+    "brakbezpiecznik: „mży” nie ma w słowniku, a model rozbioru (NOUN → rzeczownik) nie ma potwierdzenia w końcówce słowa – nie zgaduję"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-002",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. kot",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "answer": "rzeczownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. kot”",
+    "rozbiór2 zdania, pewność rozbioru 78%",
+    "fakt„kot” w słowniku Morfeusza: kot subst, kota subst",
+    "wniosek„kot” – rzeczownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-003",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. humorzasty",
+   "gold": [
+    [
+     "przymiotnik"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. humorzasty”",
+    "rozbiór2 zdania, pewność rozbioru 78%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "fakt„humorzasty” w słowniku Morfeusza: brak",
+    "brakbezpiecznik: „humorzasty” nie ma w słowniku, a model rozbioru (NOUN → rzeczownik) nie ma potwierdzenia w końcówce słowa – nie zgaduję"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-004",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. płakała",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "answer": "czasownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. płakała”",
+    "rozbiór2 zdania, pewność rozbioru 93%",
+    "fakt„płakała” w słowniku Morfeusza: płakać praet",
+    "wniosek„płakała” – czasownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-005",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. bezpieczny",
+   "gold": [
+    [
+     "przymiotnik"
+    ]
+   ],
+   "answer": "przymiotnik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. bezpieczny”",
+    "rozbiór2 zdania, pewność rozbioru 90%",
+    "fakt„bezpieczny” w słowniku Morfeusza: bezpieczny adj",
+    "wniosek„bezpieczny” – przymiotnik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-006",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. pułapka",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "answer": "rzeczownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. pułapka”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "fakt„pułapka” w słowniku Morfeusza: brak",
+    "rozbiórmodel rozbioru: „pułapka” → NOUN (lemat pułapka) → rzeczownik",
+    "wniosek„pułapka” – rzeczownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-007",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. niegrzecznie",
+   "gold": [
+    [
+     "przysłówek"
+    ]
+   ],
+   "answer": "przysłówek",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. niegrzecznie”",
+    "rozbiór2 zdania, pewność rozbioru 64%",
+    "fakt„niegrzecznie” w słowniku Morfeusza: brak",
+    "rozbiórmodel rozbioru: „niegrzecznie” → ADV (lemat niegrzecznie) → przysłówek",
+    "wniosek„niegrzecznie” – przysłówek"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-008",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. ze",
+   "gold": [
+    [
+     "przyimek"
+    ]
+   ],
+   "answer": "przyimek",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. ze”",
+    "rozbiór2 zdania, pewność rozbioru 47%",
+    "fakt„ze” w słowniku Morfeusza: z prep, z part",
+    "wniosek„ze” – przyimek"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-009",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. okolica",
+   "gold": [
+    [
+     "rzeczownik"
+    ]
+   ],
+   "answer": "rzeczownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. okolica”",
+    "rozbiór2 zdania, pewność rozbioru 77%",
+    "fakt„okolica” w słowniku Morfeusza: okolica subst",
+    "wniosek„okolica” – rzeczownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-010",
+   "grade": "4-8",
+   "category": "czesci_mowy",
+   "q": "Dopasuj podane wyrazy do odpowiednich części mowy. mkną",
+   "gold": [
+    [
+     "czasownik"
+    ]
+   ],
+   "answer": "czasownik",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopasuj podane wyrazy do odpowiednich części mowy. mkną”",
+    "rozbiór2 zdania, pewność rozbioru 89%",
+    "fakt„mkną” w słowniku Morfeusza: mknąć fin",
+    "wniosek„mkną” – czasownik"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-011",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. sroka - C. lp.",
+   "gold": [
+    [
+     "sroce"
+    ]
+   ],
+   "answer": "sroce",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. sroka - C. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 90%",
+    "rozbiór„sroka”: celownik, liczba pojedyncza",
+    "reguła„sroka” nie ma w słowniku; słowa na „-oka”: 4/4 odmienia się „-ka → -ce” (np. epoka→epoce, zatoka→zatoce, foka→foce) → sroce"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-012",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. ogon - D. lp.",
+   "gold": [
+    [
+     "ogona"
+    ]
+   ],
+   "answer": "ogona",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. ogon - D. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 83%",
+    "rozbiór„ogon”: dopełniacz, liczba pojedyncza",
+    "faktsłownik Morfeusza: ogon → ogona (subst:sg:gen:m3)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-013",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. haczyk - B. lp.",
+   "gold": [
+    [
+     "haczyk"
+    ]
+   ],
+   "answer": "haczyk",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. haczyk - B. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 85%",
+    "rozbiór„haczyk”: biernik, liczba pojedyncza",
+    "faktsłownik Morfeusza: haczyk → haczyk (subst:sg:acc:m3)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-014",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. sól - N. lp.",
+   "gold": [
+    [
+     "solą"
+    ]
+   ],
+   "answer": "solą",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. sól - N. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 84%",
+    "rozbiór„sól”: narzędnik, liczba pojedyncza",
+    "faktsłownik Morfeusza: sól → solą (subst:sg:inst:f)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-015",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. oko - Msc. lp.",
+   "gold": [
+    [
+     "oku"
+    ]
+   ],
+   "answer": "oku",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. oko - Msc. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 83%",
+    "rozbiór„oko”: miejscownik, liczba pojedyncza",
+    "faktsłownik Morfeusza: oko → oku (subst:sg:loc:n:col)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-016",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. ręka - N. lp.",
+   "gold": [
+    [
+     "ręką"
+    ]
+   ],
+   "answer": "ręką",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. ręka - N. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 88%",
+    "rozbiór„ręka”: narzędnik, liczba pojedyncza",
+    "faktsłownik Morfeusza: ręka → ręką (subst:sg:inst:f)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-017",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. serce - Msc. lp.",
+   "gold": [
+    [
+     "sercu"
+    ]
+   ],
+   "answer": "sercu",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. serce - Msc. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 88%",
+    "rozbiór„serce”: miejscownik, liczba pojedyncza",
+    "faktsłownik Morfeusza: serce → sercu (subst:sg:loc:n:ncol)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-018",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. szklanka - Msc. lp.",
+   "gold": [
+    [
+     "szklance"
+    ]
+   ],
+   "answer": "szklance",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. szklanka - Msc. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 91%",
+    "rozbiór„szklanka”: miejscownik, liczba pojedyncza",
+    "faktsłownik Morfeusza: szklanka → szklance (subst:sg:loc:f)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-019",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. woda - D. lp.",
+   "gold": [
+    [
+     "wody"
+    ]
+   ],
+   "answer": "wody",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. woda - D. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 86%",
+    "rozbiór„woda”: dopełniacz, liczba pojedyncza",
+    "faktsłownik Morfeusza: woda → wody (subst:sg:gen:f)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-020",
+   "grade": "4-8",
+   "category": "przypadki",
+   "q": "Utwórz odpowiednie formy podanych rzeczowników. nos - D. lp.",
+   "gold": [
+    [
+     "nosa"
+    ]
+   ],
+   "answer": "nosa",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Utwórz odpowiednie formy podanych rzeczowników. nos - D. lp.”",
+    "rozbiór3 zdania, pewność rozbioru 81%",
+    "rozbiór„nos”: dopełniacz, liczba pojedyncza",
+    "faktsłownik Morfeusza: nos → nosa (subst:sg:gen:m3)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-021",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. organista",
+   "gold": [
+    [
+     "męski osobowy"
+    ],
+    [
+     "męskoosobowy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. organista”",
+    "rozbiór2 zdania, pewność rozbioru 60%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiórmodel rozbioru: „organista” NOUN Fem",
+    "brakbezpiecznik: „organista” nie ma w słowniku; model rozbioru podaje f, ale bez słownika to zgadywanie"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-022",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. ogrodzenie",
+   "gold": [
+    [
+     "nijaki"
+    ]
+   ],
+   "answer": "rodzaj nijaki",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. ogrodzenie”",
+    "rozbiór2 zdania, pewność rozbioru 75%",
+    "fakt„ogrodzenie” w słowniku: subst:sg:nom:n:ncol",
+    "rozbiórmodel rozbioru: „ogrodzenie” NOUN Neut",
+    "wniosek„ogrodzenie” – rodzaj nijaki"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-023",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. słowik",
+   "gold": [
+    [
+     "męski zwierzęcy"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. słowik”",
+    "rozbiór2 zdania, pewność rozbioru 64%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiórmodel rozbioru: „słowik” NOUN Masc Hum",
+    "brakbezpiecznik: „słowik” nie ma w słowniku; model rozbioru podaje m1, ale bez słownika to zgadywanie"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-024",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. zwyczaj",
+   "gold": [
+    [
+     "męski rzeczowy"
+    ]
+   ],
+   "answer": "rodzaj męski rzeczowy",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. zwyczaj”",
+    "rozbiór2 zdania, pewność rozbioru 68%",
+    "fakt„zwyczaj” w słowniku: subst:sg:nom:m3",
+    "rozbiórmodel rozbioru: „zwyczaj” ADP ?",
+    "wniosek„zwyczaj” – rodzaj męski rzeczowy"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-025",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. gospodyni",
+   "gold": [
+    [
+     "żeński"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. gospodyni”",
+    "rozbiór2 zdania, pewność rozbioru 72%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiórmodel rozbioru: „gospodyni” ADJ Masc Hum",
+    "braknie znam rodzaju tego słowa"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-026",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. muzeum",
+   "gold": [
+    [
+     "nijaki"
+    ]
+   ],
+   "answer": "rodzaj nijaki",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. muzeum”",
+    "rozbiór2 zdania, pewność rozbioru 67%",
+    "fakt„muzeum” w słowniku: subst:sg:nom:n:ncol",
+    "rozbiórmodel rozbioru: „muzeum” NOUN Neut",
+    "wniosek„muzeum” – rodzaj nijaki"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-027",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. radość",
+   "gold": [
+    [
+     "żeński"
+    ]
+   ],
+   "answer": "rodzaj żeński",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. radość”",
+    "rozbiór2 zdania, pewność rozbioru 68%",
+    "fakt„radość” w słowniku: subst:sg:nom:f",
+    "rozbiórmodel rozbioru: „radość” NOUN Fem",
+    "wniosek„radość” – rodzaj żeński"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-028",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. byk",
+   "gold": [
+    [
+     "męski zwierzęcy"
+    ]
+   ],
+   "answer": "rodzaj męski zwierzęcy",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. byk”",
+    "rozbiór2 zdania, pewność rozbioru 62%",
+    "fakt„byk” w słowniku: subst:sg:nom:m2",
+    "rozbiórmodel rozbioru: „byk” ADV ?",
+    "wniosek„byk” – rodzaj męski zwierzęcy"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-029",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. strumień",
+   "gold": [
+    [
+     "męski rzeczowy"
+    ]
+   ],
+   "answer": "rodzaj męski rzeczowy",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. strumień”",
+    "rozbiór2 zdania, pewność rozbioru 53%",
+    "fakt„strumień” w słowniku: subst:sg:nom:m3",
+    "rozbiórmodel rozbioru: „strumień” NOUN Masc Inan",
+    "wniosek„strumień” – rodzaj męski rzeczowy"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-030",
+   "grade": "4-8",
+   "category": "rodzaj",
+   "q": "Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. prosię",
+   "gold": [
+    [
+     "nijaki"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Przyporządkuj rzeczowniki do odpowiedniej grupy: rodzaj męski osobowy, rodzaj męski zwierzęcy, rodzaj męski rzeczowy, rodzaj żeński, rodzaj nijaki. prosię”",
+    "rozbiór2 zdania, pewność rozbioru 73%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiórmodel rozbioru: „prosię” VERB ?",
+    "braknie znam rodzaju tego słowa"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-031",
+   "grade": "4-8",
+   "category": "liczba",
+   "q": "Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: gitara",
+   "gold": [
+    [
+     "gitary"
+    ]
+   ],
+   "answer": "gitary",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: gitara”",
+    "rozbiór2 zdania, pewność rozbioru 65%",
+    "rozbiór„gitara” → mianownik liczby mnogiej",
+    "faktsłownik Morfeusza: gitara → gitary (subst:pl:nom:f)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-032",
+   "grade": "4-8",
+   "category": "liczba",
+   "q": "Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: brat",
+   "gold": [
+    [
+     "bracia"
+    ]
+   ],
+   "answer": "bracia",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: brat”",
+    "rozbiór2 zdania, pewność rozbioru 65%",
+    "rozbiór„brat” → mianownik liczby mnogiej",
+    "faktsłownik Morfeusza: brat → bracia (subst:pl:nom:m1)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-033",
+   "grade": "4-8",
+   "category": "liczba",
+   "q": "Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: chomik",
+   "gold": [
+    [
+     "chomiki"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: chomik”",
+    "rozbiór2 zdania, pewność rozbioru 65%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiór„chomik” → mianownik liczby mnogiej",
+    "brak„chomik” nie ma w słowniku i brak dość słów o tym samym zakończeniu"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-034",
+   "grade": "4-8",
+   "category": "liczba",
+   "q": "Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: poeta",
+   "gold": [
+    [
+     "poeci"
+    ]
+   ],
+   "answer": "poeci",
+   "verdict": "ok",
+   "source": "liczby",
+   "trace": [
+    "wejście„Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: poeta”",
+    "rozbiór2 zdania, pewność rozbioru 64%",
+    "rozbiór„poeta” → mianownik liczby mnogiej",
+    "faktsłownik Morfeusza: poeta → poeci (subst:pl:nom:m1)"
+   ],
+   "local": null
+  },
+  {
+   "id": "szk-4-8-035",
+   "grade": "4-8",
+   "category": "liczba",
+   "q": "Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: szczenię",
+   "gold": [
+    [
+     "szczenięta"
+    ]
+   ],
+   "answer": null,
+   "verdict": "nie_wiem",
+   "source": "brak",
+   "trace": [
+    "wejście„Dopisz w tabeli brakujące formy rzeczownika. Liczba pojedyncza / Liczba mnoga: szczenię”",
+    "rozbiór2 zdania, pewność rozbioru 64%",
+    "brakbrak zdania pytającego (ze znakiem „?”)",
+    "rozbiór„szczenię” → mianownik liczby mnogiej",
+    "brak„szczenię” nie ma w słowniku i brak dość słów o tym samym zakończeniu"
+   ],
+   "local": null
+  }
+ ]
+}
