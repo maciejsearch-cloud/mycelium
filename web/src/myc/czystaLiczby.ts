@@ -8,8 +8,11 @@ import type { ATok, Analysis } from './rozbior'
 import type { MorfLex } from './morf'
 import { lexAnalyses } from './morf'
 import type { Step } from './czysta'
+import { school } from './czystaSzkolne'
 
-export type NumMethod = 'arytmetyka' | 'zadanie tekstowe' | 'ciąg' | 'liczebniki' | 'analogia (odmiana)' | 'analogia (relacja z faktów)'
+export type SchoolMethod = 'szkoła: działania' | 'szkoła: procenty'
+
+export type NumMethod = SchoolMethod | 'arytmetyka' | 'zadanie tekstowe' | 'ciąg' | 'liczebniki' | 'analogia (odmiana)' | 'analogia (relacja z faktów)'
 export interface NumResult {
   answer: string
   method: NumMethod
@@ -510,7 +513,7 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
     if (po >= 0 && ns.length === 2 && /^\d/.test(T[po + 1]?.form ?? '')) {
       const per = ns.find((t) => t.i > po + 1) ?? ns[1]
       const k = ns.find((t) => t !== per)!
-      const v = Number(k.form) * Number(per.form)
+      const v = Number(k.form.replace(',', '.')) * Number(per.form.replace(',', '.'))
       ctx.trace.push({ kind: 'reguła', text: `„po ${per.form}” przy ${k.form} grupach → mnożenie: ${k.form} × ${per.form} = ${v}` })
       ledger.set(SCENE, (ledger.get(SCENE) ?? 0) + v)
       sumAll += v
@@ -623,6 +626,10 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
   } else if (owner && ledger.has(owner)) ans = ledger.get(owner)
   else if (ledger.size === 1) ans = [...ledger.values()][0]
   else if (together && nAll) ans = [...ledger.values()].reduce((a, b) => a + b, 0)
+  if (ans !== undefined && !Number.isFinite(ans)) {
+    ctx.trace.push({ kind: 'brak', text: 'wynik nie jest liczbą – nie zgaduję' })
+    return null
+  }
   if (ans === undefined) {
     ctx.trace.push({ kind: 'brak', text: owner ? `nie ma w treści liczby „${what}” dla ${owner}` : 'kilka osób w treści – nie wiem, o kogo chodzi' })
     return null
@@ -631,9 +638,9 @@ export function wordProblem(text: string, ctx: NumCtx): NumResult | null {
   return { answer: fmtN(ans), method: 'zadanie tekstowe' }
 }
 
-/** Kolejność: analogia → liczebniki → ciąg → zadanie tekstowe → arytmetyka. */
+/** Kolejność: zadania szkolne (czystaSzkolne.ts) → analogia → liczebniki → ciąg → zadanie tekstowe → arytmetyka. */
 export function numeric(text: string, ctx: NumCtx): NumResult | null {
-  for (const f of [analogy, numerals, sequence, wordProblem, arithmetic]) {
+  for (const f of [school, analogy, numerals, sequence, wordProblem, arithmetic]) {
     const mark = ctx.trace.length
     try {
       const r = f(text, ctx)
