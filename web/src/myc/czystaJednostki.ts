@@ -177,10 +177,10 @@ export function units(text: string, ctx: NumCtx): NumResult | null {
   // 4) suma: „Ile ważyły razem …?” – wszystkie wielkości tego samego rodzaju
   const sents = t.split(/(?<=[.!?])\s+/)
   const qs = sents[sents.length - 1]
-  if (/\?$/.test(qs) && /^ile\b/i.test(qs) && /\b(razem|łącznie|w sumie|wszystk\p{L}*)\b/iu.test(qs)) {
+  if (/\?$/.test(qs) && /^ile(?![\p{L}\d])/iu.test(qs) && /(?<![\p{L}\d])(razem|łącznie|w sumie|wszystk\p{L}*)(?![\p{L}\d])/iu.test(qs)) {
     const xs = quantities(sents.slice(0, -1).join(' '))
     const qx = quantities(qs)
-    if (xs.length >= 2 && !qx.length && xs.every((x) => x.dim === xs[0].dim) && !/\b(po|każd\p{L}*|razy)\b/iu.test(t)) {
+    if (xs.length >= 2 && !qx.length && xs.every((x) => x.dim === xs[0].dim) && !/(?<![\p{L}\d])(po|każd\p{L}*|razy)(?![\p{L}\d])/iu.test(t)) {
       const sum = xs.reduce((a, x) => a.add(x.v), new Q(0n))
       // jednostka odpowiedzi: najczęstsza w treści
       const cnt = new Map<string, [Unit, number]>()
@@ -193,10 +193,10 @@ export function units(text: string, ctx: NumCtx): NumResult | null {
     }
   }
   // 5) różnica: „O ile cm kredka Jurka jest dłuższa?”, „Oblicz, o ile więcej kosztuje sól.”
-  const qd = sents.findLast((s) => /\bo ile\b/i.test(s))
+  const qd = sents.findLast((s) => /(?<![\p{L}\d])o ile(?![\p{L}\d])/iu.test(s))
   if (qd && /(dłuższ|krótsz|wyższ|niższ|więcej|mniej|droższ|tańsz|cięższ|lżejsz|starsz|młodsz|dalej|bliżej|szybciej|wolniej)/iu.test(qd)) {
     const xs = quantities(sents.filter((s) => s !== qd).join(' '))
-    if (xs.length === 2 && xs[0].dim === xs[1].dim && !quantities(qd).length && !/\b(po|każd\p{L}*|razy|razem)\b/iu.test(t)) {
+    if (xs.length === 2 && xs[0].dim === xs[1].dim && !quantities(qd).length && !/(?<![\p{L}\d])(po|każd\p{L}*|razy|razem)(?![\p{L}\d])/iu.test(t)) {
       const [a, b] = xs[0].v.cmp(xs[1].v) >= 0 ? [xs[0], xs[1]] : [xs[1], xs[0]]
       const u = xs[0].units[0]
       const r = a.v.sub(b.v).div(u.f)

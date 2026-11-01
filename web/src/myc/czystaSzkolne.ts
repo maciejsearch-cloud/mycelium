@@ -5,6 +5,7 @@
 // zamrożony zestaw testowy służy tylko do pomiaru.
 import type { NumCtx, NumResult } from './czystaLiczby'
 import { units } from './czystaJednostki'
+import { story } from './czystaZadania'
 import { Q } from './czystaQ'
 
 export { Q }
@@ -78,7 +79,7 @@ export function evalQ(expr: string, steps: string[]): { v: Q; frac: boolean } | 
   return S.length === 1 ? { v: S[0], frac } : null
 }
 
-const INSTR = /^(oblicz\w*|policz\w*|wykonaj\w*|wstaw\w*|wpisz\w*|uzupełnij\w*|podaj\w*|rozwiąż\w*|zapisz\w*)\b/iu
+const INSTR = /^(oblicz\p{L}*|policz\p{L}*|wykonaj\p{L}*|wstaw\p{L}*|wpisz\p{L}*|uzupełnij\p{L}*|podaj\p{L}*|rozwiąż\p{L}*|zapisz\p{L}*)(?![\p{L}\d])/iu
 /** „Oblicz. 35 : 7”, „Wstaw prawidłowy wynik dzielenia. 36 : 4 =”, „Oblicz w pamięci. 6 ∙ 0,5”, „Ile to 3 + 4?” */
 export function expression(text: string, ctx: NumCtx): NumResult | null {
   const s = text.trim().replace(/\s*(=\s*)?(…|\.{3}|_+|\?)?\s*$/u, (m) => (m.includes('=') || m.includes('…') || m.includes('_') ? '' : m.replace('?', '')))
@@ -86,7 +87,7 @@ export function expression(text: string, ctx: NumCtx): NumResult | null {
   const m = /(?:^|[.:!]\s+|^(?:ile\s+(?:to|jest|wynosi|będzie)\s+))([\d(][\d\s\u00a0.,+\-−–·∙•×*:÷/()]*[\d)])\s*=?\s*$/iu.exec(s)
   if (!m) return null
   const head = s.slice(0, m.index).trim()
-  if (head && !INSTR.test(head) && !/^ile\b/i.test(head) && !/^[\p{L}\s,]*(działa\w*|wynik\w*|sum\w*|różnic\w*|iloczyn\w*|iloraz\w*)[\p{L}\s,.:]*$/iu.test(head)) return null
+  if (head && !INSTR.test(head) && !/^ile(?![\p{L}\d])/iu.test(head) && !/^[\p{L}\s,]*(działa\p{L}*|wynik\p{L}*|sum\p{L}*|różnic\p{L}*|iloczyn\p{L}*|iloraz\p{L}*)[\p{L}\s,.:]*$/iu.test(head)) return null
   const expr = m[1]
   const steps: string[] = []
   const r = evalQ(expr, steps)
@@ -176,8 +177,8 @@ export function percent(text: string, ctx: NumCtx): NumResult | null {
 // ------------------------------------------------------------------ NWD / NWW, dzielenie z resztą, porządek, zaokrąglenia
 export function numberTheory(text: string, ctx: NumCtx): NumResult | null {
   const t = text.replace(/\s+/g, ' ')
-  const gcdW = /\bNWD\b|największ\p{L}* wspóln\p{L}* dzielnik/iu.test(t)
-  const lcmW = /\bNWW\b|najmniejsz\p{L}* wspóln\p{L}* wielokrotno/iu.test(t)
+  const gcdW = /(?<![\p{L}\d])NWD(?![\p{L}\d])|największ\p{L}* wspóln\p{L}* dzielnik/iu.test(t)
+  const lcmW = /(?<![\p{L}\d])NWW(?![\p{L}\d])|najmniejsz\p{L}* wspóln\p{L}* wielokrotno/iu.test(t)
   if (gcdW !== lcmW) {
     const tail = t.split(/liczb\p{L}*:?/iu).slice(1).join(' ')
     const xs = numsQ(tail || t).filter((q) => q.isInt() && q.n > 0n)
@@ -236,7 +237,7 @@ export function numberTheory(text: string, ctx: NumCtx): NumResult | null {
 
 /** Kolejność: działanie symbolami → procenty → „o N / N razy” → NWD/NWW, reszta, porządek, zaokrąglenia. */
 export function school(text: string, ctx: NumCtx): NumResult | null {
-  for (const f of [units, expression, percent, relative, numberTheory]) {
+  for (const f of [story, units, expression, percent, relative, numberTheory]) {
     const mark = ctx.trace.length
     try {
       const r = f(text, ctx)
