@@ -7,6 +7,7 @@ import type { NumCtx, NumResult } from './czystaLiczby'
 import { units } from './czystaJednostki'
 import { story } from './czystaZadania'
 import { geometry } from './czystaGeometria'
+import { grammar } from './czystaGramatyka'
 import { Q } from './czystaQ'
 
 export { Q }
@@ -238,7 +239,7 @@ export function numberTheory(text: string, ctx: NumCtx): NumResult | null {
 
 /** Kolejność: działanie symbolami → procenty → „o N / N razy” → NWD/NWW, reszta, porządek, zaokrąglenia. */
 export function school(text: string, ctx: NumCtx): NumResult | null {
-  for (const f of [geometry, story, units, expression, percent, relative, numberTheory]) {
+  for (const f of [grammar, geometry, story, units, expression, percent, relative, numberTheory]) {
     const mark = ctx.trace.length
     try {
       const r = f(text, ctx)
