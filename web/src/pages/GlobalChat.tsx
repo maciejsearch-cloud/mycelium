@@ -11,6 +11,8 @@ import { loadRegister, type Register } from '../myc/register'
 import { ownerKey } from '../myc/store'
 import { SpeakerPanel, SpeakerTools } from '../components/Speaker'
 import { speakerState, speakerSummary, type SpkState, type SpkSummary } from '../myc/speaker'
+import { MyRelationCard, ReplyTools, RozbiorSheet, RozmowaPanel } from '../components/Rozmowa'
+import { rozmowaMeta, rozmowaState, type RozmowaMeta, type RozmowaState } from '../myc/rozmowaApi'
 
 const time = (s: string) => new Date(s).toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })
 const day = (s: string) => new Date(s).toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit' })
@@ -52,6 +54,9 @@ export default function GlobalChat() {
   const end = useRef<HTMLDivElement>(null)
   const [spk, setSpk] = useState<SpkState | null>(null)
   const [sums, setSums] = useState<Map<number, SpkSummary>>(new Map())
+  const [rz, setRz] = useState<RozmowaState | null>(null)
+  const [meta, setMeta] = useState<RozmowaMeta | null>(null)
+  const [sheet, setSheet] = useState<{ id: number; text: string } | null>(null)
   const me = gchat.me
   const canMod = me?.role === 'developer' || me?.role === 'moderator'
 
@@ -67,7 +72,10 @@ export default function GlobalChat() {
   // mówca AI: stan poziomów + podsumowania ocen widocznych wpisów AI (odświeżane przy nowych wiadomościach i co 30 s)
   const aiIds = gchat.channel == null ? gchat.msgs.filter((m) => m.kind === 'ai' && !m.deleted).map((m) => m.id) : []
   const aiKey = aiIds.join(',')
+  const visIds = gchat.channel == null ? gchat.msgs.filter((m) => !m.deleted && m.kind !== 'node').map((m) => m.id) : []
   const refreshSpk = () => {
+    void rozmowaState().then(setRz, () => undefined)
+    if (visIds.length) void rozmowaMeta(visIds).then(setMeta, () => undefined)
     void speakerState().then(setSpk, () => undefined)
     void speakerSummary(aiIds).then(
       (xs) => setSums(new Map(xs.map((x) => [x.msg_id, x]))),
@@ -78,7 +86,7 @@ export default function GlobalChat() {
     refreshSpk()
     const t = setInterval(refreshSpk, 30_000)
     return () => clearInterval(t)
-  }, [aiKey, account.me?.id]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [aiKey, visIds.length, account.me?.id]) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     end.current?.scrollIntoView({ block: 'end' })
   }, [gchat.msgs.length, gchat.channel])
@@ -169,6 +177,7 @@ export default function GlobalChat() {
           )}
         </div>
       )}
+      {gchat.channel == null && <RozmowaPanel st={rz} dev={me?.role === 'developer'} en={en} onChange={setRz} />}
       {gchat.channel == null && <SpeakerPanel st={spk} dev={me?.role === 'developer'} en={en} onChange={setSpk} />}
       {gchat.channel != null && (
         <p className="text-xs text-slate-500">
@@ -247,6 +256,12 @@ export default function GlobalChat() {
                   <div className={`whitespace-pre-wrap break-words text-[15px] leading-snug ${m.deleted ? 'italic text-slate-600' : 'text-slate-100'}`}>
                     {m.deleted ? L('wiadomość usunięta', 'message deleted') : m.body}
                   </div>
+                  {m.kind === 'ai' && !m.deleted && meta?.replies[m.id] && <ReplyTools id={m.id} m={meta.replies[m.id]} canRate={!!me} en={en} onDone={refreshSpk} />}
+                  {m.kind === 'user' && !m.deleted && meta?.parsed.includes(m.id) && (
+                    <button className="mt-0.5 text-[11px] text-slate-500 underline decoration-dotted hover:text-slate-300" onClick={() => setSheet({ id: m.id, text: m.body ?? '' })} data-testid="rozbior-open">
+                      {L('rozbiór', 'parse')}
+                    </button>
+                  )}
                   {m.kind === 'ai' && !m.deleted && sums.get(m.id) && <SpeakerTools s={sums.get(m.id)!} canRate={!!me} en={en} onDone={refreshSpk} />}
                   {menu === m.id && (
                     <div className="mt-1 flex flex-wrap gap-1 text-xs" data-testid="gchat-menu">
@@ -391,6 +406,8 @@ export default function GlobalChat() {
         </div>
       </section>
 
+      {sheet && <RozbiorSheet id={sheet.id} text={sheet.text} en={en} onClose={() => setSheet(null)} />}
+      {me && gchat.channel == null && <MyRelationCard en={en} />}
       {me && (
         <Card title={L('Prywatność i nauka', 'Privacy and learning')}>
           <label className="flex items-start gap-3 text-sm" data-testid="gchat-train">
