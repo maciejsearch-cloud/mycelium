@@ -235,5 +235,5 @@ def reason(t: str, s: dict, w: dict) -> str:
         parts.append(f"po ostatnim treningu {'+' if p >= 0 else ''}{p:.1f} pkt proc.")
     else:
         parts.append("postęp po treningu jeszcze nie zmierzony – sprawdzam, czy da się tu czegoś nauczyć")
-    head = "najsłabszy obszar" if w["err"] >= 0.5 else "do utrwalenia" if w["err"] >= 0.2 else "prawie opanowany"
+    head = "słabo opanowany" if w["err"] >= 0.5 else "do utrwalenia" if w["err"] >= 0.2 else "prawie opanowany"
     return f"{head}: " + ", ".join(parts)
