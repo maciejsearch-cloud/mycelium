@@ -10,7 +10,7 @@ import { lexAnalyses } from './morf'
 import type { Step } from './czysta'
 import { school } from './czystaSzkolne'
 
-export type SchoolMethod = 'szkoła: działania' | 'szkoła: procenty'
+export type SchoolMethod = 'szkoła: działania' | 'szkoła: procenty' | 'szkoła: jednostki'
 
 export type NumMethod = SchoolMethod | 'arytmetyka' | 'zadanie tekstowe' | 'ciąg' | 'liczebniki' | 'analogia (odmiana)' | 'analogia (relacja z faktów)'
 export interface NumResult {
