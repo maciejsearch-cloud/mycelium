@@ -84,6 +84,11 @@ jobs:
         run: node scripts/rozbior-parity.mjs
       - name: Rozbiór – warstwa Morfeusza TypeScript = Python
         run: node scripts/morf-parity.mjs
+      - name: Rozmówca – regresja na zbiorach rozmów (dev, zamrożone v1/v2)
+        run: |
+          node scripts/rozmowa-eval.mjs dev --min 38
+          node scripts/rozmowa-eval.mjs frozen --min 66
+          node scripts/rozmowa-eval.mjs frozen-v2 --min 30
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run e2e

@@ -1,5 +1,5 @@
 // Pomiar rozmówcy czatu na zestawie rozmów (results/rozmowa/*.json): zachowanie (kategorie) i poprawność rozbioru.
-// Uruchom: node scripts/rozmowa-eval.mjs [frozen|dev] [--before] [--out plik.json]
+// Uruchom: node scripts/rozmowa-eval.mjs [frozen|dev|frozen-v2] [--before] [--out plik.json] [--min N] (CI: kod wyjścia 1, gdy wynik < N)
 //  --before = stan sprzed zmian: w czacie nie było rozmówcy (brak odpowiedzi, relacji i moderacji), a rozbiór to surowy
 //             wynik modelu czytany najprostszym ekstraktorem (korzeń, jego cechy, nsubj, „?”).
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -109,3 +109,8 @@ for (const [c, [a, n]] of Object.entries(byCat)) console.log(`${c.padEnd(15)} ${
 console.log('RAZEM', res.total.join('/'), '| rozbiór pola:', Object.entries(pf).map(([f, [a, n]]) => `${f} ${a}/${n}`).join(', '), '| wszystkie pola', res.parse_all_fields.join('/'))
 if (outI >= 0) writeFileSync(args[outI + 1], JSON.stringify(res, null, 1))
 if (args.includes('--v')) for (const r of rows) if (!r.ok || (r.parse && !FIELDS.every((f) => r.parse[f]))) console.log(r.ok ? ' ' : '✗', r.id, r.cat, r.text, '→', r.reply?.rule, '|', r.reply?.text?.slice(0, 70), '| acts', r.acts.join(','), r.parse ? '| zle: ' + FIELDS.filter((f) => !r.parse[f]).map((f) => `${f}=${JSON.stringify(r.parse._got[f])}`).join(' ') : '')
+const minI = args.indexOf('--min')
+if (minI >= 0 && res.total[0] < Number(args[minI + 1])) {
+  console.error(`rozmowa-eval: ${res.total[0]}/${res.total[1]} < próg ${args[minI + 1]}`)
+  process.exit(1)
+}

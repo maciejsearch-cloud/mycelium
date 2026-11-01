@@ -212,6 +212,10 @@ declare s myc_speaker; g record; mid bigint; lv int; a record; body text;
 begin
   select * into s from myc_speaker where id = 1 for update;
   if not s.enabled then return jsonb_build_object('ok', false, 'why', 'paused'); end if;
+  -- trwa rozmowa ludzi (wiadomość w ostatnich 3 min): mówca nie przerywa – odpowiada rozmówca (myc_rozmowa.sql)
+  if exists (select 1 from myc_gchat where room = 'main' and circle_id is null and kind = 'user' and created_at > now() - interval '3 minutes') then
+    return jsonb_build_object('ok', false, 'why', 'rozmowa');
+  end if;
   if s.last_post_at is not null and now() - s.last_post_at < make_interval(secs => s.interval_s - 5) then
     return jsonb_build_object('ok', false, 'why', 'interval');
   end if;

@@ -14,6 +14,6 @@ export const JOKES: string[] = [
   'Nie mam nóg, więc nikt mi nie powie, żebym „poszła w grzyby”. Ja już tam jestem.',
   'Pytacie, czy śpię. Śpię tylko wtedy, gdy ktoś zrobi touch STOP. Wtedy śnią mi się logi.',
   'Wiecie, czym różni się grzybnia od programisty? Grzybnia lubi wilgoć i ciemność. Programista… też, w sumie.',
-  'Moje IQ rośnie z każdą rundą treningu. Mój poziom suchara – niestety też.',
+    'Z każdą rundą treningu wiem trochę więcej. Mój poziom suchara – niestety też rośnie.',
   'Węzeł pyta węzła: „Ile jest 2+2?”. Drugi: „Poczekaj, zapytam bramkę weryfikatora”.',
 ]

@@ -108,7 +108,7 @@ function selfReply(u: Understanding, ctx: ReplyContext): Reply {
   return { text: `Jestem Grzybnia – sieć węzłów i programów, która uczy się polskiego od ludzi na tym czacie. Nie mam ciała, ale mówię o sobie „ja”.${nodes}${learned}`, source: s.nodes_online !== undefined || learned ? 'fakt' : 'reguła', rule: 'o_mnie.kim', addressed: true }
 }
 
-function relationReply(u: Understanding, ctx: ReplyContext): Reply {
+function relationReply(_u: Understanding, ctx: ReplyContext): Reply {
   const now = ctx.now ?? new Date()
   if (ctx.optedOut) return { text: 'Masz wyłączoną naukę, więc nie prowadzę o tobie pamięci – każda rozmowa jest dla mnie od zera.', source: 'reguła', rule: 'relacja.brak_zgody', addressed: true }
   const s = ctx.rel

@@ -229,7 +229,6 @@ export function understand(text: string, tokenize: TokenizeFn, parse: ParseFn, l
   if (!qtype && (qm || F(firstWords[0]) === 'czy')) qtype = 'tak/nie'
   const question = !!qtype
   // (5) treść, emocje
-  const lemmas = toks.map(L)
   const formsL = toks.map(F)
   const has = (set: Set<string>) => toks.some((t) => set.has(L(t)) || set.has(F(t)))
   const contentL = [...new Set(toks.filter((t) => ['NOUN', 'PROPN', 'ADJ', 'VERB'].includes(t.upos) && !STOP.has(L(t)) && L(t).length > 2).map(L))].slice(0, 12)
