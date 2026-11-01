@@ -1,0 +1,86 @@
+{
+ "version": "parafrazy-zadania-v2",
+ "frozen": "2026-11-01, przed kodem rozszerzeń zadań tekstowych (źródło z przyimkiem, dwa czasowniki i dwie liczby w jednym zdaniu); nie używać do rozwijania reguł",
+ "items": [
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Kasia miała osiem pierników i dostała trzy od babci. Ile pierników ma teraz Kasia?",
+   "a": "11"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Tomek miał 15 kulek. Od kolegi dostał jeszcze 6. Ile kulek ma Tomek?",
+   "a": "21"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Basia miała 20 zł, wydała 8 zł na książkę i dostała 5 zł od taty. Ile złotych ma teraz Basia?",
+   "a": "17"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Marek zebrał 14 grzybów, a potem zgubił 3 grzyby i znalazł 2. Ile grzybów ma Marek?",
+   "a": "13"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Ania miała 10 naklejek. Dała 4 naklejki Zosi, a od Julki dostała 7. Ile naklejek ma Ania?",
+   "a": "13"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Od dziadka Jaś dostał 12 orzechów, a od babci 9 orzechów. Ile orzechów dostał Jaś razem?",
+   "a": "21"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "W sklepie było 40 bułek. Rano sprzedano 25 bułek, a po południu przywieziono 30. Ile bułek jest teraz w sklepie?",
+   "a": "45"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Ola ma 6 lat, a jej brat jest o 4 lata starszy. Ile lat ma brat Oli?",
+   "a": "10"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Piotr miał 25 cukierków. Zjadł 5 cukierków i oddał 8 cukierków siostrze. Ile cukierków zostało Piotrowi?",
+   "a": "12"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Na drzewie siedziało 9 wróbli. Odleciały 4 wróble, a przyleciało 6. Ile wróbli siedzi teraz na drzewie?",
+   "a": "11"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Michał kupił 3 zeszyty po 4 zł. Ile złotych zapłacił Michał?",
+   "a": "12"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Ewa miała 50 zł. Za bilet zapłaciła 18 zł. Ile złotych zostało Ewie?",
+   "a": "32"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Kuba dostał od mamy 7 jabłek, a od taty 5 jabłek, i zjadł 3. Ile jabłek ma Kuba?",
+   "a": "9"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Zuzia miała dziewięć balonów, dwa balony pękły, a od cioci dostała cztery. Ile balonów ma Zuzia?",
+   "a": "11"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Staś pożyczył od Kamila 6 książek i oddał mu 2. Ile książek Staś ma jeszcze od Kamila?",
+   "a": "4"
+  },
+  {
+   "kind": "zadanie tekstowe",
+   "q": "Lena miała 30 koralików, zgubiła 12 koralików i kupiła 10. Ile koralików ma Lena?",
+   "a": "28"
+  }
+ ]
+}
