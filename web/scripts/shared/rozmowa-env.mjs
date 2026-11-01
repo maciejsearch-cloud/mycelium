@@ -6,7 +6,7 @@ import { loadTs } from './tsload.mjs'
 
 const W = new URL('../../', import.meta.url).pathname
 export async function rozmowaEnv() {
-  const m = await loadTs(['myc/rozbior.ts', 'myc/morf.ts', 'myc/rozmowa/lexicon.ts', 'myc/rozmowa/types.ts', 'myc/rozmowa/understand.ts', 'myc/rozmowa/jokes.ts', 'myc/rozmowa/relations.ts', 'myc/rozmowa/respond.ts', 'myc/rozmowa/moderation.ts', 'myc/rozmowa/formlex.ts', 'myc/rozmowa/learn.ts'])
+  const m = await loadTs(['myc/rozbior.ts', 'myc/morf.ts', 'myc/rozmowa/lexicon.ts', 'myc/rozmowa/types.ts', 'myc/rozmowa/understand.ts', 'myc/rozmowa/jokes.ts', 'myc/rozmowa/relations.ts', 'myc/rozmowa/facts.ts', 'myc/rozmowa/respond.ts', 'myc/rozmowa/moderation.ts', 'myc/rozmowa/formlex.ts', 'myc/rozmowa/learn.ts'])
   const rb = m.rozbior
   const gz = (p) => JSON.parse(gunzipSync(readFileSync(W + p)).toString())
   const morf = gz('public/data/rozbior/morf-lfg.json.gz')

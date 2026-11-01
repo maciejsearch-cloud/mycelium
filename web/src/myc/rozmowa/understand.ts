@@ -284,7 +284,7 @@ export function understand(text: string, tokenize: TokenizeFn, parse: ParseFn, l
     }
     if (question && P && RELATION_VERBS.has(pLemma) && firstObj && person === 2) acts.add('relacja')
     if (question && P && pLemma === 'być' && person === 1 && pf.Number === 'Plur') acts.add('relacja')
-    if (question && P && SAY_VERBS.has(pLemma) && (qtype === 'co' || qtype === 'kto' || qtype === 'kiedy')) acts.add('przypomnienie')
+    if (question && P && SAY_VERBS.has(pLemma) && tense === 'past' && mood !== 'imp' && (qtype === 'co' || qtype === 'kto' || qtype === 'kiedy')) acts.add('przypomnienie')
     if (!acts.has('ciało') && !acts.has('relacja') && !acts.has('przypomnienie') && !acts.has('żart') && question && (person === 2 || (aboutMe && person === 3 && pLemma !== 'być'))) {
       if (P && (SELF_VERBS.has(pLemma) || qtype !== 'tak/nie') && !(pLemma === 'być' && !qtype?.match(/kto|co|jaki/) && toks.every((t) => t === P || PUNCT.test(t.form) || ['tu', 'tam', 'czy', 'teraz', 'jeszcze', 'gdzieś', 'tutaj'].includes(F(t)))) && !['żyć', 'słyszeć', 'odezwać'].includes(pLemma)) acts.add('o_mnie')
     }
