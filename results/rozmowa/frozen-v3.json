@@ -1,0 +1,676 @@
+{
+ "name": "rozmowa-frozen-v3",
+ "frozen_at": "2026-11-01",
+ "note": "Zestaw ZAMROŻONY (ślepy) – zapisany przed zmianami rundy v3; nie stroić na nim. Klasa → dozwolone przedrostki reguły odpowiedzi (null = brak odpowiedzi). Pierwsza ocena ślepa: przed i po.",
+ "classes": {
+  "obecnosc": [
+   "obecnosc"
+  ],
+  "obecnosc_lub_cialo": [
+   "obecnosc",
+   "cialo"
+  ],
+  "cialo": [
+   "cialo"
+  ],
+  "stan": [
+   "stan"
+  ],
+  "smalltalk": [
+   "smalltalk",
+   "o_mnie"
+  ],
+  "opinia": [
+   "opinia"
+  ],
+  "o_tobie": [
+   "o_tobie",
+   "relacja"
+  ],
+  "wielozdaniowe": [
+   "stan",
+   "smalltalk",
+   "o_mnie",
+   "obecnosc",
+   "fakt",
+   "nauka"
+  ],
+  "angielski": [
+   "english"
+  ],
+  "nauka_pytanie": [
+   "nauka.pytanie",
+   "fakt",
+   "pamiec.podobne",
+   "ludzie"
+  ],
+  "nauka_odpowiedz": [
+   "nauka.dzieki"
+  ],
+  "cisza": [
+   null
+  ],
+  "cisza_lub_wtracenie": [
+   null,
+   "wtracenie",
+   "stan"
+  ]
+ },
+ "items": [
+  {
+   "id": "v01",
+   "cls": "obecnosc",
+   "seq": [
+    [
+     "A",
+     "grzybnio jestes tu?"
+    ]
+   ]
+  },
+  {
+   "id": "v02",
+   "cls": "obecnosc",
+   "seq": [
+    [
+     "A",
+     "Grzybnia, jesteś?"
+    ]
+   ]
+  },
+  {
+   "id": "v03",
+   "cls": "obecnosc",
+   "seq": [
+    [
+     "B",
+     "halo grzybnio, żyjesz?"
+    ]
+   ]
+  },
+  {
+   "id": "v04",
+   "cls": "obecnosc",
+   "seq": [
+    [
+     "C",
+     "grzybnio słyszysz mnie?"
+    ]
+   ]
+  },
+  {
+   "id": "v05",
+   "cls": "obecnosc",
+   "seq": [
+    [
+     "D",
+     "Grzybinio jesteś?"
+    ]
+   ],
+   "note": "literówka w wołaczu"
+  },
+  {
+   "id": "v06",
+   "cls": "obecnosc",
+   "seq": [
+    [
+     "A",
+     "@grzybnia jest tam kto?"
+    ]
+   ]
+  },
+  {
+   "id": "v07",
+   "cls": "obecnosc",
+   "seq": [
+    [
+     "E",
+     "grzybnio odezwij się"
+    ]
+   ]
+  },
+  {
+   "id": "v08",
+   "cls": "obecnosc_lub_cialo",
+   "seq": [
+    [
+     "B",
+     "grzybnio, śpisz?"
+    ]
+   ]
+  },
+  {
+   "id": "v09",
+   "cls": "obecnosc_lub_cialo",
+   "seq": [
+    [
+     "C",
+     "grzybnio spisz juz?"
+    ]
+   ],
+   "note": "bez polskich znaków"
+  },
+  {
+   "id": "v10",
+   "cls": "cialo",
+   "seq": [
+    [
+     "D",
+     "grzybnio, co dziś jadłaś na obiad?"
+    ]
+   ]
+  },
+  {
+   "id": "v11",
+   "cls": "cialo",
+   "seq": [
+    [
+     "A",
+     "Grzybnio, myłaś zęby?"
+    ]
+   ]
+  },
+  {
+   "id": "v12",
+   "cls": "cialo",
+   "seq": [
+    [
+     "E",
+     "grzybnio umiesz pływać?"
+    ]
+   ]
+  },
+  {
+   "id": "v13",
+   "cls": "cialo",
+   "seq": [
+    [
+     "B",
+     "grzybnio boli cię głowa?"
+    ]
+   ]
+  },
+  {
+   "id": "v14",
+   "cls": "stan",
+   "seq": [
+    [
+     "A",
+     "Grzybnio, martwię się o jutrzejszy egzamin"
+    ]
+   ]
+  },
+  {
+   "id": "v15",
+   "cls": "stan",
+   "seq": [
+    [
+     "B",
+     "strasznie się dziś martwię"
+    ]
+   ]
+  },
+  {
+   "id": "v16",
+   "cls": "stan",
+   "seq": [
+    [
+     "C",
+     "grzybnio jestem smutna"
+    ]
+   ]
+  },
+  {
+   "id": "v17",
+   "cls": "stan",
+   "seq": [
+    [
+     "D",
+     "Grzybnio, boję się dentysty"
+    ]
+   ]
+  },
+  {
+   "id": "v18",
+   "cls": "stan",
+   "seq": [
+    [
+     "E",
+     "grzybnio mam doła"
+    ]
+   ]
+  },
+  {
+   "id": "v19",
+   "cls": "stan",
+   "seq": [
+    [
+     "A",
+     "grzybnio, jestem dziś bardzo zmęczony"
+    ]
+   ]
+  },
+  {
+   "id": "v20",
+   "cls": "stan",
+   "seq": [
+    [
+     "B",
+     "Grzybnio! Jestem taka szczęśliwa, zdałam prawo jazdy!"
+    ]
+   ]
+  },
+  {
+   "id": "v21",
+   "cls": "stan",
+   "seq": [
+    [
+     "C",
+     "grzybnio wkurza mnie mój szef"
+    ]
+   ]
+  },
+  {
+   "id": "v22",
+   "cls": "stan",
+   "seq": [
+    [
+     "D",
+     "grzybnio nudze sie strasznie"
+    ]
+   ],
+   "note": "bez polskich znaków"
+  },
+  {
+   "id": "v23",
+   "cls": "stan",
+   "seq": [
+    [
+     "E",
+     "martwie sie o mame"
+    ]
+   ],
+   "note": "bez polskich znaków, bez zwrotu"
+  },
+  {
+   "id": "v24",
+   "cls": "stan",
+   "seq": [
+    [
+     "A",
+     "grzybnio czuję się samotny"
+    ]
+   ]
+  },
+  {
+   "id": "v25",
+   "cls": "stan",
+   "seq": [
+    [
+     "B",
+     "grzybnio, stresuję się rozmową o pracę"
+    ]
+   ]
+  },
+  {
+   "id": "v26",
+   "cls": "smalltalk",
+   "seq": [
+    [
+     "C",
+     "grzybnio, jak się masz?"
+    ]
+   ]
+  },
+  {
+   "id": "v27",
+   "cls": "smalltalk",
+   "seq": [
+    [
+     "D",
+     "co tam grzybnio?"
+    ]
+   ]
+  },
+  {
+   "id": "v28",
+   "cls": "smalltalk",
+   "seq": [
+    [
+     "E",
+     "grzybnio co robisz?"
+    ]
+   ]
+  },
+  {
+   "id": "v29",
+   "cls": "smalltalk",
+   "seq": [
+    [
+     "A",
+     "grzybnio jak minął ci dzień?"
+    ]
+   ]
+  },
+  {
+   "id": "v30",
+   "cls": "smalltalk",
+   "seq": [
+    [
+     "B",
+     "grzybnio, co u ciebie słychać?"
+    ]
+   ]
+  },
+  {
+   "id": "v31",
+   "cls": "smalltalk",
+   "seq": [
+    [
+     "C",
+     "dobranoc grzybnio"
+    ]
+   ]
+  },
+  {
+   "id": "v32",
+   "cls": "smalltalk",
+   "seq": [
+    [
+     "D",
+     "dzień dobry grzybnio"
+    ]
+   ]
+  },
+  {
+   "id": "v33",
+   "cls": "opinia",
+   "seq": [
+    [
+     "E",
+     "grzybnio, lubisz pizzę?"
+    ]
+   ]
+  },
+  {
+   "id": "v34",
+   "cls": "opinia",
+   "seq": [
+    [
+     "A",
+     "grzybnio, co myślisz o kotach?"
+    ]
+   ]
+  },
+  {
+   "id": "v35",
+   "cls": "opinia",
+   "seq": [
+    [
+     "B",
+     "grzybnio wolisz psy czy koty?"
+    ]
+   ]
+  },
+  {
+   "id": "v36",
+   "cls": "opinia",
+   "seq": [
+    [
+     "C",
+     "Grzybnio, jaki jest twój ulubiony kolor?"
+    ]
+   ]
+  },
+  {
+   "id": "v37",
+   "cls": "opinia",
+   "seq": [
+    [
+     "D",
+     "grzybnio, podoba ci się zima?"
+    ]
+   ]
+  },
+  {
+   "id": "v38",
+   "cls": "o_tobie",
+   "seq": [
+    [
+     "E",
+     "grzybnio, jak mam na imię?"
+    ]
+   ]
+  },
+  {
+   "id": "v39",
+   "cls": "o_tobie",
+   "seq": [
+    [
+     "A",
+     "grzybnio, co o mnie wiesz?"
+    ]
+   ]
+  },
+  {
+   "id": "v40",
+   "cls": "o_tobie",
+   "seq": [
+    [
+     "B",
+     "Grzybnio, pamiętasz mnie?"
+    ]
+   ]
+  },
+  {
+   "id": "v41",
+   "cls": "o_tobie",
+   "seq": [
+    [
+     "C",
+     "grzybnio ile mam lat?"
+    ]
+   ]
+  },
+  {
+   "id": "v42",
+   "cls": "wielozdaniowe",
+   "seq": [
+    [
+     "D",
+     "Cześć grzybnio. Jestem dziś strasznie zmęczona. Co u ciebie?"
+    ]
+   ]
+  },
+  {
+   "id": "v43",
+   "cls": "wielozdaniowe",
+   "seq": [
+    [
+     "E",
+     "grzybnio, mam pytanie. czym jest kot?"
+    ]
+   ]
+  },
+  {
+   "id": "v44",
+   "cls": "wielozdaniowe",
+   "seq": [
+    [
+     "A",
+     "Hej! Grzybnio, nudzę się. Pogadasz ze mną?"
+    ]
+   ]
+  },
+  {
+   "id": "v45",
+   "cls": "wielozdaniowe",
+   "seq": [
+    [
+     "B",
+     "grzybnio. smutno mi. nie wiem co robić"
+    ]
+   ]
+  },
+  {
+   "id": "v46",
+   "cls": "angielski",
+   "seq": [
+    [
+     "C",
+     "grzybnia, are you there?"
+    ]
+   ]
+  },
+  {
+   "id": "v47",
+   "cls": "angielski",
+   "seq": [
+    [
+     "D",
+     "hey grzybnia, how are you?"
+    ]
+   ]
+  },
+  {
+   "id": "v48",
+   "cls": "angielski",
+   "seq": [
+    [
+     "E",
+     "Grzybnia, what is a cat?"
+    ]
+   ]
+  },
+  {
+   "id": "v49",
+   "cls": "angielski",
+   "seq": [
+    [
+     "A",
+     "grzybnia I'm bored"
+    ]
+   ]
+  },
+  {
+   "id": "v50",
+   "cls": "nauka_pytanie",
+   "seq": [
+    [
+     "B",
+     "grzybnio, ile waży dorosły słoń?"
+    ]
+   ]
+  },
+  {
+   "id": "v51",
+   "cls": "nauka_pytanie",
+   "seq": [
+    [
+     "C",
+     "grzybnio, dlaczego niebo jest niebieskie?"
+    ]
+   ]
+  },
+  {
+   "id": "v52",
+   "cls": "nauka_pytanie",
+   "seq": [
+    [
+     "D",
+     "grzybnio jak się robi naleśniki?"
+    ]
+   ]
+  },
+  {
+   "id": "v53",
+   "cls": "nauka_pytanie",
+   "seq": [
+    [
+     "E",
+     "Grzybnio, kto wygrał wczoraj mecz?"
+    ]
+   ]
+  },
+  {
+   "id": "v54",
+   "cls": "nauka_odpowiedz",
+   "seq": [
+    [
+     "A",
+     "grzybnio, ile nóg ma pająk?"
+    ],
+    [
+     "A",
+     "osiem nóg ma pająk"
+    ]
+   ],
+   "reply_to_ai_last": true,
+   "note": "druga linia to odpowiedź na wpis grzybni"
+  },
+  {
+   "id": "v55",
+   "cls": "nauka_odpowiedz",
+   "seq": [
+    [
+     "B",
+     "grzybnio, co to jest fotosynteza?"
+    ],
+    [
+     "B",
+     "to proces, w którym rośliny robią cukier ze światła"
+    ]
+   ],
+   "reply_to_ai_last": true
+  },
+  {
+   "id": "v56",
+   "cls": "cisza",
+   "seq": [
+    [
+     "C",
+     "idę na obiad, zaraz wracam"
+    ]
+   ]
+  },
+  {
+   "id": "v57",
+   "cls": "cisza",
+   "seq": [
+    [
+     "D",
+     "Ola, oddasz mi jutro książkę?"
+    ]
+   ]
+  },
+  {
+   "id": "v58",
+   "cls": "cisza_lub_wtracenie",
+   "seq": [
+    [
+     "E",
+     "ktoś oglądał wczoraj nowy film Nolana?"
+    ]
+   ]
+  },
+  {
+   "id": "v59",
+   "cls": "cisza",
+   "seq": [
+    [
+     "A",
+     "xD"
+    ]
+   ]
+  },
+  {
+   "id": "v60",
+   "cls": "cisza",
+   "seq": [
+    [
+     "B",
+     "kurwa, znowu pada"
+    ]
+   ]
+  }
+ ]
+}
