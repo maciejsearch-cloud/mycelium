@@ -135,3 +135,7 @@ tekstowe 20/21 (1 × „nie wiem”), liczebniki 24/24, ciąg 22/22, analogia 0/
 ciąg 5/8, zadanie tekstowe 5/10, analogia 4/6 (tylko analogie odmiany: liczba, przypadek, stopień). Dwie błędne odpowiedzi
 na parafrazach to zadania tekstowe: „…dostała jeszcze pięć od mamy” (liczba bez rzeczownika przypisana do „mamy”) i zdanie
 z dwoma czasownikami i odbiorcą „Oli”.
+
+Potwierdzenie na żywo (1.11.2026 01:23 CET, https://maciejsearch-cloud.github.io/demo/mycelium/, wylogowana przeglądarka,
+nauka wyłączona): identycznie – seed 2 267/320, seed 7 273/320, parafrazy 27/38, fakty 4/40 (0 błędnych);
+`results/czysta/2026-11-01-0123.json`. Tabela na stronie czyta `web/public/data/czysta/wyniki.json` z tego pomiaru.
