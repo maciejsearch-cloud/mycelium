@@ -1,6 +1,6 @@
 """Praca węzła przy Puzzle #71: ≈10 % mocy, najniższy priorytet, za zgodą (docs/puzzle71.md).
 
-Ograniczenie mocy: jeden wątek o priorytecie nice 19 (Linux: per wątek), cykl pracy liczony z prawdziwego czasu CPU
+Ograniczenie mocy: jeden wątek o najniższym priorytecie (Linux: SCHED_IDLE tylko dla tego wątku), cykl pracy liczony z prawdziwego czasu CPU
 wątku: po każdym kawałku (2^20 kluczy) wątek śpi tyle, żeby średnio zużyć `pct`% z `threads` wątków węzła
 (np. 10 % z 4 wątków = 0,4 rdzenia). Postęp paczki zapisywany lokalnie (wznowienie po restarcie).
 
@@ -34,10 +34,18 @@ def chunk_start(idx: int) -> int:
     return RANGE_LO + idx * (1 << CHUNK_BITS)
 
 
-def lower_thread_priority() -> None:
+def lower_thread_priority() -> str:
+    """Linux: SCHED_IDLE tylko dla tego wątku (dostaje CPU dopiero, gdy trening i reszta węzła go nie chcą; proces
+    węzła i tak ma już nice 19, więc samo nice nie dawało pierwszeństwa treningowi). Inaczej nice 19 wątku."""
     if sys.platform.startswith("linux"):
+        tid = threading.get_native_id()
         with contextlib.suppress(Exception):
-            os.setpriority(os.PRIO_PROCESS, threading.get_native_id(), 19)
+            os.sched_setscheduler(tid, os.SCHED_IDLE, os.sched_param(0))
+            return "sched_idle"
+        with contextlib.suppress(Exception):
+            os.setpriority(os.PRIO_PROCESS, tid, 19)
+            return "nice19"
+    return "process"
 
 
 class P71Worker:
