@@ -31,7 +31,7 @@ Kwoty są w jednostkach 1/100 MYC-test (1000 = 10,00).
 |---|---|---|
 | Kradzież klucza z serwera | Serwer nie ma kluczy prywatnych, tylko publiczne. | — |
 | Kradzież klucza z urządzenia | Ziarno w IndexedDB jest zaszyfrowane hasłem (PBKDF2 600k + AES-GCM). Odblokowanie trwa 5 min i dotyczy tylko jednej karty. | Słabe hasło da się złamać offline, jeśli ktoś skopiuje profil przeglądarki. Wymagamy co najmniej 10 znaków. |
-| XSS kradnący klucz | Ścisła CSP (`vite.config.ts`): skrypty tylko z tej strony i z jednej przypiętej wersji `onnxruntime-web` na jsDelivr, bez inline i eval. React ucieka tekst, a w kodzie nie ma `dangerouslySetInnerHTML`. | Skrypt wstrzyknięty mimo CSP mógłby podpisać przelew w czasie odblokowania. Szkoda jest ograniczona, bo tokeny nie mają wartości. |
+| XSS kradnący klucz | Ścisła CSP (`vite.config.ts`): skrypty tylko z tej strony (także `onnxruntime-web`, hostowany u nas w `/ort/`), bez CDN, inline i eval. React ucieka tekst, a w kodzie nie ma `dangerouslySetInnerHTML`. | Skrypt wstrzyknięty mimo CSP mógłby podpisać przelew w czasie odblokowania. Szkoda jest ograniczona, bo tokeny nie mają wartości. |
 | Powtórka przelewu | Nonce musi być równy poprzedniemu + 1, a podpis obejmuje nonce i czas (okno ±10 min). | — |
 | Podwójne wydanie | `myc_wallet_send` blokuje wiersz głowy łańcucha i wiersz salda (`FOR UPDATE`). Saldo ma `CHECK (balance >= 0)`. Węzły niezależnie odtwarzają salda i nonce. | — |
 | Podrobiony podpis lub zmiana kwoty | pgsodium `crypto_sign_verify_detached` na serwerze. Każdy węzeł sprawdza ponownie (`cryptography` albo czysty Python RFC 8032). | — |

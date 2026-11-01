@@ -6,8 +6,10 @@ import * as tf from '@tensorflow/tfjs-core'
 import * as tfl from '@tensorflow/tfjs-layers'
 import '@tensorflow/tfjs-backend-cpu'
 import type { DataMeta } from '../compute/specs'
+import { useLocalOrt } from './ortLocal'
 
 env.allowLocalModels = false
+useLocalOrt(env)
 const BASE = import.meta.env.BASE_URL
 type M = 'intent' | 'words'
 let meta: Record<string, DataMeta>
