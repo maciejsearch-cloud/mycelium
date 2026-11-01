@@ -122,6 +122,12 @@ def main():
     ap.add_argument("--dry", action="store_true")
     ap.add_argument("--threads", type=int, default=3)
     a = ap.parse_args()
+    try:  # pytania o relacje dla czystej grzybni – tylko pytania, odpowiedzi przez Weryfikuj (scripts/relacje_samouk.py)
+        from relacje_samouk import propose as propose_relations
+
+        propose_relations(6, a.dry)
+    except Exception as e:  # noqa: BLE001 – plan LM liczy się dalej bez tego
+        print("samouk: pytania o relacje pominięte:", type(e).__name__)
     base = sql("select version, path from myc_models where model='lm' order by version desc limit 1")[0]
     plans = sql("select id, at, measured, stats, alloc from myc_lm_curriculum order by id")
     last = plans[-1] if plans else None
