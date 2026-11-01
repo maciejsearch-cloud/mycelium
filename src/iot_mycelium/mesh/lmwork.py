@@ -175,11 +175,25 @@ class LMWorker:
         self.stats = {"lm_train": 0, "lm_eval": 0, "lm_tokens": 0, "lm_flops": 0.0, "lm_rounds": 0, "lm_proposed": 0}
         self.stats["lm_version"] = None
         self.last_job: dict | None = None
+        self._boost = 0  # wątki na czas łączenia (MYC_LM_AGG_THREADS); 0 = bez zmian
 
     # ---------------------------------------------------------------- wspólne
     async def _locked(self, fn, *a):
+        n = self._boost
+
+        def run():
+            # liczba wątków OpenMP jest ustawiana w wątku, który liczy (ustawienie w pętli asyncio go nie obejmuje)
+            prev = lm.torch.get_num_threads()
+            if n > prev:
+                lm.torch.set_num_threads(n)
+            try:
+                return fn(*a)
+            finally:
+                if n > prev:
+                    lm.torch.set_num_threads(prev)
+
         async with self.node.lock:
-            return await asyncio.to_thread(fn, *a)
+            return await asyncio.to_thread(run)
 
     async def _eval(self, lora: lm.Lora | None) -> dict:
         eb = await asyncio.to_thread(self.data.eval_bytes)
@@ -566,13 +580,11 @@ class LMWorker:
             # ocena kandydatów (do 3 × 2000 pytań) – liczona w planiście jako lm_eval, w telemetrii osobno (lm_aggregate)
             sched = getattr(self.node, "sched", None)
             tok = sched.start("lm_eval") if sched is not None else None
-            prev = lm.torch.get_num_threads()
-            if prev < AGG_THREADS:
-                lm.torch.set_num_threads(AGG_THREADS)
+            self._boost = AGG_THREADS
             try:
                 await self._aggregate(cur)
             finally:
-                lm.torch.set_num_threads(prev)
+                self._boost = 0
                 if sched is not None:
                     sched.end(tok, label="lm_aggregate")
 
