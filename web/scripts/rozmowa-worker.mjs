@@ -9,7 +9,7 @@ import { rozmowaEnv } from './shared/rozmowa-env.mjs'
 const SB_URL = 'https://agortpieeygmcttjwjfx.supabase.co'
 const SB_KEY = 'sb_publishable_O6NCXONs9ZOb13j_od4mnw_KqJlH98P' // klucz publiczny (ten sam co w web/src/myc/store.ts)
 const KEY = readFileSync(process.env.MYC_ROZMOWA_KEY_FILE ?? '/workspace/projects/myc-nodes/rozmowa.key', 'utf8').trim()
-const VERSION = 'rozmowa-worker-1'
+const VERSION = 'rozmowa-worker-2'
 const once = process.argv.includes('--once')
 const log = (...a) => console.log(new Date().toISOString(), ...a)
 
@@ -20,7 +20,7 @@ async function rpc(fn, body) {
 }
 
 const env = await rozmowaEnv()
-const { respond: Rp, relations: Rel, moderation: Mod } = env.mods
+const { respond: Rp, relations: Rel, moderation: Mod, learn: Ln } = env.mods
 log('start', VERSION, 'model', env.model.file, 'emo', env.lex.emo.meta.n)
 const win = [] // okno moderacji (ostatnie 24 h)
 const SAY = new Set(['pisać', 'napisać', 'mówić', 'powiedzieć', 'wspominać', 'wspomnieć', 'gadać'])
@@ -51,7 +51,14 @@ async function handle(m, ctx) {
     p_key: KEY, p_msg: m.id, p_parse: compact(u), p_rel: relNew, p_events: Rel.relEvents(u).filter((e) => e !== 'rozmowa'),
     p_reply: reply ?? null, p_mod: mods,
   })
-  log('msg', m.id, `acts=${u.acts.join(',') || '-'}`, `rule=${reply?.rule ?? '-'}`, `mods=${mods.map((x) => x.kind).join(',') || '-'}`, `parse_ms=${Date.now() - t0}`, JSON.stringify(res))
+  // nauka z czatu: tylko za zgodą (baza sprawdza ją ponownie); błąd nauki nie blokuje rozmowy
+  let learned = '-'
+  if (m.train_ok) {
+    const q = Ln.curriculumQuestion(u)
+    const fact = Ln.factProposal(u, handles)
+    if (q || fact) learned = JSON.stringify(await rpc('myc_rozmowa_learn', { p_key: KEY, p_msg: m.id, p_q: q ? { ...q, conf: u.conf } : null, p_fact: fact }).catch((e) => ({ error: String(e.message).slice(0, 80) })))
+  }
+  log('msg', m.id, `learn=${learned}`, `acts=${u.acts.join(',') || '-'}`, `rule=${reply?.rule ?? '-'}`, `mods=${mods.map((x) => x.kind).join(',') || '-'}`, `parse_ms=${Date.now() - t0}`, JSON.stringify(res))
 }
 
 async function maybeInvite(p) {

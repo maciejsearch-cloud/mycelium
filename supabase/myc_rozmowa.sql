@@ -427,6 +427,7 @@ begin
   if acc is null then raise exception 'myc: brak konta' using errcode = '42501'; end if;
   delete from myc_self_relations where account_id = acc;
   delete from myc_self_rel_events where account_id = acc; get diagnostics a = row_count;
+  delete from myc_speaker_chatq q using myc_gchat_priv p where p.msg_id = q.msg_id and p.account_id = acc;
   delete from myc_chat_mem where account_id = acc; get diagnostics b = row_count;
   return jsonb_build_object('ok', true, 'events', a, 'mem', b);
 end $$;
@@ -550,9 +551,49 @@ begin
   delete from myc_chat_mem where at < now() - interval '180 days'; get diagnostics b = row_count;
   delete from myc_self_rel_events where at < now() - interval '90 days'; get diagnostics c = row_count;
   delete from myc_rozmowa_votes where at < now() - interval '180 days';
+  -- program nauczania z czatu: najwyżej 500 najnowszych pytań na poziom
+  delete from myc_speaker_chatq q where (q.level, q.text) in (select level, text from (select level, text, row_number() over (partition by level order by at desc) rn from myc_speaker_chatq) z where rn > 500);
   return jsonb_build_object('toks', a, 'mem', b, 'events', c);
 end $$;
 revoke all on function public.myc_rozmowa_gc() from public, anon, authenticated;
+
+-- Nauka z czatu (proces rozmówcy, klucz): krótkie pytania osób → program nauczania mówcy (myc_speaker_chatq, L0/L1),
+-- zdania „X jest Y” → strzępek do Weryfikuj (myc_frag_add, źródło 'chat', zaufanie 0,4). Zgodę sprawdza baza.
+create table if not exists public.myc_speaker_chatq (
+  level int not null check (level between 0 and 1),
+  text text not null check (char_length(text) between 3 and 80),
+  msg_id bigint,
+  conf real not null,
+  at timestamptz not null default now(),
+  primary key (level, text)
+);
+alter table public.myc_speaker_chatq enable row level security;
+revoke all on public.myc_speaker_chatq from public, anon, authenticated;
+
+create or replace function public.myc_rozmowa_learn(p_key text, p_msg bigint, p_q jsonb default null, p_fact jsonb default null) returns jsonb
+language plpgsql volatile security definer set search_path = public, pg_temp as $$
+declare ok boolean; out jsonb := '{}'; r jsonb;
+begin
+  if not myc_rozmowa_key_ok(p_key) then raise exception 'myc: brak uprawnień' using errcode = '42501'; end if;
+  select p.train_ok and coalesce(f.train_ok, true) into ok
+    from myc_gchat_priv p join myc_gchat m on m.id = p.msg_id left join myc_account_prefs f on f.account_id = p.account_id
+   where p.msg_id = p_msg and m.room = 'main' and m.circle_id is null and m.kind = 'user' and not m.deleted;
+  if not coalesce(ok, false) then return jsonb_build_object('skipped', 'brak zgody'); end if;
+  if p_q is not null and (p_q->>'level')::int between 0 and 1 and char_length(p_q->>'text') between 3 and 80 then
+    insert into myc_speaker_chatq (level, text, msg_id, conf) values ((p_q->>'level')::int, lower(btrim(p_q->>'text')), p_msg, least(greatest(coalesce((p_q->>'conf')::real, 0.5), 0), 1))
+      on conflict (level, text) do nothing;
+    out := out || jsonb_build_object('q', found);
+  end if;
+  if p_fact is not null and coalesce(p_fact->>'rel', '') = 'jest' then
+    r := myc_frag_add('7a3f0e52-6b1d-4c8e-9f20-726f7a6d6f77'::uuid,
+      jsonb_build_array(jsonb_build_object('layer', 0, 'subj', left(p_fact->>'subj', 80), 'rel', 'jest', 'obj', left(p_fact->>'obj', 120), 'lang', 'pl',
+        'source', 'chat', 'ref', 'czat globalny #' || p_msg)), '[]'::jsonb, 'main');
+    out := out || jsonb_build_object('fact', r);
+  end if;
+  return out;
+end $$;
+revoke all on function public.myc_rozmowa_learn(text, bigint, jsonb, jsonb) from public;
+grant execute on function public.myc_rozmowa_learn(text, bigint, jsonb, jsonb) to anon, authenticated;
 
 do $$
 declare f text;
