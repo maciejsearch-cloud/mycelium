@@ -41,7 +41,13 @@ def lit(x: str) -> str:
 def propose(n: int = 6, dry: bool = False) -> list[dict]:
     known = {(r["kind"], r["word"]) for r in sql("select kind, word from myc_rel_questions where room = 'main'")}
     seed = int(time.strftime("%Y%m%d%H", time.gmtime()))
-    props = relacje.samouk_proposals(seed, n, known)
+    # słownictwo zatwierdzone przez ludzi: znaczenia z czatu i jednowyrazowe tematy strzępków od ludzi
+    vocab = [r["w"] for r in sql("select word w from myc_meanings where room = 'main' and status = 'approved'")]
+    vocab += [r["w"] for r in sql(
+        "select distinct lower(subj) w from myc_frags where room = 'main' and status = 'verified' and layer = 0"
+        " and source in ('owner', 'consensus', 'teach') and subj ~ '^[[:alpha:]]+$'"
+    )]  # fmt: skip
+    props = relacje.samouk_proposals(seed, n, known, vocab)
     if not dry:
         for p in props:
             sql(

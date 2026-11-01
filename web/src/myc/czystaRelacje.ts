@@ -55,7 +55,7 @@ export const REL_KINDS: Record<RelKind, { label: string; question: string; patte
     label: 'produkt (co daje)',
     question: 'Co daje {w}?',
     pattern: '„X daje Y.”',
-    examples: ['Pszczoła daje miód.', 'Krowa daje mleko.'],
+    examples: ['Koza daje mleko.', 'Jedwabnik daje jedwab.'],
     re: /^(\p{L}+) (?:daje|dają|wytwarza|wytwarzają) (\p{L}+)\.?$/u,
     ab: (m) => [m[1], m[2]],
     starter: (w) => `${cap(w)} daje `,
@@ -91,7 +91,7 @@ export interface RelQuestion {
 }
 
 export async function loadRelQuestions(): Promise<RelQuestion[]> {
-  const r = await fetch(`${SB_URL}/rest/v1/myc_rel_questions?select=id,kind,word,question,proposer,reason,voiced_at,created_at&room=eq.main&order=created_at.desc&limit=60`, { headers: { apikey: SB_KEY }, signal: AbortSignal.timeout(20000) })
+  const r = await fetch(`${SB_URL}/rest/v1/myc_rel_questions?select=id,kind,word,question,proposer,reason,voiced_at,created_at&room=eq.main&retired_at=is.null&order=created_at.desc&limit=60`, { headers: { apikey: SB_KEY }, signal: AbortSignal.timeout(20000) })
   if (!r.ok) throw new Error(`myc_rel_questions: ${r.status}`)
   return (await r.json()) as RelQuestion[]
 }

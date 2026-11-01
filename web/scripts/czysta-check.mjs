@@ -48,4 +48,15 @@ for (const f of ['web/src/myc/czystaLiczby.ts', 'web/src/myc/czystaWiedza.ts', '
     process.exitCode = 1
   }
 }
+// pytania o relacje nie używają słownictwa testów analogii: lista z relacje.py w SQL, filtr w propozycjach i w mówcy
+{
+  const sql = readFileSync(root + 'supabase/myc_rel.sql', 'utf8')
+  const banned = readFileSync(root + 'supabase/myc_rel_banned.sql', 'utf8')
+  const ts = readFileSync(root + 'web/src/myc/czystaRelacje.ts', 'utf8')
+  const words = [...banned.matchAll(/'(\p{L}+)'/gu)].map((m) => m[1])
+  for (const w of ['lis', 'nora', 'norze', 'pędzel', 'kopiec']) if (!words.includes(w)) (console.error(`czysta-check: „${w}” brak w myc_rel_banned.sql`), (process.exitCode = 1))
+  if ((sql.match(/myc_rel_has_banned\(/g) ?? []).length < 4) (console.error('czysta-check: myc_rel.sql musi filtrować słowa testu w propozycji, mówcy i wycofaniu'), (process.exitCode = 1))
+  if (!ts.includes('retired_at=is.null')) (console.error('czysta-check: czystaRelacje.ts musi pomijać wycofane pytania'), (process.exitCode = 1))
+  for (const w of words) if (new RegExp(`(?<!\\p{L})${w}(?!\\p{L})`, 'iu').test(ts.replace(/^.*Przykłady celowo.*$/m, '')) && w.length > 3) (console.error(`czysta-check: słowo testu „${w}” w czystaRelacje.ts`), (process.exitCode = 1))
+}
 if (!process.exitCode) console.log('czysta-check: progi i stałe zgodne z kodem')
