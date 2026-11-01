@@ -13,6 +13,7 @@ import { answerPure, buildKB, onlySentences, fromDocs, loadHumanRows, looksLikeR
 import { LEARN_RULES } from '../myc/czystaZasady'
 import { useI18n } from '../i18n'
 import CzystaRelacje from '../components/CzystaRelacje'
+import TestySzkolne from '../components/TestySzkolne'
 
 interface Wyniki {
   when: string
@@ -27,7 +28,7 @@ interface Wyniki {
 }
 const pct = (x: number) => `${(x * 100).toFixed(1).replace('.', ',')}%`
 const fmt = (iso?: string) => (iso ? new Date(iso).toLocaleString('pl-PL', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Amsterdam' }) : '–')
-const SRC_PL: Record<string, string> = { logika: 'rozumowanie z ról zdania', liczby: 'reguły liczbowe i odmiana', para: 'para pytanie → odpowiedź od ludzi', fakt: 'fakt zatwierdzony przez ludzi', brak: 'nie wiem' }
+const SRC_PL: Record<string, string> = { logika: 'rozumowanie z ról zdania', liczby: 'reguły liczbowe, szkolne i odmiana', para: 'para pytanie → odpowiedź od ludzi', fakt: 'fakt zatwierdzony przez ludzi', brak: 'nie wiem' }
 
 /** przykłady wejścia (nie dane) – po jednym na każdy rodzaj rozumowania */
 const EXAMPLES = [
@@ -266,6 +267,7 @@ export default function Czysta() {
       </div>
 
       <Scores w={wyniki} />
+      <TestySzkolne ready={rb.status === 'ready'} solve={(t) => (rb.status === 'ready' ? answerPure(t, parseSentence, kb, rb.morf) : undefined)} />
       <Explain kb={kb} />
     </>
   )
