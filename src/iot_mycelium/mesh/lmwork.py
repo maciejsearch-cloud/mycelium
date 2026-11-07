@@ -22,7 +22,7 @@ import urllib.request
 from pathlib import Path
 
 from . import lm
-from .net import SB_KEY, SB_URL
+from .net import QUOTA_BACKOFF_S, SB_KEY, SB_URL, is_quota_block
 from .qwen import cache_dir
 
 DATA_URL = os.environ.get("MYC_LM_DATA", "https://maciejsearch-cloud.github.io/demo/mycelium/data/lm/")
@@ -758,6 +758,10 @@ class LMWorker:
                     await self.coordinate()
             except Exception as e:  # noqa: BLE001 – sieć/baza: spróbuj później
                 self.log(f"model językowy: {type(e).__name__}: {e}")
+                if is_quota_block(e):
+                    with contextlib.suppress(asyncio.TimeoutError):
+                        await asyncio.wait_for(stop.wait(), QUOTA_BACKOFF_S)
+                    continue
             if idle:
                 with contextlib.suppress(asyncio.TimeoutError):
                     await asyncio.wait_for(stop.wait(), 20)

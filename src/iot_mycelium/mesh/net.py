@@ -49,6 +49,19 @@ class DeadConnection(ConnectionError):
     pass
 
 
+# Supabase Free: HTTP 402 przy przekroczeniu egress / spend cap – nie młóć API co kilka sekund.
+QUOTA_BACKOFF_S = float(os.environ.get("MYC_QUOTA_BACKOFF_S", "1800"))  # 30 min
+
+
+def is_quota_block(exc: BaseException | str) -> bool:
+    """Czy błąd to blokada planu Supabase (HTTP 402 / egress / spend cap)."""
+    s = str(exc).lower()
+    if "exceed_egress_quota" in s or "exceed_cached_egress_quota" in s:
+        return True
+    # Supabase używa 402 wyłącznie przy limicie planu (REST i Realtime)
+    return "http 402" in s or " 402 " in s or s.rstrip().endswith(" 402")
+
+
 async def recv_or_dead(ws, dead_s: float):
     """Odbierz wiadomość; gdy serwer milczy dłużej niż dead_s (mimo bicia serca), uznaj połączenie za martwe."""
     try:
@@ -181,10 +194,11 @@ class Net:
             except Exception as e:  # noqa: BLE001 – każdy błąd sieci: ponów z opóźnieniem
                 self.ws, self.joined = None, False
                 self.drops += 1
-                if DEBUG or backoff > 1 or isinstance(e, DeadConnection):
-                    self.log(f"rozłączono ({type(e).__name__}: {e}); ponawiam za {backoff} s")
-                await asyncio.sleep(backoff if backoff > 1 else 0.2)
-                backoff = min(60, backoff * 2)
+                wait = QUOTA_BACKOFF_S if is_quota_block(e) else (backoff if backoff > 1 else 0.2)
+                if DEBUG or backoff > 1 or isinstance(e, DeadConnection) or is_quota_block(e):
+                    self.log(f"rozłączono ({type(e).__name__}: {e}); ponawiam za {wait:.0f} s")
+                await asyncio.sleep(wait)
+                backoff = QUOTA_BACKOFF_S if is_quota_block(e) else min(60, backoff * 2)
 
     async def _heartbeats(self, ws):
         # częste bicie serca Phoenix: niektóre sieci (NAT, proxy) zrywają cichy WebSocket już po kilku sekundach

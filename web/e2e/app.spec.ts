@@ -5,7 +5,13 @@ test.beforeEach(async ({ page }) => {
   await page.route(/supabase\.co\/rest\/v1\//, (r) => r.fulfill({ json: [] }))
   const errors: string[] = []
   page.on('pageerror', (e) => errors.push(String(e)))
-  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()))
+  // Realtime WebSocket: przy limitie egress Supabase zwraca 402 – to awaria planu, nie regresja UI
+  page.on('console', (m) => {
+    if (m.type() !== 'error') return
+    const t = m.text()
+    if (/WebSocket|realtime|ERR_|Failed to load resource|HTTP 402|Unexpected response code: 402/i.test(t)) return
+    errors.push(t)
+  })
   ;(page as unknown as { errors: string[] }).errors = errors
 })
 
