@@ -93,7 +93,9 @@ def test_units_and_proportions_answers():
                 m_m = re.search(r"(\d+) m(?!m)", it.q)
                 cm = re.search(r"(\d+) cm", it.q)
                 mm = re.search(r"(\d+) mm", it.q)
-                assert int(right) == (int(m_m.group(1)) if m_m else 0) * 1000 + (int(cm.group(1)) if cm else 0) * 10 + int(mm.group(1))
+                assert int(right) == (int(m_m.group(1)) if m_m else 0) * 1000 + (
+                    int(cm.group(1)) if cm else 0
+                ) * 10 + int(mm.group(1))
         if it.kind == "proporcje":
             if "proporcji" in it.q:
                 m = re.search(r"(\d+) : (\d+) = (\d+) : x", it.q)

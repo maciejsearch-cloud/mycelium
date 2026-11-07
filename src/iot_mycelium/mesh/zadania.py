@@ -209,7 +209,6 @@ def word(r: random.Random, lv: int) -> Item:
     return Item("matematyczne", "zadanie tekstowe", q, o, i, lv)
 
 
-
 def units(r: random.Random, lv: int) -> Item:
     """Zamiana jednostek szkolnych (długość, masa, czas); odpowiedź w liczbie bez jednostki w treści pytania."""
     if lv == 1:
@@ -279,8 +278,7 @@ def proportions(r: random.Random, lv: int) -> Item:
         n0, n1 = r.choice([2, 3, 4]), r.choice([6, 8, 9, 12])
         amt = r.randint(2, 20) * n0  # podzielne
         v = amt * n1 // n0
-        q = (f"Na {n0} osoby potrzeba {amt} dag mąki. Ile dekagramów mąki potrzeba na {n1} osób "
-             f"(ta sama proporcja)?")
+        q = f"Na {n0} osoby potrzeba {amt} dag mąki. Ile dekagramów mąki potrzeba na {n1} osób (ta sama proporcja)?"
         wrong = [amt + n1, amt * n0 // max(n1, 1), v + amt, n1 * amt, v - n0]
     else:
         # skala mapy 1:N → rzeczywista odległość
@@ -291,11 +289,11 @@ def proportions(r: random.Random, lv: int) -> Item:
         # podajemy odpowiedź w km jeśli ładnie wychodzi, inaczej w m
         if meters % 1000 == 0:
             v = meters // 1000
-            q = (f"Na mapie w skali 1:{scale} odcinek ma {cm} cm. Ile kilometrów ma ta odległość w terenie?")
+            q = f"Na mapie w skali 1:{scale} odcinek ma {cm} cm. Ile kilometrów ma ta odległość w terenie?"
             wrong = [cm * scale // 1000, v * 10, meters, v + 1, cm]
         else:
             v = meters
-            q = (f"Na mapie w skali 1:{scale} odcinek ma {cm} cm. Ile metrów ma ta odległość w terenie?")
+            q = f"Na mapie w skali 1:{scale} odcinek ma {cm} cm. Ile metrów ma ta odległość w terenie?"
             wrong = [cm * scale, v // 10 or v + 100, v + scale // 100, cm * 100, v - cm]
     o, i = choices(r, v, [w for w in wrong if w != v and w > 0])
     return Item("matematyczne", "proporcje", q, o, i, lv)
