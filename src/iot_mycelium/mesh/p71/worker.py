@@ -19,8 +19,8 @@ import threading
 import time
 from pathlib import Path
 
-from . import CHUNK_BITS, RANGE_LO, TARGET_ADDRESS, TARGET_H160, core, seal
 from ..net import QUOTA_BACKOFF_S, is_quota_block
+from . import CHUNK_BITS, RANGE_LO, TARGET_ADDRESS, TARGET_H160, core, seal
 
 PREFIX = "MYC-P71/v1"
 SLICE = 1 << 20
