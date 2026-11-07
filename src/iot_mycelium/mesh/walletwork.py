@@ -24,6 +24,7 @@ import time
 from pathlib import Path
 
 from . import ed25519
+from .net import QUOTA_BACKOFF_S, is_quota_block
 
 PERIOD = float(os.environ.get("MYC_WALLET_PERIOD", "30"))
 ZERO = "0" * 64
@@ -339,6 +340,10 @@ class WalletWorker:
                         }
                 except Exception as e:  # noqa: BLE001 – błąd sieci/bazy: następna próba za chwilę
                     self.log(f"portfel: błąd walidacji: {str(e)[:200]}")
+                    if is_quota_block(e):
+                        with contextlib.suppress(asyncio.TimeoutError):
+                            await asyncio.wait_for(stop.wait(), QUOTA_BACKOFF_S)
+                        continue
             with contextlib.suppress(asyncio.TimeoutError):
                 await asyncio.wait_for(stop.wait(), PERIOD)
 
