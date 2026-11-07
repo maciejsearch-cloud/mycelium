@@ -31,7 +31,7 @@ class Duty(threading.Thread):
         self.cc, self.duty, self.stop, self.keys, self.cpu = cc, duty, threading.Event(), 0, 0.0
 
     def run(self):
-        lower_thread_priority()
+        self.prio = lower_thread_priority()
         off = 0
         while not self.stop.is_set():
             c0 = time.thread_time()
@@ -70,7 +70,7 @@ def main():
     import torch
 
     torch.set_num_threads(a.threads)
-    os.nice(10)  # jak węzeł (supervise.sh: nice -n 10)
+    os.nice(19 - os.nice(0))  # jak węzeł: supervise.sh (nice 10) + low_priority() (+10) = nice 19
     cc = core.load()
     out = {"at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "cpu_count": os.cpu_count(), "threads": a.threads, "pct": a.pct,
            "loadavg_start": os.getloadavg()}  # fmt: skip
@@ -87,7 +87,7 @@ def main():
         d.stop.set()
         d.join()
         dt = time.perf_counter() - t0
-        rates.append({"keys_s": round(d.keys / dt), "cpu_frac": round(d.cpu / dt, 3)})
+        rates.append({"keys_s": round(d.keys / dt), "cpu_frac": round(d.cpu / dt, 3), "prio": d.prio})
     off.append(train_steps(a.secs))
     out.update({
         "duty_core": duty,

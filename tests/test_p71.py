@@ -168,3 +168,15 @@ def test_worker_resumes_from_local_state(tmp_path, monkeypatch):
     wk.duty = 1.0
     wk.run_chunk({"idx": 3, "mode": "scan", "n": 3072})
     assert sb.calls[-1][1]["p_xor"] == full
+
+
+def test_parallel_builds_do_not_clash(tmp_path):
+    import concurrent.futures as cf
+
+    dst = tmp_path / "p71core.so"
+    with cf.ThreadPoolExecutor(3) as ex:
+        res = list(ex.map(lambda _: core.build(dst), range(3)))
+    if res[0] is None:
+        pytest.skip("brak kompilatora C")
+    assert all(r == dst for r in res)
+    assert core.CCore(dst).h160_of_key(SOLVED[20][0]) == core.address_h160(SOLVED[20][1])

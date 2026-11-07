@@ -1,0 +1,48 @@
+{
+ "at": "2026-11-01T14:19:00+0100",
+ "cpu_count": 8,
+ "threads": 4,
+ "pct": 10.0,
+ "loadavg_start": [
+  4.3681640625,
+  3.251953125,
+  4.20458984375
+ ],
+ "c_keys_s_full_core": 1603120,
+ "py_keys_s_full_core": 145245,
+ "duty_core": 0.4,
+ "train_steps_s_off": [
+  46.763,
+  34.861,
+  50.213,
+  44.863
+ ],
+ "train_steps_s_on": [
+  44.067,
+  36.169,
+  58.57
+ ],
+ "p71_during_train": [
+  {
+   "keys_s": 550070,
+   "cpu_frac": 0.363,
+   "prio": "sched_idle"
+  },
+  {
+   "keys_s": 495005,
+   "cpu_frac": 0.322,
+   "prio": "sched_idle"
+  },
+  {
+   "keys_s": 622291,
+   "cpu_frac": 0.402,
+   "prio": "sched_idle"
+  }
+ ],
+ "slowdown_pct": -4.74,
+ "loadavg_end": [
+  9.29443359375,
+  6.9560546875,
+  5.5478515625
+ ]
+}
