@@ -2,7 +2,7 @@
 
 Typy zadań (każde z odpowiedzią liczoną programem, wybór 1 z kilku):
   logika      – ``selfplay`` (16 kategorii, tylko zadania z listą odpowiedzi albo tak/nie/nie wiadomo),
-  matematyka  – ``zadania`` (arytmetyka, ułamki, procenty, równania, zadania tekstowe),
+  matematyka  – ``zadania`` (arytmetyka, ułamki, procenty, równania, zadania tekstowe, jednostki, proporcje),
   przypadki   – „Na jakie pytanie odpowiada słowo X w zdaniu …?” – zdanie z szablonu, przypadek znany z konstrukcji,
                 formy rzeczowników z leksykonu Morfeusza 2 / SGJP (BSD-2-Clause),
   role        – „Co jest podmiotem / orzeczeniem / dopełnieniem / okolicznikiem w zdaniu …?” – rola znana z konstrukcji.
