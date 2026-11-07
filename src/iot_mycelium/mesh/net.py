@@ -59,9 +59,7 @@ def is_quota_block(exc: BaseException | str) -> bool:
     if "exceed_egress_quota" in s or "exceed_cached_egress_quota" in s:
         return True
     # Supabase używa 402 wyłącznie przy limicie planu (REST i Realtime)
-    if "http 402" in s or " 402 " in s or s.rstrip().endswith(" 402"):
-        return True
-    return False
+    return "http 402" in s or " 402 " in s or s.rstrip().endswith(" 402")
 
 
 async def recv_or_dead(ws, dead_s: float):

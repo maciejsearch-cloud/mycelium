@@ -20,6 +20,7 @@ import time
 from pathlib import Path
 
 from . import CHUNK_BITS, RANGE_LO, TARGET_ADDRESS, TARGET_H160, core, seal
+from ..net import QUOTA_BACKOFF_S, is_quota_block
 
 PREFIX = "MYC-P71/v1"
 SLICE = 1 << 20
@@ -218,7 +219,7 @@ class P71Worker:
                     )
             except Exception as e:  # noqa: BLE001 – błąd sieci: następna próba
                 self.log(f"p71: błąd: {str(e)[:160]}")
-                self.stop_ev.wait(120)
+                self.stop_ev.wait(QUOTA_BACKOFF_S if is_quota_block(e) else 120)
 
     def start(self) -> threading.Thread:
         t = threading.Thread(target=self.loop, name="p71", daemon=True)
