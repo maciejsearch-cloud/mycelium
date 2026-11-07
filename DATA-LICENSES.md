@@ -23,6 +23,7 @@ licence of its source. Full list with URLs and authors: [`licenses.json`](licens
 | `web/public/data/lexicon.json` | Open English WordNet, plWordNet, CILI, VADER | CC BY 4.0 / plWordNet / CC BY 4.0 / MIT |
 | `web/public/data/qa.json` | CLINC150 / NAB | CC BY 3.0 / AGPL-3.0 (dane) |
 | `web/public/data/lm/*` | polska Wikipedia (tekst), Qwen2.5 (tokenizer) | CC BY-SA 4.0 / Apache-2.0 |
+| `web/public/data/lm/sft-math-*.bin.gz`, `sft-logic-*` | zadania/selfplay generowane programem (repozytorium) | MIT (dane programu) |
 | `web/public/data/ml/*` | UCI HAR, Fashion-MNIST, CLINC150, WordNet | CC BY 4.0 / MIT / CC BY 3.0 / CC BY 4.0 |
 
 Wycofane / withdrawn: model rozbioru v0 (PDB+LFG w jednym pliku wag) – licencje CC BY-NC-SA 4.0 i GPL-3.0 nie dają

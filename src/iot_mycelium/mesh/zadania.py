@@ -1,6 +1,6 @@
 """Zadania wielokierunkowe do Ucz AI: matematyczne i analityczne, generowane programem i sprawdzane automatycznie.
 
-* matematyczne – arytmetyka, ułamki, procenty, równania, zadania tekstowe; poziomy 1–3; wynik liczony programem,
+* matematyczne – arytmetyka, ułamki, procenty, równania, zadania tekstowe, jednostki, proporcje; poziomy 1–3; wynik liczony programem,
 * analityczne – pytania o małe tabele z prawdziwych faktów Wikidata (CC0) z ``web/public/data/seed/facts.json``
   (liczba atomowa, data urodzenia, kontynent); odpowiedź wynika wyłącznie z pokazanej tabeli i jest liczona programem.
 
@@ -18,7 +18,7 @@ from fractions import Fraction
 from .selfplay import NOUNS, PEOPLE, ngrams, numeral_form, qhash
 
 LETTERS = "abcd"
-MATH = ("arytmetyka", "ułamki", "procenty", "równania", "zadanie tekstowe")
+MATH = ("arytmetyka", "ułamki", "procenty", "równania", "zadanie tekstowe", "jednostki", "proporcje")
 ANALYTIC = ("tabela: pierwiastki", "tabela: daty urodzenia", "tabela: kontynenty")
 MONTHS = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września",
           "października", "listopada", "grudnia"]  # fmt: skip
@@ -209,12 +209,106 @@ def word(r: random.Random, lv: int) -> Item:
     return Item("matematyczne", "zadanie tekstowe", q, o, i, lv)
 
 
+
+def units(r: random.Random, lv: int) -> Item:
+    """Zamiana jednostek szkolnych (długość, masa, czas); odpowiedź w liczbie bez jednostki w treści pytania."""
+    if lv == 1:
+        # „Ile centymetrów ma A m B cm?” / metry ↔ km
+        if r.random() < 0.5:
+            m, cm = r.randint(1, 9), r.randint(1, 99)
+            v = m * 100 + cm
+            q = f"Ile centymetrów ma {m} m {cm} cm?"
+            wrong = [m * 100 - cm, m + cm, v + 10, m * 10 + cm, v - 100]
+        else:
+            km = r.randint(1, 20)
+            m = r.choice([0, 100, 250, 500, 750])
+            v = km * 1000 + m
+            q = f"Ile metrów ma {km} km" + (f" {m} m" if m else "") + "?"
+            wrong = [km * 100 + m, v + 100, km * 1000 - m if m else v - 1000, v + 10]
+    elif lv == 2:
+        kind = r.choice(["czas", "masa", "pieniądze"])
+        if kind == "czas":
+            h, mi = r.randint(1, 5), r.choice([0, 15, 20, 30, 40, 45])
+            v = h * 60 + mi
+            q = f"Ile minut ma {h} h" + (f" {mi} min" if mi else "") + "?"
+            wrong = [h * 100 + mi, v + 60, h * 60 - mi if mi else v - 60, v + 10]
+        elif kind == "masa":
+            kg, dag = r.randint(1, 8), r.randint(1, 99)
+            v = kg * 100 + dag  # 1 kg = 100 dag
+            q = f"Ile dekagramów ma {kg} kg {dag} dag?"
+            wrong = [kg * 10 + dag, kg * 1000 + dag, v + 10, kg + dag]
+        else:
+            zl, gr = r.randint(1, 50), r.randint(1, 99)
+            v = zl * 100 + gr
+            q = f"Ile groszy ma {zl} zł {gr} gr?"
+            wrong = [zl + gr, zl * 10 + gr, v + 10, zl * 100 - gr]
+    else:
+        # złożone: dni/godziny albo mm↔cm↔m
+        if r.random() < 0.5:
+            d, h = r.randint(1, 4), r.randint(1, 23)
+            v = d * 24 + h
+            q = f"Ile godzin ma {d} {'dni' if d != 1 else 'dzień'} {h} h?"
+            wrong = [d * 24 - h, d * 10 + h, v + 24, d * 60 + h]
+        else:
+            m, cm, mm = r.randint(0, 3), r.randint(0, 9), r.randint(1, 9)
+            if m == 0 and cm == 0:
+                m = 1
+            v = m * 1000 + cm * 10 + mm  # w mm
+            parts = []
+            if m:
+                parts.append(f"{m} m")
+            if cm:
+                parts.append(f"{cm} cm")
+            parts.append(f"{mm} mm")
+            q = f"Ile milimetrów ma {' '.join(parts)}?"
+            wrong = [m * 100 + cm * 10 + mm, v + 10, m * 1000 + cm + mm, v - mm]
+    o, i = choices(r, v, [w for w in wrong if w != v and w > 0])
+    return Item("matematyczne", "jednostki", q, o, i, lv)
+
+
+def proportions(r: random.Random, lv: int) -> Item:
+    """Proporcje i skalowanie (kl. 6–7): x w proporcji, przepisy, mapa."""
+    if lv == 1:
+        a, b = r.sample(range(2, 13), 2)
+        k = r.randint(2, 8)
+        v = b * k
+        q = f"Wyznacz x z proporcji: {a} : {b} = {a * k} : x. Ile wynosi x?"
+        wrong = [a * k, b * a, v + b, a + b * k, v - a]
+    elif lv == 2:
+        # przepis: na n osób / skalowanie
+        n0, n1 = r.choice([2, 3, 4]), r.choice([6, 8, 9, 12])
+        amt = r.randint(2, 20) * n0  # podzielne
+        v = amt * n1 // n0
+        q = (f"Na {n0} osoby potrzeba {amt} dag mąki. Ile dekagramów mąki potrzeba na {n1} osób "
+             f"(ta sama proporcja)?")
+        wrong = [amt + n1, amt * n0 // max(n1, 1), v + amt, n1 * amt, v - n0]
+    else:
+        # skala mapy 1:N → rzeczywista odległość
+        scale = r.choice([25_000, 50_000, 100_000, 200_000])
+        cm = r.choice([2, 3, 4, 5, 6, 8, 10])
+        # 1 cm na mapie 1:N = N cm w terenie = N/100_000 km = N/100 m
+        meters = cm * scale // 100  # N cm → /100 = m
+        # podajemy odpowiedź w km jeśli ładnie wychodzi, inaczej w m
+        if meters % 1000 == 0:
+            v = meters // 1000
+            q = (f"Na mapie w skali 1:{scale} odcinek ma {cm} cm. Ile kilometrów ma ta odległość w terenie?")
+            wrong = [cm * scale // 1000, v * 10, meters, v + 1, cm]
+        else:
+            v = meters
+            q = (f"Na mapie w skali 1:{scale} odcinek ma {cm} cm. Ile metrów ma ta odległość w terenie?")
+            wrong = [cm * scale, v // 10 or v + 100, v + scale // 100, cm * 100, v - cm]
+    o, i = choices(r, v, [w for w in wrong if w != v and w > 0])
+    return Item("matematyczne", "proporcje", q, o, i, lv)
+
+
 MATH_GEN = {
     "arytmetyka": arithmetic,
     "ułamki": fractions,
     "procenty": percents,
     "równania": equations,
     "zadanie tekstowe": word,
+    "jednostki": units,
+    "proporcje": proportions,
 }
 
 

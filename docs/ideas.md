@@ -13,8 +13,8 @@ klasy 1–5 i 4-8: 50–79%, klasa 6: 1/18, klasa 7: 3/16 (7 błędnych). LM nad
 3. **Jednostki kl. 3 (0/8)** – zamiana jednostek w zdaniach („ile centymetrów ma 2 m 5 cm”), czas zegarowy i kalendarz.
 4. **Samouk z testów szkolnych** – samouk dostaje kategorie z najniższą trafnością (dev, nie test) jako cel nauki
    i układa podobne zadania z szablonów; wynik rundy na wykresie postępu w czasie.
-5. **LM v5: dane rozumowania zamiast Wikipedii** – odłamek SFT z zadań szkolnych dev (odpowiedź liczona programem),
-   bramka f32 bez zmian; mierzyć też E1 matematyka.
+5. **LM v5: dane rozumowania zamiast Wikipedii** – odłamek SFT z zadań szkolnych (odpowiedź liczona programem),
+   bramka f32 bez zmian; mierzyć też E1 matematyka. *(częściowo: `sft-math-0002` – jednostki + proporcje, 1400 zadań, seed 2000; nadal brak SFT z samych szablonów ZPE)*
 
 ## Później
 6. **Mówca w czacie globalnym: pytania z luk testów szkolnych** – kategorie z „nie wiem” jako tematy pytań do ludzi.
