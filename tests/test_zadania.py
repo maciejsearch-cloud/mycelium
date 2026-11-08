@@ -110,3 +110,67 @@ def test_units_and_proportions_answers():
                 scale, cm = map(int, m.groups())
                 meters = cm * scale // 100
                 assert int(right) == (meters // 1000 if "kilometrów" in it.q else meters)
+
+
+def _pl_dec(s: str) -> Fraction:
+    return Fraction(s.replace(",", "."))
+
+
+def test_fraction_word_and_compound_percent_answers():
+    """Odpowiedzi liczone programem: ułamki tekstowe i procent składany (kl. 6–7)."""
+    seen = {"ułamki tekstowe": set(), "procent składany": set()}
+    for it in zadania.generate(48, 13):
+        right = it.options[it.answer]
+        if it.kind == "ułamki tekstowe":
+            seen[it.kind].add(it.level)
+            if "kg jabłek" in it.q:
+                m = re.search(r"kupił(?:a)? (\d+,\d+) kg jabłek i (\d+,\d+) kg gruszek", it.q)
+                assert m, it.q
+                v = _pl_dec(m.group(1)) + _pl_dec(m.group(2))
+            elif re.search(r"Ile to jest \d+/\d+ z tej liczby", it.q):
+                m = re.search(r"miał(?:a)? (\d+) .+\. Ile to jest (\d+)/(\d+) z tej liczby", it.q)
+                assert m, it.q
+                v = Fraction(int(m.group(1)) * int(m.group(2)), int(m.group(3)))
+            elif re.search(r"Ile to jest \d+,\d+ z tej liczby", it.q):
+                m = re.search(r"miał(?:a)? (\d+) .+\. Ile to jest (\d+,\d+) z tej liczby", it.q)
+                assert m, it.q
+                v = Fraction(int(m.group(1))) * _pl_dec(m.group(2))
+            elif "tej kwoty, a potem" in it.q and "reszty" in it.q:
+                m = re.search(
+                    r"miał(?:a)? (\d+) zł\. Najpierw \w+ (\d+)/(\d+) tej kwoty, a potem (\d+/\d+|\d+,\d+) reszty",
+                    it.q,
+                )
+                assert m, it.q
+                n, a, b, second = int(m.group(1)), int(m.group(2)), int(m.group(3)), m.group(4)
+                frac2 = Fraction(second) if "/" in second else _pl_dec(second)
+                v = Fraction(n) * (1 - Fraction(a, b)) * (1 - frac2)
+            else:
+                raise AssertionError(f"nierozpoznane pytanie: {it.q}")
+            assert Fraction(right) == v
+        if it.kind == "procent składany":
+            seen[it.kind].add(it.level)
+            mk = re.search(r"do banku (\d+) zł", it.q)
+            assert mk, it.q
+            k = int(mk.group(1))
+            two = re.search(r"pierwszym roku kapitał wzrósł o (\d+)%, a w drugim roku o (\d+)%", it.q)
+            if two:
+                p1, p2 = int(two.group(1)), int(two.group(2))
+                v = Fraction(k) * Fraction(100 + p1, 100) * Fraction(100 + p2, 100)
+            else:
+                mp = re.search(r"(?:dolicza |lokatę )(\d+)%", it.q)
+                assert mp, it.q
+                p = int(mp.group(1))
+                if "po 1 roku" in it.q:
+                    years = 1
+                elif "po 2 latach" in it.q:
+                    years = 2
+                elif "po 3 latach" in it.q:
+                    years = 3
+                else:
+                    raise AssertionError(it.q)
+                v = Fraction(k)
+                for _ in range(years):
+                    v *= Fraction(100 + p, 100)
+            assert Fraction(right) == v
+    assert seen["ułamki tekstowe"] == {1, 2, 3}
+    assert seen["procent składany"] == {1, 2, 3}

@@ -1,4 +1,4 @@
-"""Odłamek „sft” z zadań matematycznych generowanych programem (arytmetyka, ułamki, procenty, równania, zadania tekstowe, jednostki, proporcje).
+"""Odłamek „sft” z zadań matematycznych generowanych programem (arytmetyka, ułamki, procenty, równania, zadania tekstowe, jednostki, proporcje, ułamki tekstowe, procent składany).
 
 Bez nauczyciela i bez człowieka: zadanie i poprawna odpowiedź liczone są programem (``mesh/zadania.py``), cel treningu =
 tekst poprawnej odpowiedzi po pytaniu w tym samym formacie, w jakim ``scripts/zadania_run.py`` mierzy model
