@@ -303,12 +303,44 @@ async function train(m: ModelId, base: Float32Array, d: DS, p: { lr: number; epo
 }
 
 /** Wagi z Supabase Storage: ponowienia z wykładniczym odstępem (sieć, 429, 5xx); 4xx = błąd stały. */
+/**
+ * Wagi bazowe pobierane przy każdym zadaniu i łączeniu rundy. Ścieżki w Storage są adresowane treścią
+ * (`model/v<N>-<hash8>.bin`, bez nadpisywania), więc ten sam adres = te same bajty: trzymamy je w pamięci workera
+ * i w Cache API przeglądarki, żeby ta sama wersja nie była pobierana z Supabase (egress) przy każdym zadaniu.
+ */
+const IMMUTABLE = /\/v\d+-[0-9a-f]{8}\.bin$/
+const WCACHE = 'myc-weights-v1'
+const memW = new Map<string, ArrayBuffer>()
+async function cachedBytes(url: string): Promise<ArrayBuffer | undefined> {
+  const m = memW.get(url)
+  if (m) return m
+  const c = await globalThis.caches?.open(WCACHE).catch(() => undefined)
+  const hit = await c?.match(url).catch(() => undefined)
+  return hit ? remember(url, await hit.arrayBuffer()) : undefined
+}
+function remember(url: string, b: ArrayBuffer): ArrayBuffer {
+  memW.set(url, b)
+  while (memW.size > 6) memW.delete(memW.keys().next().value as string)
+  return b
+}
 async function weights(url: string): Promise<Float32Array> {
+  const immutable = IMMUTABLE.test(url.split('?')[0])
+  if (immutable) {
+    const b = await cachedBytes(url)
+    if (b) return new Float32Array(b.slice(0))
+  }
   let last = ''
   for (let i = 0; i < 5; i++) {
     try {
       const r = await fetch(url)
-      if (r.ok) return new Float32Array(await r.arrayBuffer())
+      if (r.ok) {
+        const b = await r.arrayBuffer()
+        if (immutable) {
+          remember(url, b.slice(0))
+          void globalThis.caches?.open(WCACHE).then((c) => c.put(url, new Response(b.slice(0)))).catch(() => undefined)
+        }
+        return new Float32Array(b)
+      }
       last = `HTTP ${r.status}`
       if (r.status !== 429 && r.status < 500) break
     } catch (e) {
