@@ -70,6 +70,31 @@ def _http(method: str, url: str, body: bytes | None = None, headers: dict | None
     raise RuntimeError(f"sieć: {last}")
 
 
+def adapter_bytes(path: str, fetch, root: Path | None = None) -> bytes:
+    """Bajty adaptera LoRA z pamięci na dysku albo z sieci (egress Supabase).
+
+    Ścieżki adapterów są adresowane treścią (``lm/v<N>-<sha256[:8]>.bin``) i nigdy nie są nadpisywane, więc plik
+    raz pobrany i sprawdzony można trzymać na dysku – wspólnie dla wszystkich węzłów na tym komputerze. Plik z dysku
+    z niezgodną sumą jest ignorowany i pobierany ponownie.
+    """
+    if not isinstance(path, str) or not ADAPTER_PATH.match(path):
+        raise ValueError("adapter: niedozwolona ścieżka")
+    want = path.rsplit("-", 1)[1][:8]
+    f = (root or cache_dir() / "lm" / "adapters") / path.split("/", 1)[1]
+    if f.exists():
+        b = f.read_bytes()
+        if lm.sha256(b)[:8] == want:
+            return b
+    b = fetch(path)
+    if lm.sha256(b)[:8] != want:
+        raise ValueError("adapter: suma nie zgadza się ze ścieżką")
+    f.parent.mkdir(parents=True, exist_ok=True)
+    tmp = f.with_suffix(f".{os.getpid()}.tmp")
+    tmp.write_bytes(b)
+    tmp.replace(f)  # atomowo: inny węzeł nie przeczyta połowy pliku
+    return b
+
+
 def _finite(v):
     if isinstance(v, float) and not math.isfinite(v):
         return None
@@ -215,9 +240,7 @@ class LMWorker:
         if path not in self.adapters:
             if not isinstance(path, str) or not ADAPTER_PATH.match(path):
                 raise ValueError("adapter: niedozwolona ścieżka")
-            b = await asyncio.to_thread(self.sb.public, path)
-            if not path.endswith(f"-{lm.sha256(b)[:8]}.bin"):
-                raise ValueError("adapter: suma nie zgadza się ze ścieżką")
+            b = await asyncio.to_thread(adapter_bytes, path, self.sb.public)
             self.adapters[path] = lm.Lora.from_bytes(b)
             while len(self.adapters) > 4:
                 del self.adapters[next(iter(self.adapters))]
