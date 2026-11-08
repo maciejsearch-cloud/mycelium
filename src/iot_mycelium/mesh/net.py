@@ -55,11 +55,14 @@ QUOTA_BACKOFF_S = float(os.environ.get("MYC_QUOTA_BACKOFF_S", "1800"))  # 30 min
 
 def is_quota_block(exc: BaseException | str) -> bool:
     """Czy błąd to blokada planu Supabase (HTTP 402 / egress / spend cap)."""
+    if getattr(exc, "code", None) == 402:
+        return True
     s = str(exc).lower()
     if "exceed_egress_quota" in s or "exceed_cached_egress_quota" in s:
         return True
-    # Supabase używa 402 wyłącznie przy limicie planu (REST i Realtime)
-    return "http 402" in s or " 402 " in s or s.rstrip().endswith(" 402")
+    # Supabase używa 402 wyłącznie przy limicie planu (REST i Realtime).
+    # urllib: "HTTP Error 402: Payment Required" (nie zawiera dokładnie "http 402").
+    return "http 402" in s or "http error 402" in s or " 402 " in s or s.rstrip().endswith(" 402")
 
 
 async def recv_or_dead(ws, dead_s: float):

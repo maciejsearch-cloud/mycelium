@@ -185,6 +185,16 @@ def test_store_write_requires_owner_and_quotes_sql():
     assert lit("a'b") == "'a''b'"
 
 
+def test_store_latest_prefers_owner_sql():
+    snap = Snapshot(AT, "0" * 32, {"a": 1}, [], [])
+    sent = []
+    st = SupabaseSelfStore("https://x.invalid", "k", lambda q: sent.append(q) or [{"snapshot": snap.to_json()}])
+    got = st.latest()
+    assert got is not None and got.fingerprint == snap.fingerprint
+    assert "myc_self_model" in sent[0]
+    assert "https://x.invalid" not in sent[0]
+
+
 def test_math_sanity():
     assert math.isclose(sum(softmax([1, 2, 3], 0.5)), 1.0)
 

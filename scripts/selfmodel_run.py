@@ -20,6 +20,7 @@ import json
 import os
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -27,7 +28,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from iot_mycelium.mesh.net import SB_KEY, SB_URL  # noqa: E402
+from iot_mycelium.mesh.net import SB_KEY, SB_URL, is_quota_block  # noqa: E402
 from iot_mycelium.mesh.qwen import cache_dir  # noqa: E402
 from iot_mycelium.selfmodel import rozmowa  # noqa: E402
 from iot_mycelium.selfmodel.model import MeasuredSelfModel, decisions_from_plans  # noqa: E402
@@ -41,8 +42,47 @@ DEMO = "https://maciejsearch-cloud.github.io/demo/mycelium"
 def rest(q: str):
     h = {"apikey": SB_KEY, "User-Agent": "myc-selfmodel"}
     r = urllib.request.Request(f"{SB_URL}/rest/v1/{q}", headers=h)  # noqa: S310 – stały adres https projektu
-    with urllib.request.urlopen(r, timeout=120) as f:  # noqa: S310 – stały adres https projektu
-        return json.loads(f.read())
+    try:
+        with urllib.request.urlopen(r, timeout=120) as f:  # noqa: S310 – stały adres https projektu
+            return json.loads(f.read())
+    except urllib.error.HTTPError as e:
+        if e.code == 402 or is_quota_block(e):
+            raise SystemExit("selfmodel: HTTP 402 (limit egress Supabase) – pomijam migawkę") from None
+        raise
+
+
+def load_lm_inputs() -> tuple[dict, str, list]:
+    """Wersja LM, SHA ewaluacji i plany samouka.
+
+    Z tokenem właściciela czytamy przez Management API (działa przy blokadzie egress REST
+    i nie zużywa limitu Data API). Bez tokenu – publiczny REST; HTTP 402 kończy bieg bez śladu stosu.
+    """
+    if os.environ.get("SUPABASE_ACCESS_TOKEN"):
+        ver = sql(
+            "select version, path, acc, meta from public.myc_models where model = 'lm' order by version desc limit 1"
+        )[0]
+        eval_sha = sql("select sha from public.myc_eval_sets where model = 'lm' limit 1")[0]["sha"]
+        plans = sql(
+            "select id, at, stats, alloc, why, wiki_jobs, measured from public.myc_lm_curriculum order by id asc"
+        )
+        return ver, eval_sha, plans
+    ver = rest("myc_models?model=eq.lm&order=version.desc&limit=1&select=version,path,acc,meta")[0]
+    eval_sha = rest("myc_eval_sets?model=eq.lm&select=sha")[0]["sha"]
+    plans = rest("myc_lm_curriculum?select=id,at,stats,alloc,why,wiki_jobs,measured&order=id.asc")
+    return ver, eval_sha, plans
+
+
+def owner_rpc(fn: str, args: dict | None = None):
+    """Publiczne RPC SelfModelu przez Management API (te same funkcje, bez Data API)."""
+    args = args or {}
+    if fn == "myc_self_relations_status":
+        rows = sql("select public.myc_self_relations_status() as r")
+        return rows[0]["r"] if rows else None
+    if fn == "myc_self_rel_decisions":
+        lim = int(args.get("p_limit") or 50)
+        rows = sql(f"select public.myc_self_rel_decisions({lim}) as r")  # noqa: S608 – lim jest int
+        return rows[0]["r"] if rows else None
+    raise ValueError(fn)
 
 
 def sql(q: str):
@@ -152,9 +192,7 @@ def main() -> int:
     ap.add_argument("--json", help="zapisz migawkę do pliku")
     ap.add_argument("--threads", type=int, default=2)
     a = ap.parse_args()
-    ver = rest("myc_models?model=eq.lm&order=version.desc&limit=1&select=version,path,acc,meta")[0]
-    eval_sha = rest("myc_eval_sets?model=eq.lm&select=sha")[0]["sha"]
-    plans = rest("myc_lm_curriculum?select=id,at,stats,alloc,why,wiki_jobs,measured&order=id.asc")
+    ver, eval_sha, plans = load_lm_inputs()
     lazy = Lazy(a.threads)
     scores, answers = lm_scores(lazy, ver, eval_sha)
     now = time.strftime("%Y-%m-%dT%H:%M:%S+00:00", time.gmtime())
@@ -175,10 +213,11 @@ def main() -> int:
             "held_out", "n_held_out", "params")  # fmt: skip
     calib = {"params": rep["params"], "lm_definicje": {k: rep[k] for k in keep},
              "domains": {d: {k: r[k] for k in keep} for d, r in reps.items()}}  # fmt: skip
-    sm = MeasuredSelfModel(state=state, calibration=calib, plan=plan, at=now, relations=relations_status())
+    rpc = owner_rpc if os.environ.get("SUPABASE_ACCESS_TOKEN") else rozmowa.supabase_rpc(SB_URL, SB_KEY)
+    sm = MeasuredSelfModel(state=state, calibration=calib, plan=plan, at=now, relations=rozmowa.relations_status(rpc))
     sm.observe(ms)
     # decyzje samouka + decyzje moderacji rozmówcy czatu (wyciszenie zalewu, propozycje dla Developera) z ich skutkiem
-    sm.record(decisions_from_plans(plans) + rozmowa.moderation_decisions(rozmowa.supabase_rpc(SB_URL, SB_KEY)))
+    sm.record(decisions_from_plans(plans) + rozmowa.moderation_decisions(rpc))
     store = SupabaseSelfStore(SB_URL, SB_KEY, None if a.dry else sql)
     prev = store.latest()
     if prev and prev.fingerprint == sm.fingerprint() and not a.json:

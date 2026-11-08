@@ -5,11 +5,12 @@
 // Uruchom: node scripts/rozmowa-worker.mjs [--once]
 import { readFileSync } from 'node:fs'
 import { rozmowaEnv } from './shared/rozmowa-env.mjs'
+import { nextPollDelayMs } from './shared/quota.mjs'
 
 const SB_URL = 'https://agortpieeygmcttjwjfx.supabase.co'
 const SB_KEY = 'sb_publishable_O6NCXONs9ZOb13j_od4mnw_KqJlH98P' // klucz publiczny (ten sam co w web/src/myc/store.ts)
 const KEY = readFileSync(process.env.MYC_ROZMOWA_KEY_FILE ?? '/workspace/projects/myc-nodes/rozmowa.key', 'utf8').trim()
-const VERSION = 'rozmowa-worker-3'
+const VERSION = 'rozmowa-worker-4'
 const once = process.argv.includes('--once')
 const log = (...a) => console.log(new Date().toISOString(), ...a)
 
@@ -112,7 +113,7 @@ for (;;) {
     delay = 2000
   } catch (e) {
     log('błąd', String(e.message ?? e))
-    delay = Math.min(delay * 2, 60000)
+    delay = nextPollDelayMs(e, delay)
   }
   if (once) break
   await new Promise((r) => setTimeout(r, delay))
