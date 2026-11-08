@@ -1,6 +1,6 @@
 """Zadania wielokierunkowe do Ucz AI: matematyczne i analityczne, generowane programem i sprawdzane automatycznie.
 
-* matematyczne – arytmetyka, ułamki, procenty, równania, zadania tekstowe, jednostki, proporcje; poziomy 1–3; wynik liczony programem,
+* matematyczne – arytmetyka, ułamki, procenty, równania, zadania tekstowe, jednostki, proporcje, ułamki tekstowe, procent składany; poziomy 1–3; wynik liczony programem,
 * analityczne – pytania o małe tabele z prawdziwych faktów Wikidata (CC0) z ``web/public/data/seed/facts.json``
   (liczba atomowa, data urodzenia, kontynent); odpowiedź wynika wyłącznie z pokazanej tabeli i jest liczona programem.
 
@@ -18,7 +18,17 @@ from fractions import Fraction
 from .selfplay import NOUNS, PEOPLE, ngrams, numeral_form, qhash
 
 LETTERS = "abcd"
-MATH = ("arytmetyka", "ułamki", "procenty", "równania", "zadanie tekstowe", "jednostki", "proporcje")
+MATH = (
+    "arytmetyka",
+    "ułamki",
+    "procenty",
+    "równania",
+    "zadanie tekstowe",
+    "jednostki",
+    "proporcje",
+    "ułamki tekstowe",
+    "procent składany",
+)
 ANALYTIC = ("tabela: pierwiastki", "tabela: daty urodzenia", "tabela: kontynenty")
 MONTHS = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września",
           "października", "listopada", "grudnia"]  # fmt: skip
@@ -299,6 +309,193 @@ def proportions(r: random.Random, lv: int) -> Item:
     return Item("matematyczne", "proporcje", q, o, i, lv)
 
 
+def fraction_word(r: random.Random, lv: int) -> Item:
+    """Zadania tekstowe z ułamkami zwykłymi i dziesiętnymi (kl. 6–7); wynik liczony przez Fraction."""
+    who = r.choice(sorted(PEOPLE))
+    female = PEOPLE[who][4] == "ż"
+    noun = r.choice(sorted(NOUNS))
+    if lv == 1:
+        den = r.choice([2, 3, 4, 5, 6, 8, 10])
+        num = r.randint(1, den - 1)
+        n = den * r.randint(2, 12)
+        v = Fraction(n * num, den)
+        q = (f"{who} {'miała' if female else 'miał'} {n} {numeral_form(n, noun)}. "
+             f"Ile to jest {num}/{den} z tej liczby?")  # fmt: skip
+        wrong = [n * num, n // den, n - int(v), Fraction(num, den) + n, v + 1, Fraction(num + n, den)]
+    elif lv == 2:
+        decs = [
+            (Fraction(1, 4), "0,25"),
+            (Fraction(1, 2), "0,5"),
+            (Fraction(3, 4), "0,75"),
+            (Fraction(1, 5), "0,2"),
+            (Fraction(1, 10), "0,1"),
+            (Fraction(2, 5), "0,4"),
+        ]
+        if r.random() < 0.5:
+            frac, txt = r.choice(decs)
+            n = frac.denominator * r.randint(2, 20)
+            v = Fraction(n) * frac
+            q = (f"{who} {'miała' if female else 'miał'} {n} {numeral_form(n, noun)}. "
+                 f"Ile to jest {txt} z tej liczby?")  # fmt: skip
+            wrong = [
+                Fraction(n) + frac,
+                Fraction(n * frac.numerator),
+                n - int(v) if v.denominator == 1 else Fraction(n) - v,
+                Fraction(n, 10),
+                v * 2,
+                Fraction(n) * (1 - frac),
+            ]
+        else:
+            pairs = [
+                (Fraction(5, 4), "1,25", Fraction(3, 4), "0,75"),
+                (Fraction(3, 2), "1,5", Fraction(5, 2), "2,5"),
+                (Fraction(7, 2), "3,5", Fraction(5, 2), "2,5"),
+                (Fraction(1, 4), "0,25", Fraction(3, 4), "0,75"),
+                (Fraction(1, 5), "0,2", Fraction(3, 5), "0,6"),
+                (Fraction(5, 4), "1,25", Fraction(5, 4), "1,25"),
+                (Fraction(1, 2), "0,5", Fraction(1, 4), "0,25"),
+            ]
+            x, xs, y, ys = r.choice(pairs)
+            v = x + y
+            q = (f"{who} {'kupiła' if female else 'kupił'} {xs} kg jabłek i {ys} kg gruszek. "
+                 f"Ile kilogramów owoców {'kupiła' if female else 'kupił'} razem?")  # fmt: skip
+            wrong = [
+                abs(x - y) or x + 1,
+                x * y,
+                Fraction(x.numerator + y.numerator, x.denominator + y.denominator),
+                v + 1,
+                x,
+                y,
+            ]
+    else:
+        n = r.choice([12, 24, 36, 48, 60, 72, 80, 96, 120])
+        pairs = [(1, 2), (1, 3), (1, 4), (2, 3), (1, 5), (3, 4), (2, 5), (1, 6), (3, 5)]
+        if r.random() < 0.5:
+            found = None
+            for _ in range(40):
+                (n1, d1), (n2, d2) = r.sample(pairs, 2)
+                if n % d1 == 0 and (n * (d1 - n1) // d1) % d2 == 0:
+                    found = (n1, d1, Fraction(n2, d2), f"{n2}/{d2}")
+                    break
+            if found is None:
+                n, n1, d1, frac2, second = 24, 1, 3, Fraction(1, 4), "1/4"
+            else:
+                n1, d1, frac2, second = found
+        else:
+            decs = [
+                (Fraction(1, 4), "0,25"),
+                (Fraction(1, 2), "0,5"),
+                (Fraction(1, 5), "0,2"),
+                (Fraction(3, 4), "0,75"),
+            ]
+            found = None
+            for _ in range(40):
+                n1, d1 = r.choice(pairs)
+                frac2, second = r.choice(decs)
+                if n % d1 != 0:
+                    continue
+                rest = n * (d1 - n1) // d1
+                if (rest * frac2.numerator) % frac2.denominator == 0:
+                    found = (n1, d1, frac2, second)
+                    break
+            if found is None:
+                n, n1, d1, frac2, second = 24, 1, 3, Fraction(1, 4), "0,25"
+            else:
+                n1, d1, frac2, second = found
+        v = Fraction(n) * (1 - Fraction(n1, d1)) * (1 - frac2)
+        q = (f"{who} {'miała' if female else 'miał'} {n} zł. Najpierw {'wydała' if female else 'wydał'} "
+             f"{n1}/{d1} tej kwoty, a potem {second} reszty. Ile złotych zostało?")  # fmt: skip
+        used1 = Fraction(n) * Fraction(n1, d1)
+        rest1 = Fraction(n) - used1
+        wrong = [
+            Fraction(n) - used1 - Fraction(n) * frac2,
+            rest1,
+            used1 + rest1 * frac2,
+            Fraction(n) * (1 - Fraction(n1, d1) - frac2),
+            Fraction(n) * Fraction(n1, d1) * frac2,
+        ]
+    o, i = choices(r, v, [w for w in wrong if w != v and w > 0])
+    return Item("matematyczne", "ułamki tekstowe", q, o, i, lv)
+
+
+def compound_percent(r: random.Random, lv: int) -> Item:
+    """Procent składany z kapitalizacją roczną (nie sekwencja +p% potem −q% z percents())."""
+    who = r.choice(sorted(PEOPLE))
+    female = PEOPLE[who][4] == "ż"
+    wp = "wpłaciła" if female else "wpłacił"
+    rates = (10, 20, 25, 50)
+    if lv == 1:
+        p = r.choice(rates)
+        k = r.choice([200, 400, 500, 800, 1000, 1200, 1600, 2000])
+        v = Fraction(k * (100 + p), 100)
+        q = (f"{who} {wp} do banku {k} zł. Bank dolicza {p}% odsetek w skali roku. "
+             f"Ile złotych będzie na koncie po 1 roku?")  # fmt: skip
+        wrong = [
+            Fraction(k * p, 100),
+            Fraction(k),
+            Fraction(k * (100 - p), 100),
+            Fraction(k + p),
+            Fraction(k * (100 + 2 * p), 100),
+        ]
+    elif lv == 2:
+        p = r.choice(rates)
+        pools = {
+            10: [100, 200, 400, 500, 800, 1000, 2000],
+            20: [125, 250, 500, 1000, 2000],
+            25: [160, 320, 640, 800, 1600],
+            50: [200, 400, 800, 1200, 1600],
+        }
+        k = r.choice(pools[p])
+        ratio = Fraction(100 + p, 100)
+        v = Fraction(k) * ratio * ratio
+        q = (f"{who} {wp} do banku {k} zł na lokatę {p}% w skali roku. "
+             f"Ile złotych będzie na koncie po 2 latach (procent składany, kapitalizacja roczna)?")  # fmt: skip
+        wrong = [
+            Fraction(k) * (1 + Fraction(2 * p, 100)),
+            Fraction(k) * ratio,
+            Fraction(k) * ratio**3,
+            Fraction(k + 2 * p),
+            Fraction(k) * Fraction(100 + p * p, 100),
+        ]
+    else:
+        if r.random() < 0.5:
+            p = r.choice(rates)
+            pools = {
+                10: [1000, 2000],
+                20: [125, 250, 500, 1000],
+                25: [64, 128, 256, 512, 640],
+                50: [80, 160, 240, 400, 800],
+            }
+            k = r.choice(pools[p])
+            ratio = Fraction(100 + p, 100)
+            v = Fraction(k) * ratio**3
+            q = (f"{who} {wp} do banku {k} zł na lokatę {p}% w skali roku. "
+                 f"Ile złotych będzie na koncie po 3 latach (procent składany, kapitalizacja roczna)?")  # fmt: skip
+            wrong = [
+                Fraction(k) * (1 + Fraction(3 * p, 100)),
+                Fraction(k) * ratio**2,
+                Fraction(k) * ratio,
+                Fraction(k + 3 * p),
+            ]
+        else:
+            p1, p2 = r.sample(rates, 2)
+            k = r.choice([200, 400, 500, 800, 1000, 1600, 2000])
+            r1, r2 = Fraction(100 + p1, 100), Fraction(100 + p2, 100)
+            v = Fraction(k) * r1 * r2
+            q = (f"{who} {wp} do banku {k} zł. W pierwszym roku kapitał wzrósł o {p1}%, "
+                 f"a w drugim roku o {p2}% (procent składany). "
+                 f"Ile złotych będzie po tych dwóch latach?")  # fmt: skip
+            wrong = [
+                Fraction(k) * (1 + Fraction(p1 + p2, 100)),
+                Fraction(k) * r1,
+                Fraction(k) * r2,
+                Fraction(k) * r1 * r1,
+                Fraction(k + p1 + p2),
+            ]
+    o, i = choices(r, v, [w for w in wrong if w != v and w > 0])
+    return Item("matematyczne", "procent składany", q, o, i, lv)
+
+
 MATH_GEN = {
     "arytmetyka": arithmetic,
     "ułamki": fractions,
@@ -307,6 +504,8 @@ MATH_GEN = {
     "zadanie tekstowe": word,
     "jednostki": units,
     "proporcje": proportions,
+    "ułamki tekstowe": fraction_word,
+    "procent składany": compound_percent,
 }
 
 
