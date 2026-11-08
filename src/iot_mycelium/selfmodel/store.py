@@ -26,6 +26,10 @@ class SupabaseSelfStore(SelfModelStore):
         self.url, self.key, self.sql, self.timeout = url.rstrip("/"), key, sql, timeout
 
     def latest(self) -> Snapshot | None:
+        # Management API nie podlega blokadzie egress REST (HTTP 402) i nie zużywa limitu Data API.
+        if self.sql is not None:
+            rows = self.sql("select snapshot from public.myc_self_model order by id desc limit 1")
+            return Snapshot.from_json(rows[0]["snapshot"]) if rows else None
         r = urllib.request.Request(  # noqa: S310 – stały adres https projektu
             f"{self.url}/rest/v1/myc_self_model?select=snapshot&order=id.desc&limit=1",
             headers={"apikey": self.key, "User-Agent": "myc-selfmodel"},
