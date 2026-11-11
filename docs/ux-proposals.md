@@ -90,7 +90,7 @@ pytania już mające rozstrzygnięcie spadają. Specjalizacje kręgów (Etap K, 
 „Pytanie jest złe” + pole „popraw” i wybór kategorii (ten sam komponent co w poprawce kategorii: 3–6 propozycji + własna).
 
 **Ważenie zaufaniem**: głos waży tyle, ile globalne zaufanie (dziś: trafność na pytaniach kontrolnych, ≥ 85% przy ≥ 30
-odpowiedziach = zaufany współtwórca); głos właścicielki = wzorzec. Co ~5. pytanie to pytanie sprawdzalne automatycznie
+odpowiedziach = zaufany współtwórca); głos właściciela = wzorzec. Co ~5. pytanie to pytanie sprawdzalne automatycznie
 (kontrolne) – zaufanie liczy się z prawdziwych odpowiedzi, bez osobnego wysiłku. Rozstrzygnięcie, gdy suma wag i zgodność
 przekroczą próg (np. ≥ 80% zgodności); przy sporze → Weryfikuj (stan „sporne”).
 

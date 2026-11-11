@@ -5,7 +5,7 @@
 -- To NOWA bramka obok bramki LM (2000 pytań) – bramka LM zostaje bez zmian.
 -- Rundy FedAvg: węzeł trenuje od opublikowanej wersji na swoim odłamku train → aktualizacja (myc_rb_updates);
 -- dowolny węzeł uśrednia aktualizacje (wagi = liczba tokenów) → kandydat.
--- Weryfikuj: typ 'parse' – rozbiór zdania z czatu do poprawy (głosy z wagą zaufania, właścicielka = złota etykieta).
+-- Weryfikuj: typ 'parse' – rozbiór zdania z czatu do poprawy (głosy z wagą zaufania, właściciel = złota etykieta).
 
 alter table public.myc_eval_sets drop constraint if exists myc_eval_sets_model_check;
 alter table public.myc_eval_sets add constraint myc_eval_sets_model_check

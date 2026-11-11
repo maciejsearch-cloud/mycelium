@@ -143,7 +143,7 @@ function Tree({ v, inp, en }: { v: TaxoVersion; inp: TaxoInputs; en: boolean }) 
           <span className="w-3 text-slate-500">{ch.length ? (isOpen ? '▾' : '▸') : '·'}</span>
           <span className={n.lvl === 0 ? 'font-medium text-glow' : 'text-slate-200'}>{nodeName(n, en)}</span>
           <span className="text-[11px] text-slate-500">
-            {LEVEL[Math.min(n.lvl, 3)][en ? 1 : 0]} · {n.n} · {n.src === 'owner' ? (en ? 'name: owner' : 'nazwa: właścicielka') : n.src === 'seed' ? `${en ? 'name: seed' : 'nazwa: seed'} (${n.label_src === 'wikidata+wordnet' ? 'Wikidata + WordNet' : n.label_src === 'korekta' ? (en ? 'fixed by hand' : 'poprawiona ręcznie') : 'plWordNet'})` : n.hidden ? (en ? 'internal group, no name' : 'grupa wewnętrzna, bez nazwy') : n.src === 'hyper' ? `${en ? 'hypernym' : 'hiperonim'} ${Math.round(n.cov * 100)}%` : en ? 'name guessed' : 'nazwa zgadnięta'}
+            {LEVEL[Math.min(n.lvl, 3)][en ? 1 : 0]} · {n.n} · {n.src === 'owner' ? (en ? 'name: owner' : 'nazwa: właściciel') : n.src === 'seed' ? `${en ? 'name: seed' : 'nazwa: seed'} (${n.label_src === 'wikidata+wordnet' ? 'Wikidata + WordNet' : n.label_src === 'korekta' ? (en ? 'fixed by hand' : 'poprawiona ręcznie') : 'plWordNet'})` : n.hidden ? (en ? 'internal group, no name' : 'grupa wewnętrzna, bez nazwy') : n.src === 'hyper' ? `${en ? 'hypernym' : 'hiperonim'} ${Math.round(n.cov * 100)}%` : en ? 'name guessed' : 'nazwa zgadnięta'}
           </span>
         </button>
         {(isOpen || !ch.length) && n.lvl > 0 && <div className="pb-1 text-xs text-slate-400" style={{ paddingLeft: 30 + depth * 14 }}>{n.top.map((j) => inp.words[j][0]).join(', ')}</div>}

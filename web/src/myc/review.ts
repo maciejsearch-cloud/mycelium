@@ -247,7 +247,7 @@ export async function buildQueue(b: Brain, en: boolean, opts: { owner: boolean; 
       priority: f.status === 'conflict' ? 0.95 : 0.5 - f.trust * 0.2,
     })
   }
-  // rozmowy (tylko właścicielka): bez odpowiedzi, „nie wiem”, oznaczone 👎
+  // rozmowy (tylko właściciel): bez odpowiedzi, „nie wiem”, oznaczone 👎
   if (opts.owner && rm === 'main')
     for (const c of await reviewChats().catch(() => [] as ChatRow[]))
       items.push({ type: 'chat', ref: `chat:${c.id}`, kind: c.act, title: c.user_text, ai: c.reply.slice(0, 300), aiLabel: c.reply, conf: c.act === 'unknown' ? 0 : 0.3, disputed: c.feedback === -1, reason: c.feedback === -1 ? (en ? 'flagged 👎' : 'oznaczone 👎') : c.act === 'unknown' ? (en ? 'no answer' : 'brak odpowiedzi') : en ? 'unsure reply' : 'niepewna odpowiedź', free: true, evidence: [`${c.mode} · ${c.lang} · ${new Date(c.created_at).toLocaleString(en ? 'en-GB' : 'pl-PL', { timeZone: 'Europe/Amsterdam' })}`], priority: 0.9 })

@@ -1,7 +1,7 @@
--- „Weryfikuj”: przegląd wyników przez właścicielkę (klucz właściciela – w bazie tylko skrót)
+-- „Weryfikuj”: przegląd wyników przez właściciela (klucz właściciela – w bazie tylko skrót)
 -- lub zaufanego współtwórcę (trafność na pytaniach kontrolnych ≥ 85% przy ≥ 30 odpowiedziach).
 -- Każda decyzja = wiersz dziennika (kto, kiedy, przed → po), z możliwością cofnięcia.
--- Poprawki właścicielki są złotymi etykietami: wchodzą do wag zaufania (myc_gold_stats),
+-- Poprawki właściciela są złotymi etykietami: wchodzą do wag zaufania (myc_gold_stats),
 -- do danych treningowych (konsensus w przeglądarkach nadpisuje się etykietą) i do strzępków.
 
 -- Klucze testowe pokoju e2e (tylko skróty; pokój 'e2e' nie dotyka prawdziwych danych).
@@ -23,7 +23,7 @@ language sql stable security definer set search_path = public, extensions, pg_te
 $$;
 revoke all on function public.myc_key_room(text) from public, anon, authenticated;
 
--- Dodanie klucza recenzenta (tylko właścicielka przez SQL/Management API; w bazie zostaje sam skrót).
+-- Dodanie klucza recenzenta (tylko właściciel przez SQL/Management API; w bazie zostaje sam skrót).
 create or replace function public.myc_review_key_add(p_key text, p_room text default 'e2e') returns void
 language plpgsql security definer set search_path = public, extensions, pg_temp as $$
 begin
@@ -89,7 +89,7 @@ begin
   okc := case v when 'approve' then true when 'skip' then null else false end;
 
   if t = 'chat' then
-    if who.reviewer <> 'owner' or who.room <> 'main' then raise exception 'myc: rozmowy weryfikuje tylko właścicielka' using errcode = '42501'; end if;
+    if who.reviewer <> 'owner' or who.room <> 'main' then raise exception 'myc: rozmowy weryfikuje tylko właściciel' using errcode = '42501'; end if;
     select id, feedback, user_text, reply into ch from myc_chats where id = (regexp_replace(ref, '^chat:', ''))::bigint;
     if ch.id is null then raise exception 'myc: brak rozmowy' using errcode = '22023'; end if;
     bef := jsonb_build_object('feedback', ch.feedback, 'reply', left(ch.reply, 1500));
@@ -239,7 +239,7 @@ end $$;
 revoke all on function public.myc_review_log(text, int), public.myc_review_chats(text, int), public.myc_review_whoami(text, uuid) from public;
 grant execute on function public.myc_review_log(text, int), public.myc_review_chats(text, int), public.myc_review_whoami(text, uuid) to anon, authenticated;
 
--- Wagi zaufania: złote etykiety = kontrolne pytania + decyzje właścicielki (tylko odpowiedzi sprzed decyzji,
+-- Wagi zaufania: złote etykiety = kontrolne pytania + decyzje właściciela (tylko odpowiedzi sprzed decyzji,
 -- żeby nie dało się „podejrzeć” etykiety i podbić sobie trafności).
 create or replace function public.myc_gold_stats()
 returns table (node_id uuid, n int, correct int)

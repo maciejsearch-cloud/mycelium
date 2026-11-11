@@ -90,7 +90,7 @@ revoke execute on function public.myc_gchat_can_circle(bigint, uuid, boolean) fr
 --  gold      – zgodność głosów/odpowiedzi węzłów konta ze złotymi etykietami (Beta 3:1, liczone od 5 odpowiedzi),
 --  days      – dni z prawdziwą aktywnością w ostatnich 30 (zaakceptowane wyniki, zatwierdzone punkty),
 --  witness   – poświadczenia świadka wydane przez węzły konta (30 dni),
---  kara      – odrzucone punkty i głosy sprzeczne z decyzją właścicielki („kłamstwo”),
+--  kara      – odrzucone punkty i głosy sprzeczne z decyzją właściciela („kłamstwo”),
 --  wygaszanie – po 7 dniach bez aktywności zaufanie maleje (e^(−dni/30)); nowe konto (< 7 dni) maks. 0,3,
 --  poręczenia – poręczyciel traci stawkę na czas poręczenia (i na zawsze, gdy nowicjusz oszukiwał);
 --               nowicjusz dostaje połowę stawki (maks. 0,15) do czasu rozliczenia.
@@ -342,7 +342,7 @@ end $$;
 
 -- Rozliczenie poręczeń (pg_cron co godzinę): ZWROT stawki, gdy nowicjusz po ≥ 14 dniach ma własne zaufanie ≥ 0,3 bez kar;
 -- UTRATA (slashed), gdy nowicjusz oszukiwał: ban w czacie, ≥ 5 odrzuconych punktów i > 50% odrzuceń,
--- albo ≥ 6 głosów sprzecznych z decyzją właścicielki i > 50% błędnych.
+-- albo ≥ 6 głosów sprzecznych z decyzją właściciela i > 50% błędnych.
 create or replace function public.myc_vouch_settle() returns jsonb
 language plpgsql security definer set search_path = public, pg_temp as $$
 declare v record; t jsonb; nr int := 0; ns int := 0; why text;

@@ -11,7 +11,7 @@ export interface KItem {
   kind: 'meaning' | 'frag' | 'correction' | 'fact' | 'seed'
   /** tekst do wyszukiwania i wyświetlenia */
   text: string
-  /** źródło (np. „głosowanie w Weryfikuj”, „właścicielka”, „Wikidata Q1”) */
+  /** źródło (np. „głosowanie w Weryfikuj”, „właściciel”, „Wikidata Q1”) */
   source: string
   approvedAt?: string
   votes: number
@@ -86,14 +86,14 @@ interface FragRow {
 }
 
 const srcName = (s: string) =>
-  ({ owner: 'właścicielka (złota etykieta)', consensus: 'konsensus głosów w Weryfikuj', teach: 'nauczyciel + głosowanie', wikidata: 'Wikidata', wiktionary: 'Wikisłownik', plwordnet: 'plWordNet', wordnet: 'WordNet' })[s] ?? s
+  ({ owner: 'właściciel (złota etykieta)', consensus: 'konsensus głosów w Weryfikuj', teach: 'nauczyciel + głosowanie', wikidata: 'Wikidata', wiktionary: 'Wikisłownik', plwordnet: 'plWordNet', wordnet: 'WordNet' })[s] ?? s
 
 export function fromMeaning(m: MeaningRow): KItem {
   return {
     id: `meaning:${m.id}`,
     kind: 'meaning',
     text: `${m.word}${m.register !== 'neutralne' ? ` (${m.register})` : ''} – ${m.meaning}`,
-    source: m.decided_by === 'owner' ? 'znaczenie z czatu, zatwierdziła właścicielka' : 'znaczenie z czatu, zatwierdzone w głosowaniu',
+    source: m.decided_by === 'owner' ? 'znaczenie z czatu, zatwierdził właściciel' : 'znaczenie z czatu, zatwierdzone w głosowaniu',
     approvedAt: m.decided_at ?? undefined,
     votes: m.n_votes,
     trust: m.decided_by === 'owner' ? 1 : 0.95,

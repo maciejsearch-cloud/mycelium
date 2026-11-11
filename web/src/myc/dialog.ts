@@ -317,7 +317,7 @@ export function reply(input: string, st: DialogState, c: DialogCtx): Reply {
       act: 'meaning',
       used: [],
       text: T(
-        `Dziękuję! Zapisuję: „${w}”${regTxt} – ${meaning}.\nTo na razie tylko Twoje wyjaśnienie: trafia do głosowania w zakładce Weryfikuj (ludzie i agenci węzłów, właścicielka rozstrzyga). Dopiero po zatwierdzeniu będę go używać jako wiedzy (do danych treningowych modelu trafi w kolejnym eksporcie).`,
+        `Dziękuję! Zapisuję: „${w}”${regTxt} – ${meaning}.\nTo na razie tylko Twoje wyjaśnienie: trafia do głosowania w zakładce Weryfikuj (ludzie i agenci węzłów, właściciel rozstrzyga). Dopiero po zatwierdzeniu będę go używać jako wiedzy (do danych treningowych modelu trafi w kolejnym eksporcie).`,
         `Thank you! Saving: “${w}”${regTxt} – ${meaning}.\nFor now it's only your explanation: it goes to a vote in the Verify tab (people and node agents; the owner decides). Only after approval will I use it as knowledge (it joins the model's training data in the next export).`,
       ),
       meaning: { word: w, meaning, register, example },
@@ -685,8 +685,8 @@ export function reply(input: string, st: DialogState, c: DialogCtx): Reply {
       act: 'help',
       used: [],
       text: T(
-        `Chętnie pomogę${hi}. W tym trybie potrafię:\n• odpowiadać z faktów potwierdzonych przez ludzi (np. „Czy Ryga jest stolicą Łotwy?”),\n• sprawdzić słowo w słowniku („co to jest wombat?”),\n• przeczytać i streścić wklejony tekst,\n• liczyć („ile to 15% z 240?”),\n• uczyć się: „Zapamiętaj: …” zapisuje fakt do weryfikacji.\nNapisz, z czym konkretnie potrzebujesz pomocy – jeśli tego nie wiem, powiem wprost i poproszę, żebyś mnie nauczył.`,
-        `Happy to help${hi}. In this mode I can:\n• answer from facts people confirmed (e.g. “Is Riga the capital of Latvia?”),\n• look up a word (“what is a wombat?”),\n• read and summarise pasted text,\n• calculate (“what is 15% of 240?”),\n• learn: “Remember: …” saves a fact to verify.\nTell me what exactly you need – if I don't know it, I'll say so and ask you to teach me.`,
+        `Chętnie pomogę${hi}. W tym trybie potrafię:\n• odpowiadać z faktów potwierdzonych przez ludzi (np. „Czy Warszawa jest stolicą Polski?”),\n• sprawdzić słowo w słowniku („co to jest wombat?”),\n• przeczytać i streścić wklejony tekst,\n• liczyć („ile to 15% z 240?”),\n• uczyć się: „Zapamiętaj: …” zapisuje fakt do weryfikacji.\nNapisz, z czym konkretnie potrzebujesz pomocy – jeśli tego nie wiem, powiem wprost i poproszę, żebyś mnie nauczył.`,
+        `Happy to help${hi}. In this mode I can:\n• answer from facts people confirmed (e.g. “Is Warsaw the capital of Poland?”),\n• look up a word (“what is a wombat?”),\n• read and summarise pasted text,\n• calculate (“what is 15% of 240?”),\n• learn: “Remember: …” saves a fact to verify.\nTell me what exactly you need – if I don't know it, I'll say so and ask you to teach me.`,
       ),
     }
   }

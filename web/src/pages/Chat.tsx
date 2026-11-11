@@ -733,11 +733,11 @@ export default function Chat() {
               <LogoMark size={52} className="logo-live drop-shadow-[0_0_24px_rgb(94_234_212/0.3)]" />
               <p className="max-w-md text-sm text-slate-400">
                 {en
-                  ? 'Say hi, ask “Is Riga the capital of Latvia?”, “what is a wombat?”, “what is 15% of 240?”, or paste a paragraph.'
-                  : 'Przywitaj się, zapytaj „Czy Ryga jest stolicą Łotwy?”, „co to jest wombat?”, „ile to 15% z 240?” albo wklej akapit tekstu.'}
+                  ? 'Say hi, ask “Is Warsaw the capital of Poland?”, “what is a wombat?”, “what is 15% of 240?”, or paste a paragraph.'
+                  : 'Przywitaj się, zapytaj „Czy Warszawa jest stolicą Polski?”, „co to jest wombat?”, „ile to 15% z 240?” albo wklej akapit tekstu.'}
               </p>
               <div className="flex flex-wrap justify-center gap-2">
-                {(en ? ['Is Riga the capital of Latvia?', 'what is a wombat?', 'what is 15% of 240?'] : ['Czy Ryga jest stolicą Łotwy?', 'co to jest wombat?', 'ile to 15% z 240?']).map((q) => (
+                {(en ? ['Is Warsaw the capital of Poland?', 'what is a wombat?', 'what is 15% of 240?'] : ['Czy Warszawa jest stolicą Polski?', 'co to jest wombat?', 'ile to 15% z 240?']).map((q) => (
                   <button key={q} type="button" onClick={() => setInput(q)} className="chip border-spore/25 px-3 py-1.5 text-slate-200 hover:border-spore/50 hover:bg-spore/10">
                     {q}
                   </button>

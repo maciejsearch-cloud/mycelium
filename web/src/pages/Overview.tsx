@@ -37,7 +37,7 @@ export default function Overview({ snap, progress, go }: { snap: Snapshot; progr
   const stats = b.store.data.stats
   const stages = progress?.stages ?? []
 
-  // kolejka Weryfikuj liczona tym samym kodem co zakładka (publiczna część, bez rozmów właścicielki)
+  // kolejka Weryfikuj liczona tym samym kodem co zakładka (publiczna część, bez rozmów właściciela)
   const [queue, setQueue] = useState<number | null | undefined>()
   const ready = b.ready && !!b.qa
   const capReady = !!b.cap

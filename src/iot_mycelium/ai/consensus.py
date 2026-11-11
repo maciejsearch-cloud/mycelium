@@ -20,7 +20,7 @@ from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
 
 PRIOR_A, PRIOR_B = 2.0, 1.0  # apriori trafności nowego węzła: średnio 0.67
-OWNER_A, OWNER_B = 8.0, 1.0  # właścicielka (zweryfikowany klucz): start z wagą ~0.89
+OWNER_A, OWNER_B = 8.0, 1.0  # właściciel (zweryfikowany klucz): start z wagą ~0.89
 GOLD_WEIGHT = 2.0
 CLAMP = (0.02, 0.98)
 

@@ -24,7 +24,7 @@ Baza nie zapisuje typu urządzenia (brak user-agenta), więc przypisanie do „P
 | węzeł | co to jest (wg danych) | backend | wyniki | przyjęte / odrzucone aktualizacje | czas | wkład do opublikowanych wersji |
 |---|---|---|---|---|---|---|
 | f5eff02e | przeglądarka, 18.10 (pierwszy dzień) | wasm, webgl | 812 | 648 / 55 | 0,65 h | **największy**: 648 aktualizacji we wszystkich 4 modelach obrazowych/tekstowych |
-| cb33797d | przeglądarka „przegladarka/zadania/wzrost”, 18–24.10 (przeglądarka właścicielki – jej rozmowy z czatem 24.10) | wasm, webgpu | 3 336 | 181 / 2 598 | 1,8 h | 181 aktualizacji, głównie 18.10 |
+| cb33797d | przeglądarka „przegladarka/zadania/wzrost”, 18–24.10 (przeglądarka właściciela – jej rozmowy z czatem 24.10) | wasm, webgpu | 3 336 | 181 / 2 598 | 1,8 h | 181 aktualizacji, głównie 18.10 |
 | 4a575785 | przeglądarka, 18–19.10 | wasm, webgpu | 879 | 45 / 720 | 0,5 h | 45 |
 | **6651f4a4** | przeglądarka działająca 19–22.10, gdy komputer agentów był wyłączony → najpewniej Twój PC albo telefon | wasm, webgpu | 4 945 | **49 / 4 243** | **29,5 h** | 49 aktualizacji, ale wersje po 19.10 dały tylko +0,09 pkt (har) i +0,28 pkt (words) |
 | 1a5438e4 | **box1** (węzeł Python na komputerze agentów) | cpu | 48 | 7 / 39 (LM) | 2 331 TFLOP | 7 z 12 aktualizacji w LM v1 |

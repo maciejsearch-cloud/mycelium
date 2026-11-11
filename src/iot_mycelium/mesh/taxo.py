@@ -6,7 +6,7 @@ Gałąź dzieli się tylko, gdy podział naprawdę poprawia spójność; zbyt ma
 rodzeństwem. Nazwy grup: najczęstszy wspólny hiperonim członków (PL, gdy jest w plWordNecie), inaczej
 słowo najbliższe środkowi grupy.
 
-Poprawki właścicielki (zakładka Weryfikuj, item_type = 'category'):
+Poprawki właściciela (zakładka Weryfikuj, item_type = 'category'):
 * przenieś słowo  – ``truth = "c:<wersja>:<id>"``: słowo trafia do grupy najbardziej pokrywającej się z tamtą,
 * zmień nazwę     – ``truth = "name:<tekst>"`` dla ``ref = "tc:<wersja>:<id>"``: nazwa przechodzi na następcę grupy,
 * połącz          – ``truth = "merge:<wersja>:<id>"``: następcy obu grup są łączeni,
@@ -158,7 +158,7 @@ class Builder:
     def _seed_build(self) -> None:
         """Drzewo kategorii z otwartych źródeł jako szkielet; grupy automatyczne tylko wewnątrz kategorii.
 
-        Słowa spoza zbioru oceny z kategorią seed (zgodne znaczenia) → ta kategoria (albo poprawka właścicielki /
+        Słowa spoza zbioru oceny z kategorią seed (zgodne znaczenia) → ta kategoria (albo poprawka właściciela /
         głosowanie). Pozostałe (w tym CAŁY zbiór oceny – bez podglądania etykiet) schodzą po drzewie do najbliższego
         środka kategorii w przestrzeni cech (osadzenie + hiperonimy). Margines = różnica dwóch najlepszych dopasowań."""
         inp, p = self.inp, self.p
@@ -337,7 +337,7 @@ class Builder:
         if len(groups) <= 1:
             self._leaf(me, idx)
             return
-        # podział tylko, gdy poprawia spójność (średni kosinus do środka grupy), chyba że właścicielka kazała
+        # podział tylko, gdy poprawia spójność (średni kosinus do środka grupy), chyba że właściciel kazał
         before = cohesion(x)
         after = sum(cohesion(x[a == j]) * int((a == j).sum()) for j in groups) / n
         if child > 0 and not forced and after - before < p.get("gain", 0.02):
@@ -542,7 +542,7 @@ def eval_sha(inputs: dict) -> str:
     return hashlib.sha256(",".join(f"{w[i][1]}:{w[i][0]}:{g[i]}" for i in inputs["eval"]).encode()).hexdigest()
 
 
-# ---------------------------------------------------------------- poprawki właścicielki
+# ---------------------------------------------------------------- poprawki właściciela
 def corrections(labels: list[dict], versions: dict[int, dict], inp: Inputs | None = None) -> dict:
     """Etykiety z myc_review_labels (item_type='category') → zbiory członków ze wskazanych wersji.
 
@@ -584,7 +584,7 @@ def corrections(labels: list[dict], versions: dict[int, dict], inp: Inputs | Non
             return {i for i, r in enumerate(inp.rows) if h in r} or None
         return None
 
-    # poprawki słów ważone zaufaniem: etykieta właścicielki (owner) rozstrzyga od razu, pozostałe muszą
+    # poprawki słów ważone zaufaniem: etykieta właściciela (owner) rozstrzyga od razu, pozostałe muszą
     # razem uzbierać wagę >= 1 dla tego samego celu (np. dwie zaufane osoby po 0,5)
     votes: dict[int, dict[str, float]] = defaultdict(lambda: defaultdict(float))
     owner: dict[int, str] = {}

@@ -1,6 +1,6 @@
 # Samouk – grzybnia sama wybiera, czego się uczyć (od 1.11.2026)
 
-Decyzja właścicielki (31.10): mniej Wikipedii, więcej samodzielnego rozumowania i zadawania pytań; model sam ustala,
+Decyzja właściciela (31.10): mniej Wikipedii, więcej samodzielnego rozumowania i zadawania pytań; model sam ustala,
 czego chce się uczyć.
 
 * **Skład rundy LM** (12 zadań): 3 na Wikipedii (z destylacją, `MYC_LM_WIKI_JOBS`), 9 na zadaniach samouka według planu

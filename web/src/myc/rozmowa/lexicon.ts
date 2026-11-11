@@ -87,7 +87,7 @@ export const NAMES = S(`
   gosia gosiu kinga kingo natalia natalio weronika weroniko agata agato monika moniko ula ulu iza izo ewelina ewelino
   tomek tomku kuba kubo bartek bartku adam adamie piotrek piotrku michał michale marek marku paweł pawle krzysiek krzyśku
   wojtek wojtku janek janku jacek jacku łukasz łukaszu kamil kamilu maciek maćku mateusz mateuszu szymon szymonie filip filipie
-  igor igorze dawid dawidzie kacper kacprze damian damianie jarek jarku rafał rafale grzesiek grzesiu kristine kristino`)
+  igor igorze dawid dawidzie kacper kacprze damian damianie jarek jarku rafał rafale grzesiek grzesiu`)
 
 /** Formy zwracania się do grzybni: wołacz i inne przypadki (w tokenach, małymi literami). */
 export const ME_VOC = /^grzybni(o|uszko|eczko)$/

@@ -1,6 +1,6 @@
 # Audyt bezpieczeństwa Mycelium AI (24.10.2026)
 
-Zakres: prywatne repozytorium `iot-agents-mycelium` (cała historia), publiczne repozytorium `demo` Repozytorium przeniesione 25.10.2026 do nowego `mycelium` (świeża historia, bez plików gold).
+Zakres: poprzednie prywatne repozytorium (cała historia), publiczne repozytorium `demo` Repozytorium przeniesione 25.10.2026 do nowego `mycelium` (świeża historia, bez plików gold).
 (cała historia, strona, `mycelium-node.pyz`, pliki wydań węzła na PC), baza Supabase „supab” (RLS, funkcje,
 storage, doradcy), węzeł dla wolontariuszy (pyz/exe/przeglądarka), frontend, zależności.
 Wartości sekretów nigdy nie są tu cytowane.
@@ -9,7 +9,7 @@ Wartości sekretów nigdy nie są tu cytowane.
 
 | # | Obszar | Ustalenie | Waga | Stan |
 |---|--------|-----------|------|------|
-| 1 | Sekrety | Brak wycieku: w historii obu repozytoriów, w pyz i w rozpakowanych plikach wydań tylko klucz publikowalny Supabase (`sb_publishable_…`, publiczny z założenia). Brak klucza `service_role`/`sb_secret_`, tokenów GitHub/Supabase, klucza właścicielki ani kluczy weryfikatorów (sprawdzone dosłownie i wzorcami). W demo tylko adresy `noreply` GitHub. | – | OK, nic do rotacji |
+| 1 | Sekrety | Brak wycieku: w historii obu repozytoriów, w pyz i w rozpakowanych plikach wydań tylko klucz publikowalny Supabase (`sb_publishable_…`, publiczny z założenia). Brak klucza `service_role`/`sb_secret_`, tokenów GitHub/Supabase, klucza właściciela ani kluczy weryfikatorów (sprawdzone dosłownie i wzorcami). W demo tylko adresy `noreply` GitHub. | – | OK, nic do rotacji |
 | 2 | Supabase | Widok `myc_meanings_approved` (prosty, aktualizowalny, z prawami właściciela) pozwalał anonimowi **zmieniać/usuwać zatwierdzone znaczenia** z pominięciem RLS. Pozostałe 3 widoki zbiorcze też działały z prawami właściciela (doradca: 4× ERROR). | **Wysoka** | Naprawione (`myc_security.sql`): zapis odebrany, `security_invoker=on` |
 | 3 | Supabase | Limity „na IP” brały **pierwszy** element `X-Forwarded-For`, który ustawia klient – dowolny nagłówek omijał limit (sprawdzone na żywo). | Średnia | Naprawione: `myc_client_ip()` = `cf-connecting-ip` (Cloudflare), awaryjnie ostatni element XFF |
 | 4 | Węzeł | Składanie ramek z publicznego pokoju Realtime bez limitów (`tot` do 65535, nieograniczona liczba niedokończonych wiadomości) → zajęcie pamięci przez obcego. Także w przeglądarce. | Średnia | Naprawione: ≤ 256 ramek (~12 MB), ≤ 64 niedokończone, wygasanie 60 s |
@@ -19,18 +19,19 @@ Wartości sekretów nigdy nie są tu cytowane.
 | 8 | Frontend | Brak CSP. Brak `innerHTML`/`dangerouslySetInnerHTML`/`eval` w `web/src` – tekst od użytkowników renderuje React jako tekst. Lokalna strona stanu węzła używała `innerHTML` (dane lokalne). | Niska | Dodane CSP (`<meta>`, tylko build): skrypty z własnej domeny + jsDelivr (onnxruntime), bez inline/eval, połączenia tylko do znanych hostów; strona stanu: `textContent` |
 | 9 | Supabase | 2 funkcje bez stałego `search_path`; funkcje wyzwalaczy wykonywalne przez REST; zbędne prawa zapisu na `myc_eval_set_history`. | Niska | Naprawione |
 | 10 | Zależności | `npm audit`: 0; `pip-audit` (requirements + websockets): 0. `torch +cpu` spoza PyPI – nieaudytowalny automatycznie; węzeł nie używa `torch.load`/pickle. | – | OK |
-| 11 | Projekt współdzielony | W tej samej bazie są tabele Ploegpost (dane osobowe). Anon nie widzi żadnych wierszy; nie ma wyzwalacza na `auth.users`, więc anonimowe konto nie dostaje profilu ani agencji → polityki Ploegpost nic mu nie pokazują (rejestracja e-mailem była i tak otwarta). | Info | Sprawdzone |
+| 11 | Projekt współdzielony | W tej samej bazie są tabele innej aplikacji (dane osobowe). Anon nie widzi żadnych wierszy; nie ma wyzwalacza na `auth.users`, więc anonimowe konto nie dostaje profilu ani agencji → polityki tamtej aplikacji nic mu nie pokazują (rejestracja e-mailem była i tak otwarta). | Info | Sprawdzone |
+| 12 | Prywatność | Skróty IP (`proposer_ip` w `myc_candidates`, `ip_hash` w `myc_candidate_evals`) były czytelne dla anon. Sól w `myc_ip()` jest jawna, więc skrót dało się odwrócić przeglądem całej przestrzeni IPv4. | Średnia | Naprawione 01.11.2026: prawa SELECT na poziomie kolumn bez tych pól (`supabase/myc_privacy_ip.sql`) |
 
 ## Szczegóły
 
 ### Sekrety
 - `gitleaks` (pełna historia obu repo + katalog wydań): 14 + 5 trafień, **wszystkie** to klucz publikowalny
-  albo nazwa modelu – fałszywe alarmy. Dodatkowy skan wzorcami: klucz właścicielki (dosłownie), `sb_secret_`,
+  albo nazwa modelu – fałszywe alarmy. Dodatkowy skan wzorcami: klucz właściciela (dosłownie), `sb_secret_`,
   `service_role` JWT, `sbp_`, `ghp_/github_pat_`, `PRIVATE KEY`, ścieżki skrzynki (`/workspace`, `/cursor/stores`).
   W demo jedyne `sb_secret_` to nazwa prefiksu w kodzie biblioteki supabase-js.
 - Pliki wydań (exe/linux/macos) rozpakowane `pyinstxtractor` – brak trafień. Sumy SHA-256 zgodne z `SHA256SUMS.txt`.
 - Prywatne repo zawiera w metadanych commitów adres e-mail autora; publiczne demo – nie.
-- Klucz właścicielki, klucz testowy e2e i klucze weryfikatorów są w bazie tylko jako SHA-256 (`myc_owner`,
+- Klucz właściciela, klucz testowy e2e i klucze weryfikatorów są w bazie tylko jako SHA-256 (`myc_owner`,
   `myc_review_keys`, `myc_ci_keys`); weryfikatory GitHub trzymają je w sekretach repozytorium.
 
 ### Supabase (RLS, funkcje, storage)
@@ -92,7 +93,7 @@ Brak certyfikatu wydawcy Windows (Authenticode) i notaryzacji Apple – to wymag
   działa też dla Realtime (postgres_changes z tokenem sesji).
 - **Limity**: 8 wiadomości/min na konto, 240/min na pokój, 3/min na węzeł, limit na adres klienta (cf-connecting-ip,
   `myc_rl`), ta sama treść 2× w 2 min odrzucona, maks. 1000 znaków (węzeł 500).
-- **Bez cenzury słów** (decyzja właścicielki): wulgaryzmy dostają tylko etykietę rejestru (`tags`, słownik
+- **Bez cenzury słów** (decyzja właściciela): wulgaryzmy dostają tylko etykietę rejestru (`tags`, słownik
   z Wikisłownika); moderuje człowiek.
 - **Role**: `developer` – kluczem właściciela (`myc_gchat_claim_owner`: porównanie SHA-256 z `myc_owner`, klucz nie jest
   zapisywany; limit 5 prób/min na IP; każde urządzenie, które poda klucz, przypina rolę do swojego konta i jest
@@ -121,7 +122,7 @@ Brak certyfikatu wydawcy Windows (Authenticode) i notaryzacji Apple – to wymag
   `myc_circle_log` (+ `myc_mod_log` dla akcji Developera).
 - **Zaufanie** (`myc_trust_calc`) tylko ze zweryfikowanego wkładu: zatwierdzone punkty (bez poleceń), zgodność ze
   złotymi etykietami (od 5 odpowiedzi), dni aktywności w 30, poświadczenia świadka; kara za odrzucone punkty i głosy
-  sprzeczne z decyzją właścicielki; wygaszanie po 7 dniach bez aktywności; konto < 7 dni maks. 0,3. Składniki widzi
+  sprzeczne z decyzją właściciela; wygaszanie po 7 dniach bez aktywności; konto < 7 dni maks. 0,3. Składniki widzi
   właściciel konta, członkowie kręgu widzą tylko wynik.
 - **Poręczenia**: stawka 0,02–0,2 (≤ ⅓ zaufania), wymagane zaufanie ≥ 0,35 i konto ≥ 14 dni, maks. 3 aktywne, jedno
   aktywne na nowicjusza, bez wycofania. `myc_vouch_settle` (co godzinę): zwrot po 14 dniach, gdy nowicjusz ma własne
@@ -153,7 +154,7 @@ Brak certyfikatu wydawcy Windows (Authenticode) i notaryzacji Apple – to wymag
 |---|--------|-----------|------|------|
 | A1 | CI | Node.js 20 w `ci.yml` i `live-watch.yml` – koniec wsparcia (EOL) 30.04.2026. | Średnia | Naprawione: Node.js 24 (aktywne LTS) |
 | A2 | Węzeł (prywatność) | Węzeł Pythona ogłaszał w publicznej obecności Realtime etykietę `nazwa_komputera/nazwa` (`platform.node()`) – wyciek nazwy hosta wolontariusza. | Średnia | Naprawione: tylko nazwa węzła (`--name`) |
-| A3 | Frontend (CSP) | `script-src` dopuszczał `cdn.jsdelivr.net` (onnxruntime-web dla modeli w przeglądarce). Przejęcie CDN = wykonanie skryptu na stronie (klucz właścicielki i portfela w `localStorage`). | Średnia | Naprawione: onnxruntime-web hostowany u nas (`/ort/`, 4 pliki, +41 MB w demo), CSP `script-src 'self' 'wasm-unsafe-eval'`; modele w przeglądarce sprawdzone (wczytanie 22 s, odpowiedź czatu, 0 naruszeń CSP, 0 żądań do CDN) |
+| A3 | Frontend (CSP) | `script-src` dopuszczał `cdn.jsdelivr.net` (onnxruntime-web dla modeli w przeglądarce). Przejęcie CDN = wykonanie skryptu na stronie (klucz właściciela i portfela w `localStorage`). | Średnia | Naprawione: onnxruntime-web hostowany u nas (`/ort/`, 4 pliki, +41 MB w demo), CSP `script-src 'self' 'wasm-unsafe-eval'`; modele w przeglądarce sprawdzone (wczytanie 22 s, odpowiedź czatu, 0 naruszeń CSP, 0 żądań do CDN) |
 | A4 | Pliki węzła PC | Workflow budowania instalował zależności bez przypiętych wersji/skrótów; akcje przypięte tagiem. Wersja DirectML wymaga `torch==2.4.1` (stary; luki dotyczą `torch.load`, którego węzeł nie używa). Python 3.12 – wspierany do 10.2028. | Niska | Naprawione (repo demo, PR #1): `.github/node-build/<plat>.txt` z wersjami i SHA-256 (4 platformy), `pip install --require-hashes`, akcje po SHA; sprawdzone pobraniem z kontrolą skrótów + pełną instalacją Linux |
 | A5 | Supabase | 10 funkcji `security definer` z `p_key` bez `myc_rl`. Klucz sprawdzany przez skrót SHA-256; nieudana próba kończy się wyjątkiem, więc licznik w tej samej transakcji i tak by się wycofał. Minimalna długość klucza recenzenta: 8 znaków. | Niska | Naprawione: nowe klucze recenzentów min. 20 znaków (`myc_review_key_add`, `myc_key_room`); istniejący klucz e2e działa jak dotąd (`created_at` = null) |
 | A6 | Supabase | Nowe tabele `myc_lm_self`, `myc_lm_curriculum`, `myc_moc`, `myc_moc_hour`: RLS, anon tylko `select`; zapis telemetrii wyłącznie przez `myc_moc_push` (limit `myc_rl` na węzeł, ≥ 45 s między raportami, globalnie ≤ 300/min, zakresy wartości, lista dozwolonych rodzajów pracy). Rollup/GC tylko z pg_cron. | – | OK |

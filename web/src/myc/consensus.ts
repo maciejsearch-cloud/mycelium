@@ -1,4 +1,4 @@
-// Dawid-Skene „one-coin” + apriori Beta + pytania kontrolne (gold) + waga właścicielki.
+// Dawid-Skene „one-coin” + apriori Beta + pytania kontrolne (gold) + waga właściciela.
 // Lustrzane odbicie src/iot_mycelium/ai/consensus.py (te same stałe i wyniki).
 export const PRIOR: [number, number] = [2, 1]
 export const OWNER_PRIOR: [number, number] = [8, 1]

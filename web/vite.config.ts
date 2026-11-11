@@ -8,7 +8,7 @@ import { defineConfig, type Plugin } from "vite";
 // połączenia tylko do znanych hostów. W trybie dev pomijane (Vite wstrzykuje skrypty inline).
 const SB = "agortpieeygmcttjwjfx.supabase.co";
 // onnxruntime-web (wasm + mjs dla transformers.js) kopiowany z node_modules do dist/ort/ – żadnego skryptu z CDN
-// (ochrona klucza portfela i klucza właścicielki przed przejęciem CDN, docs/security-audit.md A3).
+// (ochrona klucza portfela i klucza właściciela przed przejęciem CDN, docs/security-audit.md A3).
 // Wariant .asyncify = domyślny transformers.js; zwykły = Safari < 26 bez WebGPU.
 export const ORT_FILES = [
   "ort-wasm-simd-threaded.asyncify.mjs",

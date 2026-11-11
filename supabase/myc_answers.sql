@@ -2,7 +2,7 @@
 -- Wiersz: pytanie (bez pseudonimów, e-maili, linków, telefonów – czyszczone w przeglądarce i ponownie tutaj), odpowiedź,
 -- użyte źródła, pewność, etykiety (temat/kategoria z taksonomii, intencja, czy ma źródło, rejestr).
 -- Głosy: potwierdź / nie zgadzam się / popraw (poprawiona odpowiedź + opcjonalne źródło). Waga głosu = trafność głosującego
--- na złotych etykietach (Dawid–Skene jak w myc_meanings), klucz właścicielki = złota etykieta, ludzie maks. 0,9, agenci 0,7.
+-- na złotych etykietach (Dawid–Skene jak w myc_meanings), klucz właściciela = złota etykieta, ludzie maks. 0,9, agenci 0,7.
 -- Rozstrzygnięcie: zatwierdzona poprawka → strzępek 'odpowiedz' (pamięć wiedzy czatu, z pochodzeniem answer:<id>);
 -- odpowiedź uznana za błędną → zestaw regresji „nigdy więcej” (myc_error_set) – OSOBNY od zestawu 2000 pytań bramki LM.
 -- Zapis wyłącznie przez RPC (limiter); anon nie może zapisać stanu rozstrzygnięcia. Rezygnacja z nauki na koncie
@@ -165,7 +165,7 @@ begin
   elsif nv >= 3 and post >= 0.95 then dec := 'confirmed';
   elsif nv >= 3 and post <= 0.05 then dec := 'wrong';
   end if;
-  -- najlepsza poprawka: właścicielki, inaczej ta z największą sumą wag (log-odds) – zatwierdzona, gdy suma ≥ ln(0,9/0,1)
+  -- najlepsza poprawka: właściciela, inaczej ta z największą sumą wag (log-odds) – zatwierdzona, gdy suma ≥ ln(0,9/0,1)
   if dec = 'wrong' then
     if who = 'owner' and p_vote = 'correct' then best := corr; best_src := srcx; best_w := 99;
     else

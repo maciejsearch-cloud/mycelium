@@ -2,7 +2,7 @@
 
 Cykl co ok. 15 min (CPU dzielony z czatem – ta sama blokada co odpowiedzi):
 1. jest cudzy kandydat → pobierz jego przypisanie, przelicz metryki na stałym zbiorze oceny, zgłoś (myc_tax_verify),
-2. brak kandydata → zbuduj taksonomię z kolejnymi ustawieniami (albo z nowymi poprawkami właścicielki);
+2. brak kandydata → zbuduj taksonomię z kolejnymi ustawieniami (albo z nowymi poprawkami właściciela);
    zgłoś tylko, gdy trafność jest wyższa od opublikowanej (bramka w bazie sprawdza to jeszcze raz),
 3. opublikowana wersja → pojęcia (kategorie) i tematy jako strzępki (myc_frag_add, idempotentnie).
 """

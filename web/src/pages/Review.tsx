@@ -137,7 +137,7 @@ export default function Review() {
       <Card>
         <div className="flex flex-wrap items-center justify-between gap-2" data-testid="review-mode">
           <span className={`chip ${owner ? 'border-spore/40 text-spore' : canWrite ? 'border-violet/40 text-violet' : 'border-amber/30 text-amber'}`}>
-            {owner ? (en ? 'Owner' : 'Właścicielka') : canWrite ? (en ? `Trusted contributor (weight ${pct(who!.weight!)})` : `Zaufany współtwórca (waga ${pct(who!.weight!)})`) : en ? 'Read-only' : 'Tylko podgląd'}
+            {owner ? (en ? 'Owner' : 'Właściciel') : canWrite ? (en ? `Trusted contributor (weight ${pct(who!.weight!)})` : `Zaufany współtwórca (waga ${pct(who!.weight!)})`) : en ? 'Read-only' : 'Tylko podgląd'}
             {room === 'e2e' && ' · e2e'}
           </span>
           {ownerKey.get() ? (
@@ -192,7 +192,7 @@ export default function Review() {
             {st === 'sporne'
               ? en ? 'Disputed: nodes disagree, fragments contradict, a 👎 on a chat, or people’s votes still between 20% and 80%.' : 'Sporne: węzły się nie zgadzają, strzępki są sprzeczne, rozmowa dostała 👎 albo głosy ludzi wciąż między 20% a 80%.'
               : st === 'zatwierdzone'
-                ? en ? 'Decided: confirmed chat answers, where the AI was wrong, and (owner) the decision log.' : 'Zatwierdzone: potwierdzone odpowiedzi czatu, gdzie AI się myliło i (dla właścicielki) dziennik decyzji.'
+                ? en ? 'Decided: confirmed chat answers, where the AI was wrong, and (owner) the decision log.' : 'Zatwierdzone: potwierdzone odpowiedzi czatu, gdzie AI się myliło i (dla właściciela) dziennik decyzji.'
                 : en ? 'Everything waiting for people, most urgent first.' : 'Wszystko, co czeka na ludzi – najpilniejsze najpierw.'}
             {cf !== 'all' && (en ? ' Meanings and patterns have no AI confidence – hidden under this filter.' : ' Znaczenia i wzorce nie mają pewności AI – przy tym filtrze są ukryte.')}
           </p>

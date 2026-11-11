@@ -34,7 +34,7 @@ language sql stable security definer set search_path = public, pg_temp as $$
   group by 1, 2 order by 2, 1
 $$;
 
--- Wagi zaufania: złote etykiety = kontrolne pytania + decyzje właścicielki (tylko odpowiedzi sprzed decyzji albo sprzed
+-- Wagi zaufania: złote etykiety = kontrolne pytania + decyzje właściciela (tylko odpowiedzi sprzed decyzji albo sprzed
 -- wycofania pytania kontrolnego – żeby nie dało się „podejrzeć” etykiety i podbić sobie trafności).
 create or replace function public.myc_gold_stats()
 returns table (node_id uuid, n int, correct int)

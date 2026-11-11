@@ -61,7 +61,7 @@ export interface Shared {
   contrib?: { contributor_id: string; rounds: number; samples: number; ms: number; days: number; last: string }[]
   growth: GrowthRow[]
   stats: StatRow[]
-  /** Decyzje z zakładki Weryfikuj (właścicielka / zaufany współtwórca) – złote etykiety. */
+  /** Decyzje z zakładki Weryfikuj (właściciel / zaufany współtwórca) – złote etykiety. */
   labels?: ReviewLabel[]
 }
 export interface ReviewLabel {

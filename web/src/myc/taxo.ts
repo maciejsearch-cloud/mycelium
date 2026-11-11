@@ -55,7 +55,7 @@ export interface TaxoVersion {
   leaf: number[]
   margin: number[]
   n_corr: number
-  /** własne kategorie słów (poprawki właścicielki): indeks słowa → nazwa */
+  /** własne kategorie słów (poprawki właściciela): indeks słowa → nazwa */
   own?: Record<string, string>
   /** słowa zgłoszone jako „to nie jest słowo” */
   bad?: number[]

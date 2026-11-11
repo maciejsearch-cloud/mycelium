@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test'
 // Odpowiedzi ze źródłem (bez backendu: Wikipedia i Supabase podstawione):
 // pytanie o fakt → zdanie z Wikipedii + link; brak źródła → „nie wiem, naucz mnie”; pamięć wiedzy (zatwierdzona poprawka)
 // odpowiada od razu z pochodzeniem; każda odpowiedź → myc_answer_log bez e-maila; rezygnacja = brak zapisu;
-// Weryfikuj: odpowiedź z etykietami, poprawka właścicielki → myc_answer_vote.
+// Weryfikuj: odpowiedź z etykietami, poprawka właściciela → myc_answer_vote.
 test('czat: źródła, „nie wiem”, pamięć wiedzy, zapis do Weryfikuj i poprawka', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop', 'raz wystarczy')
   const calls: { fn: string; body: Record<string, unknown> }[] = []
@@ -60,7 +60,7 @@ test('czat: źródła, „nie wiem”, pamięć wiedzy, zapis do Weryfikuj i pop
   const r3 = await say('Jaki kolor ma grzybnia testowa?')
   await expect(r3).toContainText('Z pamięci wiedzy grzybni')
   await expect(r3).toContainText('fioletowy')
-  await expect(r3).toContainText('właścicielka')
+  await expect(r3).toContainText('właściciel')
   await expect.poll(() => calls.filter((c) => c.fn === 'myc_answer_log').length).toBe(3)
   const logs = calls.filter((c) => c.fn === 'myc_answer_log')
   expect(logs[0].body).toMatchObject({ p_intent: 'pytanie', p_act: 'wikipedia', p_mode: 'lite', p_room: 'main' })
@@ -72,7 +72,7 @@ test('czat: źródła, „nie wiem”, pamięć wiedzy, zapis do Weryfikuj i pop
   await say('Kto jest prezydentem Wenus?')
   await page.waitForTimeout(300)
   expect(calls.filter((c) => c.fn === 'myc_answer_log').length).toBe(3)
-  // 5. Weryfikuj: odpowiedź z etykietami, poprawka właścicielki (złota etykieta)
+  // 5. Weryfikuj: odpowiedź z etykietami, poprawka właściciela (złota etykieta)
   await page.goto('./#/weryfikuj')
   await page.getByTestId('owner-key').fill('klucz-testowy')
   await page.getByTestId('owner-key-save').click()

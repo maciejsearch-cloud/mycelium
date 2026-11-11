@@ -1,5 +1,5 @@
 """Samouk proponuje pytania o relacje (src/iot_mycelium/mesh/relacje.py) – zapis do myc_rel_questions przez
-Management API (SUPABASE_ACCESS_TOKEN właścicielki; nic nie jest wypisywane). Tylko pytania, nigdy odpowiedzi.
+Management API (SUPABASE_ACCESS_TOKEN właściciela; nic nie jest wypisywane). Tylko pytania, nigdy odpowiedzi.
 
   PYTHONPATH=src python3 scripts/relacje_samouk.py [--n 6] [--dry]
 """

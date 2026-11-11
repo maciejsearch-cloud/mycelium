@@ -17,7 +17,7 @@ Definicje z Wikisłownika są przytaczane z linkiem do hasła (wymóg uznania au
 
 ## Zaufanie i uczciwa ocena
 
-* Kategorie seed i fakty startowe mają **zaufanie średnie ze źródła** (seed 0,6; Wikidata 0,9; Wikisłownik 0,8), **nie** są złotą etykietą właścicielki. W Weryfikuj można je zatwierdzić, odrzucić albo poprawić.
+* Kategorie seed i fakty startowe mają **zaufanie średnie ze źródła** (seed 0,6; Wikidata 0,9; Wikisłownik 0,8), **nie** są złotą etykietą właściciela. W Weryfikuj można je zatwierdzić, odrzucić albo poprawić.
 * Słowo dostaje kategorię seed tylko, gdy **wszystkie jego główne znaczenia** (≤ 2) wskazują tę samą kategorię; inaczej zostaje bez kategorii.
 * Budowniczy taksonomii **nie używa mapy seed dla 2174 słów zbioru oceny** (test w `tests/test_taxo.py`) – trafność jest liczona na słowach, których kategorii seed model nie widział. Wersje z drzewem seed mają w ustawieniach `seed: 1` (to już nie jest grupowanie całkiem bez nadzoru).
 * Fakty pokrywające się z zestawem bramki LM (`web/public/data/lm/eval.bin`, wszystkie wiersze; skrót sha256 po normalizacji albo wspólny 8-gram) albo odpowiadające na pytanie z `benchmarks/chat_facts/chat_facts_v1.json` są wykluczone.
